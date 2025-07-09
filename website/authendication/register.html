@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Shopizen</title>
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <header class="site-header">
+        <h1>Shopizen</h1>
+    </header>
+
+    <div class="wrapper">
+        <form class="form" active="">
+            <h2>Create Account</h2>
+            <div class="input-box">
+                <!--<label>Full Name</label>-->
+                <input type="text" name="name"  placeholder="Full Name" required>
+                <i class='bx bxs-envelope'></i>
+            </div>
+
+            <div class="input-box">
+                <!--<label>Password</label>-->
+                <input type="password" name="pwd" placeholder="Password" minlength="8" required>
+                <i class='bx bxs-lock'></i>
+            </div>
+
+            <div class="input-box">
+                <!--<label>Confirm Password</label>-->
+                <input type="password" name="cpwd" placeholder="Confirm Password" minlength="8" required>
+                <i class='bx bxs-lock-alt'></i>
+            </div>
+
+            <div class="privacy">
+                <input type="checkbox" required /> I agree to the <a href="">Terms & Conditions</a><br><br>
+                <button class="btn" type="submit">Register</button>
+            </div>
+        
+            <div class="login-link">
+                <p class="account">Have account! <a href="login.html">Login</a></p>
+            </div>    
+
+        </form>
+    </div>
+
+    <foote class="footer-bottom">
+        <p>&copy; 2025 Shopizen</p>
+    </footer>
+    
+</body>
+</html>
