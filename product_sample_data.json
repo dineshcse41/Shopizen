@@ -1,0 +1,102 @@
+[
+  {
+    "id": 1,
+    "name": "Cotton T-Shirt",
+    "description": "Soft cotton t-shirt for men",
+    "price": 599.00,
+    "stock": 25,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSAutTZ4envVjdi-auSZwowBqE4RxRzeNAcQ&s",
+    "category": "Fashion",
+    "brand": "Zara"
+  },
+  {
+    "id": 2,
+    "name": "Bluetooth Headphones",
+    "description": "Wireless over-ear headphones with noise cancellation",
+    "price": 1999.00,
+    "stock": 10,
+    "image": "https://assetscdn1.paytm.com/images/catalog/product/E/ED/EDCWH-CH720N-LCPAYT115243541185413/0.jpg",
+    "category": "Electronics",
+    "brand": "boAt"
+  },
+  {
+    "id": 3,
+    "name": "Smart Watch",
+    "description": "Fitness tracking smart watch",
+    "price": 2499.00,
+    "stock": 8,
+    "image": "https://m.media-amazon.com/images/I/41xW8-3t2RL._UF1000,1000_QL80_.jpg",
+    "category": "Electronics",
+    "brand": "Noise"
+  },
+  {
+    "id": 4,
+    "name": "Formal Shoes",
+    "description": "Leather shoes for men",
+    "price": 1299.00,
+    "stock": 15,
+    "image": "https://m.media-amazon.com/images/I/61iz3JBHcTL._SX625_.jpg",
+    "category": "Fashion",
+    "brand": "Bata"
+  },
+  {
+    "id": 5,
+    "name": "School Backpack",
+    "description": "Waterproof school bag with laptop sleeve",
+    "price": 799.00,
+    "stock": 20,
+    "image": "https://m.media-amazon.com/images/I/81rDE6gGxnL._AC_SR180,120_CB1169409_QL70_.jpg",
+    "category": "Bags",
+    "brand": "Wildcraft"
+  },
+  {
+    "id": 6,
+    "name": "LED TV 32 inch",
+    "description": "HD Ready Smart TV with built-in apps",
+    "price": 11499.00,
+    "stock": 5,
+    "image": "https://m.media-amazon.com/images/I/41Tmd8b8MeL._AC_SR250,250_QL65_.jpg",
+    "category": "Electronics",
+    "brand": "Samsung"
+  },
+  {
+    "id": 7,
+    "name": "Casual Sneakers",
+    "description": "White low-top sneakers for daily wear",
+    "price": 999.00,
+    "stock": 18,
+    "image": "https://m.media-amazon.com/images/I/41i+Ulf6X6L._SY395_SX395_.jpg",
+    "category": "Fashion",
+    "brand": "Puma"
+  },
+  {
+    "id": 8,
+    "name": "Kitchen Mixer Grinder",
+    "description": "3-jar multipurpose grinder",
+    "price": 2199.00,
+    "stock": 12,
+    "image": "https://m.media-amazon.com/images/I/71QmDrbcfXL._AC_SR146,118_CB1169409_QL70_.jpg",
+    "category": "Home Appliances",
+    "brand": "Prestige"
+  },
+  {
+    "id": 9,
+    "name": "Kids Toy Car",
+    "description": "Remote control rechargeable car",
+    "price": 599.00,
+    "stock": 30,
+    "image": "https://m.media-amazon.com/images/I/41Fw4nF8D3L._AC_SR250,250_QL65_.jpg",
+    "category": "Toys",
+    "brand": "ToyZone"
+  },
+  {
+    "id": 10,
+    "name": "Cotton Bedsheet",
+    "description": "King size bedsheet with 2 pillow covers",
+    "price": 1299.00,
+    "stock": 9,
+    "image": "https://m.media-amazon.com/images/I/610xvmQDW+L._AC_UL320_.jpg",
+    "category": "Home Decor",
+    "brand": "Bombay Dyeing"
+  }
+]
