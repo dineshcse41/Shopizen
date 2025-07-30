@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA_Compatible" content="IE-edge">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <title>Shopizen.com</title>
+</head>
+<body>
+
+    <div class="sidebar">
+        <div class="hdn-head">
+            <h2>Hello, Sign In</h2>
+        </div>
+        <div class="hdn-content">p
+            <h3>Electronics</h3>
+            <ul>
+                <div>
+                    <li>Laptop</li><i class='bx bx-caret-right'></i>
+                    <li>Mobile</li><i class='bx bx-caret-right'></i>
+                    <li>Washing Machine</li><i class='bx bx-caret-right'></i>
+                </div>
+            </ul>
+        </div>
+    </div>
+
+
+    <header>
+        <div class="first">
+            <div class="flex logo">
+                <a href="#"><img src="data:image/jpeg;base64,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" alt="Logo"></a>                
+            </div>
+
+            <div class="flex input">
+                <div>
+                    <span>All</span>
+                    <i class='bx bx-caret-down'></i>
+                </div>
+                <input type="text" placeholder="Search">
+                <i class='bx bx-search'></i>
+            </div>
+
+            <div class="flex right">
+                <div class="sign">
+                    <a href="../authendication page/login.html"><span>Sign in</span></a>
+                    <div class="flex ac">
+                        <span>Account</span>
+                        <i class='bx bx-caret-down'></i>
+                    </div>
+                </div>
+
+                <div class="sign">
+                    <span>Orders</span>
+                </div>
+                
+                <div class="flex cart">
+                    <i class='bx bx-cart'></i>
+                    <span class="ca">Cart</span>
+                    <!--<p>0</p>-->
+                </div>              
+            </div>
+        </div>
+
+        <div class="second">
+            <div class="second-1">
+                <div>
+                    <i class='bx bx-menu'></i>
+                    <span>All</span>
+                </div>
+            </div>
+
+            <div class="second-2">
+                <ul>
+                    <li>Home</li>
+                    <a href="../product page/product.html"><li>Shop</li></a>
+                    <li>Today's Deal</li>
+                    <li>About</li>
+                    <li>Contact</li>
+                </ul>
+            </div>
+
+            <div class="second-3">
+                <span>Mid Season Sale</span>
+            </div>
+        </div>
+    </header>
+
+    <section class="sec-1">
+        <div class="container">
+            <div class="container-1">
+                <div class="para">
+                    <p>Welcome to Shopizen – Your one-stop destination for smart shopping, trending styles, and unbeatable deals! <a href="">Click here..</a></p>
+                </div>
+            
+                <div class="product-comp">
+                    <div class="box">
+                        <h3>Gaming Accessories</h3>
+                        <div class="box-a">
+                            <div>
+                                <img src="https://i.pinimg.com/736x/92/b6/8a/92b68aee97e0d4dfe4a8e9ef06051218.jpg" alt="">
+                                <span>Headsets</span>
+                            </div>
+                            <div>
+                                <img src="https://i.pinimg.com/1200x/1c/16/91/1c1691782a3533513b61d3ea67509fe5.jpg" alt="">
+                                <span>Keyboard</span>
+                            </div>
+                            <div>
+                                <img src="https://i.pinimg.com/736x/63/23/09/6323090c39fe7a3c1d9da3bc27f28e8d.jpg" alt="">
+                                <span>Computer Mice</span>
+                            </div>
+                            <div>
+                                <img src="https://i.pinimg.com/736x/6b/91/b6/6b91b697cb799a0b5a919b5be6b81cb4.jpg" alt="">
+                                <span>Chair</span>
+                            </div>
+                        </div>
+                        <a href="#">See more</a>
+                    </div>
+
+                    <div class="box">
+                        <h3>Shop By Category</h3>
+                        <div class="box-a">
+                            <div>
+                                <img src="https://i.pinimg.com/736x/eb/b3/5d/ebb35d9572ffff815578498fcf59cbbb.jpg" alt="">
+                                <span>Laptop</span>
+                            </div>
+                            <div>
+                                <img src="https://i.pinimg.com/736x/a8/0e/84/a80e84a8f29254832658cdf4e0a3a5c2.jpg" alt="">
+                                <span>Video Games</span>
+                            </div>
+                            <div>
+                                <img src="https://i.pinimg.com/736x/1b/82/ad/1b82add4c2016c9e9ea2159cbb0091a3.jpg" alt="">
+                                <span>Baby</span>
+                            </div>
+                            <div>
+                                <img src="https://i.pinimg.com/736x/35/2c/23/352c23cd54d259b79fb8448ecab0db36.jpg" alt="">
+                                <span>Toy & Games</span>
+                            </div>
+                        </div>
+                        <a href="#">Shop Now</a>
+                    </div>
+
+                    <div class="box box-c">
+                        <h3>Shop</h3>
+                        <div>
+                            <img src="https://i.pinimg.com/736x/16/d9/ce/16d9ce41ff82e87946b3e8d5cac0762b.jpg" alt="">
+                        </div>
+                        <a href="#">See more</a>
+                    </div>
+
+                    <div class="box-b">
+                        <div class="best">
+                            <h3>Sign in for the best exprience</h3>
+                            <button>Sign in Securely</button>     
+                        </div>
+                        <div>
+                            <img src="https://i.pinimg.com/736x/7e/a5/89/7ea58933a13d52638f41c58acb4f2648.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-comp">
+                    <div class="box box-c">
+                        <h3>Electronics</h3>
+                        <div>
+                            <img src="https://i.pinimg.com/736x/eb/d8/4a/ebd84aee9bd1feddce359d9803236f4b.jpg" alt="">
+                        </div>
+                        <a href="#">See more</a>
+                    </div>
+
+                    <div class="box box-c">
+                        <h3>Fashion & Apparel</h3>
+                        <div>
+                            <img src="https://i.pinimg.com/736x/50/f7/46/50f7466f53883abca0552149f50b08b2.jpg" alt="">
+                        </div>
+                        <a href="#">See more</a>
+                    </div>
+
+                    <div class="box box-c">
+                        <h3>Groceries & Essentials</h3>
+                        <div>
+                            <img src="https://i.pinimg.com/736x/85/85/47/858547ebe5166351c744c563432c0238.jpg" alt="">
+                        </div>
+                        <a href="#">See more</a>
+                    </div>
+
+                    <div class="box box-c">
+                        <h3>Home & Kitchen</h3>
+                        <div>
+                            <img src="https://i.pinimg.com/736x/c5/30/59/c53059b3d4eaeab7af9e9204eb436fbe.jpg" alt="">
+                        </div>
+                        <a href="#">See more</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="slider">
+                <div class="image-box">
+                    <div class="slide">
+                        <img src="../assets/slider-1.jpg" alt="Slider-1">
+                    </div>
+                    <div class="slide">
+                        <img src="../assets/slider-2.jpg" alt="Slider-1">
+                    </div>
+                    <div class="slide">
+                        <img src="../assets/slider-3.jpg" alt="Slider-1">
+                    </div>
+                    <div class="slide">
+                        <img src="../assets/slider-4.jpg" alt="Slider-1">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="sec-2">
+        <div class="slide-sec">
+            <div class="l-btn"><i class='bx bx-chevron-left'></i></div>
+            <div class="r-btn"><i class='bx bx-chevron-right'></i></div>
+            <h3>Popular products</h3>
+            <ul class="product-slide">
+                <li><img src="https://i.pinimg.com/736x/5a/c0/d5/5ac0d522480fabc0b612e2e303c17b53.jpg" alt=""></li>
+                <li><img src="https://i.pinimg.com/736x/ea/99/81/ea99810744a9257d8cf09d4214ac5c27.jpg" alt=""></li>
+                <li><img src="https://i.pinimg.com/736x/07/b2/f1/07b2f18b6e6e93fe26486d275d547b08.jpg" alt=""></li>
+                <li><img src="https://i.pinimg.com/1200x/e0/cd/97/e0cd9757fd90657a34b1be34fe9e39ed.jpg" alt=""></li>
+                <li><img src="https://i.pinimg.com/736x/d1/a7/ca/d1a7ca7ca9e81dda17b7a380659f1cc8.jpg" alt=""></li>
+                <li><img src="https://i.pinimg.com/736x/f3/c2/1b/f3c21b4231cb21609af3a067e2c27431.jpg" alt=""></li>
+                <li><img src="https://i.pinimg.com/736x/5a/c0/d5/5ac0d522480fabc0b612e2e303c17b53.jpg" alt=""></li>
+                <li><img src="https://i.pinimg.com/736x/ea/99/81/ea99810744a9257d8cf09d4214ac5c27.jpg" alt=""></li>
+                <li><img src="https://i.pinimg.com/736x/07/b2/f1/07b2f18b6e6e93fe26486d275d547b08.jpg" alt=""></li>
+                <li><img src="https://i.pinimg.com/1200x/e0/cd/97/e0cd9757fd90657a34b1be34fe9e39ed.jpg" alt=""></li>
+                <li><img src="https://i.pinimg.com/736x/d1/a7/ca/d1a7ca7ca9e81dda17b7a380659f1cc8.jpg" alt=""></li>
+                <li><img src="https://i.pinimg.com/736x/f3/c2/1b/f3c21b4231cb21609af3a067e2c27431.jpg" alt=""></li>
+
+            </ul>
+
+        </div>
+    </section>
+
+    <div class="product-comp">
+        <div class="box">
+            <h3>Laptops</h3>
+            <div>
+                <img style="width: 270px; height: 260px;" src="https://i.pinimg.com/736x/eb/b3/5d/ebb35d9572ffff815578498fcf59cbbb.jpg" alt="">
+            </div>
+            <a href="#">See more</a>
+        </div>
+    
+        <div class="box box-d">
+            <h3>Shop By Category</h3>
+            <div class="box-a">
+                <div>
+                    <img src="https://i.pinimg.com/736x/eb/b3/5d/ebb35d9572ffff815578498fcf59cbbb.jpg" alt="">
+                    <span>Laptop</span>
+                </div>
+                <div>
+                    <img src="https://i.pinimg.com/736x/a8/0e/84/a80e84a8f29254832658cdf4e0a3a5c2.jpg" alt="">
+                    <span>Video Games</span>
+                </div>
+                <div>
+                    <img src="https://i.pinimg.com/736x/1b/82/ad/1b82add4c2016c9e9ea2159cbb0091a3.jpg" alt="">
+                    <span>Baby</span>
+                </div>
+                <div>
+                    <img src="https://i.pinimg.com/736x/35/2c/23/352c23cd54d259b79fb8448ecab0db36.jpg" alt="">
+                    <span>Toy & Games</span>
+                </div>
+            </div>
+            <a href="#">Shop Now</a>
+        </div>
+    
+        <div class="box box-c">
+            <h3>Shop</h3>
+            <div>
+                <img src="https://i.pinimg.com/736x/16/d9/ce/16d9ce41ff82e87946b3e8d5cac0762b.jpg" alt="">
+            </div>
+            <a href="#">See more</a>
+        </div>
+    
+        <div class="box box-c">
+            <h3>Shop</h3>
+            <div>
+                <img src="https://i.pinimg.com/736x/16/d9/ce/16d9ce41ff82e87946b3e8d5cac0762b.jpg" alt="">
+            </div>
+            <a href="#">See more</a>
+        </div>
+    </div>
+
+    <div class="product-comp">
+        <div class="box">
+            <h3>Gaming Accessories</h3>
+            <div class="box-a">
+                <div>
+                    <img src="https://i.pinimg.com/736x/92/b6/8a/92b68aee97e0d4dfe4a8e9ef06051218.jpg" alt="">
+                    <span>Headsets</span>
+                </div>
+                <div>
+                    <img src="https://i.pinimg.com/1200x/1c/16/91/1c1691782a3533513b61d3ea67509fe5.jpg" alt="">
+                    <span>Keyboard</span>
+                </div>
+                <div>
+                    <img src="https://i.pinimg.com/736x/63/23/09/6323090c39fe7a3c1d9da3bc27f28e8d.jpg" alt="">
+                    <span>Computer Mice</span>
+                </div>
+                <div>
+                    <img src="https://i.pinimg.com/736x/6b/91/b6/6b91b697cb799a0b5a919b5be6b81cb4.jpg" alt="">
+                    <span>Chair</span>
+                </div>
+            </div>
+            <a href="#">See more</a>
+        </div>
+
+        <div class="box">
+            <h3>Gaming Accessories</h3>
+            <div class="box-a">
+                <div>
+                    <img src="https://i.pinimg.com/736x/92/b6/8a/92b68aee97e0d4dfe4a8e9ef06051218.jpg" alt="">
+                    <span>Headsets</span>
+                </div>
+                <div>
+                    <img src="https://i.pinimg.com/1200x/1c/16/91/1c1691782a3533513b61d3ea67509fe5.jpg" alt="">
+                    <span>Keyboard</span>
+                </div>
+                <div>
+                    <img src="https://i.pinimg.com/736x/63/23/09/6323090c39fe7a3c1d9da3bc27f28e8d.jpg" alt="">
+                    <span>Computer Mice</span>
+                </div>
+                <div>
+                    <img src="https://i.pinimg.com/736x/6b/91/b6/6b91b697cb799a0b5a919b5be6b81cb4.jpg" alt="">
+                    <span>Chair</span>
+                </div>
+            </div>
+            <a href="#">See more</a>
+        </div>
+
+        <div class="box">
+            <h3>Gaming Accessories</h3>
+            <div class="box-a">
+                <div>
+                    <img src="https://i.pinimg.com/736x/92/b6/8a/92b68aee97e0d4dfe4a8e9ef06051218.jpg" alt="">
+                    <span>Headsets</span>
+                </div>
+                <div>
+                    <img src="https://i.pinimg.com/1200x/1c/16/91/1c1691782a3533513b61d3ea67509fe5.jpg" alt="">
+                    <span>Keyboard</span>
+                </div>
+                <div>
+                    <img src="https://i.pinimg.com/736x/63/23/09/6323090c39fe7a3c1d9da3bc27f28e8d.jpg" alt="">
+                    <span>Computer Mice</span>
+                </div>
+                <div>
+                    <img src="https://i.pinimg.com/736x/6b/91/b6/6b91b697cb799a0b5a919b5be6b81cb4.jpg" alt="">
+                    <span>Chair</span>
+                </div>
+            </div>
+            <a href="#">See more</a>
+        </div>
+
+        <div class="box">
+            <h3>Gaming Accessories</h3>
+            <div class="box-a">
+                <div>
+                    <img src="https://i.pinimg.com/736x/92/b6/8a/92b68aee97e0d4dfe4a8e9ef06051218.jpg" alt="">
+                    <span>Headsets</span>
+                </div>
+                <div>
+                    <img src="https://i.pinimg.com/1200x/1c/16/91/1c1691782a3533513b61d3ea67509fe5.jpg" alt="">
+                    <span>Keyboard</span>
+                </div>
+                <div>
+                    <img src="https://i.pinimg.com/736x/63/23/09/6323090c39fe7a3c1d9da3bc27f28e8d.jpg" alt="">
+                    <span>Computer Mice</span>
+                </div>
+                <div>
+                    <img src="https://i.pinimg.com/736x/6b/91/b6/6b91b697cb799a0b5a919b5be6b81cb4.jpg" alt="">
+                    <span>Chair</span>
+                </div>
+            </div>
+            <a href="#">See more</a>
+        </div>
+    </div>
+
+    <section class="sec-2">
+        <div class="slide-sec">
+            <div class="l-btn"><i class='bx bx-chevron-left'></i></div>
+            <div class="r-btn"><i class='bx bx-chevron-right'></i></div>
+            <h3>Popular products</h3>
+            <ul class="product-slide">
+                <li><img src="https://i.pinimg.com/736x/5a/c0/d5/5ac0d522480fabc0b612e2e303c17b53.jpg" alt=""></li>
+                <li><img src="https://i.pinimg.com/736x/ea/99/81/ea99810744a9257d8cf09d4214ac5c27.jpg" alt=""></li>
+                <li><img src="https://i.pinimg.com/736x/07/b2/f1/07b2f18b6e6e93fe26486d275d547b08.jpg" alt=""></li>
+                <li><img src="https://i.pinimg.com/1200x/e0/cd/97/e0cd9757fd90657a34b1be34fe9e39ed.jpg" alt=""></li>
+                <li><img src="https://i.pinimg.com/736x/d1/a7/ca/d1a7ca7ca9e81dda17b7a380659f1cc8.jpg" alt=""></li>
+                <li><img src="https://i.pinimg.com/736x/f3/c2/1b/f3c21b4231cb21609af3a067e2c27431.jpg" alt=""></li>
+                <li><img src="https://i.pinimg.com/736x/5a/c0/d5/5ac0d522480fabc0b612e2e303c17b53.jpg" alt=""></li>
+                <li><img src="https://i.pinimg.com/736x/ea/99/81/ea99810744a9257d8cf09d4214ac5c27.jpg" alt=""></li>
+                <li><img src="https://i.pinimg.com/736x/07/b2/f1/07b2f18b6e6e93fe26486d275d547b08.jpg" alt=""></li>
+                <li><img src="https://i.pinimg.com/1200x/e0/cd/97/e0cd9757fd90657a34b1be34fe9e39ed.jpg" alt=""></li>
+                <li><img src="https://i.pinimg.com/736x/d1/a7/ca/d1a7ca7ca9e81dda17b7a380659f1cc8.jpg" alt=""></li>
+                <li><img src="https://i.pinimg.com/736x/f3/c2/1b/f3c21b4231cb21609af3a067e2c27431.jpg" alt=""></li>
+            </ul>
+        </div>
+    </section>
+
+    <div class="product-comp">
+        <div class="box box-c">
+            <h3>Shop</h3>
+            <div>
+                <img src="https://i.pinimg.com/736x/16/d9/ce/16d9ce41ff82e87946b3e8d5cac0762b.jpg" alt="">
+            </div>
+            <a href="#">See more</a>
+        </div>
+
+        <div class="box box-c">
+            <h3>Shop</h3>
+            <div>
+                <img src="https://i.pinimg.com/736x/16/d9/ce/16d9ce41ff82e87946b3e8d5cac0762b.jpg" alt="">
+            </div>
+            <a href="#">See more</a>
+        </div>
+
+        <div class="box box-c">
+            <h3>Shop</h3>
+            <div>
+                <img src="https://i.pinimg.com/736x/16/d9/ce/16d9ce41ff82e87946b3e8d5cac0762b.jpg" alt="">
+            </div>
+            <a href="#">See more</a>
+        </div>
+
+        <div class="box box-c">
+            <h3>Shop</h3>
+            <div>
+                <img src="https://i.pinimg.com/736x/16/d9/ce/16d9ce41ff82e87946b3e8d5cac0762b.jpg" alt="">
+            </div>
+            <a href="#">See more</a>
+        </div>
+    </div>
+
+    <section class="footer">
+        <div class="backtop">
+            <span>Back to Top</span>
+        </div>
+
+        <div class="detail">
+            <div class="table">
+                <div>
+                    <div class="t-head">Get to Know us</div>
+                    <ul>
+                        <li>Carees</li>
+                        <li>About Shopizen</li>
+                        <li>Contact us</li>
+                
+                    </ul>
+                </div>
+            
+                <div>
+                    <div class="t-head">HELP</div>
+                    <ul>
+                        <li>Payments</li>
+                        <li>Shipping</li>
+                        <li>Returns</li>
+                        <li>FAQ</li>
+            
+                    </ul>
+                </div>
+            
+                <div>
+                    <div class="t-head">POLICY</div>
+                    <ul>
+                        <li>Terms & Conditions</li>
+                        <li>Privacy Policy</li>
+            
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="line">
+            <div class="copy">
+                <span>&copy; 2025 Shopizen. All rights reserved.</span>
+            </div>
+        </div>
+    </section>    
+    
+    <script src="/website/home page/app.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+    crossorigin="anonymous"></script>
+</body>
+</html>

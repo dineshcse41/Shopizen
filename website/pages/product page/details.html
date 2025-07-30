@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Details - Zara Cotton T-Shirt</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(to bottom right, #e6edf4, #d3dee8);
+        }
+
+        .section1 {
+            height: 50px;
+        }
+
+        .discount-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: #ff4d4d;
+            color: white;
+            padding: 5px 10px;
+            font-size: 0.9rem;
+            border-radius: 5px;
+        }
+
+        .rating-badge {
+            background-color: #ffc107;
+            color: black;
+            padding: 2px 8px;
+            border-radius: 5px;
+            font-size: 0.9rem;
+        }
+
+        .review {
+            border-bottom: 1px solid #ddd;
+            padding: 15px 0;
+        }
+
+        .review .stars {
+            color: #ffc107;
+        }
+
+        .review .date {
+            font-size: 0.85rem;
+            color: #888;
+        }
+
+        .helpful-btns button {
+            border: none;
+            background: none;
+            color: #007185;
+            cursor: pointer;
+            padding: 0 5px;
+        }
+
+        .similar-products {
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+
+        .similar-products .card {
+            display: inline-block;
+            width: 200px;
+            margin-right: 15px;
+            vertical-align: top;
+        }
+
+        .similar-products::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .similar-products::-webkit-scrollbar-thumb {
+            background: #ccc;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="section1 bg-primary justify-content-between d-flex ">
+        <h5 class="mx-2 mt-1">Shopizen</h5>
+        <div class="">
+            <span class="btn btn-outline-dark mx-2 mt-1">Wishlist</span>
+        </div>
+    </div>
+
+    <div class="container py-4">
+        <!-- Product Info -->
+        <div class="row">
+            <div class="col-md-5 position-relative">
+
+
+                <div class="d-flex">
+                    <!-- Left-side Thumbnails -->
+                    <div class="d-flex flex-column me-3">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSAutTZ4envVjdi-auSZwowBqE4RxRzeNAcQ&s"
+                            class="img-thumbnail mb-2" style="width: 80px; height: 80px; object-fit: cover;"
+                            alt="Thumb1">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSAutTZ4envVjdi-auSZwowBqE4RxRzeNAcQ&s"
+                            class="img-thumbnail mb-2" style="width: 80px; height: 80px; object-fit: cover;"
+                            alt="Thumb2">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSAutTZ4envVjdi-auSZwowBqE4RxRzeNAcQ&s"
+                            class="img-thumbnail" style="width: 80px; height: 80px; object-fit: cover;" alt="Thumb3">
+                    </div>
+
+
+                    <!-- Main Product Image -->
+                    <div class="position-relative">
+                        <div class="discount-badge position-absolute top-0 start-0 bg-danger text-white px-2 py-1 fw-bold"
+                            style="z-index: 10; font-size: 0.9rem; border-radius: 0 0.5rem 0.5rem 0;">
+                            34% OFF
+                        </div>
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSAutTZ4envVjdi-auSZwowBqE4RxRzeNAcQ&s"
+                            alt="T-Shirt" class="img-fluid border mb-3" style="max-width: 100%;">
+                    </div>
+                </div>
+
+                <!-- Bottom Thumbnail Images -->
+                <!-- Bottom Thumbnail Images -->
+                <div class="d-flex gap-2 flex-wrap mt-2 justify-content-center">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSAutTZ4envVjdi-auSZwowBqE4RxRzeNAcQ&s"
+                        class="img-thumbnail" style="width: 80px; height: 80px; object-fit: cover;" alt="Thumb4">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSAutTZ4envVjdi-auSZwowBqE4RxRzeNAcQ&s"
+                        class="img-thumbnail" style="width: 80px; height: 80px; object-fit: cover;" alt="Thumb5">
+                </div>
+
+            </div>
+
+
+            <div class="col-md-7 product">
+                <div class="d-flex align-items-center">
+                    <span class="text-muted">Brand: <strong>Zara</strong></span>
+                    <a href="cart.html" class="ms-auto text-decoration-none text-dark">
+                        <i class="bi bi-cart4 fs-4"></i>
+                    </a>
+                </div>
+                <h2 class="mt-2">Cotton T-Shirt</h2>
+                <div class="d-flex align-items-center mb-2">
+                    <div class="rating-badge me-2">2.3 <i class="bi bi-star-fill"></i></div>
+                    <small class="text-muted">(112 ratings)</small>
+                </div>
+                <div class="d-flex align-items-center mb-3">
+                    <h4 class="fw-bold text-success me-3">₹599.00</h4>
+                    <span class="text-decoration-line-through text-muted">₹899.00</span>
+                </div>
+                <p><strong>Available Offers:</strong> Bank offer 10% off on ICICI Cards, 5% back on Amazon Pay UPI</p>
+                <p><strong>Description:</strong> This breathable cotton t-shirt is perfect for everyday casual wear.
+                    Features a relaxed fit, crew neck, and soft fabric for all-day comfort.</p>
+                <div class="mb-3 d-flex">
+                    <button class="btn btn-primary w-50 me-2">Add to Cart</button>
+                    <button class="btn btn-dark w-50">Buy Now</button>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Customer Reviews -->
+        <hr class="my-4">
+        <h4>Customer Reviews</h4>
+
+        <div class="review">
+            <div class="d-flex justify-content-between">
+                <strong>Priya S.</strong> <span class="date">Reviewed on July 24, 2025</span>
+            </div>
+            <div class="stars">★★★★☆</div>
+            <p>Good quality for the price. Comfortable and fits well.</p>
+            <div class="helpful-btns">
+                <span>Was this review helpful?</span>
+                <button><i class="bi bi-hand-thumbs-up"></i> Yes</button>
+                <button><i class="bi bi-hand-thumbs-down"></i> No</button>
+            </div>
+        </div>
+
+        <div class="review">
+            <div class="d-flex justify-content-between">
+                <strong>Ravi K.</strong> <span class="date">Reviewed on July 20, 2025</span>
+            </div>
+            <div class="stars">★★☆☆☆</div>
+            <p>Material is thinner than expected. Delivery was fast though.</p>
+            <div class="helpful-btns">
+                <span>Was this review helpful?</span>
+                <button><i class="bi bi-hand-thumbs-up"></i> Yes</button>
+                <button><i class="bi bi-hand-thumbs-down"></i> No</button>
+            </div>
+        </div>
+
+        <div class="review">
+            <div class="d-flex justify-content-between">
+                <strong>Anjali R.</strong> <span class="date">Reviewed on July 18, 2025</span>
+            </div>
+            <div class="stars">★★★★★</div>
+            <p>Love the fabric and color. Perfect for summer!</p>
+            <div class="helpful-btns">
+                <span>Was this review helpful?</span>
+                <button><i class="bi bi-hand-thumbs-up"></i> Yes</button>
+                <button><i class="bi bi-hand-thumbs-down"></i> No</button>
+            </div>
+        </div>
+
+        <!-- Similar Products -->
+        <hr class="my-4">
+        <h4>You Might Also Like</h4>
+        <div class="similar-products py-2">
+            <div class="card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSAutTZ4envVjdi-auSZwowBqE4RxRzeNAcQ&s"
+                    class="card-img-top" alt="Shirt 1">
+                <div class="card-body">
+                    <h6 class="card-title">Casual Polo T-Shirt</h6>
+                    <span class="text-success fw-bold">₹499</span><br>
+                    <small class="text-muted text-decoration-line-through">₹799</small>
+                    <div class="rating-badge mt-1">4.1 <i class="bi bi-star-fill"></i></div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSAutTZ4envVjdi-auSZwowBqE4RxRzeNAcQ&s"
+                    class="card-img-top" alt="Shirt 2">
+                <div class="card-body">
+                    <h6 class="card-title">Round Neck Tee</h6>
+                    <span class="text-success fw-bold">₹299</span><br>
+                    <small class="text-muted text-decoration-line-through">₹499</small>
+                    <div class="rating-badge mt-1">3.8 <i class="bi bi-star-fill"></i></div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSAutTZ4envVjdi-auSZwowBqE4RxRzeNAcQ&s"
+                    class="card-img-top" alt="Shirt 3">
+                <div class="card-body">
+                    <h6 class="card-title">Slim Fit Shirt</h6>
+                    <span class="text-success fw-bold">₹649</span><br>
+                    <small class="text-muted text-decoration-line-through">₹999</small>
+                    <div class="rating-badge mt-1">4.5 <i class="bi bi-star-fill"></i></div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSAutTZ4envVjdi-auSZwowBqE4RxRzeNAcQ&s"
+                    class="card-img-top" alt="Shirt 4">
+                <div class="card-body">
+                    <h6 class="card-title">Solid Henley Shirt</h6>
+                    <span class="text-success fw-bold">₹399</span><br>
+                    <small class="text-muted text-decoration-line-through">₹699</small>
+                    <div class="rating-badge mt-1">4.0 <i class="bi bi-star-fill"></i></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
