@@ -5,13 +5,16 @@
     box-sizing: border-box;
     list-style: none;
 }
+html,
+body {
+    overflow-x: hidden;
+}
 
 body {
     width: 100%;
     background-color: gray;
     box-sizing: border-box;
 }
-
 /*header Start*/
 .first {
     width: 100%;
@@ -40,7 +43,8 @@ body {
     justify-content: center;
 }
 
-.flex span,i {
+.flex span,
+i {
     color: white;
 }
 
@@ -50,7 +54,7 @@ body {
     justify-content: space-between;
 }
 
-.logo img{
+.logo img {
     width: 75px;
     height: 70px;
     padding-left: 10px;
@@ -75,7 +79,7 @@ body {
     justify-content: space-between;
 }
 
-.input input{
+.input input {
     outline: none;
     width: 80%;
     font-size: 16px;
@@ -83,7 +87,7 @@ body {
     border: none;
 }
 
-.input .bx-search{
+.input .bi-search {
     color: rgb(51, 51, 51);
     padding: 10px 15px;
     font-size: 20px;
@@ -92,7 +96,7 @@ body {
     border-radius: 0 5px 5px 0;
 }
 
-.input div{
+.input div {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -101,7 +105,7 @@ body {
     padding: 6px 0;
 }
 
-.input div span{
+.input div span {
     border-radius: 5px 0 0 5px;
     color: rgb(51, 51, 51);
     padding: 6px 5px;
@@ -109,13 +113,13 @@ body {
     cursor: pointer;
 }
 
-.input .bx-caret-down{
+.input .bi-caret-down-fill {
     color: rgb(51, 51, 51);
     cursor: pointer;
     padding: 5px;
 }
 
-.sign{
+.sign {
     display: flex;
     flex-direction: column;
     padding: 3px, 6px;
@@ -124,24 +128,24 @@ body {
     border-radius: 3px;
 }
 
-.sign span:first-child{
+.sign span:first-child {
     font-weight: 400;
     font-size: 15px;
 }
 
-.sign span{
+.sign span {
     display: inline-block;
     width: 100%;
     font-weight: bold;
 }
 
-.flex .ac span{
+.flex .ac span {
     font-size: 15px;
     margin-right: 5px;
     font-weight: bold;
 }
 
-.bx-cart{
+.bi-cart {
     font-size: 30px;
 }
 
@@ -182,7 +186,7 @@ body {
     border-radius: 3px;
 }
 
-.input.bx-search:hover {
+.input.bi-search:hover {
     border: 1px solid #fdae46;
 }
 
@@ -191,7 +195,7 @@ body {
     color: black;
 }
 
-.second{
+.second {
     width: 100%;
     height: 42px;
     background-color: #D3D3D3;
@@ -201,25 +205,25 @@ body {
     overflow: hidden;
 }
 
-.second ul{
+.second ul {
     align-items: center;
     list-style-type: none;
     display: flex;
     justify-content: flex-start;
 }
 
-.second span{
+.second span {
     font-size: 15px;
 }
 
-.second-1 div i{
+.second-1 div i {
     font-size: 20px;
     cursor: pointer;
     border: 1px solid transparent;
     border-radius: 3px;
 }
 
-.second li{
+.second li {
     padding: 5px 10px;
     font-size: 15px;
     margin: 7px 0;
@@ -228,26 +232,46 @@ body {
     border-radius: 3px;
 }
 
-.second-1{
+.second-1 {
     flex: 0.06;
     display: flex;
     justify-content: center;
-    align-items: center; 
+    align-items: center;
 }
 
-.second-1 div{
+.second-1 div {
     display: flex;
     align-items: center;
     padding-left: 5px;
 }
 
-.second-2{
+.second-2 {
     display: flex;
     flex: 0.74;
     justify-content: flex-start;
 }
 
-.second-3{
+.second-2 ul.horizontal-menu {
+    display: flex;
+    flex-wrap: nowrap;
+    /* prevent wrapping */
+    gap: 20px;
+    /* space between items */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.second-2 .btn {
+    margin-top: 5px;
+    align-items: center;
+    padding: 8px 14px;
+    display: inline-block;
+    white-space: nowrap;
+
+}
+
+.second-3 {
     flex: 0.2;
     display: flex;
     justify-content: flex-end;
@@ -255,20 +279,20 @@ body {
     overflow: hidden;
 }
 
-.second-3 span{
+.second-3 span {
     padding: 5px 10px;
     cursor: pointer;
     border: 1px solid transparent;
     border-radius: 3px;
 }
 
-.second-1 div span{
+.second-1 div span {
     padding: 5px;
     cursor: pointer;
 
 }
 
-.second-1 div:hover{
+.second-1 div:hover {
     border: 1px solid white;
 }
 
@@ -279,6 +303,7 @@ body {
 .second-3 span:hover {
     border: 1px solid white;
 }
+
 /*header End*/
 
 /*sec-1 Start*/
@@ -289,22 +314,22 @@ body {
     box-sizing: border-box;
 }
 
-/*container Start*/
-.container{
-    position: relative;
-    width: 100%;
-    height: auto;
-}
-
 /*slider Start*/
 .slide img{
     width: 1360px;
     height: 100%;
 }
 
+/*container Start*/
+.container {
+    position: relative;
+    width: 100%;
+    height: auto;
+}
+
 .slider{
     width: 100%;
-    overflow: hidden;
+    overflow: hidden; 
     position: relative;
     height: 560px;
 }
@@ -367,6 +392,7 @@ body {
     font-size: 14px;
     padding: 12px 0;
 }
+
 /*product-comp Start*/
 .product-comp{
     width: 100%;
@@ -607,15 +633,27 @@ body {
 .detail{
     background-color: #232f3e;
     height: 350px;
+   /*  overflow-x: hidden; */
 }
 
-.table{
+/* .table{
     margin: 0 150px;
     height: 100%;
     display: flex;
     justify-content: space-around;
     padding-top: 50px;
 }
+ */
+
+.table {
+     margin: 0 auto;
+     width: 90%;
+     max-width: 1200px;
+     display: flex;
+     justify-content: space-between;
+     padding-top: 50px;
+     /* background-color: #232f3e; */
+ }
 
 .table div{
     width: 230px;
@@ -624,17 +662,33 @@ body {
 .t-head{
     font-size: 16px;
     color: white;
-    margin: 5px;
+    margin: 5px 0;
     font-weight: bold;
 }
 
-.table li{
+/* .table li{
+    background-color: #232f3e;
+    color: rgb(236, 234, 234);
+    padding-top: 10px; 
+    font-size: 14px;
+    list-style: none;
+     transition: color 0.3s; 
+    background: transparent;
+}
+*/
+
+.table li {
     color: rgb(236, 234, 234);
     padding-top: 10px;
     font-weight: lighter;
     font-size: 14px;
     list-style: none;
 }
+
+.table li:hover {
+    color: #ffffff;
+    cursor: pointer;
+} 
 
 .copy{
     background-color: #232f3e;
@@ -652,8 +706,8 @@ body {
     height: 0.5px;
     width: 100%;
     background-color: rgb(172, 172, 172);
-}
-/*footer End*/
+} 
+/*footer End*/ 
 
 /*sidebar Start*/
 .sidebar{

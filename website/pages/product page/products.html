@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shopizen | All Products</title>
+    <link rel="stylesheet" href="index.css" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+
+
+    <!--Bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="first">
+            <div class="flex logo">
+                <a href="#"><img
+                        src="data:image/jpeg;base64,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"
+                        alt="Logo"></a>
+            </div>
+
+            <div class="flex input">
+                <div>
+                    <span>All</span>
+                    <i class="bi bi-caret-down-fill"></i>
+                </div>
+                <input type="text" placeholder="Search">
+                <i class="bi bi-search"></i>
+            </div>
+
+            <div class="flex right">
+                <div class="sign">
+                    <a href="../authendication page/login.html"><span>Sign in</span></a>
+                    <div class="flex ac">
+                        <span>Account</span>
+                        <i class="bi bi-caret-down-fill"></i>
+                    </div>
+                </div>
+
+                <div class="sign">
+                    <span>Orders</span>
+                </div>
+
+                <a href="../order page/cart.html" style="text-decoration: none; color: inherit;">
+                    <div class="flex cart">
+                        <i class="bi bi-cart"></i>
+                        <span class="ca">Cart</span>
+                        <!-- <p>0</p> -->
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="second">
+            <div class="second-1">
+                <div>
+                    <i class="bi bi-list"></i>
+                    <span>All</span>
+                </div>
+            </div>
+
+            <div class="second-2">
+                <ul class="horizontal-menu">
+                    <li class="link"><a href="../home page/index.html" class="btn">Home</a></li>
+                    <li class="link"><a href="../product page/products.html" class="btn">Shop</a></li>
+                    <li class="link"><a href="" class="btn">Today's Deal</a></li>
+                    <li class="link"><a href="../home page/about.html" class="btn">About us</a></li>
+                    <li class="link"><a href="../home page/contact.html" class="btn">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="second-3">
+                <span>Mid Season Sale</span>
+            </div>
+        </div>
+    </header>
+
+    <!--Hero section-->
+    <div class="container-fluid mx-2">
+
+        <!-- Mobile Filter Button -->
+        <div class="d-md-none text-end mb-2">
+            <button class="btn btn-outline-dark" data-bs-toggle="offcanvas" data-bs-target="#filterSidebar">
+                <i class="bi bi-funnel-fill me-1"></i> Filters
+            </button>
+        </div>
+
+        <div class="row">
+            <h3>Category</h3>
+            <!-- Offcanvas Filter Sidebar -->
+            <div class="col-md-3 d-none d-md-block">
+                <!-- This is visible only on desktop -->
+                <!-- Place the full filter sidebar code here (previously shared code) -->
+                <h4 class="mb-3">Filters</h4>
+
+                <!-- Category -->
+                <div class="mb-4">
+                    <h6>Category</h6>
+
+                    <!-- Electronics Dropdown -->
+                    <div class="dropdown mb-2">
+                        <button
+                            class="btn dropdown-toggle w-100 d-flex justify-content-between align-items-center custom-dropdown-btn"
+                            type="button" data-bs-toggle="dropdown">
+                            <span>Electronics</span>
+                        </button>
+                        <ul class="dropdown-menu w-100 p-2 custom-dropdown-menu">
+                            <li><a class="dropdown-item active" href="#">Mobiles</a></li>
+                            <li><a class="dropdown-item" href="#">Laptops</a></li>
+                            <li><a class="dropdown-item" href="#">Cameras</a></li>
+                            <li><a class="dropdown-item" href="#">Tablets</a></li>
+                            <li><a class="dropdown-item" href="#">Accessories</a></li>
+                        </ul>
+
+                    </div>
+
+                    <!-- Fashion Dropdown -->
+                    <div class="dropdown mb-2">
+                        <button
+                            class="btn dropdown-toggle w-100 d-flex justify-content-between align-items-center custom-dropdown-btn"
+                            type="button" data-bs-toggle="dropdown">
+                            <span>Fashion</span>
+                        </button>
+                        <ul class="dropdown-menu w-100 p-2 custom-dropdown-menu">
+                            <li><a class="dropdown-item active" href="#">Men's Clothing</a></li>
+                            <li><a class="dropdown-item" href="#">Women's Clothing</a></li>
+                            <li><a class="dropdown-item" href="#">Footwear</a></li>
+                            <li><a class="dropdown-item" href="#">Watches</a></li>
+                            <li><a class="dropdown-item" href="#">Jewellery</a></li>
+                        </ul>
+
+                    </div>
+
+                    <!-- Home & Kitchen Dropdown -->
+                    <div class="dropdown mb-2">
+                        <button
+                            class="btn dropdown-toggle w-100 d-flex justify-content-between align-items-center custom-dropdown-btn"
+                            type="button" data-bs-toggle="dropdown">
+                            <span>Home & Kitchen</span>
+                        </button>
+                        <ul class="dropdown-menu w-100 p-2 custom-dropdown-menu">
+                            <li><a class="dropdown-item active" href="#">Furniture</a></li>
+                            <li><a class="dropdown-item" href="#">Cookware</a></li>
+                            <li><a class="dropdown-item" href="#">Decor</a></li>
+                            <li><a class="dropdown-item" href="#">Appliances</a></li>
+                            <li><a class="dropdown-item" href="#">Storage</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Books Dropdown -->
+                    <div class="dropdown  mb-2">
+                        <button
+                            class="btn dropdown-toggle w-100 d-flex justify-content-between align-items-center custom-dropdown-btn"
+                            type="button" data-bs-toggle="dropdown">
+                            <span>Books</span>
+                        </button>
+                        <ul class="dropdown-menu w-100 p-2 custom-dropdown-menu">
+                            <li><a class="dropdown-item active" href="#">Furniture</a></li>
+                            <li><a class="dropdown-item" href="#">Cookware</a></li>
+                            <li><a class="dropdown-item" href="#">Decor</a></li>
+                            <li><a class="dropdown-item" href="#">Appliances</a></li>
+                            <li><a class="dropdown-item" href="#">Storage</a></li>
+                        </ul>
+
+                    </div>
+
+                </div>
+
+
+
+
+                <!-- Brand -->
+                <div class="mb-4 brand-list">
+                    <h6>Brand</h6>
+                    <input type="text" class="form-control form-control-sm mb-2" placeholder="Search Brand">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="brand1">
+                        <label class="form-check-label" for="brand1">Apple</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="brand2">
+                        <label class="form-check-label" for="brand2">Samsung</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="brand3">
+                        <label class="form-check-label" for="brand3">Nike</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="brand4">
+                        <label class="form-check-label" for="brand4">Sony</label>
+                    </div>
+                </div>
+
+                <!-- Price -->
+                <div class="mb-4">
+                    <h6>Price</h6>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="price" id="price1">
+                        <label class="form-check-label" for="price1">Under ₹1,000</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="price" id="price2">
+                        <label class="form-check-label" for="price2">₹1,000 - ₹5,000</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="price" id="price3">
+                        <label class="form-check-label" for="price3">₹5,000 - ₹10,000</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="price" id="price4">
+                        <label class="form-check-label" for="price4">Over ₹10,000</label>
+                    </div>
+                    <div class="input-group mt-2">
+                        <input type="number" class="form-control form-control-sm" placeholder="Min">
+                        <span class="input-group-text">-</span>
+                        <input type="number" class="form-control form-control-sm" placeholder="Max">
+                    </div>
+                </div>
+
+                <!-- Rating -->
+                <div class="mb-4">
+                    <h6>Customer Rating</h6>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="rating1">
+                        <label class="form-check-label" for="rating1">4★ & above</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="rating2">
+                        <label class="form-check-label" for="rating2">3★ & above</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="rating3">
+                        <label class="form-check-label" for="rating3">2★ & above</label>
+                    </div>
+                </div>
+
+                <!-- Availability -->
+                <div class="mb-4">
+                    <h6>Availability</h6>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="stock1">
+                        <label class="form-check-label" for="stock1">In Stock</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="stock2">
+                        <label class="form-check-label" for="stock2">Out of Stock</label>
+                    </div>
+                </div>
+
+                <!-- Discount -->
+                <div class="mb-4">
+                    <h6>Discount</h6>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="discount1">
+                        <label class="form-check-label" for="discount1">10% or more</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="discount2">
+                        <label class="form-check-label" for="discount2">25% or more</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="discount3">
+                        <label class="form-check-label" for="discount3">50% or more</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="discount4">
+                        <label class="form-check-label" for="discount4">70% or more</label>
+                    </div>
+                </div>
+
+                <!-- Material Type -->
+                <div class="mb-4">
+                    <h6>Material Type</h6>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="material1">
+                        <label class="form-check-label" for="material1">Cotton</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="material2">
+                        <label class="form-check-label" for="material2">Leather</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="material3">
+                        <label class="form-check-label" for="material3">Polyester</label>
+                    </div>
+                </div>
+
+                <!-- Reset Filters Button -->
+                <button class="btn btn-danger w-100">Clear All Filters</button>
+
+            </div>
+
+            <!-- Mobile Offcanvas -->
+            <div class="offcanvas offcanvas-start d-md-none" tabindex="-1" id="filterSidebar"
+                aria-labelledby="filterSidebarLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="filterSidebarLabel">Filters</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <!-- Place the SAME full filter sidebar HTML here as well -->
+                    <!-- Reuse the filter block: Category, Brand, Price, etc. -->
+                    <!-- Category -->
+                    <div class="mb-4">
+                        <h6>Category</h6>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="cat1">
+                            <label class="form-check-label" for="cat1">Electronics</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="cat2">
+                            <label class="form-check-label" for="cat2">Fashion</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="cat3">
+                            <label class="form-check-label" for="cat3">Home & Kitchen</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="cat4">
+                            <label class="form-check-label" for="cat4">Books</label>
+                        </div>
+                    </div>
+
+                    <!-- Brand -->
+                    <div class="mb-4 brand-list">
+                        <h6>Brand</h6>
+                        <input type="text" class="form-control form-control-sm mb-2" placeholder="Search Brand">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="brand1">
+                            <label class="form-check-label" for="brand1">Apple</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="brand2">
+                            <label class="form-check-label" for="brand2">Samsung</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="brand3">
+                            <label class="form-check-label" for="brand3">Nike</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="brand4">
+                            <label class="form-check-label" for="brand4">Sony</label>
+                        </div>
+                    </div>
+
+                    <!-- Price -->
+                    <div class="mb-4">
+                        <h6>Price</h6>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="price" id="price1">
+                            <label class="form-check-label" for="price1">Under ₹1,000</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="price" id="price2">
+                            <label class="form-check-label" for="price2">₹1,000 - ₹5,000</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="price" id="price3">
+                            <label class="form-check-label" for="price3">₹5,000 - ₹10,000</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="price" id="price4">
+                            <label class="form-check-label" for="price4">Over ₹10,000</label>
+                        </div>
+                        <div class="input-group mt-2">
+                            <input type="number" class="form-control form-control-sm" placeholder="Min">
+                            <span class="input-group-text">-</span>
+                            <input type="number" class="form-control form-control-sm" placeholder="Max">
+                        </div>
+                    </div>
+
+                    <!-- Rating -->
+                    <div class="mb-4">
+                        <h6>Customer Rating</h6>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="rating1">
+                            <label class="form-check-label" for="rating1">4★ & above</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="rating2">
+                            <label class="form-check-label" for="rating2">3★ & above</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="rating3">
+                            <label class="form-check-label" for="rating3">2★ & above</label>
+                        </div>
+                    </div>
+
+                    <!-- Availability -->
+                    <div class="mb-4">
+                        <h6>Availability</h6>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="stock1">
+                            <label class="form-check-label" for="stock1">In Stock</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="stock2">
+                            <label class="form-check-label" for="stock2">Out of Stock</label>
+                        </div>
+                    </div>
+
+                    <!-- Discount -->
+                    <div class="mb-4">
+                        <h6>Discount</h6>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="discount1">
+                            <label class="form-check-label" for="discount1">10% or more</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="discount2">
+                            <label class="form-check-label" for="discount2">25% or more</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="discount3">
+                            <label class="form-check-label" for="discount3">50% or more</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="discount4">
+                            <label class="form-check-label" for="discount4">70% or more</label>
+                        </div>
+                    </div>
+
+                    <!-- Material Type -->
+                    <div class="mb-4">
+                        <h6>Material Type</h6>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="material1">
+                            <label class="form-check-label" for="material1">Cotton</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="material2">
+                            <label class="form-check-label" for="material2">Leather</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="material3">
+                            <label class="form-check-label" for="material3">Polyester</label>
+                        </div>
+                    </div>
+
+                    <!-- Reset Filters Button -->
+                    <button class="btn btn-danger w-100">Clear All Filters</button>
+                </div>
+            </div>
+
+
+            <div class="col-md-8">
+                <div class="container-fluid">
+                    <!-- Header with Sort Dropdown -->
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <span class="h4">Let's Shop</span>
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Sort By
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><button class="dropdown-item" type="button">Price ↑</button></li>
+                                <li><button class="dropdown-item" type="button">Price ↓</button></li>
+                                <li><button class="dropdown-item" type="button">Popularity</button></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Product Cards -->
+                    <div class="row g-3">
+                        <div class="col-md-4">
+
+                            <div class="card h-100 ">
+                                <!-- Wishlist Heart Icon -->
+                                <button
+                                    class="btn btn-light position-absolute top-0 end-0 m-2 p-2 rounded-circle shadow-sm">
+                                    <i class="bi bi-heart" style="color: black;"></i>
+                                </button>
+                                <a href="../product page/details.html " target="_blank"
+                                    style="text-decoration: none; color: inherit;">
+                                    <div class="discount-badge">34% OFF</div>
+                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSAutTZ4envVjdi-auSZwowBqE4RxRzeNAcQ&s"
+                                        class="card-img-top" alt="T-Shirt">
+                                    <div class="card-body border">
+                                        <span class="brand text-end d-block">Zara</span>
+                                        <h5 class="card-title">Cotton T-Shirt</h5>
+                                        <div class="d-flex justify-content-between align-items-center mb-2">
+                                            <span class="price fw-bold">₹599.00</span>
+                                            <span class="text-decoration-line-through text-muted ms-1">₹699.00</span>
+                                            <div class="rating-badge ms-5">
+                                                2.3 <i class="bi bi-star-fill"></i>
+                                            </div>
+                                        </div>
+                                        <div class="button">
+                                            <button class="btn btn-outline-primary text-wrap w-50">Add to Cart</button>
+                                            <button class="btn btn-outline-dark w-50 ms-2">Buy Now</button>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Repeat the following card two more times -->
+                        <div class="col-md-4">
+                            <div class="card h-100 ">
+                                <a href="../product page/details.html  " target="_blank" style="text-decoration: none; color: inherit;">
+                                    <button class="btn btn-light position-absolute top-0 end-0 m-2 p-2 rounded-circle shadow-sm">
+                                        <i class="bi bi-heart" style="color: black;"></i>
+                                    </button>
+                                    <div class="discount-badge">74% OFF</div>
+                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSAutTZ4envVjdi-auSZwowBqE4RxRzeNAcQ&s"
+                                        class="card-img-top" alt="T-Shirt">
+                                    <div class="card-body border">
+                                        <span class="brand text-end d-block">Zara</span>
+                                        <h5 class="card-title">Cotton T-Shirt</h5>
+                                        <div class="d-flex justify-content-between align-items-center mb-2">
+                                            <span class="price fw-bold">₹599.00</span>
+                                            <span class="text-decoration-line-through text-muted ms-1">₹699.00</span>
+                                            <div class="rating-badge ms-5">
+                                                5 <i class="bi bi-star-fill"></i>
+                                            </div>
+                                        </div>
+                                        <div class="button">
+                                            <button class="btn btn-outline-primary text-wrap w-50">Add to Cart</button>
+                                            <button class="btn btn-outline-dark w-50 ms-2">Buy Now</button>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="card h-100 ">
+                                <a href=" ../product page/details.html " target="_blank" style="text-decoration: none; color: inherit;">
+                                    <button class="btn btn-light position-absolute top-0 end-0 m-2 p-2 rounded-circle shadow-sm">
+                                        <i class="bi bi-heart" style="color: black;"></i>
+                                    </button>
+                                    <div class="discount-badge">54% OFF</div>
+                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSAutTZ4envVjdi-auSZwowBqE4RxRzeNAcQ&s"
+                                        class="card-img-top" alt="T-Shirt">
+                                    <div class="card-body border">
+                                        <span class="brand text-end d-block">Zara</span>
+                                        <h5 class="card-title">Cotton T-Shirt</h5>
+                                        <div class="d-flex justify-content-between align-items-center mb-2">
+                                            <span class="price fw-bold">₹599.00</span>
+                                            <span class="text-decoration-line-through text-muted ms-1">₹699.00</span>
+                                            <div class="rating-badge ms-5">
+                                                3.5 <i class="bi bi-star-fill"></i>
+                                            </div>
+                                        </div>
+                                        <div class="button">
+                                            <button class="btn btn-outline-primary text-wrap w-50">Add to Cart</button>
+                                            <button class="btn btn-outline-dark w-50 ms-2">Buy Now</button>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pagination Section -->
+                    <div class="bottom mt-4">
+                        <nav aria-label="Page navigation">
+                            <ul class="pagination">
+                                <li class="page-item">
+                                    <a class="page-link" href="#" aria-label="Previous">
+                                        <span aria-hidden="true">&laquo;</span>
+                                    </a>
+                                </li>
+                                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#" aria-label="Next">
+                                        <span aria-hidden="true">&raquo;</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer-wrapper">
+        <div class="footer-section">
+            <div>ABOUT</div>
+            <a href="../home page/about.html">About Us</a>
+            <a href="../home page/contact.html">Contact Us</a>
+        </div>
+
+        <div class="footer-section">
+            <div>HELP</div>
+            <a href="#">Payments</a>
+            <a href="#">Shipping</a>
+            <a href="#">Returns</a>
+            <a href="../home page/contact.html">FAQ</a>
+        </div>
+
+        <div class="footer-section">
+            <div>POLICY</div>
+            <a href="../home page/terms.html">Terms & Conditions</a>
+            <a href="../home page/policy.html">Privacy Policy</a>
+        </div>
+
+        <p class="footer-bottom-text">&copy; 2025 Shopizen. All rights reserved.</p>
+    </footer>
+
+    <!--Bootstrap-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+        crossorigin="anonymous"></script>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap JS + Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
+
+
+
+    <script>
+        document.querySelectorAll('.discount-badge').forEach(function (badge) {
+            const text = badge.textContent.trim();
+            const match = text.match(/(\d+)%/);
+            if (match) {
+                const discount = parseInt(match[1]);
+                if (discount <= 20) {
+                    badge.classList.add('discount-low');
+                } else if (discount <= 50) {
+                    badge.classList.add('discount-medium');
+                } else {
+                    badge.classList.add('discount-high');
+                }
+            }
+        });
+    </script>
+
+    <script>
+        document.querySelectorAll('.rating-badge').forEach(function (badge) {
+            const ratingText = badge.textContent.trim();
+            const match = ratingText.match(/(\d+(\.\d+)?)/); // match float numbers
+            if (match) {
+                const rating = parseFloat(match[1]);
+                if (rating < 3.0) {
+                    badge.classList.add('rating-low');
+                } else if (rating < 4.0) {
+                    badge.classList.add('rating-medium');
+                } else {
+                    badge.classList.add('rating-high');
+                }
+            }
+        });
+    </script>
+
+</body>
+
+</html>
