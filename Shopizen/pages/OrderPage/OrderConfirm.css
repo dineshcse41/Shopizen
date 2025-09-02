@@ -1,0 +1,26 @@
+
+.order-confirm-page {
+     margin: 0;
+     padding: 0;
+    /*  height: 100vh; */
+    min-height: 100vh;
+     background: url("../../src/assets/bg-1.jpg") no-repeat center center ;
+     background-size: cover;
+     display: flex;
+     flex-direction: column;
+     justify-content: flex-start;
+     align-items: center;
+ }
+
+/*  .wrapper {
+     width: 500px;
+     background: rgba(255, 255, 255, 0.05);
+     border: 2px solid rgba(225, 225, 225, 0.2);
+     backdrop-filter: blur(20px);
+     box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+     color: #333;
+     border-radius: 10px;
+     padding: 30px 40px;
+     /* margin-top: 0; */
+    /*  margin-bottom: 100px;
+     position: relative;}  */

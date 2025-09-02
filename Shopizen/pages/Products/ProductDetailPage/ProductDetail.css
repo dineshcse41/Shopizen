@@ -1,0 +1,71 @@
+body {
+    background: linear-gradient(to bottom right, #e6edf4, #d3dee8);
+}
+
+.section1 {
+    height: 50px;
+}
+
+.discount-badge {
+    background-color: #ff4d4d;
+    color: white;
+    padding: 5px 10px;
+    font-size: 0.9rem;
+    border-radius: 5px;
+}
+
+.rating-badge {
+    background-color: #ffc107;
+    color: black;
+    padding: 2px 8px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+}
+
+.review {
+    border-bottom: 1px solid #ddd;
+    padding: 15px 0;
+}
+
+.review .stars {
+    color: #ffc107;
+}
+
+.review .date {
+    font-size: 0.85rem;
+    color: #888;
+}
+
+.helpful-btns button {
+    border: none;
+    background: none;
+    color: #007185;
+    cursor: pointer;
+    padding: 0 5px;
+}
+
+.helpful-btns button.active {
+    font-weight: bold;
+    color: #004085;
+}
+
+.similar-products {
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.similar-products .card {
+    display: inline-block;
+    width: 200px;
+    margin-right: 15px;
+    vertical-align: top;
+}
+
+.similar-products::-webkit-scrollbar {
+    height: 8px;
+}
+
+.similar-products::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 5px;
+}

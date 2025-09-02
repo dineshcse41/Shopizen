@@ -1,0 +1,17 @@
+/* Mobile offcanvas filter (scrollable) */
+.filter-sidebar {
+    height: 100%;
+    overflow-y: auto;
+    /* ✅ scrolling enabled */
+    padding: 1rem;
+    background: #232f3e;
+    color: #fff;
+}
+
+@media (max-width: 768px) {
+    .filter-sidebar {
+        max-height: 80vh;
+        /* Prevents sidebar from overflowing */
+        overflow-y: auto;
+    }
+}

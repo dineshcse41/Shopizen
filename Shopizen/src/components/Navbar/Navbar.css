@@ -1,0 +1,91 @@
+.first {
+    width: 100%;
+    height: auto;
+}
+
+img {
+    width: 75px;
+    height: 70px;
+}
+
+.input {
+   /*  width: 100%; */
+    max-width: 900px;
+    background-color: white;
+    flex: 0.53;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    justify-content: space-between;
+}
+
+.input input {
+    outline: none;
+    width: 80%;
+    font-size: 16px;
+    padding: 8px 10px;
+    border: none;
+}
+
+.input .bi-search {
+    color: rgb(51, 51, 51);
+    padding: 10px 15px;
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #febd69;
+    border-radius: 0 5px 5px 0;
+}
+
+.input div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(236, 234, 234);
+    padding: 5px 10px;
+}
+
+.input div span {
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.sign {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.bi-cart {
+    font-size: 28px;
+}
+
+.ca {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.second {
+    width: 100%;
+    height: auto;
+    background-color: #6c757d;
+    display: flex;
+    align-items: center;
+    color: white;
+    overflow: hidden;
+    flex-wrap: wrap;
+}
+
+.horizontal-menu li:hover,
+.second-3 span:hover,
+.sign:hover,
+.logo img:hover {
+    border: 1px solid white;
+    border-radius: 3px;
+}
+
+.horizontal-menu li{
+    margin-right: 40px;
+    margin-left: 40px;
+}
