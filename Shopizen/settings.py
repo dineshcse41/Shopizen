@@ -15,7 +15,10 @@ from datetime import timedelta
 from decouple import config
 import os
 from pathlib import Path
-
+import os
+from pathlib import Path
+from dotenv import load_dotenv
+load_dotenv()
 
 
 
@@ -54,6 +57,8 @@ INSTALLED_APPS = [
     "corsheaders",
     "product_api",
     "cart",
+    "order",
+    "upi_email",
 ]
 
 MIDDLEWARE = [
@@ -65,7 +70,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    
 ]
 
 ROOT_URLCONF = 'Shopizen.urls'
@@ -132,6 +136,7 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
+TIME_ZONE = 'Asia/Kolkata'
 
 
 # Static files (CSS, JavaScript, Images)
@@ -152,16 +157,43 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ],
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ],
 }
 
 
 
 SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=50),
-    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
+    'ACCESS_TOKEN_LIFETIME': timedelta(days=30),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=60),
     # 'ROTATE_REFRESH_TOKENS': True,
     # 'BLAKLIST_AFTER_ROTATION': True,
 }
+    # ⚡ Example in Real Life   SIMPLE_JWT = { 'ACCESS_TOKEN_LIFETIME': timedelta(minutes=60),  'REFRESH_TOKEN_LIFETIME': timedelta(days=30)}
+
+# Imagine you log in to an e-commerce site:
+
+# You enter username & password.
+
+# The site gives you:
+
+# Access Token (valid for 10 minutes)
+
+# Refresh Token (valid for 7 days)
+
+# You browse products → API uses the access token.
+
+# After 10 minutes → access token expires.
+
+# Browser/mobile app sends the refresh token silently to the server.
+
+# Server gives you a new access token.
+# ✅ You stay logged in without typing your password again.
+
+# After 7 days → refresh token also expires.
+
+# You need to log in again with username & password.
 
 
 # CORS_ALLOWED_ORIGINS: True
@@ -172,3 +204,21 @@ CORS_ALLOWED_ORIGINS = [
     # "http://localhost:8080",
     "http://127.0.0.1:5500",
 ]
+
+
+
+
+# Razorpay / Stripe
+RAZORPAY_KEY_ID = os.getenv("RAZORPAY_KEY_ID")
+RAZORPAY_KEY_SECRET = os.getenv("RAZORPAY_KEY_SECRET")
+STRIPE_SECRET_KEY = os.getenv("STRIPE_SECRET_KEY")
+
+# Email (SMTP – Gmail)
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER")
+EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+

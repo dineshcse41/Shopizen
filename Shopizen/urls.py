@@ -27,8 +27,10 @@ urlpatterns = [
     path('auth/', include('Authentication.urls')),
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
-    path('product/', include('product_api.urls')),
-    path('cart/', include('cart.urls')),
+    path('product/', include('product_api.urls')),   
+    path('cart/', include('cart.urls')),   
+    path('order/', include('order.urls')),   
+    path('upi/', include('upi_email.urls')),   
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

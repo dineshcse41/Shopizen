@@ -209,25 +209,25 @@
 #         return Response ("Task deleted")
     
 # secondapp/views.py
-from rest_framework.views import APIView
-from rest_framework.response import Response
-from rest_framework import status
-from .serializers import RegisterSerializer
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.views import APIView                   # APIView → Base class from DRF to create custom API endpoints.
+from rest_framework.response import Response               # Response → Used to send JSON responses.          
+from rest_framework import status                          # status → Provides HTTP status codes (201 Created, 400 Bad Request, etc).
+from .serializers import RegisterSerializer                # RegisterSerializer → A serializer (not shown here) that handles validation & saving a new User.
+from rest_framework.permissions import IsAuthenticated     # IsAuthenticated → DRF permission that restricts access to logged-in users only.
 from django.shortcuts import render, redirect
 from .forms import ProductForm
 
-class RegisterView(APIView):
-    def post(self, request):
-        serializer = RegisterSerializer(data=request.data)
-        if serializer.is_valid():
+class RegisterView(APIView):                            # When someone sends a POST request (e.g., via Postman or frontend) with registration data (username, email, password, etc.), the serializer validates it.
+    def post(self, request):                            # If valid → serializer.save() creates a new User object in the DB.
+        serializer = RegisterSerializer(data=request.data)   # Returns 201 (Created) with success message.
+        if serializer.is_valid():                           # If invalid → returns validation errors with 400 (Bad Request).
             user = serializer.save()  # <- returns a User object
             return Response({'message': 'User created successfully'}, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
-class ProtectedView(APIView):
-    permission_classes = [IsAuthenticated]
-
+class ProtectedView(APIView):                   # permission_classes = [IsAuthenticated] → only logged-in users with a valid token/session can access.
+    permission_classes = [IsAuthenticated]      # If a user makes a GET request and is authenticated → they get a personalized message.
+                                                # If not logged in → DRF automatically denies with 401 Unauthorized.
     def get(self, request):
         return Response({
             'message': f'Hello, {request.user.username}! You have accessed a protected endpoint.'
@@ -241,8 +241,8 @@ from .models import Product, Category, Brand
 from .forms import ProductForm
 
 def add_product(request):
-    if request.method == 'POST':
-        form = ProductForm(request.POST, request.FILES)
+    if request.method == 'POST':                # Product, Category, Brand → database models.
+        form = ProductForm(request.POST, request.FILES)         # ProductForm → Django form tied to Product model.
         if form.is_valid():
             form.save()
             return redirect('product_success')  # Your success page
@@ -272,6 +272,32 @@ def add_product(request):
 
 from django.shortcuts import render
 
+# def add product LOGIC
+# If user submits the form (POST request):
+
+# Take submitted data + uploaded images (request.FILES).
+
+# Validate form.
+
+# If valid → save new product to DB and redirect to success page.
+# If it's a GET request (user just opened the page) → show an empty form.
+
+# Pass categories & brands to the template → so the form can show dropdowns.
+
 def product_success(request):
     return render(request, 'product_success.html')
 
+# After successfully adding a product, user is redirected here.
+
+# Just renders a simple success message template.
+
+
+# this code explanaton
+
+# RegisterView → API to create new users (for authentication).
+
+# ProtectedView → API endpoint only accessible if logged in.
+
+# add_product → Webpage (form) to add new products to DB.
+
+# product_success → Confirmation page after product is added.

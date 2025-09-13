@@ -1,47 +1,40 @@
+# cart/serializers.py
 from rest_framework import serializers
-from .models import Cart, CartItem, Order, Products
-
-class ProductSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Products
-        fields = "__all__"
-
-
-class CartItemSerializer(serializers.ModelSerializer):
-    product = ProductSerializer(read_only=True)
-    product_id = serializers.PrimaryKeyRelatedField(
-        queryset=Products.objects.all(), source='products', write_only=True
-    )
-
-    class Meta:
-        model = CartItem
-        fields = ["id", "product", "product_id", "quantity"]
-
+from .models import Cart
+from product_api.models import Product
 
 class CartSerializer(serializers.ModelSerializer):
-    items = CartItemSerializer(many=True)
+    product_name = serializers.ReadOnlyField(source="product.name")
+
+# Adds a read-only field product_name that pulls the name from the related Product model.
+
+# Example: Instead of just showing product: 3, the API response will include "product_name": "iPhone 14".
+
+# This improves API usability for frontend developers.
 
     class Meta:
         model = Cart
-        fields = ["id", "items"]
+        fields = ["id", "user", "product", "product_name", "quantity", "added_date"]
+        read_only_fields = ["user", "added_date"]
 
-    def update(self, instance, validated_data):
-        items_data = validated_data.pop("items", [])
-        for item_data in items_data:
-            product = item_data["product"]
-            quantity = item_data["quantity"]
+# model = Cart → Serializer is tied to your Cart model.
 
-            cart_item, created = CartItem.objects.get_or_create(
-                cart=instance, product=product
-            )
-            cart_item.quantity = quantity
-            cart_item.save()
+# fields:
 
-        return instance
+# id → unique cart item ID.
 
+# user → which user owns the cart item (read-only).
 
-class OrderSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Order
-        fields = "__all__"
-        read_only_fields = ["user", "created_at", "status"]
+# product → product ID (foreign key, writeable).
+
+# product_name → product name (read-only, comes from product relation).
+
+# quantity → how many units of the product in cart.
+
+# added_date → timestamp when added (read-only).
+
+# read_only_fields:
+
+# user → we don’t let the client set this; it’s automatically assigned in the view (perform_create).
+
+# added_date → auto-handled by the model (auto_now_add=True).
