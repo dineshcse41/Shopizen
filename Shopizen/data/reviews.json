@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "user": "Alice",
+        "product": "Laptop",
+        "review": "Great!",
+        "status": "pending"
+    },
+    {
+        "id": 2,
+        "user": "Bob",
+        "product": "Phone",
+        "review": "Not good",
+        "status": "approved"
+    },
+    {
+        "id": 3,
+        "user": "Charlie",
+        "product": "Headphones",
+        "review": "Average",
+        "status": "pending"
+    }
+]

@@ -1,12 +1,14 @@
 import React, { useMemo, useState, useContext } from "react";
-import { useLocation } from "react-router-dom"; // for query params
-import FilterSidebar from "../../../src/components/FilterSideBar/FilterSideBar";
-import ProductCard from "../../../src/components/ProductCard/ProductCard";
+import { useLocation, useNavigate } from "react-router-dom"; // for query params
+import FilterSidebar from "../../../components/FilterSideBar/FilterSideBar";
+import ProductCard from "../../../components/ProductCard/ProductCard";
 import productsData from "../../../data/product_sample_data.json";
-import Navbar from "../../../src/components/Navbar/Navbar";
+import Navbar from "../../../components/Navbar/Navbar";
+import Footer from "../../../components/Footer/Footer";
+import { AuthContext } from "../../../components/context/AuthContext";
+import { useComparison } from "../../../components/context/ComparisonContext";
+
 import "./Products.css";
-import Footer from "../../../src/components/Footer/Footer";
-import { AuthContext } from "../../../src/components/context/AuthContext";
 
 function useQuery() {
   return new URLSearchParams(useLocation().search);
@@ -25,11 +27,14 @@ const Products = () => {
   const [sortBy, setSortBy] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [showFilter, setShowFilter] = useState(false);
-
+  
   const { user } = useContext(AuthContext);
   const query = useQuery();
   const searchQuery = query.get("query")?.toLowerCase() || "";
   const selectedCategory = query.get("category") || "All";
+  const { comparisonList, clearComparison } = useComparison();
+  const navigate = useNavigate();
+
 
   // 🔎 Apply Filters + Sorting + Search
   const filteredProducts = useMemo(() => {
@@ -125,9 +130,6 @@ const Products = () => {
 
               <span className="h4 mt-2">Let's Shop</span>
 
-              
-
-
               {/* Sort dropdown */}
               <div className="dropdown ms-auto">
                 <button
@@ -169,7 +171,10 @@ const Products = () => {
             {/* Product Grid */}
             <div className="row p-2 pe-2 pe-md-4">
               {currentProducts.map((p) => (
-                <ProductCard key={p.id} product={p} />
+                <ProductCard 
+                  key={p.id} 
+                  product={p} 
+                   />
               ))}
               {currentProducts.length === 0 && (
                 <p className="text-center mt-3">No products found.</p>
@@ -236,6 +241,51 @@ const Products = () => {
           </div>
         </div>
       )}
+
+      {/* 🔽 Sticky Compare Bar */}
+      {comparisonList.length > 0 && (
+        <div className="compare-bar shadow-lg p-3 bg-light d-flex align-items-center justify-content-between">
+          {/* Selected Products Preview */}
+          <div className="d-flex flex-wrap align-items-center">
+            {comparisonList.map((item) => (
+              <div key={item.id} className="mx-2 text-center">
+                <img
+                  src={item.image}
+                  alt={item.name}
+                  width="60"
+                  height="60"
+                  className="rounded border"
+                />
+                <p className="small mt-1 mb-0 text-truncate" style={{ maxWidth: "70px" }}>
+                  {item.name}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          {/* Action Buttons */}
+          <div className="d-flex align-items-center gap-2">
+            <button
+              className="btn btn-outline-danger btn-sm"
+              onClick={clearComparison}
+            >
+              Clear All
+            </button>
+            <button
+              className="btn btn-primary btn-sm"
+              onClick={() =>
+                navigate("/compare", {
+                  state: { products: comparisonList },
+                })
+              }
+            >
+              Compare Now ({comparisonList.length})
+            </button>
+          </div>
+        </div>
+      )}
+
+     
 
       <Footer />
     </>

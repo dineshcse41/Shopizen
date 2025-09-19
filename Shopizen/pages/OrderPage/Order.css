@@ -83,14 +83,43 @@
     font-size: 0.9rem;
 }
 
-/*
-.container-fluid {
-    margin: 0;
-    padding: 0;
-    background: plum;
-}*/
-
 /*checkout page End*/
 .container {
     background-color: white;
+}
+
+/* Reduce section width on column (mobile) */
+.checkout-form,
+.checkout-summary {
+    max-width: 95%;
+    /* slightly narrower than full */
+}
+
+@media (min-width: 768px) {
+    .checkout-form {
+        max-width: 70%;
+        /* form wider on desktop */
+    }
+
+    .checkout-summary {
+        max-width: 30%;
+        /* summary narrower on desktop */
+    }
+}
+
+/* OrderPage */
+.order-card {
+    border-radius: 12px;
+}
+
+.order-img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+}
+
+/* TrackOrder Page */
+.progress-bar {
+    font-size: 12px;
+    font-weight: 500;
 }

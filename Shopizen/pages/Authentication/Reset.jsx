@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import './auth.css'
-import useFormSubmit from '../../src/components/useFormSubmit';
+import useFormSubmit from '../../components/useFormSubmit';
 
 
 function Reset() {

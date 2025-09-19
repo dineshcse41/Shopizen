@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import { CartContext } from "../../src/components/context/CartContext";
+import { CartContext } from "../../components/context/CartContext";
 
-import ProgressBar from "../../src/components/Cart/ProgressBar";
-import CartItem from "../../src/components/Cart/CartItem";
-import TotalSummary from "../../src/components/Cart/TotalSummary";
-import Navbar from "../../src/components/Navbar/Navbar";
+import ProgressBar from "../../components/Cart/ProgressBar";
+import CartItem from "../../components/Cart/CartItem";
+import TotalSummary from "../../components/Cart/TotalSummary";
+import Navbar from "../../components/Navbar/Navbar";
 import "./order.css";
 
 const CartPage = () => {

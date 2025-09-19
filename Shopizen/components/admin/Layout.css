@@ -1,0 +1,36 @@
+/* Layout container */
+.layout-container {
+    min-height: 100vh;
+    background-color: #f8f9fa;
+    /* light gray dashboard background */
+}
+
+/* Main content area */
+.layout-main {
+    overflow-y: auto;
+    background: grey;
+    /* subtle background */
+}
+
+/* Wrapper around actual content */
+.content-wrapper {
+    min-height: calc(100vh - 40px);
+    background: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    background: none;
+}
+
+/* Scrollbar styling */
+.layout-main::-webkit-scrollbar {
+    width: 8px;
+}
+
+.layout-main::-webkit-scrollbar-thumb {
+    background: #bbb;
+    border-radius: 10px;
+}
+
+.layout-main::-webkit-scrollbar-thumb:hover {
+    background: #888;
+}

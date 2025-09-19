@@ -1,17 +1,17 @@
 import React, { useContext } from "react";
-import { WishlistContext } from "../../src/components/context/WishlistContext";
-import Navbar from "../../src/components/Navbar/Navbar";
+import { WishlistContext } from "../../components/context/WishlistContext";
+import Navbar from "../../components/Navbar/Navbar";
 import { Link } from "react-router-dom";
-import { CartContext } from "../../src/components/context/CartContext";
+import { CartContext } from "../../components/context/CartContext";
 import defaultImage from "../../src/assets/product-default-image.png";
 
 const WishlistPage = () => {
-     const { addToCart } = useContext(CartContext);
+    const { addToCart } = useContext(CartContext);
     const { wishlist, removeFromWishlist } = useContext(WishlistContext);
 
     return (
-      <>
-      <Navbar/>
+        <>
+            <Navbar />
             <div className="mt-4 ms-4">
                 <h3>My Wishlist</h3>
                 {wishlist.length === 0 ? (
@@ -20,7 +20,7 @@ const WishlistPage = () => {
                     <div className="row">
                         {wishlist.map((product) => (
                             <div className="col-md-3" key={product.id}>
-                              <div className="card h-100">
+                                <div className="card h-100">
                                     {/* Discount */}
                                     <div className="discount-badge">{product.discount}% OFF</div>
 
@@ -67,17 +67,17 @@ const WishlistPage = () => {
                                             </button>
                                         </div>
                                     </div>
-                              </div>
+                                </div>
                             </div>
                         ))}
                     </div>
 
-                    
 
-                        
+
+
                 )}
             </div>
-      </>
+        </>
     );
 };
 

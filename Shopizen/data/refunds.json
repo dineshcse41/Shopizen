@@ -1,0 +1,16 @@
+[
+    {
+        "id": 1,
+        "orderId": "ORD123",
+        "user": "Alice",
+        "amount": 5000,
+        "status": "pending"
+    },
+    {
+        "id": 2,
+        "orderId": "ORD124",
+        "user": "Bob",
+        "amount": 1500,
+        "status": "approved"
+    }
+]

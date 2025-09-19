@@ -1,0 +1,12 @@
+[
+    {
+        "id": 1,
+        "title": "Maintenance",
+        "message": "Site will be down at 2 AM."
+    },
+    {
+        "id": 2,
+        "title": "Offer",
+        "message": "50% off on electronics!"
+    }
+]

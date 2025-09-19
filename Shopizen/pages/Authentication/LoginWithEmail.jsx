@@ -1,14 +1,16 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import './auth.css';
-import useFormSubmit from '../../src/components/useFormSubmit';
-import { AuthContext } from '../../src/components/context/AuthContext';
-import { CartContext } from '../../src/components/context/CartContext';
+import useFormSubmit from '../../components/useFormSubmit';
+import { AuthContext } from '../../components/context/AuthContext';
+import { CartContext } from '../../components/context/CartContext';
+import { useToast } from "../../components/context/ToastContext";
+
 
 function Login() {
-    const { login } = useContext(AuthContext); // ✅ global auth
-    const { addToCart } = useContext(CartContext); // ✅ to honor addToCart intent after login
-
+    const { login } = useContext(AuthContext); //  global auth
+    const { addToCart } = useContext(CartContext); // to honor addToCart intent after login
+    const { showToast } = useToast();
     const { formData, showPassword, togglePassword, handleChange, loading } =
         useFormSubmit({}, 'http://localhost:5173/data/user.json');
 
@@ -20,7 +22,7 @@ function Login() {
     const [emailValid, setEmailValid] = useState(false);
 
     const navigate = useNavigate();
-    const location = useLocation(); // ✅ get previous location + intent from ProductDetail
+    const location = useLocation(); // get previous location + intent from ProductDetail
 
     // Fetch registered emails
     useEffect(() => {
@@ -44,31 +46,34 @@ function Login() {
         setEmailError('');
         setPasswordError('');
 
-        // 1️⃣ Email validation (kept from your original UI logic)
+        // Email validation
         if (!registeredEmails.includes(formData.email)) {
             if (!firstEmailInvalid) {
                 setEmailError('This email is not registered. Please register.');
                 setFirstEmailInvalid(true);
             }
             setEmailValid(false);
+            //  error toast
+            showToast("This email is not registered!", "error");
             return;
         } else {
             setEmailValid(true);
             setFirstEmailInvalid(false);
         }
 
-        // 2️⃣ Password validation
+        // Password validation
         if (!isPasswordValid(formData.password || '')) {
             if (!firstPasswordInvalid) {
                 setPasswordError('Please enter a valid password.');
                 setFirstPasswordInvalid(true);
             }
+            //  error toast
+            showToast("Invalid password format.", "error");
             return;
         } else {
             setFirstPasswordInvalid(false);
         }
 
-        // 3️⃣ Validate credentials & then honor intent
         try {
             const res = await fetch('../data/user.json');
             const data = await res.json();
@@ -78,29 +83,20 @@ function Login() {
             );
 
             if (userFound) {
-                login(userFound); // ✅ set user in context
-                alert('Login successful!');
+                login(userFound);
+                // success toast
+                showToast("Login successful! 🎉", "success");
 
-                // ⬇️ Read where we came from and what the user intended
                 const { from, intent, product } = location.state || {};
-
-                if (intent === 'buyNow' && product) {
-                    // Go straight to checkout with the product
-                   /*  navigate('/checkout', { state: { product } });
-                    return; */
-                    navigate(from || `/product/${product.id}`); // ✅ back to product page
-                    return;
-                }
-
-                if (intent === 'buyNow' && product) {
-                    navigate('/checkout', {
+                if (intent === "buyNow" && product) {
+                    navigate("/checkout", {
                         state: {
                             buyNowProduct: {
                                 id: product.id,
                                 name: product.name,
                                 price: product.price,
                                 summary: product.description,
-                                quantity: product.quantity || 1, // default 1 if missing
+                                quantity: product.quantity || 1,
                                 image: product.image,
                             },
                         },
@@ -108,50 +104,48 @@ function Login() {
                     return;
                 }
 
-
-
-                // Fallback: just go back where we came from or home
-                navigate(from || '/');
+                navigate(from || "/");
             } else {
-                alert('Invalid credentials!');
+                //  error toast
+                showToast("Invalid credentials! Try again.", "error");
             }
         } catch (err) {
             console.error(err);
-            alert('Error logging in. Try again later.');
+            //  error toast
+            showToast("Error logging in. Try again later.", "error");
         }
     };
 
     const handleGoogleLogin = async () => {
-    try {
-        const result = await signInWithPopup(auth, googleProvider);
-        const user = result.user;
+        try {
+            const result = await signInWithPopup(auth, googleProvider);
+            const user = result.user;
 
-        const newUser = {
-            id: user.uid,
-            name: user.displayName,
-            email: user.email,
-            photo: user.photoURL,
-            provider: "google",
-        };
+            const newUser = {
+                id: user.uid,
+                name: user.displayName,
+                email: user.email,
+                photo: user.photoURL,
+                provider: "google",
+            };
 
-        // ✅ Save in AuthContext
-        login(newUser);
+            login(newUser);
 
-        // ✅ Save in localStorage (to simulate database persistence)
-        let existingUsers = JSON.parse(localStorage.getItem("googleUsers")) || [];
-        const exists = existingUsers.some((u) => u.email === newUser.email);
-        if (!exists) {
-            existingUsers.push(newUser);
-            localStorage.setItem("googleUsers", JSON.stringify(existingUsers));
+            let existingUsers = JSON.parse(localStorage.getItem("googleUsers")) || [];
+            if (!existingUsers.some((u) => u.email === newUser.email)) {
+                existingUsers.push(newUser);
+                localStorage.setItem("googleUsers", JSON.stringify(existingUsers));
+            }
+
+            // success toast
+            showToast("Google Login Successful! 🎉", "success");
+            navigate("/");
+        } catch (err) {
+            console.error("Google Login Error:", err);
+            //  error toast
+            showToast("Google login failed. Try again.", "error");
         }
-
-        alert("Google Login Successful!");
-        navigate("/"); // or navigate(from || "/")
-    } catch (err) {
-        console.error("Google Login Error:", err);
-        alert("Google login failed. Try again.");
-    }
-};
+    };
 
 
     return (
@@ -162,7 +156,7 @@ function Login() {
                     <h2>LOG IN</h2>
 
                     {/* Email */}
-                    <label htmlFor="email">Username</label>
+                    <label htmlFor="email">User Email</label>
                     <div className="input-box">
                         <input
                             type="email"

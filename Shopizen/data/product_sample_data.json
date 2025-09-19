@@ -1,49 +1,85 @@
 [
-{
-  "id": 1,
-  "name": "Cotton T-Shirt",
-  "description": "Soft cotton t-shirt for men",
-  "price": 599.00,
-  "oldPrice": 3999.00,
-  "discount": 75,
-  "stock": 25,
-  "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSAutTZ4envVjdi-auSZwowBqE4RxRzeNAcQ&s",
-  "images": [
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSAutTZ4envVjdi-auSZwowBqE4RxRzeNAcQ&s",
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSAutTZ4envVjdi-auSZwowBqE4RxRzeNAcQ&s",
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSAutTZ4envVjdi-auSZwowBqE4RxRzeNAcQ&s",
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSAutTZ4envVjdi-auSZwowBqE4RxRzeNAcQ&s",
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSAutTZ4envVjdi-auSZwowBqE4RxRzeNAcQ&s"
-  ],
-  "category": "Fashion",
-  "brand": "Zara",
-  "reviews": [
-    {
-      "name": "Priya H",
-      "date": "2025-08-24",
-      "stars": 5,
-      "text": "Great quality t-shirt!",
-      "media": [
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSAutTZ4envVjdi-auSZwowBqE4RxRzeNAcQ&s",
-        "https://example.com/video1.mp4"
-      ]
-    },
-    {
-      "name": "Ravi K",
-      "date": "2025-08-22",
-      "stars": 4,
-      "text": "Nice fabric and fit",
-      "media": []
-    },
-    {
-      "name": "Ravi K",
-      "date": "2025-08-22",
-      "stars": 4,
-      "text": "Nice fabric and fit",
-      "media": []
-    }
-  ]
-},
+  {
+    "id": 1,
+    "name": "Cotton T-Shirt",
+    "description": "Soft cotton t-shirt for men",
+    "price": 599.00,
+    "oldPrice": 3999.00,
+    "discount": 75,
+    "rating": 4,
+    "stock": 25,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSAutTZ4envVjdi-auSZwowBqE4RxRzeNAcQ&s",
+    "images": [
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSAutTZ4envVjdi-auSZwowBqE4RxRzeNAcQ&s",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSAutTZ4envVjdi-auSZwowBqE4RxRzeNAcQ&s",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSAutTZ4envVjdi-auSZwowBqE4RxRzeNAcQ&s",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSAutTZ4envVjdi-auSZwowBqE4RxRzeNAcQ&s",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSAutTZ4envVjdi-auSZwowBqE4RxRzeNAcQ&s"
+    ],
+    "category": "Fashion",
+    "subCategory":"Men",
+    "brand": "Zara",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "reviews": [
+      {
+        "name": "Priya H",
+        "date": "2025-08-24",
+        "stars": 5,
+        "text": "Great quality t-shirt!",
+        "media": [
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSAutTZ4envVjdi-auSZwowBqE4RxRzeNAcQ&s",
+          "https://example.com/video1.mp4"
+        ]
+      },
+      {
+        "name": "Ravi K",
+        "date": "2025-08-22",
+        "stars": 4,
+        "text": "Nice fabric and fit",
+        "media": []
+      },
+       {
+        "name": "Priya H",
+        "date": "2025-08-24",
+        "stars": 5,
+        "text": "Great quality t-shirt!",
+        "media": [
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSAutTZ4envVjdi-auSZwowBqE4RxRzeNAcQ&s",
+          "https://example.com/video1.mp4"
+        ]
+      },
+      {
+        "name": "Ravi K",
+        "date": "2025-08-22",
+        "stars": 4,
+        "text": "Nice fabric and fit",
+        "media": []
+      },
+      {
+        "name": "Priya H",
+        "date": "2025-08-24",
+        "stars": 5,
+        "text": "Great quality t-shirt!",
+        "media": [
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSAutTZ4envVjdi-auSZwowBqE4RxRzeNAcQ&s",
+          "https://example.com/video1.mp4"
+        ]
+      },
+      {
+        "name": "Ravi K",
+        "date": "2025-08-22",
+        "stars": 4,
+        "text": "Nice fabric and fit",
+        "media": []
+      }
+    ]
+  },
   {
     "id": 2,
     "name": "Bluetooth Headphones",
@@ -81,7 +117,14 @@
     "image": "https://m.media-amazon.com/images/I/61iz3JBHcTL._SX625_.jpg",
     "category": "Fashion",
     "subCategory": "Footwear",
-    "brand": "Bata"
+    "brand": "Bata",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ]
   },
   {
     "id": 5,
@@ -94,7 +137,12 @@
     "image": "https://m.media-amazon.com/images/I/81rDE6gGxnL._AC_SR180,120_CB1169409_QL70_.jpg",
     "category": "Bags",
     "subCategory": "Backpacks",
-    "brand": "Wildcraft"
+    "brand": "Wildcraft",
+    "sizes": [
+      "Small",
+      "Medium",
+      "Large"
+    ]
   },
   {
     "id": 6,
@@ -120,7 +168,14 @@
     "image": "https://m.media-amazon.com/images/I/41i+Ulf6X6L._SY395_SX395_.jpg",
     "category": "Fashion",
     "subCategory": "Footwear",
-    "brand": "Puma"
+    "brand": "Puma",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ]
   },
   {
     "id": 8,
@@ -289,7 +344,14 @@
     "image": "https://m.media-amazon.com/images/I/71s4v0hFTlL._AC_UL320_.jpg",
     "category": "Footwear",
     "subCategory": "Sports Shoes",
-    "brand": "Nike"
+    "brand": "Nike",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ]
   },
   {
     "id": 21,
@@ -406,41 +468,355 @@
     "image": "https://m.media-amazon.com/images/I/61qJXqQ7kFL._AC_UL320_.jpg",
     "category": "Jewelry",
     "subCategory": "Earrings",
-    "brand": "Tanishq"
+    "brand": "Tanishq",
+    "sizes": [
+      "16in",
+      "18in",
+      "20in",
+      "22in"
+    ]
   },
   {
     "id": 30,
-    "name": "Silver Necklace",
-    "description": "Sterling silver chain necklace",
-    "price": 1499.00,
-    "oldPrice": 1999.00,
-    "discount": 25,
-    "stock": 12,
-    "image": "https://m.media-amazon.com/images/I/71F9zK6Y8cL._AC_UL320_.jpg",
+    "name": "Silver Chain",
+    "description": "Sterling silver chain for men",
+    "price": 1299.00,
+    "oldPrice": 1599.00,
+    "discount": 19,
+    "stock": 15,
+    "image": "https://m.media-amazon.com/images/I/71D1YY9u6sL._AC_UL320_.jpg",
     "category": "Jewelry",
     "subCategory": "Necklaces",
-    "brand": "CaratLane"
+    "brand": "Kalyan",
+    "sizes": [
+      "16in",
+      "18in",
+      "20in",
+      "22in"
+    ]
   },
   {
     "id": 31,
-    "name": "Shirt",
-    "description": "Soft cotton t-shirt for men",
-    "price": 599.00,
-    "stock": 25,
-    "image": "https://assetscdn1.paytm.com/images/catalog/product/E/ED/EDCWH-CH720N-LCPAYT115243541185413/0.jpg",
-    "category": "Fashion",
-    "subCategory": "Men Clothing",
-    "brand": "Zara"
-  },
-  {
-    "id": 32,
     "name": "T-Shirt",
     "description": "Soft cotton t-shirt for men",
     "price": 599.00,
+    "oldPrice": 3999.00,
+    "discount": 75,
+    "rating": 4,
     "stock": 25,
     "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSAutTZ4envVjdi-auSZwowBqE4RxRzeNAcQ&s",
+    "images": [
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSAutTZ4envVjdi-auSZwowBqE4RxRzeNAcQ&s",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSAutTZ4envVjdi-auSZwowBqE4RxRzeNAcQ&s",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSAutTZ4envVjdi-auSZwowBqE4RxRzeNAcQ&s",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSAutTZ4envVjdi-auSZwowBqE4RxRzeNAcQ&s",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSAutTZ4envVjdi-auSZwowBqE4RxRzeNAcQ&s"
+    ],
     "category": "Fashion",
-    "subCategory": "Men Clothing",
-    "brand": "Zara"
+    "subCategory": "Men",
+    "brand": "Zara",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "reviews": [
+      {
+        "name": "Priya H",
+        "date": "2025-08-24",
+        "stars": 5,
+        "text": "Great quality t-shirt!",
+        "media": [
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSAutTZ4envVjdi-auSZwowBqE4RxRzeNAcQ&s",
+          "https://example.com/video1.mp4"
+        ]
+      },
+      {
+        "name": "Ravi K",
+        "date": "2025-08-22",
+        "stars": 4,
+        "text": "Nice fabric and fit",
+        "media": []
+      },
+      {
+        "name": "Priya H",
+        "date": "2025-08-24",
+        "stars": 5,
+        "text": "Great quality t-shirt!",
+        "media": [
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSAutTZ4envVjdi-auSZwowBqE4RxRzeNAcQ&s",
+          "https://example.com/video1.mp4"
+        ]
+      },
+      {
+        "name": "Ravi K",
+        "date": "2025-08-22",
+        "stars": 4,
+        "text": "Nice fabric and fit",
+        "media": []
+      },
+      {
+        "name": "Priya H",
+        "date": "2025-08-24",
+        "stars": 5,
+        "text": "Great quality t-shirt!",
+        "media": [
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSAutTZ4envVjdi-auSZwowBqE4RxRzeNAcQ&s",
+          "https://example.com/video1.mp4"
+        ]
+      },
+      {
+        "name": "Ravi K",
+        "date": "2025-08-22",
+        "stars": 4,
+        "text": "Nice fabric and fit",
+        "media": []
+      }
+    ]
+  },
+  {
+    "id": 32,
+    "name": "Shirt",
+    "description": "Soft cotton t-shirt for men",
+    "price": 599.00,
+    "oldPrice": 3999.00,
+    "discount": 75,
+    "rating": 4,
+    "stock": 25,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSAutTZ4envVjdi-auSZwowBqE4RxRzeNAcQ&s",
+    "images": [
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSAutTZ4envVjdi-auSZwowBqE4RxRzeNAcQ&s",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSAutTZ4envVjdi-auSZwowBqE4RxRzeNAcQ&s",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSAutTZ4envVjdi-auSZwowBqE4RxRzeNAcQ&s",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSAutTZ4envVjdi-auSZwowBqE4RxRzeNAcQ&s",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSAutTZ4envVjdi-auSZwowBqE4RxRzeNAcQ&s"
+    ],
+    "category": "Fashion",
+    "subCategory": "Men",
+    "brand": "Zara",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "reviews": [
+      {
+        "name": "Priya H",
+        "date": "2025-08-24",
+        "stars": 5,
+        "text": "Great quality t-shirt!",
+        "media": [
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSAutTZ4envVjdi-auSZwowBqE4RxRzeNAcQ&s",
+          "https://example.com/video1.mp4"
+        ]
+      },
+      {
+        "name": "Ravi K",
+        "date": "2025-08-22",
+        "stars": 4,
+        "text": "Nice fabric and fit",
+        "media": []
+      },
+      {
+        "name": "Priya H",
+        "date": "2025-08-24",
+        "stars": 5,
+        "text": "Great quality t-shirt!",
+        "media": [
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSAutTZ4envVjdi-auSZwowBqE4RxRzeNAcQ&s",
+          "https://example.com/video1.mp4"
+        ]
+      },
+      {
+        "name": "Ravi K",
+        "date": "2025-08-22",
+        "stars": 4,
+        "text": "Nice fabric and fit",
+        "media": []
+      },
+      {
+        "name": "Priya H",
+        "date": "2025-08-24",
+        "stars": 5,
+        "text": "Great quality t-shirt!",
+        "media": [
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSAutTZ4envVjdi-auSZwowBqE4RxRzeNAcQ&s",
+          "https://example.com/video1.mp4"
+        ]
+      },
+      {
+        "name": "Ravi K",
+        "date": "2025-08-22",
+        "stars": 4,
+        "text": "Nice fabric and fit",
+        "media": []
+      }
+    ]
+  },
+  {
+    "id": 33,
+    "name": "Cotton T-Shirt",
+    "description": "Soft cotton t-shirt for men",
+    "price": 499.00,
+    "oldPrice": 599.00,
+    "discount": 75,
+    "rating": 4,
+    "stock": 25,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSAutTZ4envVjdi-auSZwowBqE4RxRzeNAcQ&s",
+    "images": [
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSAutTZ4envVjdi-auSZwowBqE4RxRzeNAcQ&s",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSAutTZ4envVjdi-auSZwowBqE4RxRzeNAcQ&s",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSAutTZ4envVjdi-auSZwowBqE4RxRzeNAcQ&s",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSAutTZ4envVjdi-auSZwowBqE4RxRzeNAcQ&s",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSAutTZ4envVjdi-auSZwowBqE4RxRzeNAcQ&s"
+    ],
+    "category": "Fashion",
+    "subCategory": "Men",
+    "brand": "Zara",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "reviews": [
+      {
+        "name": "Priya H",
+        "date": "2025-08-24",
+        "stars": 5,
+        "text": "Great quality t-shirt!",
+        "media": [
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSAutTZ4envVjdi-auSZwowBqE4RxRzeNAcQ&s",
+          "https://example.com/video1.mp4"
+        ]
+      },
+      {
+        "name": "Ravi K",
+        "date": "2025-08-22",
+        "stars": 4,
+        "text": "Nice fabric and fit",
+        "media": []
+      },
+      {
+        "name": "Priya H",
+        "date": "2025-08-24",
+        "stars": 5,
+        "text": "Great quality t-shirt!",
+        "media": [
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSAutTZ4envVjdi-auSZwowBqE4RxRzeNAcQ&s",
+          "https://example.com/video1.mp4"
+        ]
+      },
+      {
+        "name": "Ravi K",
+        "date": "2025-08-22",
+        "stars": 4,
+        "text": "Nice fabric and fit",
+        "media": []
+      },
+      {
+        "name": "Priya H",
+        "date": "2025-08-24",
+        "stars": 5,
+        "text": "Great quality t-shirt!",
+        "media": [
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSAutTZ4envVjdi-auSZwowBqE4RxRzeNAcQ&s",
+          "https://example.com/video1.mp4"
+        ]
+      },
+      {
+        "name": "Ravi K",
+        "date": "2025-08-22",
+        "stars": 4,
+        "text": "Nice fabric and fit",
+        "media": []
+      }
+    ]
+  },
+  {
+    "id": 34,
+    "name": "Cotton T-Shirt",
+    "description": "Soft cotton t-shirt for men",
+    "price": 699.00,
+    "oldPrice": 3999.00,
+    "discount": 75,
+    "rating": 4,
+    "stock": 25,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSAutTZ4envVjdi-auSZwowBqE4RxRzeNAcQ&s",
+    "images": [
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSAutTZ4envVjdi-auSZwowBqE4RxRzeNAcQ&s",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSAutTZ4envVjdi-auSZwowBqE4RxRzeNAcQ&s",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSAutTZ4envVjdi-auSZwowBqE4RxRzeNAcQ&s",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSAutTZ4envVjdi-auSZwowBqE4RxRzeNAcQ&s",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSAutTZ4envVjdi-auSZwowBqE4RxRzeNAcQ&s"
+    ],
+    "category": "Fashion",
+    "subCategory": "Men",
+    "brand": "Zara",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "reviews": [
+      {
+        "name": "Priya H",
+        "date": "2025-08-24",
+        "stars": 5,
+        "text": "Great quality t-shirt!",
+        "media": [
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSAutTZ4envVjdi-auSZwowBqE4RxRzeNAcQ&s",
+          "https://example.com/video1.mp4"
+        ]
+      },
+      {
+        "name": "Ravi K",
+        "date": "2025-08-22",
+        "stars": 4,
+        "text": "Nice fabric and fit",
+        "media": []
+      },
+      {
+        "name": "Priya H",
+        "date": "2025-08-24",
+        "stars": 5,
+        "text": "Great quality t-shirt!",
+        "media": [
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSAutTZ4envVjdi-auSZwowBqE4RxRzeNAcQ&s",
+          "https://example.com/video1.mp4"
+        ]
+      },
+      {
+        "name": "Ravi K",
+        "date": "2025-08-22",
+        "stars": 4,
+        "text": "Nice fabric and fit",
+        "media": []
+      },
+      {
+        "name": "Priya H",
+        "date": "2025-08-24",
+        "stars": 5,
+        "text": "Great quality t-shirt!",
+        "media": [
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSAutTZ4envVjdi-auSZwowBqE4RxRzeNAcQ&s",
+          "https://example.com/video1.mp4"
+        ]
+      },
+      {
+        "name": "Ravi K",
+        "date": "2025-08-22",
+        "stars": 4,
+        "text": "Nice fabric and fit",
+        "media": []
+      }
+    ]
   }
 ]

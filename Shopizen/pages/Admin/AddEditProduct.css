@@ -1,0 +1,90 @@
+.form-title {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.product-input-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.product-input-table th,
+.product-input-table td {
+    border: 1px solid #e5e7eb;
+    padding: 10px;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.product-input-table th {
+    background: #1f2937;
+    color: #fff;
+    font-weight: 500;
+    text-align: center;
+}
+
+.product-input-table input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #d1d5db;
+    border-radius: 5px;
+    font-size: 0.9rem;
+}
+
+.product-input-table input:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0px 0px 4px rgba(37, 99, 235, 0.3);
+}
+
+.btn {
+    padding: 8px 14px;
+    font-size: 0.9rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.btn-add {
+    background-color: #10b981;
+    color: white;
+}
+
+.btn-add:hover {
+    background-color: #2563eb;
+    transform: scale(1.03);
+}
+
+.btn-sm {
+    padding: 5px 10px;
+    font-size: 0.8rem;
+}
+
+.btn-save {
+    background-color: #2563eb;
+    color: #fff;
+}
+
+.btn-save:hover {
+    background-color: #1e40af;
+    transform: scale(1.03);
+}
+
+.btn-cancel {
+    background-color: #e5e7eb;
+    color: #374151;
+}
+
+.btn-cancel:hover {
+    background-color: #d1d5db;
+    transform: scale(1.03);
+}

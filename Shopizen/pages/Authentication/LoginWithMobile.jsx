@@ -1,7 +1,8 @@
 
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useAuth } from '../../src/components/context/AuthContext';
+import { useAuth } from '../../components/context/AuthContext';
+import { useToast } from "../../components/context/ToastContext";
 import "./auth.css";
 
 function MobileLogin() {
@@ -40,13 +41,13 @@ function MobileLogin() {
         return () => clearInterval(interval);
     }, [showResend, resendTimer, step]);
 
-    // Send OTP
     const handleSendOtp = () => {
         setErrorMessage("");
         setOtpError("");
 
         if (mobile.length < 5) {
             setErrorMessage("Please enter a valid mobile number.");
+            showToast("Please enter a valid mobile number.", "error");
             return;
         }
 
@@ -55,10 +56,11 @@ function MobileLogin() {
                 setErrorMessage("This mobile number is not registered. Please register.");
                 setFirstAttemptInvalid(true);
             }
+            showToast("This mobile number is not registered!", "error");
             return;
         }
 
-        setFirstAttemptInvalid(false); // reset invalid flag for next attempts
+        setFirstAttemptInvalid(false);
         setErrorMessage("");
 
         const otpValue = Math.floor(100000 + Math.random() * 900000).toString();
@@ -67,29 +69,32 @@ function MobileLogin() {
         setShowResend(true);
         setResendTimer(30);
         setIsResendDisabled(true);
-        alert(`Your OTP is: ${otpValue}`);
+
+        // info toast (instead of alert)
+        showToast(`Your OTP is: ${otpValue}`, "info");
     };
 
-    // Verify OTP
     const handleVerifyOtp = () => {
         if (otp === generatedOtp) {
-            alert("Login Successful!");
-            setShowResend(false); // stop timer
-            setOtpError("");
-            // ✅ Update AuthContext with login
             login({
                 mobile: `${countryCode}${mobile}`,
                 method: "mobile",
                 timestamp: new Date().toISOString()
             });
+
+            setShowResend(false);
+            setOtpError("");
+            //  success toast
+            showToast("Mobile login successful! 🎉", "success");
             navigate("/");
         } else {
             setOtpError("Invalid OTP. Try again.");
-            setIsResendDisabled(false); // allow resend immediately
+            setIsResendDisabled(false);
+            //  error toast
+            showToast("Invalid OTP. Try again.", "error");
         }
     };
 
-    // Resend OTP
     const handleResendOtp = () => {
         const otpValue = Math.floor(100000 + Math.random() * 900000).toString();
         setGeneratedOtp(otpValue);
@@ -98,7 +103,9 @@ function MobileLogin() {
         setResendTimer(30);
         setIsResendDisabled(true);
         setShowResend(true);
-        alert(`New OTP is: ${otpValue}`);
+
+        //  info toast
+        showToast(`New OTP is: ${otpValue}`, "info");
     };
 
     return (
@@ -112,21 +119,25 @@ function MobileLogin() {
                     {step === "mobile" ? (
                         <>
                             <label htmlFor="mobile">Mobile Number</label>
-                            <div className="input-box" 
-                            style={{ display: "flex", 
-                                alignItems: "center", 
-                                border: "2px solid rgba(3,3,3,0.2)",
-                                borderRadius: "40px",
-                                padding: "5px 10px", 
-                                background: "transparent" }}>
+                            <div className="input-box"
+                                style={{
+                                    display: "flex",
+                                    alignItems: "center",
+                                    border: "2px solid rgba(3,3,3,0.2)",
+                                    borderRadius: "40px",
+                                    padding: "5px 10px",
+                                    background: "transparent"
+                                }}>
                                 <select id="countryCode"
                                     name="countryCode" value={countryCode}
-                                 onChange={e => setCountryCode(e.target.value)}
-                                 style={{ border: "none", background: 
-                                    "transparent", fontSize: "14px", 
-                                    paddingRight: "5px", 
-                                    outline: "none", 
-                                    cursor: "pointer" }}>
+                                    onChange={e => setCountryCode(e.target.value)}
+                                    style={{
+                                        border: "none", background:
+                                            "transparent", fontSize: "14px",
+                                        paddingRight: "5px",
+                                        outline: "none",
+                                        cursor: "pointer"
+                                    }}>
 
                                     <option value="+91">+91</option>
                                     <option value="+1">+1</option>
@@ -172,18 +183,18 @@ function MobileLogin() {
                             <div className="input-box">
                                 <input
                                     type="text"
-                                        id="otp"
-                                        name="otp"
+                                    id="otp"
+                                    name="otp"
                                     placeholder="Enter OTP"
                                     value={otp}
                                     onChange={e => setOtp(e.target.value)}
                                     onKeyDown={e => {
-                                            if (e.key === "Enter") {
-                                                e.preventDefault();
-                                                handleVerifyOtp();
-                                            }
-                                        }}
-                                />  
+                                        if (e.key === "Enter") {
+                                            e.preventDefault();
+                                            handleVerifyOtp();
+                                        }
+                                    }}
+                                />
                             </div>
 
                             {otpError && <p style={{ color: "red", fontSize: "12px", marginTop: "5px" }}>{otpError}</p>}
@@ -214,3 +225,63 @@ function MobileLogin() {
 }
 
 export default MobileLogin;
+
+
+/* 
+Change your handleSendOtp and handleVerifyOtp to call backend API instead of local generatedOtp.
+For India, MSG91 or Fast2SMS are cheaper OTP services.
+
+const handleSendOtp = async () => {
+  if (mobile.length < 5) {
+    setErrorMessage("Please enter a valid mobile number.");
+    showToast("Please enter a valid mobile number.", "error");
+    return;
+  }
+
+  try {
+    const res = await fetch("http://localhost:5000/send-otp", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ mobile: `${countryCode}${mobile}` }),
+    });
+    const data = await res.json();
+
+    if (data.success) {
+      setStep("otp");
+      setShowResend(true);
+      setResendTimer(30);
+      setIsResendDisabled(true);
+      showToast("OTP sent to your mobile 📲", "success");
+    } else {
+      showToast(data.message, "error");
+    }
+  } catch (err) {
+    showToast("Failed to send OTP", "error");
+  }
+};
+
+const handleVerifyOtp = async () => {
+  try {
+    const res = await fetch("http://localhost:5000/verify-otp", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ mobile: `${countryCode}${mobile}`, otp }),
+    });
+    const data = await res.json();
+
+    if (data.success) {
+      login({ mobile: `${countryCode}${mobile}`, method: "mobile" });
+      showToast("Mobile login successful! 🎉", "success");
+      navigate("/");
+    } else {
+      setOtpError("Invalid OTP. Try again.");
+      setIsResendDisabled(false);
+      showToast("Invalid OTP", "error");
+    }
+  } catch (err) {
+    showToast("Verification failed", "error");
+  }
+};
+
+
+ */

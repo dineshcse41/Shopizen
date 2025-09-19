@@ -31,3 +31,17 @@
     overflow-y: auto;
     box-shadow: 2px 0 8px rgba(0, 0, 0, 0.2);
 }
+
+.compare-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1050;
+    border-top: 2px solid #ddd;
+}
+
+.compare-bar img {
+    object-fit: contain;
+    background: #fff;
+}

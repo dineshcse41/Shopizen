@@ -1,0 +1,39 @@
+/* Table wrapper */
+.table-responsive {
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* Page Title */
+.page-title {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+/* Warning & Danger buttons */
+.btn-warning {
+    background-color: #f59e0b;
+    border: none;
+}
+
+.btn-warning:hover {
+    background-color: #d97706;
+}
+
+.btn-danger {
+    background-color: #dc2626;
+    border: none;
+}
+
+.btn-danger:hover {
+    background-color: #b91c1c;
+}
+
+/* Search box */
+input.form-control {
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    padding: 10px;
+}
