@@ -1,0 +1,102 @@
+[
+  {
+    "id": 1,
+    "name": "Wireless Bluetooth Headphones",
+    "price": 1999,
+    "description": "Over-ear wireless headphones with noise cancellation",
+    "image": "headphones.jpg",
+    "category": "Electronics",
+    "brand": "Sony",
+    "created_at": "2025-01-01"
+  },
+  {
+    "id": 2,
+    "name": "Smartphone 6.5 inch",
+    "price": 14999,
+    "description": "Android smartphone with dual camera and 128GB storage",
+    "image": "smartphone.jpg",
+    "category": "Mobiles",
+    "brand": "Samsung",
+    "created_at": "2025-01-02"
+  },
+  {
+    "id": 3,
+    "name": "Men's Cotton T-Shirt",
+    "price": 499,
+    "description": "Comfortable round neck cotton T-shirt",
+    "image": "tshirt.jpg",
+    "category": "Fashion",
+    "brand": "Roadster",
+    "created_at": "2025-01-03"
+  },
+  {
+    "id": 4,
+    "name": "Gaming Laptop",
+    "price": 69999,
+    "description": "15.6 inch gaming laptop with RTX graphics",
+    "image": "laptop.jpg",
+    "category": "Computers",
+    "brand": "Asus",
+    "created_at": "2025-01-04"
+  },
+  {
+    "id": 5,
+    "name": "Microwave Oven",
+    "price": 8999,
+    "description": "20L convection microwave oven",
+    "image": "microwave.jpg",
+    "category": "Home Appliances",
+    "brand": "LG",
+    "created_at": "2025-01-05"
+  },
+  {
+    "id": 6,
+    "name": "Digital Watch",
+    "price": 1999,
+    "description": "Water resistant smart digital watch",
+    "image": "watch.jpg",
+    "category": "Accessories",
+    "brand": "Casio",
+    "created_at": "2025-01-06"
+  },
+  {
+    "id": 7,
+    "name": "Running Shoes",
+    "price": 2499,
+    "description": "Lightweight running shoes for men",
+    "image": "shoes.jpg",
+    "category": "Footwear",
+    "brand": "Nike",
+    "created_at": "2025-01-07"
+  },
+  {
+    "id": 8,
+    "name": "Refrigerator 240L",
+    "price": 23999,
+    "description": "Double door frost free refrigerator",
+    "image": "fridge.jpg",
+    "category": "Home Appliances",
+    "brand": "Whirlpool",
+    "created_at": "2025-01-08"
+  },
+  {
+    "id": 9,
+    "name": "Study Table",
+    "price": 3999,
+    "description": "Wooden study table with storage drawers",
+    "image": "table.jpg",
+    "category": "Furniture",
+    "brand": "Godrej",
+    "created_at": "2025-01-09"
+  },
+  {
+    "id": 10,
+    "name": "Wireless Mouse",
+    "price": 799,
+    "description": "Ergonomic wireless mouse with USB receiver",
+    "image": "mouse.jpg",
+    "category": "Computers",
+    "brand": "Logitech",
+    "created_at": "2025-01-10"
+  }
+]
