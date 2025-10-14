@@ -1,0 +1,25 @@
+.user-chat-container {
+    height: 80vh;
+}
+
+.chat-box {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.chat-body {
+    overflow-y: auto;
+    flex-grow: 1;
+}
+
+.message {
+    max-width: 70%;
+}
+
+.typing-indicator {
+    font-size: 0.85rem;
+    color: gray;
+    margin: 5px 0;
+    font-style: italic;
+}

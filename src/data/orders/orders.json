@@ -1,0 +1,29 @@
+[
+    {
+        "orderId": "O1001",
+        "userId": 101,
+        "addressId": "A1",
+        "amount": 2499,
+        "currency": "INR",
+        "paymentMethod": "UPI",
+        "shippingMethod": "Standard Delivery",
+        "status": "Delivered",
+        "orderDate": "2025-09-20T14:00:00Z",
+        "shippedDate": "2025-09-21T10:00:00Z",
+        "deliveredDate": "2025-09-23T16:30:00Z"
+    },
+    {
+        "orderId": "O1002",
+        "userId": 102,
+        "addressId": "A2",
+        
+        "amount": 7198,
+        "currency": "INR",
+        "paymentMethod": "Credit Card",
+        "shippingMethod": "Express Delivery",
+        "status": "Shipped",
+        "orderDate": "2025-09-28T09:00:00Z",
+        "shippedDate": "2025-09-29T11:00:00Z",
+        "expectedDelivery": "2025-10-02T18:00:00Z"
+    }
+]

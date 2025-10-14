@@ -1,0 +1,20 @@
+.wallet-container {
+    max-width: 900px;
+    margin: auto;
+}
+
+.wallet-balance {
+    background: #007bff;
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.table th {
+    font-weight: 600;
+}
+
+.pagination .page-item.active .page-link {
+    background-color: #007bff;
+    border-color: #007bff;
+}

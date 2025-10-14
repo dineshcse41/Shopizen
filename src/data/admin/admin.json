@@ -1,0 +1,57 @@
+[
+    {
+        "id": 1,
+        "name": "Super Admin",
+        "email": "admin@shopizen.com",
+        "role": "superadmin",
+        "active": true,
+        "password": "!SuperAdmin123",
+        "phoneNumber": "+91-9876543210",
+        "securityCode": "A1B2C3",
+        "lastLogin": "2025-09-30T12:30:00Z"
+    },
+    {
+        "id": 2,
+        "name": "John Manager",
+        "email": "john.manager@shopizen.com",
+        "role": "manager",
+        "active": true,
+        "password": "$Manager123",
+        "phoneNumber": "+91-9123456789",
+        "securityCode": "M4N5G6",
+        "lastLogin": "2025-10-01T09:15:00Z"
+    },
+    {
+        "id": 3,
+        "name": "Emily Support",
+        "email": "emily.support@shopizen.com",
+        "role": "support",
+        "active": true,
+        "password": "#Support123",
+        "phoneNumber": "+91-9988776655",
+        "securityCode": "M4N5G",
+        "lastLogin": "2025-09-28T16:45:00Z"
+    },
+    {
+        "id": 4,
+        "name": "Michael Editor",
+        "email": "michael.editor@shopizen.com",
+        "role": "editor",
+        "active": false,
+        "password": "%Editor123",
+        "phoneNumber": "+91-9090909090",
+        "securityCode": "M4N234",
+        "lastLogin": "2025-10-02T11:20:00Z"
+    },
+    {
+        "id": 5,
+        "name": "Sophia Sales",
+        "email": "sophia.sales@shopizen.com",
+        "role": "sales",
+        "active": true,
+        "password": "&Sales123",
+        "phoneNumber": "+91-9345678901",
+        "securityCode": "M42E76",
+        "lastLogin": "2025-09-25T14:10:00Z"
+    }
+]

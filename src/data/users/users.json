@@ -1,0 +1,44 @@
+[
+    {
+        "id": 101,
+        "name": "Haripriya",
+        "email": "haripriya@email.com",
+        "mobile": "9876543210",
+        "password": "!Priya234",
+        "gender": "Female",
+        "profilePicture": "https://cdn-icons-png.flaticon.com/512/3135/3135715.png",
+        "dob": "2002-08-25",
+        "role": "user",
+        "registeredAt": "2025-09-15T10:00:00Z",
+        "lastLogin": "2025-09-29T09:45:00Z",
+        "isActive": true
+    },
+    {
+        "id": 102,
+        "name": "Jeevitha",
+        "email": "jeevitha@email.com",
+        "mobile": "9876001234",
+        "password": "$Abcd1234",
+        "gender": "Male",
+        "profilePicture": "https://cdn-icons-png.flaticon.com/512/3135/3135715.png",
+        "dob": "2002-08-25",
+        "role": "user",
+        "registeredAt": "2025-09-20T12:15:00Z",
+        "lastLogin": "2025-09-30T08:30:00Z",
+        "isActive": true
+    },
+    {
+        "id": 103,
+        "name": "Rahul Kumar",
+        "email": "rahul.kumar@email.com",
+        "mobile": "9001122334",
+        "password": "$Testpass123",
+        "gender": "Female",
+        "profilePicture": "https://cdn-icons-png.flaticon.com/512/3135/3135715.png",
+        "dob": "2002-08-25",
+        "role": "user",
+        "registeredAt": "2025-09-25T15:30:00Z",
+        "lastLogin": "2025-09-28T20:10:00Z",
+        "isActive": false
+    }
+]

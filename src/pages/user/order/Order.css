@@ -1,0 +1,125 @@
+/*cart page Start*/
+/*top-sec Start*/
+.top-sec {
+    width: 100%;
+    height: 75px;
+    padding: 4px;
+    margin: 10px;
+}
+
+.top-sec span {
+    margin-top: 10px;
+    padding-left: 75px;
+}
+
+/*cart-container Start*/
+.cart-container,
+.container-fluid {
+    background-color: #d0e8f2;
+    /* Soft pastel blue */
+}
+
+.total-sec {
+    height: 250px;
+    justify-items: center;
+}
+
+.total-sec div button {
+    height: 35px;
+    width: 100%;
+}
+
+/*cart page End*/
+/*Progress bar Start*/
+.step {
+    width: 70px;
+    height: 70px;
+    line-height: 70px;
+    font-size: 24px;
+    transition: all 0.3s ease;
+}
+
+.step-circle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.step .bi {
+    vertical-align: middle;
+}
+
+.step.completed {
+    background-color: #28a745 !important;
+}
+
+.step.active {
+    background-color: #007bff !important;
+}
+
+.step.inactive {
+    background-color: #dee2e6 !important;
+    color: #6c757d;
+}
+
+.progress-line {
+    width: 100px;
+    height: 4px;
+    background-color: #dee2e6;
+    margin: 0 10px;
+    position: relative;
+    top: 33px;
+}
+
+.progress-line.filled {
+    background-color: #007bff;
+}
+
+/*Progress bar End*/
+/*checkout page Start*/
+.edit-btn {
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+/*checkout page End*/
+.container {
+    background-color: white;
+}
+
+/* Reduce section width on column (mobile) */
+.checkout-form,
+.checkout-summary {
+    max-width: 95%;
+    /* slightly narrower than full */
+}
+
+@media (min-width: 768px) {
+    .checkout-form {
+        max-width: 70%;
+        /* form wider on desktop */
+    }
+
+    .checkout-summary {
+        max-width: 30%;
+        /* summary narrower on desktop */
+    }
+}
+
+/* OrderPage */
+.order-card {
+    border-radius: 12px;
+}
+
+.order-img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+}
+
+/* TrackOrder Page */
+.progress-bar {
+    font-size: 12px;
+    font-weight: 500;
+}

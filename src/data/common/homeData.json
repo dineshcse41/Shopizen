@@ -1,0 +1,270 @@
+{
+    "slider": [
+        {
+            "id": 1,
+            "image": "https://t4.ftcdn.net/jpg/02/49/50/15/360_F_249501541_XmWdfAfUbWAvGxBwAM0ba2aYT36ntlpH.jpg",
+            "alt": "Slider 1",
+            "link": "/products/offer/mega-sale"
+        },
+        {
+            "id": 2,
+            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSj4fLEDpg7wTkhXNSUYFAnBRbFJO0JlvEOhcusmabi9pxuBHKeBgUqazeeDOoVPMdoRYA&usqp=CAU",
+            "alt": "Slider 2",
+            "link": "/products/offer/mega-sale"
+        },
+        {
+            "id": 3,
+            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvciZefObnpN6Wv-zihvMtjl2GAEg5jtf1l8lLk_2TkshgXnJu_3Dgo_DjVRbx9-jltV0&usqp=CAU",
+            "alt": "Slider 3",
+            "link": "/products/offer/mega-sale"
+        },
+        {
+            "id": 4,
+            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSO_XJqHra1Dt0D_1Om6KTIEpqXb8nDD-IpB_pFc9MxALQFDppwhgMf4-JIYjmRuixoZic&usqp=CAU",
+            "alt": "Slider 4",
+            "link": "/products/offer/mega-sale"
+        },
+        {
+            "id": 5,
+            "image": "https://t4.ftcdn.net/jpg/02/49/50/15/360_F_249501541_XmWdfAfUbWAvGxBwAM0ba2aYT36ntlpH.jpg",
+            "alt": "Slider 1",
+            "link": "/products/offer/mega-sale"
+        },
+        {
+            "id": 6,
+            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSj4fLEDpg7wTkhXNSUYFAnBRbFJO0JlvEOhcusmabi9pxuBHKeBgUqazeeDOoVPMdoRYA&usqp=CAU",
+            "alt": "Slider 2",
+            "link": "/products/offer/mega-sale"
+        },
+        {
+            "id": 7,
+            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvciZefObnpN6Wv-zihvMtjl2GAEg5jtf1l8lLk_2TkshgXnJu_3Dgo_DjVRbx9-jltV0&usqp=CAU",
+            "alt": "Slider 3",
+            "link": "/products/offer/mega-sale"
+        }
+    ],
+    "products": [
+        {
+            "id": 1,
+            "title": "Gaming Accessories",
+            "items": [
+                {
+                    "image": "https://i.pinimg.com/736x/92/b6/8a/92b68aee97e0d4dfe4a8e9ef06051218.jpg",
+                    "name": "Headsets"
+                },
+                {
+                    "image": "https://i.pinimg.com/1200x/1c/16/91/1c1691782a3533513b61d3ea67509fe5.jpg",
+                    "name": "Keyboard"
+                },
+                {
+                    "image": "https://i.pinimg.com/736x/63/23/09/6323090c39fe7a3c1d9da3bc27f28e8d.jpg",
+                    "name": "Computer Mice"
+                },
+                {
+                    "image": "https://i.pinimg.com/736x/6b/91/b6/6b91b697cb799a0b5a919b5be6b81cb4.jpg",
+                    "name": "Chair"
+                }
+            ],
+            "link": "#",
+            "linkText": "See more"
+        },
+        {
+            "id": 2,
+            "title": "Shop By Category",
+            "items": [
+                {
+                    "image": "https://i.pinimg.com/736x/eb/b3/5d/ebb35d9572ffff815578498fcf59cbbb.jpg",
+                    "name": "Laptop"
+                },
+                {
+                    "image": "https://i.pinimg.com/736x/a8/0e/84/a80e84a8f29254832658cdf4e0a3a5c2.jpg",
+                    "name": "Video Games"
+                },
+                {
+                    "image": "https://i.pinimg.com/736x/1b/82/ad/1b82add4c2016c9e9ea2159cbb0091a3.jpg",
+                    "name": "Baby"
+                },
+                {
+                    "image": "https://i.pinimg.com/736x/35/2c/23/352c23cd54d259b79fb8448ecab0db36.jpg",
+                    "name": "Toy & Games"
+                }
+            ],
+            "link": "#",
+            "linkText": "Shop Now"
+        },
+        {
+            "id": 3,
+            "title": "Gaming Accessories",
+            "items": [
+                {
+                    "image": "https://i.pinimg.com/736x/92/b6/8a/92b68aee97e0d4dfe4a8e9ef06051218.jpg",
+                    "name": "Headsets"
+                },
+                {
+                    "image": "https://i.pinimg.com/1200x/1c/16/91/1c1691782a3533513b61d3ea67509fe5.jpg",
+                    "name": "Keyboard"
+                },
+                {
+                    "image": "https://i.pinimg.com/736x/63/23/09/6323090c39fe7a3c1d9da3bc27f28e8d.jpg",
+                    "name": "Computer Mice"
+                },
+                {
+                    "image": "https://i.pinimg.com/736x/6b/91/b6/6b91b697cb799a0b5a919b5be6b81cb4.jpg",
+                    "name": "Chair"
+                }
+            ],
+            "link": "#",
+            "linkText": "See more"
+        },
+        {
+            "id": 4,
+            "title": "Shop By Category",
+            "items": [
+                {
+                    "image": "https://i.pinimg.com/736x/eb/b3/5d/ebb35d9572ffff815578498fcf59cbbb.jpg",
+                    "name": "Laptop"
+                },
+                {
+                    "image": "https://i.pinimg.com/736x/a8/0e/84/a80e84a8f29254832658cdf4e0a3a5c2.jpg",
+                    "name": "Video Games"
+                },
+                {
+                    "image": "https://i.pinimg.com/736x/1b/82/ad/1b82add4c2016c9e9ea2159cbb0091a3.jpg",
+                    "name": "Baby"
+                },
+                {
+                    "image": "https://i.pinimg.com/736x/35/2c/23/352c23cd54d259b79fb8448ecab0db36.jpg",
+                    "name": "Toy & Games"
+                }
+            ],
+            "link": "#",
+            "linkText": "Shop Now"
+        },
+        {
+            "id": 5,
+            "title": "Gaming Accessories",
+            "items": [
+                {
+                    "image": "https://i.pinimg.com/736x/92/b6/8a/92b68aee97e0d4dfe4a8e9ef06051218.jpg",
+                    "name": "Headsets"
+                },
+                {
+                    "image": "https://i.pinimg.com/1200x/1c/16/91/1c1691782a3533513b61d3ea67509fe5.jpg",
+                    "name": "Keyboard"
+                },
+                {
+                    "image": "https://i.pinimg.com/736x/63/23/09/6323090c39fe7a3c1d9da3bc27f28e8d.jpg",
+                    "name": "Computer Mice"
+                },
+                {
+                    "image": "https://i.pinimg.com/736x/6b/91/b6/6b91b697cb799a0b5a919b5be6b81cb4.jpg",
+                    "name": "Chair"
+                }
+            ],
+            "link": "#",
+            "linkText": "See more"
+        },
+        {
+            "id": 6,
+            "title": "Shop By Category",
+            "items": [
+                {
+                    "image": "https://i.pinimg.com/736x/eb/b3/5d/ebb35d9572ffff815578498fcf59cbbb.jpg",
+                    "name": "Laptop"
+                },
+                {
+                    "image": "https://i.pinimg.com/736x/a8/0e/84/a80e84a8f29254832658cdf4e0a3a5c2.jpg",
+                    "name": "Video Games"
+                },
+                {
+                    "image": "https://i.pinimg.com/736x/1b/82/ad/1b82add4c2016c9e9ea2159cbb0091a3.jpg",
+                    "name": "Baby"
+                },
+                {
+                    "image": "https://i.pinimg.com/736x/35/2c/23/352c23cd54d259b79fb8448ecab0db36.jpg",
+                    "name": "Toy & Games"
+                }
+            ],
+            "link": "#",
+            "linkText": "Shop Now"
+        }
+    ],
+    "productSlider": [
+        {
+            "id": 1,
+            "image": "https://i.pinimg.com/736x/5a/c0/d5/5ac0d522480fabc0b612e2e303c17b53.jpg",
+            "name": "Bag"
+        },
+        {
+            "id": 2,
+            "image": "https://i.pinimg.com/736x/ea/99/81/ea99810744a9257d8cf09d4214ac5c27.jpg",
+            "name": "Shoes"
+        },
+        {
+            "id": 3,
+            "image": "https://i.pinimg.com/736x/07/b2/f1/07b2f18b6e6e93fe26486d275d547b08.jpg",
+            "name": "Dress"
+        },
+        {
+            "id": 4,
+            "image": "https://i.pinimg.com/1200x/e0/cd/97/e0cd9757fd90657a34b1be34fe9e39ed.jpg",
+            "name": "Watch"
+        },
+        {
+            "id": 5,
+            "image": "https://i.pinimg.com/736x/d1/a7/ca/d1a7ca7ca9e81dda17b7a380659f1cc8.jpg",
+            "name": "Phone"
+        },
+        {
+            "id": 6,
+            "image": "https://i.pinimg.com/736x/f3/c2/1b/f3c21b4231cb21609af3a067e2c27431.jpg",
+            "name": "Perfume"
+        },
+        {
+            "id": 7,
+            "image": "https://i.pinimg.com/736x/5a/c0/d5/5ac0d522480fabc0b612e2e303c17b53.jpg",
+            "name": "Bag"
+        },
+        {
+            "id": 8,
+            "image": "https://i.pinimg.com/736x/ea/99/81/ea99810744a9257d8cf09d4214ac5c27.jpg",
+            "name": "Shoes"
+        },
+        {
+            "id": 9,
+            "image": "https://i.pinimg.com/736x/07/b2/f1/07b2f18b6e6e93fe26486d275d547b08.jpg",
+            "name": "Dress"
+        },
+        {
+            "id": 10,
+            "image": "https://i.pinimg.com/1200x/e0/cd/97/e0cd9757fd90657a34b1be34fe9e39ed.jpg",
+            "name": "Watch"
+        },
+        {
+            "id": 11,
+            "image": "https://i.pinimg.com/736x/d1/a7/ca/d1a7ca7ca9e81dda17b7a380659f1cc8.jpg",
+            "name": "Phone"
+        },
+        {
+            "id": 12,
+            "image": "https://i.pinimg.com/736x/f3/c2/1b/f3c21b4231cb21609af3a067e2c27431.jpg",
+            "name": "Perfume"
+        }
+    ],
+    "singleProducts": [
+        {
+            "id": 3,
+            "title": "Shop",
+            "image": "https://i.pinimg.com/736x/16/d9/ce/16d9ce41ff82e87946b3e8d5cac0762b.jpg",
+            "link": "#",
+            "linkText": "See more"
+        },
+        {
+            "id": 4,
+            "title": "Trending Deals",
+            "image": "https://i.pinimg.com/736x/16/d9/ce/16d9ce41ff82e87946b3e8d5cac0762b.jpg",
+            "link": "#",
+            "linkText": "See more"
+        }
+    ]
+}

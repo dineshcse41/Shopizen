@@ -1,0 +1,38 @@
+.page-title {
+    font-weight: 600;
+    font-size: 1.8rem;
+    color: #333;
+}
+
+.list-group-item.unread {
+    background-color: #eaf3ff;
+    /* subtle blue for unread */
+    border-left: 4px solid #0d6efd;
+}
+
+.list-group-item.read {
+    background-color: #f8f9fa;
+    /* light gray for read */
+    border-left: 4px solid transparent;
+}
+
+.list-group-item:hover {
+    transform: translateY(-2px);
+    transition: all 0.2s;
+}
+
+.btn-outline-secondary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card {
+    border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+    .d-flex.flex-md-row {
+        flex-direction: column !important;
+    }
+}

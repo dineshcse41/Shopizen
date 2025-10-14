@@ -1,0 +1,12 @@
+[
+    {
+        "id": "C200",
+        "name": "Electronics",
+        "description": "Smart gadgets and accessories"
+    },
+    {
+        "id": "C201",
+        "name": "Computers",
+        "description": "Laptops, Desktops & Accessories"
+    }
+]

@@ -1,0 +1,136 @@
+[
+    {
+        "month": "September",
+        "totalOrders": 3250,
+        "totalRevenue": 2450000,
+        "currency": "INR",
+        "averageOrderValue": 754,
+        "uniqueCustomers": 2800,
+        "returnRate": 2.5,
+        "paymentMethods": {
+            "UPI": 1500,
+            "CreditCard": 900,
+            "DebitCard": 550,
+            "CashOnDelivery": 300
+        },
+        "salesByCategory": [
+            {
+                "category": "Electronics",
+                "revenue": 980000,
+                "orders": 1200
+            },
+            {
+                "category": "Fashion",
+                "revenue": 620000,
+                "orders": 900
+            },
+            {
+                "category": "Home & Kitchen",
+                "revenue": 450000,
+                "orders": 700
+            },
+            {
+                "category": "Books",
+                "revenue": 200000,
+                "orders": 300
+            },
+            {
+                "category": "Beauty & Health",
+                "revenue": 200000,
+                "orders": 150
+            }
+        ],
+        "topSellingProducts": [
+            {
+                "productId": "prod_1001",
+                "name": "Wireless Earbuds",
+                "unitsSold": 1200,
+                "revenue": 240000
+            },
+            {
+                "productId": "prod_1002",
+                "name": "Smartphone",
+                "unitsSold": 850,
+                "revenue": 1020000
+            },
+            {
+                "productId": "prod_1003",
+                "name": "Running Shoes",
+                "unitsSold": 620,
+                "revenue": 310000
+            }
+        ],
+        "shippingPerformance": {
+            "onTimeDeliveries": 3050,
+            "lateDeliveries": 200,
+            "avgDeliveryTimeDays": 3.2
+        }
+    },
+    {
+        "month": "October",
+        "totalOrders": 4020,
+        "totalRevenue": 3450000,
+        "currency": "INR",
+        "averageOrderValue": 858,
+        "uniqueCustomers": 3500,
+        "returnRate": 3.1,
+        "paymentMethods": {
+            "UPI": 1800,
+            "CreditCard": 1300,
+            "DebitCard": 600,
+            "CashOnDelivery": 320
+        },
+        "salesByCategory": [
+            {
+                "category": "Electronics",
+                "revenue": 1250000,
+                "orders": 1500
+            },
+            {
+                "category": "Fashion",
+                "revenue": 820000,
+                "orders": 1100
+            },
+            {
+                "category": "Home & Kitchen",
+                "revenue": 580000,
+                "orders": 900
+            },
+            {
+                "category": "Books",
+                "revenue": 280000,
+                "orders": 400
+            },
+            {
+                "category": "Beauty & Health",
+                "revenue": 220000,
+                "orders": 120
+            }
+        ],
+        "topSellingProducts": [
+            {
+                "productId": "prod_1001",
+                "name": "Wireless Earbuds",
+                "unitsSold": 1100,
+                "revenue": 220000
+            },
+            {
+                "productId": "prod_1002",
+                "name": "Smartphone",
+                "unitsSold": 950,
+                "revenue": 1150000
+            },
+            {
+                "productId": "prod_1004",
+                "name": "Mixer Grinder",
+                "unitsSold": 700,
+                "revenue": 350000
+            }
+        ],
+        "shippingPerformance": {
+            "onTimeDeliveries": 3800,
+            "lateDeliveries": 220,
+            "avgDeliveryTimeDays": 2.9
+        }
+    }
+]

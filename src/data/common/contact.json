@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "user": "Haripriya",
+        "sender": "user",
+        "text": "Hello, I need help with my order.",
+        "timestamp": "2025-10-04 10:30 AM"
+    },
+    {
+        "id": 2,
+        "user": "Haripriya",
+        "sender": "admin",
+        "text": "Sure, can you share your order ID?",
+        "timestamp": "2025-10-04 10:32 AM"
+    },
+    {
+        "id": 3,
+        "user": "Hari",
+        "sender": "user",
+        "text": "When will my product be delivered?",
+        "timestamp": "2025-10-04 11:00 AM"
+    }
+]

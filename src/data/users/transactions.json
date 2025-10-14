@@ -1,0 +1,32 @@
+[
+    {
+        "transactionId": "T1001",
+        "userId": 101,
+        "title": "Order Payment - O1001",
+        "date": "2025-09-20T14:00:00Z",
+        "amount": -2499,
+        "type": "debit",
+        "paymentMethod": "UPI",
+        "status": "Completed"
+    },
+    {
+        "transactionId": "T1002",
+        "userId": 101,
+        "title": "Wallet Top-Up",
+        "date": "2025-09-25T10:15:00Z",
+        "amount": 5000,
+        "type": "credit",
+        "paymentMethod": "UPI",
+        "status": "Completed"
+    },
+    {
+        "transactionId": "T1003",
+        "userId": 102,
+        "title": "Order Payment - O1002",
+        "date": "2025-09-28T09:00:00Z",
+        "amount": -7198,
+        "type": "debit",
+        "paymentMethod": "Credit Card",
+        "status": "Completed"
+    }
+]

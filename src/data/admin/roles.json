@@ -1,0 +1,22 @@
+[
+    {
+        "role": "superadmin",
+        "permissions": [
+            "all"
+        ]
+    },
+    {
+        "role": "manager",
+        "permissions": [
+            "manageProducts",
+            "manageOrders"
+        ]
+    },
+    {
+        "role": "support",
+        "permissions": [
+            "viewOrders",
+            "respondQueries"
+        ]
+    }
+]

@@ -1,0 +1,34 @@
+.profile-container {
+    max-width: 1200px;
+    margin: auto;
+    font-family: Arial, sans-serif;
+}
+
+.profile-card {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+}
+
+.profile-card h3 {
+    color: #212121;
+    margin-bottom: 1rem;
+}
+
+.address-list .list-group-item {
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    padding: 1rem;
+    background: #fafafa;
+}
+
+.address-list .btn-outline-primary {
+    height: fit-content;
+    padding: 0.3rem 0.7rem;
+}
+
+@media (max-width: 992px) {
+    .profile-container .row {
+        flex-direction: column;
+    }
+}

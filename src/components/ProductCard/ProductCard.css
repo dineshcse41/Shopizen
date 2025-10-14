@@ -1,0 +1,99 @@
+/* ------------------- Product Card Styles ------------------- */
+
+.card {
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.card-body {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+.card-img-top {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+/* ------------------- Discount Badge ------------------- */
+.discount-badge {
+    background-color: #4CAF50;
+    /* default green */
+    color: white;
+    font-size: 0.75rem;
+    padding: 4px 8px;
+    border-radius: 4px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-weight: 600;
+}
+
+/* Optional: different colors based on discount value */
+.discount-low {
+    background-color: #4CAF50;
+    /* green for 1–10% */
+}
+
+.discount-medium {
+    background-color: #ffc107;
+    /* yellow for 11–25% */
+    color: #000;
+}
+
+.discount-high {
+    background-color: #dc3545;
+    /* red for >25% */
+}
+
+/* ------------------- Rating Badge ------------------- */
+.rating-badge {
+    color: #fff;
+    padding: 4px 8px;
+    font-size: 14px;
+    border-radius: 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-weight: 500;
+}
+
+.rating-badge i {
+    font-size: 13px;
+}
+
+/* Optional: different colors based on rating */
+.rating-low {
+    background-color: #dc3545;
+    /* Red for 0–2.9 */
+}
+
+.rating-medium {
+    background-color: #ffc107;
+    /* Yellow for 3.0–3.9 */
+    color: #000;
+}
+
+.rating-high {
+    background-color: #28a745;
+    /* Green for 4.0–5.0 */
+}
+
+/* ------------------- Responsive ------------------- */
+@media (max-width: 600px) {
+    .card-img-top {
+        height: 150px;
+    }
+}

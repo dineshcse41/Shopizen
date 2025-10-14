@@ -1,0 +1,66 @@
+:root {
+    --card-bg-light: #ffffff;
+    --card-bg-dark: #1f1f1f;
+    --text-light: #222;
+    --text-dark: #f0f0f0;
+}
+
+body {
+    background-color: var(--card-bg-light);
+    color: var(--text-light);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Dark mode */
+body.dark-mode {
+    background-color: #121212;
+    color: var(--text-dark);
+}
+
+.dashboard-container {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.dashboard-title {
+    font-weight: 600;
+    color: #4e73df;
+}
+
+.card-body {
+    background: rgba(223, 221, 221, 0.959);
+}
+
+.stat-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    border-radius: 12px;
+    background-color: var(--card-bg-light);
+}
+
+body.dark-mode .stat-card {
+    background-color: var(--card-bg-dark);
+}
+
+.stat-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
+}
+
+.stat-label {
+    font-weight: 500;
+}
+
+.stat-value {
+    font-weight: 700;
+    font-size: 1.8rem;
+}
+
+.stat-icon {
+    font-size: 2.5rem;
+    height: 5px;
+    width: 5px;
+}
+
+.dropdown-toggle::after {
+    margin-left: 0.5rem;
+}

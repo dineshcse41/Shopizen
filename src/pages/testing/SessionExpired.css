@@ -1,0 +1,14 @@
+.session-expired-container {
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+}
+
+.session-expired-card {
+    max-width: 450px;
+    border-radius: 15px;
+    background: #ffffff;
+}
+
+.session-icon {
+    width: 80px;
+    height: 80px;
+}

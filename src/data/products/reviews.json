@@ -1,0 +1,156 @@
+[
+    {
+        "reviewId": 5001,
+        "productId": "P1001",
+        "userId": 101,
+        "rating": 4.5,
+        "comment": "Great sound quality!",
+        "createdAt": "2025-09-28T08:45:00Z",
+        "status": "pending",
+        "name": "Haripriya",
+        "date": "2025-08-24",
+        "stars": 5,
+        "text": "Great quality t-shirt!",
+        "media": [
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSAutTZ4envVjdi-auSZwowBqE4RxRzeNAcQ&s",
+            "https://example.com/video1.mp4"
+        ]
+    },
+    {
+        "reviewId": 5002,
+        "productId": "P1001",
+        "userId": 102,
+        "rating": 5.0,
+        "comment": "Amazing battery backup.",
+        "createdAt": "2025-09-30T12:20:00Z",
+        "status": "pending",
+        "name": "Jeevitha",
+        "date": "2025-08-22",
+        "stars": 4,
+        "text": "Nice fabric and fit",
+        "media": []
+    },
+    {
+        "reviewId": 5003,
+        "productId": "P1001",
+        "userId": 103,
+        "rating": 5.0,
+        "comment": "Excellent design and fit!",
+        "createdAt": "2025-10-01T10:15:00Z",
+        "status": "pending",
+        "name": "Rahul Kumar",
+        "date": "2025-08-24",
+        "stars": 5,
+        "text": "Loved the design and quality!",
+        "media": [
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSAutTZ4envVjdi-auSZwowBqE4RxRzeNAcQ&s"
+        ]
+    },
+    {
+        "reviewId": 5004,
+        "productId": "P1001",
+        "userId": 101,
+        "rating": 4.0,
+        "comment": "Good fabric and color",
+        "createdAt": "2025-10-02T09:30:00Z",
+        "status": "pending",
+        "name": "Haripriya",
+        "date": "2025-08-22",
+        "stars": 4,
+        "text": "Nice fabric and fit",
+        "media": []
+    },
+    {
+        "reviewId": 5005,
+        "productId": "P1001",
+        "userId": 102,
+        "rating": 5.0,
+        "comment": "Perfect for daily use!",
+        "createdAt": "2025-10-03T14:10:00Z",
+        "status": "pending",
+        "name": "Jeevitha",
+        "date": "2025-08-25",
+        "stars": 5,
+        "text": "Really comfortable and stylish!",
+        "media": [
+            "https://example.com/photo1.jpg"
+        ]
+    },
+    {
+        "reviewId": 5006,
+        "productId": "P1001",
+        "userId": 103,
+        "rating": 4.2,
+        "comment": "Good value for money",
+        "createdAt": "2025-10-04T16:50:00Z",
+        "status": "pending",
+        "name": "Rahul Kumar",
+        "date": "2025-08-26",
+        "stars": 4,
+        "text": "Value for money, fits well",
+        "media": []
+    },
+    {
+        "reviewId": 5007,
+        "productId": "P1001",
+        "userId": 101,
+        "rating": 4.8,
+        "comment": "Highly recommend!",
+        "createdAt": "2025-10-05T11:05:00Z",
+        "status": "pending",
+        "name": "Haripriya",
+        "date": "2025-08-27",
+        "stars": 5,
+        "text": "Excellent quality and fit",
+        "media": [
+            "https://example.com/video2.mp4"
+        ]
+    },
+    {
+        "reviewId": 5008,
+        "productId": "P1001",
+        "userId": 102,
+        "rating": 3.9,
+        "comment": "Satisfactory",
+        "createdAt": "2025-10-06T10:30:00Z",
+        "status": "pending",
+        "name": "Jeevitha",
+        "date": "2025-08-28",
+        "stars": 4,
+        "text": "Good, but could be better",
+        "media": []
+    },
+    {
+        "reviewId": 5009,
+        "productId": "P1001",
+        "userId": 103,
+        "rating": 4.7,
+        "comment": "Loved it!",
+        "createdAt": "2025-10-07T09:20:00Z",
+        "status": "pending",
+        "name": "Rahul Kumar",
+        "date": "2025-08-29",
+        "stars": 5,
+        "text": "Amazing design and quality",
+        "media": [
+            "https://example.com/photo2.jpg",
+            "https://example.com/video3.mp4"
+        ]
+    },
+    {
+        "reviewId": 5010,
+        "productId": "P1004",
+        "userId": 101,
+        "rating": 5.0,
+        "comment": "Best purchase ever!",
+        "createdAt": "2025-10-08T12:40:00Z",
+        "status": "pending",
+        "name": "Haripriya",
+        "date": "2025-08-30",
+        "stars": 5,
+        "text": "Absolutely love it!",
+        "media": [
+            "https://example.com/photo3.jpg"
+        ]
+    }
+]

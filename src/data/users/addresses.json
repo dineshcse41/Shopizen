@@ -1,0 +1,58 @@
+[
+    {
+        "addressId": "A1",
+        "userId": 101,
+        "type": "Home",
+        "name": "Haripriya Soundappan",
+        "phone": "+91-9876543210",
+        "street": "12, Anna Nagar",
+        "landmark": "Near Block A",
+        "city": "Chennai",
+        "state": "Tamil Nadu",
+        "pincode": "600040",
+        "country": "India",
+        "isDefault": true
+    },
+    {
+        "addressId": "A3",
+        "userId": 101,
+        "type": "Work",
+        "name": "Haripriya Soundappan",
+        "phone": "+91-9876543210",
+        "street": "99, IT Park Main Road",
+        "landmark": "Opp. Tidel Park",
+        "city": "Chennai",
+        "state": "Tamil Nadu",
+        "pincode": "600113",
+        "country": "India",
+        "isDefault": false
+    },
+    {
+        "addressId": "A2",
+        "userId": 102,
+        "type": "Home",
+        "name": "Hari",
+        "phone": "+91-9123456789",
+        "street": "45, Gandhi Road",
+        "landmark": "Opp. AVS College",
+        "city": "Salem",
+        "state": "Tamil Nadu",
+        "pincode": "636007",
+        "country": "India",
+        "isDefault": true
+    },
+    {
+        "addressId": "A4",
+        "userId": 102,
+        "type": "Other",
+        "name": "Hari",
+        "phone": "+91-9123456789",
+        "street": "12, AVS College Street",
+        "landmark": "Near Block B",
+        "city": "Chennai",
+        "state": "Tamil Nadu",
+        "pincode": "600001",
+        "country": "India",
+        "isDefault": false
+    }
+]

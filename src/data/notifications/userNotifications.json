@@ -1,0 +1,9 @@
+[
+    {
+        "id": 101,
+        "message": "Your order #5001 has been shipped",
+        "type": "success",
+        "isRead": false,
+        "timestamp": "2025-09-29T08:30:00Z"
+    }
+]

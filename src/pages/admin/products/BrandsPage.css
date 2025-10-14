@@ -1,0 +1,82 @@
+/* ---------- PAGE LAYOUT ---------- */
+.brands-page {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.card {
+    border: none;
+    border-radius: 12px;
+    background: #ffffff;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+h2 {
+    font-weight: 700;
+    color: #007bff;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* ---------- TABLE STYLING ---------- */
+.table {
+    border-collapse: collapse;
+    width: 100%;
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.table th {
+    background-color: #0d6efd;
+    color: white;
+    text-align: center;
+    padding: 12px;
+    font-weight: 600;
+}
+
+.table td {
+    text-align: center;
+    padding: 12px;
+    vertical-align: middle;
+}
+
+.table-hover tbody tr:hover {
+    background-color: #f8f9fa;
+    transition: 0.2s ease;
+}
+
+/* ---------- BUTTONS ---------- */
+.btn {
+    border-radius: 6px;
+    padding: 5px 12px;
+    font-size: 14px;
+}
+
+.btn-success {
+    background-color: #28a745;
+    border: none;
+}
+
+.btn-warning {
+    background-color: #ffc107;
+    border: none;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    border: none;
+}
+
+/* ---------- INPUT ---------- */
+.form-control {
+    border-radius: 6px;
+    border: 1px solid #ced4da;
+    transition: 0.2s;
+}
+
+.form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 4px rgba(0, 123, 255, 0.4);
+}
+

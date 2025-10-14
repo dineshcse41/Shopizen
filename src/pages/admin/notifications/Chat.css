@@ -1,0 +1,59 @@
+.admin-chat-container {
+    height: 80vh;
+}
+
+.chat-users {
+    width: 250px;
+    overflow-y: auto;
+}
+
+.chat-user-item {
+    cursor: pointer;
+    border-bottom: 1px solid #eee;
+    position: relative;
+}
+
+.chat-user-item.active {
+    background-color: #e9ecef;
+}
+
+.online-indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-left: 5px;
+}
+
+.online-indicator.online {
+    background-color: green;
+}
+
+.online-indicator.offline {
+    background-color: gray;
+}
+
+.chat-panel {
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-body {
+    overflow-y: auto;
+    flex-grow: 1;
+}
+
+.message {
+    max-width: 70%;
+}
+
+.profile {
+    width: 40px;
+    height: 40px;
+}
+
+.typing-indicator {
+    font-size: 0.85rem;
+    color: gray;
+    margin: 5px 0;
+    font-style: italic;
+}

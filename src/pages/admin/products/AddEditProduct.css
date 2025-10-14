@@ -1,0 +1,183 @@
+/* ---------- PAGE WRAPPER ---------- */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* ---------- CARD ---------- */
+.card {
+    border-radius: 15px;
+    background: #ffffff;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+}
+
+.card h4 {
+    color: #0d6efd;
+    font-weight: 600;
+    border-bottom: 2px solid #e9ecef;
+    padding-bottom: 8px;
+    margin-bottom: 16px;
+}
+
+/* ---------- FORM ELEMENTS ---------- */
+.form-label {
+    font-weight: 500;
+    color: #495057;
+}
+
+.form-control {
+    border-radius: 8px;
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    transition: box-shadow 0.2s ease;
+}
+
+.form-control:focus {
+    box-shadow: 0 0 5px rgba(13, 110, 253, 0.4);
+}
+
+/* ---------- BUTTONS ---------- */
+.btn {
+    border-radius: 8px;
+    padding: 8px 18px;
+    font-weight: 500;
+    transition: transform 0.2s ease-in-out;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.btn-success {
+    padding: 12px 30px;
+    font-size: 1rem;
+}
+
+.btn-success:hover {
+    background-color: #218838;
+}
+
+/* ---------- IMAGE UPLOAD ---------- */
+.image-upload-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-upload-label {
+    width: 100%;
+    height: 250px;
+    border: 2px dashed #007bff;
+    border-radius: 10px;
+    cursor: pointer;
+    background: #f9f9f9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease-in-out;
+}
+
+.image-upload-label:hover {
+    background: #f1f7ff;
+    border-color: #0056b3;
+}
+
+.img-preview {
+    max-width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin: 5px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+}
+
+.img-preview:hover {
+    transform: scale(1.03);
+}
+
+.upload-placeholder {
+    font-size: 1.2rem;
+    color: #777;
+    text-align: center;
+}
+
+/* ---------- TAGS ---------- */
+.tag-list .badge {
+    font-weight: 500;
+    margin: 3px;
+    cursor: default;
+}
+
+.tag-list .badge i {
+    margin-left: 4px;
+    cursor: pointer;
+}
+
+/* ---------- TABS ---------- */
+.nav-tabs {
+    border-bottom: 2px solid #dee2e6;
+}
+
+.nav-tabs .nav-link {
+    border: none;
+    color: #495057;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.nav-tabs .nav-link.active {
+    color: #0d6efd;
+    border-bottom: 3px solid #0d6efd;
+    background: transparent;
+}
+
+.nav-tabs .nav-link:hover {
+    color: #0b5ed7;
+}
+
+/* ---------- DARK MODE ---------- */
+.bg-dark.text-light .card {
+    background-color: #212529;
+    color: #f8f9fa;
+}
+
+.bg-dark.text-light .nav-tabs .nav-link {
+    color: #adb5bd;
+}
+
+.bg-dark.text-light .nav-tabs .nav-link.active {
+    color: #fff;
+    border-bottom: 3px solid #0d6efd;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 768px) {
+    .btn-success {
+        width: 100%;
+    }
+
+    .image-upload-label {
+        height: 200px;
+    }
+
+    .img-preview {
+        max-width: 100px;
+        height: 100px;
+    }
+}
