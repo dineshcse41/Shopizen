@@ -1,60 +1,62 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import homeData from "../../data/common/homeData.json";
+import offersData from "../../data/common/offers.json";
 import "../home/Slider.css";
 
-const Slider = ({ startId, endId, autoTime = 3000 }) => {
+const Slider = ({ autoTime = 4000, currentDate = new Date() }) => {
     const navigate = useNavigate();
-    const { slider } = homeData;
 
-    // ✅ Filter slides + max 7
-    const filteredSlides = slider
-        .filter((slide) => slide.id >= startId && slide.id <= endId)
-        .slice(0, 7);
+    // Filter only active offers
+    const activeOffers = offersData.offers.filter(
+        (offer) => new Date(offer.expiryDate) >= currentDate
+    );
 
     const [activeIndex, setActiveIndex] = useState(0);
+    const [countdown, setCountdown] = useState("");
 
-    // ✅ Auto slide
+    // Auto-slide
     useEffect(() => {
+        if (activeOffers.length <= 1) return;
         const interval = setInterval(() => {
-            setActiveIndex((prev) => (prev + 1) % filteredSlides.length);
+            setActiveIndex((prev) => (prev + 1) % activeOffers.length);
         }, autoTime);
         return () => clearInterval(interval);
-    }, [filteredSlides.length, autoTime]);
+    }, [activeOffers.length, autoTime]);
 
-    // ✅ Handle click on banner
-    const handleBannerClick = (url) => {
-        if (url.startsWith("http")) {
-            window.open(url, "_blank");
-        } else {
-            navigate(url);
-        }
-    };
+    // Countdown timer
+    useEffect(() => {
+        if (!activeOffers.length) return;
+        const timer = setInterval(() => {
+            const expiry = new Date(activeOffers[activeIndex].expiryDate).getTime();
+            const now = new Date().getTime();
+            const distance = expiry - now;
+            if (distance <= 0) {
+                setCountdown("Expired");
+            } else {
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                setCountdown(`${hours}h ${minutes}m ${seconds}s`);
+            }
+        }, 1000);
+        return () => clearInterval(timer);
+    }, [activeIndex, activeOffers]);
 
-    // ✅ Swipe for mobile
+    // Swipe support for mobile
     let touchStartX = 0;
     let touchEndX = 0;
 
-    const handleTouchStart = (e) => {
-        touchStartX = e.targetTouches[0].clientX;
-    };
-
-    const handleTouchMove = (e) => {
-        touchEndX = e.targetTouches[0].clientX;
-    };
-
+    const handleTouchStart = (e) => (touchStartX = e.targetTouches[0].clientX);
+    const handleTouchMove = (e) => (touchEndX = e.targetTouches[0].clientX);
     const handleTouchEnd = () => {
-        if (touchStartX - touchEndX > 50) {
-            // swipe left → next
-            setActiveIndex((prev) => (prev + 1) % filteredSlides.length);
-        }
-        if (touchEndX - touchStartX > 50) {
-            // swipe right → prev
-            setActiveIndex(
-                (prev) => (prev - 1 + filteredSlides.length) % filteredSlides.length
-            );
-        }
+        if (touchStartX - touchEndX > 50) setActiveIndex((prev) => (prev + 1) % activeOffers.length);
+        if (touchEndX - touchStartX > 50)
+            setActiveIndex((prev) => (prev - 1 + activeOffers.length) % activeOffers.length);
     };
+
+    const handleBannerClick = (offer) => navigate(`/offers/${offer.id}`);
+
+    if (!activeOffers.length) return null;
 
     return (
         <div
@@ -63,46 +65,45 @@ const Slider = ({ startId, endId, autoTime = 3000 }) => {
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
         >
-            {filteredSlides.map((slide, index) => (
+            {activeOffers.map((offer, index) => (
                 <div
-                    key={slide.id}
+                    key={offer.id}
                     className={`slide ${index === activeIndex ? "active" : ""}`}
-                    onClick={() => handleBannerClick(slide.link)}
+                    onClick={() => handleBannerClick(offer)}
                 >
-                    <img src={slide.image} alt={slide.alt} className="slide-img" />
+                    <img src={offer.bannerImage} alt={offer.title} className="slide-img" />
+                    <div className="offer-title">{offer.title}</div>
+                    <div className="offer-badge">{offer.discount}% OFF</div>
+                    <div className="offer-countdown">{countdown}</div>
                 </div>
             ))}
 
-            {/* ✅ Dots Navigation */}
+            {/* Dots */}
             <div className="dots">
-                {filteredSlides.map((_, idx) => (
-                    <span
-                        key={idx}
-                        className={`dot ${idx === activeIndex ? "active" : ""}`}
-                        onClick={() => setActiveIndex(idx)}
-                    ></span>
+                {activeOffers.map((_, idx) => (
+                    <span key={idx} className={`dot ${idx === activeIndex ? "active" : ""}`} onClick={() => setActiveIndex(idx)}></span>
                 ))}
             </div>
 
-            {/* ✅ Left/Right Arrows */}
-            <button
-                className="arrow left"
-                onClick={() =>
-                    setActiveIndex(
-                        (prev) => (prev - 1 + filteredSlides.length) % filteredSlides.length
-                    )
-                }
-            >
-                ❮
-            </button>
-            <button
-                className="arrow right"
-                onClick={() =>
-                    setActiveIndex((prev) => (prev + 1) % filteredSlides.length)
-                }
-            >
-                ❯
-            </button>
+            {/* Arrows */}
+            {activeOffers.length > 1 && (
+                <>
+                    <button
+                        className="arrow left"
+                        onClick={() =>
+                            setActiveIndex((prev) => (prev - 1 + activeOffers.length) % activeOffers.length)
+                        }
+                    >
+                        ❮
+                    </button>
+                    <button
+                        className="arrow right"
+                        onClick={() => setActiveIndex((prev) => (prev + 1) % activeOffers.length)}
+                    >
+                        ❯
+                    </button>
+                </>
+            )}
         </div>
     );
 };

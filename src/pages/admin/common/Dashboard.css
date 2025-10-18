@@ -1,66 +1,236 @@
-:root {
-    --card-bg-light: #ffffff;
-    --card-bg-dark: #1f1f1f;
-    --text-light: #222;
-    --text-dark: #f0f0f0;
+/* Dashboard.css - modern & polished */
+
+/* Wrapper & base styles */
+.dashboard-wrapper {
+    padding: 1.5rem;
+    min-height: 100vh;
+    font-family: 'Inter', sans-serif;
 }
 
-body {
-    background-color: var(--card-bg-light);
-    color: var(--text-light);
-    transition: background-color 0.3s, color 0.3s;
+.dashboard-wrapper.light {
+    background-color: #f5f5f7;
+    color: #1f2937;
 }
 
-/* Dark mode */
-body.dark-mode {
+.dashboard-wrapper.dark {
     background-color: #121212;
-    color: var(--text-dark);
+    color: #e0e0e0;
 }
 
-.dashboard-container {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-.dashboard-title {
+.dashboard-wrapper h2 {
     font-weight: 600;
-    color: #4e73df;
+    font-size: 1.75rem;
+    margin-bottom: 0.5rem;
 }
 
-.card-body {
-    background: rgba(223, 221, 221, 0.959);
+.dashboard-wrapper .text-muted {
+    color: #6b7280;
 }
 
+/* ------------------- Stat Cards ------------------- */
 .stat-card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
-    border-radius: 12px;
-    background-color: var(--card-bg-light);
-}
-
-body.dark-mode .stat-card {
-    background-color: var(--card-bg-dark);
+    border: none;
+    border-radius: 14px;
+    padding: 1rem 1.25rem;
+    background: var(--card-bg, #ffffff);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    height: 100%;
+    overflow: visible !important;
 }
 
 .stat-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
+    transform: translateY(-6px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
 }
 
+.stat-card.light {
+    --card-bg: #ffffff;
+}
+
+.stat-card.dark {
+    --card-bg: #1e1e1e;
+}
+
+/* Stat icons */
+.stat-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #3b82f6, #60a5fa);
+    color: #fff;
+    box-shadow: 0 6px 18px rgba(59, 130, 246, 0.2);
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Stat text */
 .stat-label {
-    font-weight: 500;
+    font-size: 0.85rem;
+    color: #6b7280;
+    margin-bottom: 0.25rem;
 }
 
 .stat-value {
-    font-weight: 700;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: inherit;
 }
 
-.stat-icon {
-    font-size: 2.5rem;
-    height: 5px;
-    width: 5px;
+.dropdown-menu {
+    z-index: 1055 !important;
+    /* ensure it appears above everything */
 }
 
-.dropdown-toggle::after {
-    margin-left: 0.5rem;
+/* ------------------- Chart Section ------------------- */
+.dashboard-wrapper .recharts-wrapper {
+    background: var(--card-bg, #fff);
+    border-radius: 14px;
+    padding: 1rem;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+}
+
+/* Chart tooltip */
+.recharts-tooltip-wrapper {
+    background-color: #fff;
+    color: #111;
+    font-size: 0.85rem;
+    border-radius: 6px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* ------------------- Tables ------------------- */
+.table-responsive {
+    overflow-x: auto;
+}
+
+.table thead {
+    background: rgba(59, 130, 246, 0.1);
+}
+
+.dashboard-wrapper.dark .table thead {
+    background: rgba(59, 130, 246, 0.2);
+}
+
+.table th,
+.table td {
+    vertical-align: middle;
+    padding: 0.75rem 1rem;
+}
+
+/* ------------------- New Users List ------------------- */
+.new-users-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.new-users-list .avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #f97316, #fb923c);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 0.85rem;
+    margin-right: 0.5rem;
+}
+
+.new-users-list li {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.dashboard-wrapper.dark .new-users-list li {
+    border-bottom-color: #333;
+}
+
+/* ------------------- Recent Reviews ------------------- */
+.recent-reviews {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.recent-reviews .review-item {
+    background: rgba(15, 23, 42, 0.02);
+    padding: 0.75rem 1rem;
+    border-radius: 10px;
+    margin-bottom: 0.5rem;
+    transition: background 0.2s ease;
+}
+
+.recent-reviews .review-item:hover {
+    background: rgba(15, 23, 42, 0.05);
+}
+
+.dashboard-wrapper.dark .recent-reviews .review-item {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+/* ------------------- Buttons & badges ------------------- */
+.btn-group .btn {
+    min-width: 80px;
+    margin-right: 0.25rem;
+}
+
+.badge {
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 0.25em 0.5em;
+    border-radius: 6px;
+}
+
+/* ------------------- Utility ------------------- */
+.overflow-auto {
+    overflow-y: auto;
+}
+
+/* ------------------- Responsive ------------------- */
+@media (max-width: 992px) {
+    .stat-card {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .stat-value {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .stat-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+
+    .stat-value {
+        font-size: 1.1rem;
+    }
+
+    .dashboard-wrapper h2 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .dashboard-wrapper {
+        padding: 1rem;
+    }
+
+    .btn-group {
+        flex-wrap: wrap;
+    }
 }

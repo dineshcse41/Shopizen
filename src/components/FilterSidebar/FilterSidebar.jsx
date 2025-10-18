@@ -1,12 +1,31 @@
-import React, { useState } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import productsData from "../../data/products/products.json";
-import "./FilterSidebar.css"; //  we’ll add scroll CSS here
+import "./FilterSidebar.css"; // Keep your existing styles
 
-const FilterSidebar = ({ filters, setFilters }) => {
+const FilterSidebar = ({ filters, setFilters, products }) => {
     const [brandSearch, setBrandSearch] = useState("");
     const [openCategory, setOpenCategory] = useState(null);
+   /*  const [products, setProducts] = useState(productsData); */ // Default to local JSON
 
-    //  Toggle helper
+    // ===============================
+    // API Fetch (commented for now)
+    // ===============================
+    /*
+    useEffect(() => {
+      const fetchProducts = async () => {
+        try {
+          const response = await fetch("http://localhost:8000/api/products/"); // Django API endpoint
+          const data = await response.json();
+          setProducts(data);
+        } catch (error) {
+          console.error("Error fetching products:", error);
+        }
+      };
+      fetchProducts();
+    }, []);
+    */
+
+    // Toggle filter values
     const handleCheckbox = (name, value) => {
         setFilters((prev) => {
             if (name === "price") {
@@ -16,9 +35,7 @@ const FilterSidebar = ({ filters, setFilters }) => {
                 return {
                     ...prev,
                     price: exists
-                        ? prev.price.filter(
-                            (r) => !(r[0] === value[0] && r[1] === value[1])
-                        )
+                        ? prev.price.filter((r) => !(r[0] === value[0] && r[1] === value[1]))
                         : [...prev.price, value],
                 };
             }
@@ -33,16 +50,34 @@ const FilterSidebar = ({ filters, setFilters }) => {
         });
     };
 
-    // Build Category → Subcategory map
-    const categoryMap = productsData.reduce((acc, product) => {
-        if (!acc[product.category]) acc[product.category] = new Set();
-        if (product.subCategory) acc[product.category].add(product.subCategory);
-        return acc;
-    }, {});
+    // Category → Subcategory mapping
+    const categoryMap = useMemo(() => {
+        return products.reduce((acc, product) => {
+            if (!acc[product.category]) acc[product.category] = new Set();
+            if (product.subCategory) acc[product.category].add(product.subCategory);
+            return acc;
+        }, {});
+    }, [products]);
 
-    // Unique brands (with search)
-    const brands = [...new Set(productsData.map((p) => p.brand))].filter((b) =>
-        b.toLowerCase().includes(brandSearch.toLowerCase())
+    // Unique brands with search
+    const brands = useMemo(() => {
+        return [...new Set(products.map((p) => p.brand))].filter((b) =>
+            b.toLowerCase().includes(brandSearch.toLowerCase())
+        );
+    }, [products, brandSearch]);
+
+    // Unique ratings
+    const ratings = useMemo(() => {
+        return [...new Set(products.map((p) => p.rating))].sort((a, b) => b - a);
+    }, [products]);
+
+    // Stock options
+    const stockOptions = useMemo(
+        () => [
+            { label: "In Stock", value: true },
+            { label: "Out of Stock", value: false },
+        ],
+        []
     );
 
     return (
@@ -52,7 +87,7 @@ const FilterSidebar = ({ filters, setFilters }) => {
                     Filters <i className="bi bi-funnel-fill"></i>
                 </h3>
 
-                {/* Category + Subcategory */}
+                {/* Category */}
                 <div className="mb-4">
                     <h6>Category</h6>
                     {Object.entries(categoryMap).map(([cat, subcats]) => (
@@ -73,7 +108,9 @@ const FilterSidebar = ({ filters, setFilters }) => {
                                         checked={filters.category.includes(cat)}
                                         onChange={() => handleCheckbox("category", cat)}
                                     />
-                                    <label className="mt-0" htmlFor={`category-${cat}`}>{cat}</label>
+                                    <label className="mt-0" htmlFor={`category-${cat}`}>
+                                        {cat}
+                                    </label>
                                 </span>
                                 <span>{openCategory === cat ? "▲" : "▼"}</span>
                             </button>
@@ -102,32 +139,32 @@ const FilterSidebar = ({ filters, setFilters }) => {
                 </div>
 
                 {/* Brand */}
-                <div className="mb-4 brand-list">
+                <div className="mb-4">
                     <h6>Brand</h6>
                     <input
                         type="text"
-                        id="brand-search"
-                        name="brandSearch"
                         className="form-control form-control-sm mb-2"
                         placeholder="Search Brand"
                         value={brandSearch}
                         onChange={(e) => setBrandSearch(e.target.value)}
                     />
-                    {brands.map((brand) => (
-                        <div className="form-check" key={brand}>
-                            <input
-                                className="form-check-input"
-                                type="checkbox"
-                                id={`brand-${brand}`}
-                                name="brand"
-                                checked={filters.brand.includes(brand)}
-                                onChange={() => handleCheckbox("brand", brand)}
-                            />
-                            <label className="form-check-label mt-0" htmlFor={`brand-${brand}`}>
-                                {brand}
-                            </label>
-                        </div>
-                    ))}
+                    <div className="brand-list">
+                        {brands.map((brand) => (
+                            <div className="form-check" key={brand}>
+                                <input
+                                    className="form-check-input"
+                                    type="checkbox"
+                                    id={`brand-${brand}`}
+                                    name="brand"
+                                    checked={filters.brand.includes(brand)}
+                                    onChange={() => handleCheckbox("brand", brand)}
+                                />
+                                <label className="form-check-label mt-0" htmlFor={`brand-${brand}`}>
+                                    {brand}
+                                </label>
+                            </div>
+                        ))}
+                    </div>
                 </div>
 
                 {/* Price */}
@@ -144,7 +181,6 @@ const FilterSidebar = ({ filters, setFilters }) => {
                                 className="form-check-input"
                                 type="checkbox"
                                 id={`price-${i}`}
-                                name="price"
                                 checked={filters.price.some(
                                     (r) => r[0] === option.range[0] && r[1] === option.range[1]
                                 )}
@@ -160,13 +196,12 @@ const FilterSidebar = ({ filters, setFilters }) => {
                 {/* Rating */}
                 <div className="mb-4">
                     <h6>Customer Rating</h6>
-                    {[4, 3, 2].map((r) => (
+                    {ratings.map((r) => (
                         <div className="form-check" key={r}>
                             <input
                                 className="form-check-input"
                                 type="checkbox"
                                 id={`rating-${r}`}
-                                name="rating"
                                 checked={filters.rating.includes(r)}
                                 onChange={() => handleCheckbox("rating", r)}
                             />
@@ -180,16 +215,12 @@ const FilterSidebar = ({ filters, setFilters }) => {
                 {/* Availability */}
                 <div className="mb-4">
                     <h6>Availability</h6>
-                    {[
-                        { label: "In Stock", value: true },
-                        { label: "Out of Stock", value: false },
-                    ].map((opt) => (
+                    {stockOptions.map((opt) => (
                         <div className="form-check" key={opt.label}>
                             <input
                                 className="form-check-input"
                                 type="checkbox"
                                 id={`stock-${opt.label}`}
-                                name="stock"
                                 checked={filters.stock.includes(opt.value)}
                                 onChange={() => handleCheckbox("stock", opt.value)}
                             />
@@ -209,7 +240,6 @@ const FilterSidebar = ({ filters, setFilters }) => {
                                 className="form-check-input"
                                 type="checkbox"
                                 id={`discount-${d}`}
-                                name="discount"
                                 checked={filters.discount.includes(d)}
                                 onChange={() => handleCheckbox("discount", d)}
                             />

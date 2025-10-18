@@ -1,11 +1,8 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useToast } from "../../../components/context/ToastContext";
-import usersData from "../../../data/users/users.json"; // Dummy local JSON data
+import usersData from "../../../data/users/users.json"; // Array of users
 import "../auth/auth.css";
-
-// import axios from "axios"; // Uncomment when switching to API
-// const API_BASE = "http://127.0.0.1:8000/api"; // Django backend URL
 
 function Reset() {
     const { showToast } = useToast();
@@ -20,17 +17,13 @@ function Reset() {
     const [errors, setErrors] = useState({});
     const [showPassword, setShowPassword] = useState(false);
     const [loading, setLoading] = useState(false);
+    const [emailVerified, setEmailVerified] = useState(false);
 
-    // handle input change
     const handleChange = (e) => {
         const { name, value } = e.target;
-        setFormData((prev) => ({
-            ...prev,
-            [name]: value,
-        }));
+        setFormData((prev) => ({ ...prev, [name]: value }));
     };
 
-    // validate inputs
     const validateForm = () => {
         const newErrors = {};
 
@@ -40,7 +33,7 @@ function Reset() {
 
         if (!formData.password) newErrors.password = "Password is required.";
         else if (formData.password.length < 6)
-            newErrors.password = "Password must be at least 6 characters.";
+            newErrors.password = "Password must be at least 8 characters.";
 
         if (formData.password !== formData.confirmPassword)
             newErrors.confirmPassword = "Passwords do not match.";
@@ -51,20 +44,18 @@ function Reset() {
             showToast("Please fix the highlighted errors.", "error");
             return false;
         }
-
         return true;
     };
 
-    // handle form submission
-    const handleReset = async (e) => {
+    const handleReset = (e) => {
         e.preventDefault();
         if (!validateForm()) return;
 
         setLoading(true);
 
         try {
-            // ✅ Using Local Dummy JSON Data (Current)
-            const user = usersData.users.find((u) => u.email === formData.email);
+            // ✅ Correct: usersData is an array
+            const user = usersData.find((u) => u.email === formData.email);
 
             if (!user) {
                 setErrors({ email: "Email not found." });
@@ -78,25 +69,6 @@ function Reset() {
             showToast("Password reset successfully!", "success");
             setLoading(false);
             navigate("/login-email");
-
-            /* 
-            ✅ Uncomment this section when switching to Django API
-            --------------------------------------------------------
-            try {
-                const res = await axios.put(`${API_BASE}/users/reset-password/`, {
-                    email: formData.email,
-                    password: formData.password,
-                });
-                showToast("Password reset successfully!", "success");
-                navigate("/login-email");
-            } catch (error) {
-                console.error("Error resetting password:", error);
-                showToast("Something went wrong. Try again!", "error");
-            } finally {
-                setLoading(false);
-            }
-            --------------------------------------------------------
-            */
         } catch (error) {
             console.error("Error:", error);
             showToast("Something went wrong. Try again!", "error");
@@ -104,9 +76,32 @@ function Reset() {
         }
     };
 
+    const handleKeyDownEmail = (e) => {
+        if (e.key === "Enter") {
+            e.preventDefault();
+            const email = formData.email.trim();
+            const userExists = usersData.find((u) => u.email === email);
+
+            if (userExists) {
+                setEmailVerified(true);
+                setErrors({ email: "" });
+                document.getElementById("password")?.focus();
+            } else {
+                setEmailVerified(false);
+                setErrors({ email: "Email not registered." });
+                showToast("This email is not registered!", "error");
+            }
+        }
+    };
+
+    const handleKeyDownPassword = (e) => {
+        if (e.key === "Enter") handleReset(e);
+    };
+
     const resetForm = () => {
         setFormData({ email: "", password: "", confirmPassword: "" });
         setErrors({});
+        setEmailVerified(false);
     };
 
     return (
@@ -130,83 +125,79 @@ function Reset() {
                             autoComplete="username"
                             value={formData.email}
                             onChange={handleChange}
+                            onKeyDown={handleKeyDownEmail}
                             required
                         />
                         <i className="bi bi-person-fill"></i>
                     </div>
-                    {errors.email && <p className="error">{errors.email}</p>}
+                    {errors.email && <p className="error" style={{ color: "blue", fontSize: "12px" }}>{errors.email}</p>}
 
-                    {/* Password */}
-                    <label htmlFor="password">New Password</label>
-                    <div className="input-box">
-                        <input
-                            type={showPassword ? "text" : "password"}
-                            id="password"
-                            name="password"
-                            placeholder="Enter your new password"
-                            maxLength="15"
-                            autoComplete="current-password"
-                            value={formData.password}
-                            onChange={handleChange}
-                            required
-                        />
-                        <i
-                            className={`bi ${showPassword ? "bi-eye-fill" : "bi-eye-slash-fill"}`}
-                            style={{
-                                cursor: "pointer",
-                                position: "absolute",
-                                right: "10px",
-                                top: "50%",
-                                transform: "translateY(-50%)",
-                            }}
-                            onClick={() => setShowPassword(!showPassword)}
-                        ></i>
-                    </div>
-                    {errors.password && <p className="error">{errors.password}</p>}
+                    {/* Passwords shown only if email verified */}
+                    {emailVerified && (
+                        <>
+                            <label htmlFor="password">New Password</label>
+                            <div className="input-box">
+                                <input
+                                    type={showPassword ? "text" : "password"}
+                                    id="password"
+                                    name="password"
+                                    placeholder="Enter your new password"
+                                    maxLength="15"
+                                    autoComplete="current-password"
+                                    value={formData.password}
+                                    onChange={handleChange}
+                                    onKeyDown={handleKeyDownPassword}
+                                    required
+                                />
+                                <i
+                                    className={`bi ${showPassword ? "bi-eye-fill" : "bi-eye-slash-fill"}`}
+                                    style={{
+                                        cursor: "pointer",
+                                        position: "absolute",
+                                        right: "10px",
+                                        top: "50%",
+                                        transform: "translateY(-50%)",
+                                    }}
+                                    onClick={() => setShowPassword(!showPassword)}
+                                ></i>
+                            </div>
+                            {errors.password && <p className="error" style={{ color: "blue", fontSize: "12px" }}>{errors.password}</p>}
 
-                    {/* Confirm Password */}
-                    <label htmlFor="confirmPassword">Confirm Password</label>
-                    <div className="input-box">
-                        <input
-                            type={showPassword ? "text" : "password"}
-                            id="confirmPassword"
-                            name="confirmPassword"
-                            placeholder="Re-enter your new password"
-                            maxLength="15"
-                            autoComplete="current-password"
-                            value={formData.confirmPassword}
-                            onChange={handleChange}
-                            required
-                        />
-                        <i
-                            className={`bi ${showPassword ? "bi-eye-fill" : "bi-eye-slash-fill"}`}
-                            style={{
-                                cursor: "pointer",
-                                position: "absolute",
-                                right: "10px",
-                                top: "50%",
-                                transform: "translateY(-50%)",
-                            }}
-                            onClick={() => setShowPassword(!showPassword)}
-                        ></i>
-                    </div>
-                    {errors.confirmPassword && (
-                        <p className="error">{errors.confirmPassword}</p>
+                            <label htmlFor="confirmPassword">Confirm Password</label>
+                            <div className="input-box">
+                                <input
+                                    type={showPassword ? "text" : "password"}
+                                    id="confirmPassword"
+                                    name="confirmPassword"
+                                    placeholder="Re-enter your new password"
+                                    maxLength="15"
+                                    autoComplete="current-password"
+                                    value={formData.confirmPassword}
+                                    onChange={handleChange}
+                                    onKeyDown={handleKeyDownPassword}
+                                    required
+                                />
+                                <i
+                                    className={`bi ${showPassword ? "bi-eye-fill" : "bi-eye-slash-fill"}`}
+                                    style={{
+                                        cursor: "pointer",
+                                        position: "absolute",
+                                        right: "10px",
+                                        top: "50%",
+                                        transform: "translateY(-50%)",
+                                    }}
+                                    onClick={() => setShowPassword(!showPassword)}
+                                ></i>
+                            </div>
+                            {errors.confirmPassword && <p className="error" style={{ color: "blue", fontSize: "12px" }}>{errors.confirmPassword}</p>}
+
+                            <div className="buttons mt-3">
+                                <button type="submit" className="btn" disabled={loading}>
+                                    {loading ? "Submitting..." : "Reset Password"}
+                                </button>
+                            </div>
+                        </>
                     )}
-
-                    <div className="buttons">
-                        <button type="submit" className="btn" disabled={loading}>
-                            {loading ? "Submitting..." : "Reset Password"}
-                        </button>
-                        <button
-                            type="button"
-                            className="btn"
-                            onClick={resetForm}
-                            style={{ marginLeft: "10px" }}
-                        >
-                            Clear
-                        </button>
-                    </div>
 
                     <div className="register-link">
                         <p>

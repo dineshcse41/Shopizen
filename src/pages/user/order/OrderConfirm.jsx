@@ -1,6 +1,6 @@
 import React, { useContext, useMemo, useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { AuthContext } from "../../../components/context//AuthContext.jsx";
+import { AuthContext } from "../../../components/context/AuthContext.jsx";
 import { useToast } from "../../../components/context/ToastContext.jsx";
 import "./OrderConfirm.css";
 
@@ -53,62 +53,76 @@ const OrderConfirmPage = () => {
     if (!user) return <p className="text-center mt-5">Please log in to view your order confirmation.</p>;
     if (!orderData) return <p className="text-center mt-5">⚠️ Order data not found!</p>;
 
+    // URL for tracking the whole order
+    const orderTrackUrl = `${window.location.origin}/track/${orderData.id}`;
+
     return (
-        <>
-           
-            <div className="order-confirm-page p-3">
-                <div className="text-center py-5">
-                    <h2 className="mb-3 text-success">🎉 Order Placed Successfully!</h2>
-                    <p>Thank you for shopping with us. Your order details are below.</p>
+        <div className="order-confirm-page p-3">
+            <div className="text-center py-5">
+                <h2 className="mb-3 text-success">🎉 Order Placed Successfully!</h2>
+                <p>Thank you for shopping with us. Your order details are below.</p>
 
-                    <div className="order-summary card p-3 mb-4">
-                        <h5>Customer Info</h5>
-                        <p><strong>Name:</strong> {orderData.customer?.firstName} {orderData.customer?.lastName}</p>
-                        <p><strong>Email:</strong> {orderData.customer?.email}</p>
-                        <p><strong>Order ID:</strong> {orderData.id}</p>
-                        <p><strong>Expected Delivery:</strong> {orderData.items?.[0]?.expectedDelivery}</p>
+                <div className="order-summary card p-3 mb-4">
+                    <h5>Customer Info</h5>
+                    <p><strong>Name:</strong> {orderData.customer?.firstName} {orderData.customer?.lastName}</p>
+                    <p><strong>Email:</strong> {orderData.customer?.email}</p>
+                    <p><strong>Order ID:</strong> {orderData.id}</p>
+                    <p><strong>Expected Delivery:</strong> {orderData.items?.[0]?.expectedDelivery}</p>
 
-                        <h5 className="mt-3">Shipping Address</h5>
-                        <p>{orderData.customer?.address}, {orderData.customer?.city}, {orderData.customer?.state} - {orderData.customer?.pincode}</p>
+                    <h5 className="mt-3">Shipping Address</h5>
+                    <p>{orderData.customer?.address}, {orderData.customer?.city}, {orderData.customer?.state} - {orderData.customer?.pincode}</p>
 
-                        <h5 className="mt-3">Payment Method</h5>
-                        <p>{orderData.paymentMethod === "cod" ? "Cash on Delivery" : "Online Payment"}</p>
-                    </div>
+                    <h5 className="mt-3">Payment Method</h5>
+                    <p>{orderData.paymentMethod === "cod" ? "Cash on Delivery" : "Online Payment"}</p>
+                </div>
 
-                    {/* Products */}
+                {/* Products */}
+                <div className="d-flex flex-wrap gap-3">
                     {(orderData.items || []).map((item) => (
-                        <div key={item.orderItemId} className="d-flex justify-content-between border p-2 mb-2 align-items-center">
+                        <div
+                            key={item.orderItemId}
+                            className="border p-2 mb-2 flex-grow-1"
+                            style={{ flex: "1 1 calc(50% - 12px)", minWidth: "250px" }} // 50% width minus gap
+                        >
                             <div>
                                 <strong>{item.name}</strong> <br />
-                                Qty: {item.quantity} | ₹{(item.price || 0) * (item.quantity || 0)} <br />
+                                Qty: {item.quantity} | Size: {item.selectedSize || "Free Size"} | ₹{(item.price || 0) * (item.quantity || 0)} <br />
                                 Order Item ID: {item.orderItemId} <br />
-                                Expected Delivery: {item.expectedDelivery}
-                            </div>
-                            <div className="d-flex flex-column gap-1">
-                                <Link to={`/track/${orderData.id}/${item.orderItemId}`} className="btn btn-outline-primary btn-sm">Track</Link>
-                                <button className="btn btn-outline-success btn-sm"
-                                    onClick={() => {
-                                        const shareUrl = `${window.location.origin}/track/${orderData.id}/${item.orderItemId}`;
-                                        if (navigator.share) {
-                                            navigator.share({ title: "Track My Order", text: `Track item: ${item.name}`, url: shareUrl })
-                                                .then(() => showToast("Shared successfully!", "success"))
-                                                .catch(() => showToast("Sharing failed", "error"));
-                                        } else {
-                                            navigator.clipboard.writeText(shareUrl).then(() => showToast("Link copied!", "success"));
-                                        }
-                                    }}
-                                >Share Tracker</button>
                             </div>
                         </div>
                     ))}
+                </div>
 
-                    <div className="mt-3 d-flex justify-content-center gap-3">
-                        <Link to="/orders" className="btn btn-outline-primary">View My Orders</Link>
-                        <Link to="/products" className="btn btn-primary">Continue Shopping</Link>
-                    </div>
+
+                {/* Track & Share buttons for the whole order */}
+                <div className="mt-3 d-flex justify-content-center gap-2">
+                    <Link to={`/track/${orderData.id}`} className="btn btn-outline-primary">Track Order</Link>
+                    <button
+                        className="btn btn-outline-success"
+                        onClick={() => {
+                            if (navigator.share) {
+                                navigator.share({
+                                    title: "Track My Order",
+                                    text: `Track your order #${orderData.id}`,
+                                    url: orderTrackUrl
+                                })
+                                    .then(() => showToast("Shared successfully!", "success"))
+                                    .catch(() => showToast("Sharing failed", "error"));
+                            } else {
+                                navigator.clipboard.writeText(orderTrackUrl)
+                                    .then(() => showToast("Link copied!", "success"));
+                            }
+                        }}
+                    >Share Tracker</button>
+
+                </div>
+
+                <div className="mt-3 d-flex justify-content-center gap-3">
+                    <Link to="/orders" className="btn btn-outline-primary">View My Orders</Link>
+                    <Link to="/products" className="btn btn-primary">Continue Shopping</Link>
                 </div>
             </div>
-        </>
+        </div>
     );
 };
 

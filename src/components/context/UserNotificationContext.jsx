@@ -10,63 +10,81 @@ export const UserNotificationProvider = ({ children }) => {
     const [personalNotifs, setPersonalNotifs] = useState([]);
     const [globalNotifs, setGlobalNotifs] = useState([]);
 
+    // Load notifications
     useEffect(() => {
-        if (user && user.role !== "admin") {
-            try {
-                const storageKey = `notifications_user_${user.id}`;
-                let savedPersonal = JSON.parse(localStorage.getItem(storageKey));
-                if (!savedPersonal) savedPersonal = userData;
+        try {
+            // Global notifications (always available)
+            const savedGlobal = JSON.parse(localStorage.getItem("global_notifications")) || globalData;
+            setGlobalNotifs(savedGlobal);
+
+            // Personal notifications (only if user logged in)
+            if (user) {
+                const storageKey = `notifications_user_${user.email || user.mobile || user.id}`;
+                const savedPersonal = JSON.parse(localStorage.getItem(storageKey)) || userData;
                 setPersonalNotifs(savedPersonal);
-
-                let savedGlobal = JSON.parse(localStorage.getItem("global_notifications"));
-                if (!savedGlobal) savedGlobal = globalData;
-                setGlobalNotifs(savedGlobal);
-
-            } catch (e) {
-                console.error("Failed to load notifications:", e);
-                setPersonalNotifs([]);
-                setGlobalNotifs([]);
+            } else {
+                setPersonalNotifs([]); // no personal notifications for guests
             }
+        } catch (e) {
+            console.error("Failed to load notifications:", e);
+            setGlobalNotifs(globalData);
+            setPersonalNotifs([]);
         }
     }, [user]);
 
+    // Save personal notifications when they change
     useEffect(() => {
-        if (user && user.role !== "admin") {
-            const storageKey = `notifications_user_${user.id}`;
+        if (user) {
+            const storageKey = `notifications_user_${user.email || user.mobile || user.id}`;
             localStorage.setItem(storageKey, JSON.stringify(personalNotifs));
         }
     }, [personalNotifs, user]);
 
+    // Save global notifications
     useEffect(() => {
         localStorage.setItem("global_notifications", JSON.stringify(globalNotifs));
     }, [globalNotifs]);
 
     const addNotification = (message, type = "info", orderId = null) => {
+        if (!user) return; // only allow adding personal notifications if logged in
+
         setPersonalNotifs(prev => {
             if (orderId && prev.some(n => n.orderId === orderId)) return prev;
-            return [{ id: Date.now(), orderId, message, type, isRead: false, timestamp: new Date().toISOString() }, ...prev];
+            return [
+                { id: Date.now(), orderId, message, type, isRead: false, timestamp: new Date().toISOString() },
+                ...prev
+            ];
         });
     };
 
     const markAsRead = (id, isGlobal = false) => {
         if (isGlobal) {
             setGlobalNotifs(prev => prev.map(n => n.id === id ? { ...n, isRead: true } : n));
-        } else {
+        } else if (user) {
             setPersonalNotifs(prev => prev.map(n => n.id === id ? { ...n, isRead: true } : n));
         }
     };
 
     const markAllAsRead = () => {
-        setPersonalNotifs(prev => prev.map(n => ({ ...n, isRead: true })));
         setGlobalNotifs(prev => prev.map(n => ({ ...n, isRead: true })));
+        if (user) {
+            setPersonalNotifs(prev => prev.map(n => ({ ...n, isRead: true })));
+        }
     };
 
-    const notifications = useMemo(() => [...globalNotifs, ...personalNotifs].sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp)), [personalNotifs, globalNotifs]);
+    // Merge notifications (personal only if user logged in)
+    const notifications = useMemo(() => {
+        return [...globalNotifs, ...personalNotifs].sort(
+            (a, b) => new Date(b.timestamp) - new Date(a.timestamp)
+        );
+    }, [personalNotifs, globalNotifs]);
 
     const unreadCount = useMemo(() => notifications.filter(n => !n.isRead).length, [notifications]);
 
     return (
-        <UserNotificationContext.Provider value={{ notifications, addNotification, markAsRead, markAllAsRead, unreadCount }}>
+        <UserNotificationContext.Provider
+            value={{ notifications, addNotification, markAsRead, markAllAsRead, unreadCount }}
+        >
             {children}
         </UserNotificationContext.Provider>
     );

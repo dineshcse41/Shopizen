@@ -1,0 +1,66 @@
+{
+    "offers": [
+        {
+            "id": 1,
+            "title": "Deals Under ₹499",
+            "filterType": "priceBelow",
+            "filterValue": 499,
+            "discount": 10,
+            "expiryDate": "2025-10-20",
+            "bannerImage": "https://t4.ftcdn.net/jpg/02/49/50/15/360_F_249501541_XmWdfAfUbWAvGxBwAM0ba2aYT36ntlpH.jpg",
+            "link": "/offers/1"
+        },
+        {
+            "id": 2,
+            "title": "Fashion 10% Off",
+            "filterType": "category",
+            "filterValue": "Fashion",
+            "discount": 10,
+            "expiryDate": "2025-10-25",
+            "bannerImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSj4fLEDpg7wTkhXNSUYFAnBRbFJO0JlvEOhcusmabi9pxuBHKeBgUqazeeDOoVPMdoRYA&usqp=CAU",
+            "link": "/offers/2"
+        },
+        {
+            "id": 3,
+            "title": "Bags 15% Off",
+            "filterType": "category",
+            "filterValue": "Bags",
+            "discount": 15,
+            "expiryDate": "2025-10-20",
+            "bannerImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvciZefObnpN6Wv-zihvMtjl2GAEg5jtf1l8lLk_2TkshgXnJu_3Dgo_DjVRbx9-jltV0&usqp=CAU",
+            "link": "/offers/3"
+        },
+        {
+            "id": 4,
+            "title": "Fashion 10% Off",
+            "filterType": "category",
+            "filterValue": "Fashion",
+            "discount": 10,
+            "expiryDate": "2025-10-25",
+            "bannerImage": "https://t4.ftcdn.net/jpg/02/49/50/15/360_F_249501541_XmWdfAfUbWAvGxBwAM0ba2aYT36ntlpH.jpg",
+            "link": "/offers/4"
+        },
+        {
+            "id": 5,
+            "title": "Fashion 10% Off",
+            "filterType": "category",
+            "filterValue": "Fashion",
+            "discount": 10,
+            "expiryDate": "2025-10-25",
+            "bannerImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvciZefObnpN6Wv-zihvMtjl2GAEg5jtf1l8lLk_2TkshgXnJu_3Dgo_DjVRbx9-jltV0&usqp=CAU",
+            "link": "/offers/5"
+        },
+        {
+            "id": 6,
+            "title": "Footwear 20% Off",
+            "filterType": "subCategory",
+            "filterValue": "Footwear",
+            "discount": 20,
+            "expiryDate": "2025-10-25",
+            "bannerImage": "https://t4.ftcdn.net/jpg/02/49/50/15/360_F_249501541_XmWdfAfUbWAvGxBwAM0ba2aYT36ntlpH.jpg",
+            "link": "/offers/6"
+        }
+
+
+    ]
+}

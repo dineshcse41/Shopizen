@@ -55,7 +55,9 @@ const CartPage = () => {
 
                     {/* Total Summary */}
                     <div className="col-12 col-md-3 p-2">
-                        <TotalSummary cart={Array.isArray(cart) ? cart : []} />
+                        <div className="sticky-summary">
+                            <TotalSummary cart={Array.isArray(cart) ? cart : []} />
+                        </div>
                     </div>
                 </div>
             </div>

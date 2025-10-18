@@ -9,7 +9,7 @@ img {
 }
 
 .input {
-   /*  width: 100%; */
+    /*  width: 100%; */
     max-width: 900px;
     background-color: white;
     flex: 0.53;
@@ -85,7 +85,38 @@ img {
     border-radius: 3px;
 }
 
-.horizontal-menu li{
+.horizontal-menu li {
     margin-right: 40px;
     margin-left: 40px;
+}
+
+@media (max-width: 767px) {
+    .navbar form {
+        flex-grow: 1;
+        margin-left: 10px;
+    }
+
+    .navbar .input-group {
+        flex-wrap: nowrap;
+    }
+
+    .navbar select.form-select {
+        max-width: 100px;
+        font-size: 12px;
+        padding: 4px;
+    }
+
+    .navbar input.form-control {
+        font-size: 13px;
+        padding: 6px;
+    }
+
+    .navbar button.btn {
+        padding: 6px 10px;
+    }
+
+    .logo-img {
+        width: 55px;
+        height: 55px;
+    }
 }

@@ -3,8 +3,10 @@ import React from "react";
 import { Outlet } from "react-router-dom";
 import productsData from "../data/products/products.json";
 import { useAuth } from "../components/context/AuthContext.jsx";
+
 // General
 import Home from "../pages/user/general/Home.jsx";
+import OfferPage from "../pages/user/general/OfferPage.jsx";
 
 // Auth
 import LoginWithEmail from "../pages/user/auth/LoginWithEmail.jsx";
@@ -85,13 +87,16 @@ export const userRoutes = [
             
             { path: "/profile", element: <PrivateRoute><ProfilePage /></PrivateRoute> },
             { path: "/wishlist", element: <PrivateRoute><WishlistPage /></PrivateRoute> },
-            { path: "/track/:orderId/:itemId", element: <PrivateRoute><TrackOrderPage /></PrivateRoute> },
+            { path: "/track/:orderId", element: <PrivateRoute><TrackOrderPage /></PrivateRoute> },
             { path: "/address/add", element: <PrivateRoute><AddAddress /></PrivateRoute> },
             { path: "/address/edit/:id", element: <PrivateRoute><EditAddress /></PrivateRoute> },
             { path: "/user/wallet", element: <UserWallet /> },
             { path: "/contact", element: <ContactWrapper /> },
 
-            // ✅ Catch-all 404 route (important)
+            // Add your offer route here
+            { path: "/offers/:id", element: <OfferPage /> },
+
+            // Catch-all 404 route (important)
             { path: "*", element: <NotFound404 /> },
         ],
         

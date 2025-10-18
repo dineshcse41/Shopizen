@@ -1,105 +1,104 @@
-import React, { useEffect, useState, useContext, useRef, useMemo } from "react";
-import { useParams, Link } from "react-router-dom";
+import React, { useEffect, useState, useContext, useMemo, useRef } from "react";
+import { useParams } from "react-router-dom";
 import { AuthContext } from "../../../components/context/AuthContext";
-import Footer from "../../../components/Footer/Footer";
 import "../../user/order/Order.css";
+
+import Footer from "../../../components/Footer/Footer";
 
 const statuses = ["Placed", "Confirmed", "Shipped", "Delivered"];
 
 const TrackOrderPage = () => {
-  const { orderId, itemId } = useParams();
+  const { orderId } = useParams();
   const { user } = useContext(AuthContext);
-  const [item, setItem] = useState(null);
   const [order, setOrder] = useState(null);
   const intervalRef = useRef(null);
 
   const storageKey = useMemo(() => (user ? `orders_${user.id}` : null), [user]);
 
-  // Load order and specific item
+  // Load order from localStorage
   useEffect(() => {
-    if (!storageKey || !orderId || !itemId) return;
-
+    if (!storageKey || !orderId) return;
     const orders = JSON.parse(localStorage.getItem(storageKey)) || [];
-    const foundOrder = orders.find((o) => o.id === orderId);
-    if (!foundOrder) return;
+    const found = orders.find((o) => o.id === orderId);
+    if (found) setOrder(found);
+  }, [storageKey, orderId]);
 
-    const foundItem = foundOrder.items.find((i) => i.orderItemId === itemId);
-    if (!foundItem) return;
-
-    setOrder(foundOrder);
-    setItem(foundItem);
-  }, [storageKey, orderId, itemId]);
-
-  // Auto-progress for this specific item
+  // Auto-progress statuses & sync with localStorage
   useEffect(() => {
-    if (!item || !order || !storageKey) return;
+    if (!order || !storageKey) return;
+
+    // Stop auto-progress if any item is cancelled/returned
+    if (order.items.some((i) => i.statusIndex === -1)) return;
 
     intervalRef.current = setInterval(() => {
-      setItem((prev) => {
+      setOrder((prev) => {
         if (!prev) return prev;
 
-        let updatedItem = { ...prev };
-        if (updatedItem.statusIndex !== -1 && updatedItem.statusIndex < statuses.length - 1) {
-          updatedItem.statusIndex += 1;
-        }
+        const updated = {
+          ...prev,
+          items: prev.items.map((item) => {
+            if (item.statusIndex < statuses.length - 1) {
+              return { ...item, statusIndex: item.statusIndex + 1 };
+            }
+            return item;
+          }),
+        };
 
-        // Update order in localStorage
+        // 🔥 Save updated order back into localStorage
         const allOrders = JSON.parse(localStorage.getItem(storageKey)) || [];
-        const updatedOrders = allOrders.map((o) => {
-          if (o.id === order.id) {
-            return {
-              ...o,
-              items: o.items.map((i) => (i.orderItemId === itemId ? updatedItem : i)),
-            };
-          }
-          return o;
-        });
-        localStorage.setItem(storageKey, JSON.stringify(updatedOrders));
+        const newOrders = allOrders.map((o) => (o.id === orderId ? updated : o));
+        localStorage.setItem(storageKey, JSON.stringify(newOrders));
 
-        return updatedItem;
+        return updated;
       });
     }, 4000);
 
     return () => clearInterval(intervalRef.current);
-  }, [item, order, storageKey, itemId]);
+  }, [order, storageKey, orderId]);
 
   if (!user) return <p className="text-center mt-4">Please login to track your order.</p>;
-  if (!item) return <p className="text-center mt-4">Item not found!</p>;
+  if (!order) return <p className="text-center mt-4">Order not found!</p>;
 
   return (
     <>
+
       <div className="mx-4 my-4">
-        <h2 className="mb-4">Tracking Item: {item.name}</h2>
-        <h5>Order ID: {orderId}</h5>
+        <h2 className="mb-4">Tracking Order: {orderId}</h2>
 
-        <div className="card mb-4 shadow-sm">
-          <div className="card-body">
-            <p><strong>Expected Delivery:</strong> {item.expectedDelivery || "N/A"}</p>
-
-            {item.statusIndex === -1 ? (
-              <p className="text-danger fw-bold">
-                {item.action === "return" ? `Returned: ${item.reason}` : `Cancelled: ${item.reason}`}
+        {order.items?.map((item) => (
+          <div key={item.orderItemId} className="card mb-4 shadow-sm">
+            <div className="card-body">
+              <h5>{item.name}</h5>
+              <p>
+                <strong>Expected Delivery:</strong>{" "}
+                {item.expectedDelivery || "N/A"}
               </p>
-            ) : (
-              <div className="progress mb-3" style={{ height: "25px" }}>
-                {statuses.map((status, index) => (
-                  <div
-                    key={index}
-                    className={`progress-bar ${
-                      index <= item.statusIndex ? "bg-success" : "bg-light text-dark"
-                    }`}
-                    style={{ width: `${100 / statuses.length}%` }}
-                  >
-                    {status}
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
-        </div>
 
-        <Link to="/orders" className="btn btn-outline-primary me-2">Back to Orders</Link>
-        <Link to="/products" className="btn btn-primary">Continue Shopping</Link>
+              {item.statusIndex === -1 ? (
+                <p className="text-danger fw-bold">
+                  {item.action === "return"
+                    ? `Returned: ${item.reason}`
+                    : `Cancelled: ${item.reason}`}
+                </p>
+              ) : (
+                <div className="progress mb-3" style={{ height: "25px" }}>
+                  {statuses.map((status, index) => (
+                    <div
+                      key={index}
+                      className={`progress-bar ${index <= item.statusIndex
+                        ? "bg-success"
+                        : "bg-light text-dark"
+                        }`}
+                      style={{ width: `${100 / statuses.length}%` }}
+                    >
+                      {status}
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
+        ))}
       </div>
       <Footer />
     </>

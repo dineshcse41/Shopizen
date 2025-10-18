@@ -1,14 +1,13 @@
 import React, { useState, useContext, useEffect } from "react";
 import { Link, useParams, useNavigate, useLocation } from "react-router-dom";
-import "./ProductDetail.css";
-
 import { CartContext } from "../../../components/context/CartContext";
 import { WishlistContext } from "../../../components/context/WishlistContext";
 import { AuthContext } from "../../../components/context/AuthContext";
 import { useComparison } from "../../../components/context/ComparisonContext";
+import { useToast } from "../../../components/context/ToastContext.jsx";
 import defaultImage from "../../../assets/product-default-image.png";
-
-// Dummy reviews JSON
+import "./ProductDetail.css";
+import ProductCard from "../../../components/ProductCard/ProductCard.jsx";
 import reviewsData from "../../../data/products/reviews.json"; // <- your JSON file path
 
 const ProductDetail = ({ products = [], setProducts }) => {
@@ -19,24 +18,30 @@ const ProductDetail = ({ products = [], setProducts }) => {
     const { user } = useContext(AuthContext);
     const { addToCart } = useContext(CartContext);
     const { wishlist, toggleWishlist } = useContext(WishlistContext);
-
+    const { showToast } = useToast();
     const [quantity, setQuantity] = useState(1);
-    const [selectedSize, setSelectedSize] = useState("");
     const [showReviews, setShowReviews] = useState(true);
     const [visibleReviews, setVisibleReviews] = useState(3);
-
     const [helpfulVotes, setHelpfulVotes] = useState({});
     const [newReview, setNewReview] = useState({ stars: 0, text: "", media: [] });
     const [reviews, setReviews] = useState([]);
-
     const toggleReviewSection = () => setShowReviews((prev) => !prev);
     const handleShowMore = () => setVisibleReviews((prev) => prev + 3);
-
     const product = products.find((p) => p.id.toString() === id);
-
+    const isInWishlist = wishlist.some((item) => item.id === product.id);
     const [mainImage, setMainImage] = useState(
         product?.images ? product.images[0] : product?.image || defaultImage
     );
+
+
+    // If sizes are available, user must select; otherwise, default to "Free Size"
+    const [selectedSize, setSelectedSize] = useState("");
+
+    useEffect(() => {
+        if (!product.sizes || product.sizes.length === 0) {
+            setSelectedSize("Free Size");
+        }
+    }, [product.sizes]);
 
     useEffect(() => {
         if (product) setMainImage(product.images?.[0] || product.image || defaultImage);
@@ -77,13 +82,40 @@ const ProductDetail = ({ products = [], setProducts }) => {
     const handleAddToCart = () => {
         if (!requireLogin("addToCart")) return;
         addToCart({ ...product, size: selectedSize || "Default", quantity });
+
+        if (!selectedSize) {
+            showToast("Please select a size before adding to cart.", "error");
+            return;
+        }
+        showToast(`${product.name} (${selectedSize}) added to cart!`, "success");
     };
 
     const handleBuyNow = () => {
         if (!requireLogin("buyNow")) return;
+
+        if (!selectedSize) {
+            showToast("Please select a size before buying.", "error");
+            return;
+        }
+
         navigate("/checkout", {
-            state: { buyNowProduct: { ...product, size: selectedSize || "Default", quantity } },
+            state: { buyNowProduct: { ...product, quantity: 1, selectedSize } },
         });
+    };
+
+    const handleWishlist = () => {
+        if (!user) {
+            showToast("Please log in to manage wishlist.", "error");
+            navigate("/login-email");
+            return;
+        }
+        toggleWishlist(product);
+        showToast(
+            isInWishlist
+                ? `${product.name} removed from wishlist.`
+                : `${product.name} added to wishlist!`,
+            "success"
+        );
     };
 
     const handleReviewSubmit = (e) => {
@@ -106,6 +138,8 @@ const ProductDetail = ({ products = [], setProducts }) => {
         setNewReview((prev) => ({ ...prev, media: [...prev.media, ...urls] }));
     };
 
+
+
     const totalReviews = reviews.length;
     const avgRating =
         totalReviews > 0
@@ -118,7 +152,7 @@ const ProductDetail = ({ products = [], setProducts }) => {
     }));
 
     return (
-        <>       
+        <>
             <div className="section1 bg-primary justify-content-between d-flex ">
                 <h5 className="mx-2 mt-1">Shopizen</h5>
                 <div>
@@ -204,16 +238,25 @@ const ProductDetail = ({ products = [], setProducts }) => {
                             <span className="text-muted">
                                 Brand: <strong>{product.brand}</strong>
                             </span>
-                            <Link to="/cart" className="fs-4 ms-auto">
-                                <i className="bi bi-cart4 "></i>
-                            </Link>
+
+                            <button
+                                className="btn  fs-4 ms-auto"
+                                onClick={handleWishlist}
+                            >
+                                <i
+                                    className={isInWishlist ? "bi bi-heart-fill" : "bi bi-heart"}
+                                    style={{ color: isInWishlist ? "red" : "" }}
+                                ></i>
+                            </button>
+
+
                         </div>
 
                         <h2 className="mt-2">{product.name}</h2>
 
                         <p>
                             <strong>Description:</strong> {product.description}
-                        </p> 
+                        </p>
 
                         <div className="d-flex align-items-center">
 
@@ -233,17 +276,17 @@ const ProductDetail = ({ products = [], setProducts }) => {
                             )}
                         </div>
 
-                       <div className="d-flex mt-0">
-                            {/* Size Selection */}
-                            {product.sizes && product.sizes.length > 0 && (
-                                <div className="d-flex align-items-center mb-3">
-                                    <label className="me-2">Size:</label>
-                                    <div className="d-flex gap-2 mt-3">
-                                        {product.sizes.map((size, idx) => (
+                        <div className="d-flex mt-0">
+                            {/* SIZE SELECTION */}
+                            {product.sizes && product.sizes.length > 0 ? (
+                                <div className="mb-3">
+                                    <label className="form-label">Select Size:</label>
+                                    <div className="d-flex flex-wrap">
+                                        {product.sizes.map((size) => (
                                             <button
-                                                key={idx}
-                                                type="button"
-                                                className={`btn btn-outline-secondary ${selectedSize === size ? "active" : ""}`}
+                                                key={size}
+                                                className={`btn btn-sm me-2 mb-2 ${selectedSize === size ? "btn-primary" : "btn-outline-secondary"
+                                                    }`}
                                                 onClick={() => setSelectedSize(size)}
                                             >
                                                 {size}
@@ -251,8 +294,11 @@ const ProductDetail = ({ products = [], setProducts }) => {
                                         ))}
                                     </div>
                                 </div>
+                            ) : (
+                                <div className="mb-3">
+                                    <span className="badge bg-secondary">Free Size</span>
+                                </div>
                             )}
-
                             {/* Quantity */}
                             <div className="d-flex align-items-center mb-3 ms-4">
                                 <label className="me-2">Quantity:</label>
@@ -266,8 +312,8 @@ const ProductDetail = ({ products = [], setProducts }) => {
                                 />
                             </div>
 
-                       </div>
-                      
+                        </div>
+
                         {/* Compare Checkbox below rating */}
                         <div className="form-check mt-2 mb-2">
                             <input
@@ -276,7 +322,7 @@ const ProductDetail = ({ products = [], setProducts }) => {
                                 id={`compare-${product.id}`}
                                 checked={isAdded}
                                 onChange={() => toggleCompare(product)}
-                                
+
                             />
                             < label className="form-check-label mt-0" htmlFor={`compare-${product.id}`}>
                                 Compare
@@ -284,12 +330,12 @@ const ProductDetail = ({ products = [], setProducts }) => {
                         </div>
 
                         <div className="mb-3 d-flex">
-                            <button className="btn btn-primary w-50 me-2" onClick={handleAddToCart}>
+                            <button className="btn btn-primary w-50" onClick={handleAddToCart}>
                                 Add to Cart
                             </button>
-                           
 
-                            <button className="btn btn-dark w-50" onClick={handleBuyNow}>
+
+                            <button className="btn btn-dark w-50 ms-2" onClick={handleBuyNow}>
                                 Buy Now
                             </button>
                         </div>
@@ -486,89 +532,34 @@ const ProductDetail = ({ products = [], setProducts }) => {
                 {/* Similar Products */}
                 <hr className="my-4" />
                 <h4>You Might Also Like</h4>
-                <div className="similar-products d-flex gap-3 flex-wrap">
-                    {products
-                        .filter((p) => {
-                            if (p.id === product.id) return false;
-                            const sameCategory = p.category === product.category;
-                            const sameBrand = p.brand === product.brand;
-                            const priceDiff = Math.abs(p.price - product.price);
-                            const similarPrice = priceDiff <= product.price * 0.2;
-                            return [sameCategory, sameBrand, similarPrice].filter(Boolean).length >= 2;
-                        })
-                        .slice(0, 4)
-                        .map((item, idx) => {
-                            const isItemInWishlist = wishlist.some((w) => w.id === item.id);
-                            const isItemCompared = comparisonList.some((c) => c.id === item.id);
-
-                            return (
-                                <div key={idx} className="col-md-3" style={{ width: "300px" }}>
-                                    <div className="card h-100 w-100">
-                                        {/* Wishlist toggle */}
-                                        <button
-                                            className="btn position-absolute top-0 end-0 m-2 p-2"
-                                            onClick={() => toggleWishlist(item)}
-                                        >
-                                            <i
-                                                className={isItemInWishlist ? "bi bi-heart-fill" : "bi bi-heart"}
-                                                style={{ color: isItemInWishlist ? "red" : "" }}
-                                            ></i>
-                                        </button>
-
-                                        {/* Product Image */}
-                                        <a href={`/product/${item.id}`} target="_blank" rel="noopener noreferrer">
-                                            <img
-                                                src={Array.isArray(item.images) ? item.images[0] : item.image || defaultImage}
-                                                alt={item.name}
-                                                className="card-img-top"
-                                                style={{ width: "100%", height: "250px", objectFit: "contain", cursor: "pointer" }}
-                                                onError={(e) => {
-                                                    e.target.src = defaultImage;
-                                                }}
-                                            />
-                                        </a>
-
-                                        {/* Card Body */}
-                                        <div className="card-body border">
-                                            <span className="brand text-end d-block">{item.brand}</span>
-                                            <h5 className="card-title">{item.name}</h5>
-
-                                            <div className="d-flex justify-content-between align-items-center mb-2">
-                                                <span className="price fw-bold">₹{item.price}.00</span>
-                                                {item.oldPrice && (
-                                                    <span className="text-decoration-line-through text-muted ms-1">
-                                                        ₹{item.oldPrice}.00
-                                                    </span>
-                                                )}
-                                                <div className="rating-badge ms-5">
-                                                    {item.rating}
-                                                    <i className="bi bi-star-fill text-warning"></i>
-                                                </div>
-                                            </div>
-
-                                            {/* Action Buttons */}
-                                            <div className="button d-flex justify-content-between">
-                                                <button
-                                                    className="btn btn-outline-primary w-50 me-1"
-                                                    onClick={() => addToCart({ ...item, quantity: 1 })}
-                                                >
-                                                    Add to Cart
-                                                </button>
-
-                                                <button
-                                                    className={`btn ${isItemCompared ? "btn-secondary" : "btn-outline-info"} w-50 ms-1`}
-                                                    onClick={() => toggleCompare(item)}
-                                                >
-                                                    {isItemCompared ? "Remove" : "Compare"}
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
+                <div className="row g-3 px-2">
+                    {products.filter((p) => {
+                        if (p.id === product.id) return false;
+                        const sameCategory = p.category === product.category;
+                        const sameBrand = p.brand === product.brand;
+                        const priceDiff = Math.abs(p.price - product.price);
+                        const similarPrice = priceDiff <= product.price * 0.2;
+                        return [sameCategory, sameBrand, similarPrice].filter(Boolean).length >= 2;
+                    }).slice(0, 4).length > 0 ? (
+                        products
+                            .filter((p) => {
+                                if (p.id === product.id) return false;
+                                const sameCategory = p.category === product.category;
+                                const sameBrand = p.brand === product.brand;
+                                const priceDiff = Math.abs(p.price - product.price);
+                                const similarPrice = priceDiff <= product.price * 0.2;
+                                return [sameCategory, sameBrand, similarPrice].filter(Boolean).length >= 2;
+                            })
+                            .slice(0, 4)
+                            .map((item, idx) => (
+                                <div className="col-lg-3 col-md-4 col-6" key={idx}>
+                                    <ProductCard product={item} />
                                 </div>
-                            );
-                        })}
+                            ))
+                    ) : (
+                        <p className="text-muted ms-2">No similar products available.</p>
+                    )}
                 </div>
-
             </div>
         </>
     );

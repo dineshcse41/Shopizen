@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
 import { useToast } from "../../../components/context/ToastContext";
-import usersData from "../../../data/users/users.json"; // ✅ Dummy JSON for now
-// import axios from "axios"; // ✅ Uncomment when switching to backend
+import { useAuth } from "../../../components/context/AuthContext.jsx";
 import "../auth/auth.css";
 
 function Register() {
     const { showToast } = useToast();
+    const { login } = useAuth();
     const navigate = useNavigate();
 
     const [formData, setFormData] = useState({
@@ -23,18 +24,41 @@ function Register() {
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
     const [loading, setLoading] = useState(false);
 
-    // handle input change
+    // Password criteria state
+    const [passwordCriteria, setPasswordCriteria] = useState({
+        length: false,
+        upper: false,
+        lower: false,
+        digit: false,
+        special: false,
+    });
+
+    // Live input changes
     const handleChange = (e) => {
         const { name, value, type, checked } = e.target;
         setFormData((prev) => ({
             ...prev,
             [name]: type === "checkbox" ? checked : value,
         }));
+
+        if (name === "password") validatePassword(value);
     };
 
-    // basic validations
+    // Live password validation
+    const validatePassword = (pwd) => {
+        setPasswordCriteria({
+            length: pwd.length >= 6 && pwd.length <= 15,
+            upper: /[A-Z]/.test(pwd),
+            lower: /[a-z]/.test(pwd),
+            digit: /\d/.test(pwd),
+            special: /[!@#$%^&*(),.?":{}|<>]/.test(pwd),
+        });
+    };
+
+    // Form validation
     const validateForm = () => {
         const newErrors = {};
+        const { length, upper, lower, digit, special } = passwordCriteria;
 
         if (!formData.name) newErrors.name = "Name is required.";
         if (!formData.mobile) newErrors.mobile = "Mobile number is required.";
@@ -43,20 +67,19 @@ function Register() {
 
         if (!formData.email) newErrors.email = "Email is required.";
         else if (!/\S+@\S+\.\S+/.test(formData.email))
-            newErrors.email = "Please enter a valid email.";
+            newErrors.email = "Enter a valid email.";
 
         if (!formData.password) newErrors.password = "Password is required.";
-        else if (formData.password.length < 6)
-            newErrors.password = "Password must be at least 6 characters.";
+        else if (!(length && upper && lower && digit && special))
+            newErrors.password = "Password does not meet required criteria.";
 
         if (formData.password !== formData.confirmPassword)
             newErrors.confirmPassword = "Passwords do not match.";
 
         if (!formData.remember)
-            newErrors.remember = "You must agree to the Terms & Conditions.";
+            newErrors.remember = "You must agree to Terms & Conditions.";
 
         setErrors(newErrors);
-
         if (Object.keys(newErrors).length > 0) {
             showToast("Please fix the highlighted errors.", "error");
             return false;
@@ -65,6 +88,15 @@ function Register() {
         return true;
     };
 
+    // Enter key submission
+    const handleKeyDown = (e) => {
+        if (e.key === "Enter") {
+            e.preventDefault();
+            handleRegister(e);
+        }
+    };
+
+    // Register user with backend
     const handleRegister = async (e) => {
         e.preventDefault();
         if (!validateForm()) return;
@@ -72,38 +104,6 @@ function Register() {
         setLoading(true);
 
         try {
-            // ✅ CURRENT: Using dummy JSON
-            const existingUser = usersData.users.find(
-                (u) => u.email === formData.email
-            );
-
-            if (existingUser) {
-                setErrors({ email: "Email already exists. Please log in." });
-                showToast("Email already exists. Please log in.", "error");
-                setLoading(false);
-                return;
-            }
-
-            const newUser = {
-                id: usersData.users.length + 1,
-                name: formData.name,
-                mobile: formData.mobile,
-                email: formData.email,
-                password: formData.password,
-            };
-
-            // ✅ Simulated save (local dummy push)
-            usersData.users.push(newUser);
-
-            showToast("Account created successfully!", "success");
-            setLoading(false);
-            navigate("/login-email");
-
-            /* 
-            ✅ LATER: Django API integration (Uncomment when backend ready)
-            ---------------------------------------------------------------
-            import axios from "axios";
-
             const API_BASE = "http://127.0.0.1:8000/api/users/";
 
             const res = await axios.post(API_BASE, {
@@ -114,17 +114,24 @@ function Register() {
             });
 
             if (res.status === 201) {
+                // Backend returns created user object
+                const newUser = res.data;
+
+                // Auto login using AuthContext
+                login(newUser);
+
                 showToast("Account created successfully!", "success");
-                navigate("/login-email");
-            } else {
-                showToast("Failed to register user.", "error");
+                navigate("/"); // Redirect to home/dashboard
             }
-            setLoading(false);
-            ---------------------------------------------------------------
-            */
         } catch (err) {
-            console.error("Error:", err);
-            showToast("Something went wrong. Try again!", "error");
+            if (err.response) {
+                const backendMsg = err.response.data?.detail || "Registration failed.";
+                showToast(backendMsg, "error");
+            } else {
+                showToast("Something went wrong. Try again!", "error");
+            }
+            console.error("Registration Error:", err);
+        } finally {
             setLoading(false);
         }
     };
@@ -149,11 +156,12 @@ function Register() {
                             placeholder="Enter your full name"
                             value={formData.name}
                             onChange={handleChange}
+                            onKeyDown={handleKeyDown}
                             required
                         />
                         <i className="bi bi-person-fill"></i>
                     </div>
-                    {errors.name && <p className="error">{errors.name}</p>}
+                    {errors.name && <p className="error" style={{ color: "blue", fontSize: "12px" }}>{errors.name}</p>}
 
                     {/* Mobile */}
                     <label htmlFor="mobile">Mobile Number</label>
@@ -165,11 +173,12 @@ function Register() {
                             placeholder="Enter your mobile number"
                             value={formData.mobile}
                             onChange={handleChange}
+                            onKeyDown={handleKeyDown}
                             required
                         />
                         <i className="bi bi-telephone-fill"></i>
                     </div>
-                    {errors.mobile && <p className="error">{errors.mobile}</p>}
+                    {errors.mobile && <p className="error" style={{ color: "blue", fontSize: "12px" }} >{errors.mobile}</p>}
 
                     {/* Email */}
                     <label htmlFor="email">Email</label>
@@ -182,11 +191,12 @@ function Register() {
                             autoComplete="username"
                             value={formData.email}
                             onChange={handleChange}
+                            onKeyDown={handleKeyDown}
                             required
                         />
                         <i className="bi bi-envelope-fill"></i>
                     </div>
-                    {errors.email && <p className="error">{errors.email}</p>}
+                    {errors.email && <p className="error" style={{ color: "blue", fontSize: "12px" }}>{errors.email}</p>}
 
                     {/* Password */}
                     <label htmlFor="password">Password</label>
@@ -200,10 +210,12 @@ function Register() {
                             autoComplete="current-password"
                             value={formData.password}
                             onChange={handleChange}
+                            onKeyDown={handleKeyDown}
                             required
                         />
                         <i
-                            className={`bi ${showPassword ? "bi-eye-fill" : "bi-eye-slash-fill"}`}
+                            className={`bi ${showPassword ? "bi-eye-fill" : "bi-eye-slash-fill"
+                                }`}
                             style={{
                                 cursor: "pointer",
                                 position: "absolute",
@@ -214,7 +226,9 @@ function Register() {
                             onClick={() => setShowPassword(!showPassword)}
                         ></i>
                     </div>
-                    {errors.password && <p className="error">{errors.password}</p>}
+
+                  
+                    {errors.password && <p className="error" style={{ color: "blue", fontSize: "12px" }}>{errors.password}</p>}
 
                     {/* Confirm Password */}
                     <label htmlFor="confirmPassword">Confirm Password</label>
@@ -228,10 +242,12 @@ function Register() {
                             autoComplete="current-password"
                             value={formData.confirmPassword}
                             onChange={handleChange}
+                            onKeyDown={handleKeyDown}
                             required
                         />
                         <i
-                            className={`bi ${showConfirmPassword ? "bi-eye-fill" : "bi-eye-slash-fill"}`}
+                            className={`bi ${showConfirmPassword ? "bi-eye-fill" : "bi-eye-slash-fill"
+                                }`}
                             style={{
                                 cursor: "pointer",
                                 position: "absolute",
@@ -243,7 +259,7 @@ function Register() {
                         ></i>
                     </div>
                     {errors.confirmPassword && (
-                        <p className="error">{errors.confirmPassword}</p>
+                        <p className="error" style={{ color: "blue", fontSize: "12px" }}>{errors.confirmPassword}</p>
                     )}
 
                     {/* Terms & Conditions */}
@@ -257,7 +273,7 @@ function Register() {
                         />
                         I agree to the <Link to="">Terms & Conditions</Link> and Privacy Policy
                     </div>
-                    {errors.remember && <p className="error">{errors.remember}</p>}
+                    {errors.remember && <p className="error" style={{ color: "blue", fontSize: "12px" }}>{errors.remember}</p>}
 
                     <br />
                     <button className="btn" type="submit" disabled={loading}>
@@ -280,4 +296,3 @@ function Register() {
 }
 
 export default Register;
-

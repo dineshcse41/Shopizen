@@ -26,7 +26,8 @@ import RefundHandling from "../pages/admin/products/RefundHandling.jsx";
 
 import UsersPage from "../pages/admin/users/Users.jsx";
 import NotificationManagement from "../pages/admin/notifications/NotificationManagement.jsx";
-
+import SalesReport from "../pages/admin/sales/SalesReport.jsx";
+import Chat from "../pages/admin/notifications/Chat.jsx";
 // Testing Pages
 import MaintenancePage from "../pages/testing/MaintenancePage.jsx";
 import NotFound404 from "../pages/testing/NotFound404.jsx";
@@ -93,6 +94,11 @@ export const adminRoutes = [
                 case "reviews": Component = ReviewModeration; break;
                 case "refunds": Component = RefundHandling; break;
                 case "notifications": Component = NotificationManagement; break;
+                case "sales": Component = SalesReport; break;
+                case "contacts": Component = Chat; break;
+                case "login": Component = AdminLogin; break;
+                case "register": Component = AdminRegister; break;
+                case "reset-password": Component = AdminResetPassword; break;
                 default: Component = NotFound404; break;
             }
 

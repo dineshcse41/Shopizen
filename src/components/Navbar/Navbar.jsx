@@ -1,11 +1,17 @@
-import React, { useState, useContext, useMemo } from "react";
+import React, { useState, useContext, useMemo, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import "./Navbar.css";
 import { AuthContext } from "../context/AuthContext";
 import productsData from "../../data/products/products.json";
 import { useUserNotifications } from "../context/UserNotificationContext";  // ✅ FIXED
 import { useComparison } from "../context/ComparisonContext";
-import logo from "../../../src/assets/logo.jpg";
+import { CartContext } from "../context/CartContext";
+import logo from "../../assets/logo.jpg";
+import Fuse from "fuse.js";
+import "./Navbar.css";
+
+// Utility: normalize text (lowercase + remove punctuation)
+const normalize = (text) =>
+    text.toLowerCase().replace(/[^\w\s]/gi, "");
 
 function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
@@ -16,8 +22,76 @@ function Navbar() {
     const { comparisonList } = useComparison();
     const navigate = useNavigate();
 
+    const [showDropdown, setShowDropdown] = useState(false);
+    const [suggestions, setSuggestions] = useState([]);
+    const debounceRef = useRef(null);
+
     const [showAll, setShowAll] = useState(false);
     const [expandedIds, setExpandedIds] = useState([]);
+
+    const cartContext = useContext(CartContext);
+    const { cart = [] } = cartContext || {};
+
+
+    // Calculate total items in cart
+    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+
+    // Fuse.js setup
+    const fuse = useMemo(() => {
+        return new Fuse(productsData, {
+            keys: ["name", "category"],
+            includeScore: true,
+            threshold: 0.4, // adjust for fuzzy strictness
+            ignoreLocation: true,
+            isCaseSensitive: false,
+        });
+    }, []);
+
+    // Handle input changes with debounce
+    const handleChange = (e) => {
+        const value = e.target.value;
+        setSearchQuery(value);
+
+        if (debounceRef.current) clearTimeout(debounceRef.current);
+
+        debounceRef.current = setTimeout(() => {
+            if (!value.trim()) {
+                setSuggestions([]);
+                return;
+            }
+
+            const normalizedQuery = normalize(value);
+
+            // Fuse search
+            const results = fuse.search(normalizedQuery);
+
+            // Filter by category if not "All"
+            const filteredResults = category === "All"
+                ? results
+                : results.filter(r => r.item.category === category);
+
+            // Show top 5 matches
+            setSuggestions(filteredResults.slice(0, 5).map(r => r.item));
+        }, 300); // 300ms debounce
+    };
+
+    // Handle select product
+    const handleSelect = (product) => {
+        navigate(`/product/${product.id}`);
+        setSearchQuery("");
+        setSuggestions([]);
+    };
+
+    // Handle form submit
+    const handleSearchSubmit = (e) => {
+        e.preventDefault();
+        // Navigate to a products page with query & category filters
+        navigate(`/products?query=${normalize(searchQuery.trim())}&category=${category}`);
+        setSuggestions([]);
+    };
+
+
+    ////////////////////////////////////////////
 
     const allCategories = useMemo(() => {
         const categories = [...new Set(productsData.map((p) => p.category))];
@@ -32,10 +106,10 @@ function Navbar() {
         );
     }, [searchQuery, allCategories]);
 
-    const handleSearch = (e) => {
-        e.preventDefault();
-        navigate(`/products?query=${searchQuery}&category=${category}`);
-    };
+    /*    const handleSearch = (e) => {
+           e.preventDefault();
+           navigate(`/products?query=${searchQuery}&category=${category}`);
+       }; */
 
     const truncateMessage = (msg, maxLen = 60) =>
         msg.length > maxLen ? msg.slice(0, maxLen) + "..." : msg;
@@ -58,13 +132,68 @@ function Navbar() {
                             <img src={logo} alt="Logo" className="img-fluid logo-img" />
                         </Link>
                     </div>
+                    {/* 🔎 Mobile Search Bar */}
+                    <form
+                        className="mobile-search d-flex d-md-none flex-grow-1 ms-2 me-2 position-relative"
+                        onSubmit={handleSearchSubmit}
+                        style={{ width: "100%" }}
+                        autoComplete="off"
+                    >
+                        <div className="input-group">
+                            <select
+                                id="mobile-category"
+                                className="form-select p-1"
+                                style={{ maxWidth: "100px" }}
+                                value={category}
+                                onChange={(e) => setCategory(e.target.value)}
+                            >
+                                {["All", ...Array.from(new Set(productsData.map(p => p.category)))].map(cat => (
+                                    <option key={cat} value={cat}>{cat}</option>
+                                ))}
+                            </select>
+
+                            <input
+                                type="text"
+                                placeholder="Search products..."
+                                className="form-control"
+                                value={searchQuery}
+                                onChange={handleChange}
+                                onFocus={() => setShowDropdown(true)}
+                                onBlur={() => setTimeout(() => setShowDropdown(false), 200)}
+                            />
+
+                            <button className="btn btn-warning" type="submit">
+                                <i className="bi bi-search"></i>
+                            </button>
+                        </div>
+
+                        {/* Suggestions for Mobile */}
+                        {showDropdown && suggestions.length > 0 && (
+                            <ul
+                                className="dropdown-menu show w-100 mt-1 shadow"
+                                style={{ maxHeight: "250px", overflowY: "auto" }}
+                            >
+                                {suggestions.map((p) => (
+                                    <li
+                                        key={p.id}
+                                        className="dropdown-item"
+                                        style={{ cursor: "pointer" }}
+                                        onClick={() => handleSelect(p)}
+                                    >
+                                        <strong>{p.name}</strong> <small className="text-muted">({p.category})</small>
+                                    </li>
+                                ))}
+                            </ul>
+                        )}
+                    </form>
+
 
                     {/* 🔎 Desktop Search Bar */}
                     <form
-                        className="d-none d-md-flex flex-grow-1 ms-4"
-                        onSubmit={handleSearch}
+                        className="d-none d-md-flex flex-grow-1 ms-4 position-relative"
+                        onSubmit={handleSearchSubmit}
                         style={{ maxWidth: "600px" }}
-                        autoComplete="on"
+                        autoComplete="off"
                     >
                         <div className="input-group p-1">
                             <select
@@ -75,10 +204,8 @@ function Navbar() {
                                 value={category}
                                 onChange={(e) => setCategory(e.target.value)}
                             >
-                                {filteredCategories.map((cat) => (
-                                    <option key={cat} value={cat}>
-                                        {cat}
-                                    </option>
+                                {["All", ...Array.from(new Set(productsData.map(p => p.category)))].map(cat => (
+                                    <option key={cat} value={cat}>{cat}</option>
                                 ))}
                             </select>
 
@@ -89,14 +216,34 @@ function Navbar() {
                                 placeholder="Search..."
                                 className="form-control"
                                 value={searchQuery}
-                                onChange={(e) => setSearchQuery(e.target.value)}
-                                autoComplete="on"
+                                onChange={handleChange}
+                                onFocus={() => setShowDropdown(true)}
+                                onBlur={() => setTimeout(() => setShowDropdown(false), 200)}
                             />
 
                             <button className="btn btn-warning" type="submit">
                                 <i className="bi bi-search"></i>
                             </button>
                         </div>
+
+                        {/* Live Suggestions Dropdown */}
+                        {showDropdown && suggestions.length > 0 && (
+                            <ul
+                                className="dropdown-menu show w-100 mt-1 shadow"
+                                style={{ maxHeight: "300px", overflowY: "auto" }}
+                            >
+                                {suggestions.map((p) => (
+                                    <li
+                                        key={p.id}
+                                        className="dropdown-item"
+                                        style={{ cursor: "pointer" }}
+                                        onClick={() => handleSelect(p)}
+                                    >
+                                        <strong>{p.name}</strong> <small className="text-muted">({p.category})</small>
+                                    </li>
+                                ))}
+                            </ul>
+                        )}
                     </form>
 
                     {/* Right Section */}
@@ -252,7 +399,7 @@ function Navbar() {
                                 </li>
                                 <li>
                                     <Link className="dropdown-item" to="/user/wallet">
-                                        <i class="bi bi-wallet"></i> Wallet
+                                        <i className="bi bi-wallet"></i> Wallet
                                     </Link>
                                 </li>
                                 <li>
@@ -262,7 +409,7 @@ function Navbar() {
                                 </li>
                                 <li>
                                     <Link className="dropdown-item" to="/contact">
-                                        <i class="bi bi-person-lines-fill"></i> Contact
+                                        <i className="bi bi-person-lines-fill"></i> Contact
                                     </Link>
                                 </li>
                                 <li>
@@ -357,12 +504,15 @@ function Navbar() {
                             </div>
 
                             {/* Cart */}
-                            <Link to="/cart" className="text-white text-decoration-none">
-                                <div className="d-flex align-items-center gap-1">
-                                    <i className="bi bi-cart"></i>
-                                    <span>Cart</span>
-                                </div>
+                            <Link to="/cart" className="text-white text-decoration-none position-relative me-3">
+                                <i className="bi bi-cart fs-5 "></i>
+                                {user && totalItems > 0 && (
+                                    <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                        {totalItems}
+                                    </span>
+                                )}
                             </Link>
+                           
                         </div>
 
                     </div>

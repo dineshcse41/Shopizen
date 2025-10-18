@@ -1,59 +1,119 @@
-import React, { createContext, useState, useEffect } from "react";
+import React, { createContext, useState, useEffect, useContext } from "react";
+import { AuthContext } from "./AuthContext";
 
 export const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
-    const [cart, setCart] = useState(() => {
-        const savedCart = localStorage.getItem("cart");
-        return savedCart ? JSON.parse(savedCart) : [];
-    });
+    const { user } = useContext(AuthContext);
 
-    // ✅ Sync to localStorage whenever cart changes
+    // --- Helper: Get unique storage key per user or guest ---
+    const getCartKey = () =>
+        user ? `cart_${user.email || user.mobile || user.id}` : "cart_guest";
+
+    const [cart, setCart] = useState([]);
+
+    // --- Load correct cart when user changes ---
     useEffect(() => {
-        localStorage.setItem("cart", JSON.stringify(cart));
-    }, [cart]);
+        const key = getCartKey();
+        const savedCart = localStorage.getItem(key);
+        setCart(savedCart ? JSON.parse(savedCart) : []);
+    }, [user]);
 
+    // --- Save cart changes to correct user key ---
+    useEffect(() => {
+        localStorage.setItem(getCartKey(), JSON.stringify(cart));
+    }, [cart, user]);
+
+    // --- Clear cart when user logs out ---
+    useEffect(() => {
+        if (!user) setCart([]);
+    }, [user]);
+
+    // --- Add product to cart (independent by size/color) ---
     const addToCart = (product) => {
+        const selectedSize = product.selectedSize || "Free Size";
+        const selectedColor = product.selectedColor || "Default";
+
         setCart((prev) => {
-            const existing = prev.find((item) => item.id === product.id);
-            if (existing) {
+            const existingItem = prev.find(
+                (item) =>
+                    item.id === product.id &&
+                    item.selectedSize === selectedSize &&
+                    item.selectedColor === selectedColor
+            );
+
+            if (existingItem) {
+                // Increase only if it's the same variant
                 return prev.map((item) =>
-                    item.id === product.id
+                    item.id === product.id &&
+                        item.selectedSize === selectedSize &&
+                        item.selectedColor === selectedColor
                         ? { ...item, quantity: item.quantity + 1 }
                         : item
                 );
             }
-            return [...prev, { ...product, quantity: 1 }];
+
+            // New unique variant
+            return [
+                ...prev,
+                {
+                    ...product,
+                    selectedSize,
+                    selectedColor,
+                    quantity: 1,
+                },
+            ];
         });
     };
 
-    const removeFromCart = (id) => {
-        setCart((prev) => prev.filter((item) => item.id !== id));
-    };
-
-    const increaseQuantity = (id) => {
+    // --- Update product variant size ---
+    const updateProductSize = (id, oldSize, newSize) => {
         setCart((prev) =>
             prev.map((item) =>
-                item.id === id ? { ...item, quantity: item.quantity + 1 } : item
-            )
-        );
-    };
-
-    const decreaseQuantity = (id) => {
-        setCart((prev) =>
-            prev.map((item) =>
-                item.id === id && item.quantity > 1
-                    ? { ...item, quantity: item.quantity - 1 }
+                item.id === id && item.selectedSize === oldSize
+                    ? { ...item, selectedSize: newSize }
                     : item
             )
         );
     };
 
-    // ✅ Clear cart and sync storage
-    const clearCart = () => {
-        setCart([]);
-        localStorage.removeItem("cart");
-    };
+    // --- Quantity +/-, remove, clear ---
+    const removeFromCart = (id, size, color) =>
+        setCart((prev) =>
+            prev.filter(
+                (item) =>
+                    !(
+                        item.id === id &&
+                        item.selectedSize === (size || "Free Size") &&
+                        item.selectedColor === (color || "Default")
+                    )
+            )
+        );
+
+    const increaseQuantity = (id, size, color) =>
+        setCart((prev) =>
+            prev.map((item) =>
+                item.id === id &&
+                    item.selectedSize === (size || "Free Size") &&
+                    item.selectedColor === (color || "Default")
+                    ? { ...item, quantity: item.quantity + 1 }
+                    : item
+            )
+        );
+
+    const decreaseQuantity = (id, size, color) =>
+        setCart((prev) =>
+            prev.map((item) =>
+                item.id === id &&
+                    item.selectedSize === (size || "Free Size") &&
+                    item.selectedColor === (color || "Default") &&
+                    item.quantity > 1
+                    ? { ...item, quantity: item.quantity - 1 }
+                    : item
+            )
+        );
+
+    const clearCart = () => setCart([]);
 
     return (
         <CartContext.Provider
@@ -64,6 +124,7 @@ export const CartProvider = ({ children }) => {
                 increaseQuantity,
                 decreaseQuantity,
                 clearCart,
+                updateProductSize,
             }}
         >
             {children}

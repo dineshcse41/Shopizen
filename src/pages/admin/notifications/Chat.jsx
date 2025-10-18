@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./Chat.css";
 import messagesData from "../../../data/common/contact.json";
-import usersData from "../../data/user/users.json";
+import usersData from "../../../data/users/users.json";
 
 const AdminChat = () => {
     const users = usersData.filter(u => u.role === "user");

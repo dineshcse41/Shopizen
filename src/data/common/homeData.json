@@ -4,31 +4,31 @@
             "id": 1,
             "image": "https://t4.ftcdn.net/jpg/02/49/50/15/360_F_249501541_XmWdfAfUbWAvGxBwAM0ba2aYT36ntlpH.jpg",
             "alt": "Slider 1",
-            "link": "/products/offer/mega-sale"
+            "link": "/products/category/Electronics"
         },
         {
             "id": 2,
             "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSj4fLEDpg7wTkhXNSUYFAnBRbFJO0JlvEOhcusmabi9pxuBHKeBgUqazeeDOoVPMdoRYA&usqp=CAU",
             "alt": "Slider 2",
-            "link": "/products/offer/mega-sale"
+            "link": "/products/category/Fashion"
         },
         {
             "id": 3,
             "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvciZefObnpN6Wv-zihvMtjl2GAEg5jtf1l8lLk_2TkshgXnJu_3Dgo_DjVRbx9-jltV0&usqp=CAU",
             "alt": "Slider 3",
-            "link": "/products/offer/mega-sale"
+            "link": "/products/category/Bags"
         },
         {
             "id": 4,
             "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSO_XJqHra1Dt0D_1Om6KTIEpqXb8nDD-IpB_pFc9MxALQFDppwhgMf4-JIYjmRuixoZic&usqp=CAU",
             "alt": "Slider 4",
-            "link": "/products/offer/mega-sale"
+            "link": "/products/category/Electronics"
         },
         {
             "id": 5,
             "image": "https://t4.ftcdn.net/jpg/02/49/50/15/360_F_249501541_XmWdfAfUbWAvGxBwAM0ba2aYT36ntlpH.jpg",
             "alt": "Slider 1",
-            "link": "/products/offer/mega-sale"
+            "link": "/products/category/Bags"
         },
         {
             "id": 6,
@@ -65,7 +65,7 @@
                     "name": "Chair"
                 }
             ],
-            "link": "#",
+            "link": "/products/category/Electronics",
             "linkText": "See more"
         },
         {
@@ -89,7 +89,7 @@
                     "name": "Toy & Games"
                 }
             ],
-            "link": "#",
+            "link": "/products/category/Electronics",
             "linkText": "Shop Now"
         },
         {
@@ -113,7 +113,7 @@
                     "name": "Chair"
                 }
             ],
-            "link": "#",
+            "link": "/products/category/Fashion",
             "linkText": "See more"
         },
         {
@@ -137,7 +137,7 @@
                     "name": "Toy & Games"
                 }
             ],
-            "link": "#",
+            "link": "/products/category/Fashion",
             "linkText": "Shop Now"
         },
         {
@@ -161,7 +161,7 @@
                     "name": "Chair"
                 }
             ],
-            "link": "#",
+            "link": "/products/category/Bags",
             "linkText": "See more"
         },
         {

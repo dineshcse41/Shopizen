@@ -7,7 +7,7 @@ body {
 }
 
 .discount-badge {
-    background-color: #ff4d4d;
+  /*   background-color: #ff4d4d; */
     color: white;
     padding: 5px 10px;
     font-size: 0.9rem;
@@ -15,7 +15,7 @@ body {
 }
 
 .rating-badge {
-    background-color: #ffc107;
+    /* background-color: #ffc107; */
     color: black;
     padding: 2px 8px;
     border-radius: 5px;

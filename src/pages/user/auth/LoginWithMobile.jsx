@@ -7,6 +7,7 @@ import usersData from "../../../data/users/users.json"; // Dummy JSON
 // Uncomment when API is ready
 // import axios from "axios";
 // const API_URL = "http://127.0.0.1:8000/api/users/"; // Django endpoint
+// const SEND_OTP_API = "http://127.0.0.1:8000/api/send-otp/";
 
 function MobileLogin() {
     const [countryCode, setCountryCode] = useState("+91");
@@ -16,33 +17,16 @@ function MobileLogin() {
     const [step, setStep] = useState("mobile");
     const [errorMessage, setErrorMessage] = useState("");
     const [otpError, setOtpError] = useState("");
-    const [registeredNumbers, setRegisteredNumbers] = useState([]);
     const [showResend, setShowResend] = useState(false);
     const [resendTimer, setResendTimer] = useState(30);
     const [isResendDisabled, setIsResendDisabled] = useState(true);
     const [firstAttemptInvalid, setFirstAttemptInvalid] = useState(false);
+    const [loading, setLoading] = useState(false);
+    const [selectedUser, setSelectedUser] = useState(null); // ✅ Added state
 
     const { showToast } = useToast();
     const navigate = useNavigate();
     const { login } = useAuth();
-
-    // Load registered numbers from dummy JSON or API
-    useEffect(() => {
-        // Dummy JSON
-        setRegisteredNumbers(usersData.map(u => u.mobile));
-
-        // API fetch (commented for now)
-        // const fetchUsers = async () => {
-        //     try {
-        //         const response = await axios.get(API_URL);
-        //         setRegisteredNumbers(response.data.map(u => u.mobile));
-        //     } catch (err) {
-        //         console.error("Failed to fetch users from API:", err);
-        //         setRegisteredNumbers(usersData.map(u => u.mobile)); // fallback
-        //     }
-        // };
-        // fetchUsers();
-    }, []);
 
     useEffect(() => {
         let interval = null;
@@ -54,8 +38,9 @@ function MobileLogin() {
         return () => clearInterval(interval);
     }, [showResend, resendTimer, step]);
 
-    const handleSendOtp = () => {
-        setErrorMessage(""); setOtpError("");
+    const handleSendOtp = async () => {
+        setErrorMessage("");
+        setOtpError("");
 
         if (mobile.length < 5) {
             setErrorMessage("Please enter a valid mobile number.");
@@ -63,7 +48,10 @@ function MobileLogin() {
             return;
         }
 
-        if (!registeredNumbers.includes(mobile)) {
+        // Find user in JSON
+        const user = usersData.find(u => u.mobile === mobile);
+
+        if (!user) {
             if (!firstAttemptInvalid) setFirstAttemptInvalid(true);
             setErrorMessage("This mobile number is not registered. Please register.");
             showToast("This mobile number is not registered!", "error");
@@ -72,23 +60,46 @@ function MobileLogin() {
 
         setFirstAttemptInvalid(false);
         setErrorMessage("");
+        setLoading(true);
 
-        const otpValue = Math.floor(100000 + Math.random() * 900000).toString();
-        setGeneratedOtp(otpValue);
-        setStep("otp");
-        setShowResend(true);
-        setResendTimer(30);
-        setIsResendDisabled(true);
+        try {
+            // Simulate sending OTP
+            // Uncomment when API is ready
+            // const response = await axios.post(SEND_OTP_API, { mobile: `${countryCode}${mobile}` });
+            // const otpValue = response.data.otp;
 
-        showToast(`Your OTP is: ${otpValue}`, "info");
+            const otpValue = Math.floor(100000 + Math.random() * 900000).toString();
+
+            setGeneratedOtp(otpValue);
+            setStep("otp");
+            setShowResend(true);
+            setResendTimer(30);
+            setIsResendDisabled(true);
+
+            // Store selected user in state
+            setSelectedUser(user);
+
+            showToast(`Your OTP is: ${otpValue}`, "info");
+        } catch (err) {
+            console.error(err);
+            showToast("Failed to send OTP. Please try again.", "error");
+        } finally {
+            setLoading(false);
+        }
     };
 
     const handleVerifyOtp = () => {
         if (otp === generatedOtp) {
+            if (!selectedUser) {
+                showToast("User data not found. Try again.", "error");
+                return;
+            }
+
             const mobileUser = {
-                name: `User-${mobile.slice(-4)}`,
-                email: `${mobile}@mobile.fake`,
-                mobile: `${countryCode}${mobile}`,
+                id: selectedUser.id,
+                name: selectedUser.name,
+                email: selectedUser.email,
+                mobile: selectedUser.mobile,
                 method: "mobile",
             };
 
@@ -105,20 +116,31 @@ function MobileLogin() {
         }
     };
 
-    const handleResendOtp = () => {
-        const otpValue = Math.floor(100000 + Math.random() * 900000).toString();
-        setGeneratedOtp(otpValue);
-        setOtp("");
-        setOtpError("");
-        setResendTimer(30);
-        setIsResendDisabled(true);
-        setShowResend(true);
+    const handleResendOtp = async () => {
+        if (!selectedUser) return;
 
-        showToast(`New OTP is: ${otpValue}`, "info");
+        setLoading(true);
+        try {
+            // Simulate resend OTP
+            const otpValue = Math.floor(100000 + Math.random() * 900000).toString();
+            setGeneratedOtp(otpValue);
+            setOtp("");
+            setOtpError("");
+            setResendTimer(30);
+            setIsResendDisabled(true);
+            setShowResend(true);
+
+            showToast(`New OTP is: ${otpValue}`, "info");
+        } catch (err) {
+            console.error(err);
+            showToast("Failed to resend OTP. Please try again.", "error");
+        } finally {
+            setLoading(false);
+        }
     };
 
     return (
-        <div className="auth-container">
+        <div className="auth-container m-2">
             <header className="site-header"><h1>Shopizen</h1></header>
 
             <div className="wrapper">
@@ -128,61 +150,33 @@ function MobileLogin() {
                     {step === "mobile" ? (
                         <>
                             <label htmlFor="mobile">Mobile Number</label>
-                            <div className="input-box"
-                                style={{
-                                    display: "flex",
-                                    alignItems: "center",
-                                    border: "2px solid rgba(3,3,3,0.2)",
-                                    borderRadius: "40px",
-                                    padding: "5px 10px",
-                                    background: "transparent"
-                                }}>
-                                <select id="countryCode"
-                                    name="countryCode" value={countryCode}
-                                    onChange={e => setCountryCode(e.target.value)}
-                                    style={{
-                                        border: "none", background: "transparent", fontSize: "14px",
-                                        paddingRight: "5px",
-                                        outline: "none",
-                                        cursor: "pointer"
-                                    }}>
-
+                            <div className="input-box" style={{ display: "flex", alignItems: "center", border: "2px solid rgba(3,3,3,0.2)", borderRadius: "30px", padding: "6px 12px", background: "transparent", width: "100%", maxWidth: "400px", margin: "0 auto" }}>
+                                <select id="countryCode" name="countryCode" value={countryCode} onChange={e => setCountryCode(e.target.value)} style={{ border: "none", background: "transparent", fontSize: "15px", paddingRight: "6px", outline: "none", cursor: "pointer", flexShrink: 0 }}>
                                     <option value="+91">+91</option>
                                     <option value="+1">+1</option>
                                     <option value="+44">+44</option>
                                     <option value="+61">+61</option>
                                     <option value="+971">+971</option>
                                 </select>
-                                <span style={{ margin: "0 5px", color: "#333" }}>|</span>
+                                <span style={{ margin: "0 6px", color: "#333", flexShrink: 0 }}>|</span>
                                 <input
                                     type="tel"
                                     id="mobile"
                                     name="mobile"
                                     placeholder="Enter mobile number"
                                     value={mobile}
-                                    onChange={e => {
-                                        setMobile(e.target.value);
-                                        setErrorMessage("");
-                                        setFirstAttemptInvalid(false);
-                                    }}
-                                    onKeyDown={e => {
-                                        if (e.key === "Enter") {
-                                            e.preventDefault();
-                                            handleSendOtp();
-                                        }
-                                    }}
-                                    style={{ flex: 1, border: "none", outline: "none", fontSize: "14px", background: "transparent" }}
+                                    onChange={e => { setMobile(e.target.value); setErrorMessage(""); setFirstAttemptInvalid(false); }}
+                                    onKeyDown={e => { if (e.key === "Enter") { e.preventDefault(); handleSendOtp(); } }}
+                                    style={{ flexGrow: 1, minWidth: 0, border: "none", outline: "none", fontSize: "16px", background: "transparent", textAlign: "left", padding: "5px" }}
                                 />
                             </div>
 
                             {errorMessage && <p style={{ color: "blue", fontSize: "12px", marginTop: "5px" }}>{errorMessage}</p>}
 
-                            <button className="btn" type="button" onClick={handleSendOtp}>Send OTP</button>
+                            <button className="btn mt-3" type="button" onClick={handleSendOtp} disabled={loading}>{loading ? "Sending OTP..." : "Send OTP"}</button>
 
                             <div className="register-link">
-                                <p className="account">
-                                    Prefer login with email? <Link to="/login-email">Login with Email</Link>
-                                </p>
+                                <p className="account">Prefer login with email? <Link to="/login-email">Login with Email</Link></p>
                             </div>
                         </>
                     ) : (
@@ -196,12 +190,7 @@ function MobileLogin() {
                                     placeholder="Enter OTP"
                                     value={otp}
                                     onChange={e => setOtp(e.target.value)}
-                                    onKeyDown={e => {
-                                        if (e.key === "Enter") {
-                                            e.preventDefault();
-                                            handleVerifyOtp();
-                                        }
-                                    }}
+                                    onKeyDown={e => { if (e.key === "Enter") { e.preventDefault(); handleVerifyOtp(); } }}
                                 />
                             </div>
 
@@ -215,9 +204,9 @@ function MobileLogin() {
                                     className="btn"
                                     style={{ marginTop: "10px", backgroundColor: "#f0ad4e" }}
                                     onClick={handleResendOtp}
-                                    disabled={isResendDisabled}
+                                    disabled={isResendDisabled || loading}
                                 >
-                                    {isResendDisabled ? `Resend OTP in ${resendTimer}s` : "Resend OTP"}
+                                    {isResendDisabled ? `Resend OTP in ${resendTimer}s` : loading ? "Sending..." : "Resend OTP"}
                                 </button>
                             )}
                         </>

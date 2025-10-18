@@ -17,13 +17,16 @@ const CategoryProducts = () => {
             {filteredProducts.length === 0 ? (
                 <p>No products found in this category.</p>
             ) : (
-                <div className="d-flex col col-12 col-md-9 gap-3 m-2">
+                <div className="row px-2 mx-2">
                     {filteredProducts.map((p) => (
-
-                        <ProductCard product={p} key={p.id} />
+                        <div className="col-lg-3 col-md-4 col-6 mb-4">
+                            <ProductCard key={p.id} product={p} />
+                        </div>
 
                     ))}
                 </div>
+
+
             )}
         </div>
     );

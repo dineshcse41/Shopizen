@@ -40,5 +40,47 @@
         "registeredAt": "2025-09-25T15:30:00Z",
         "lastLogin": "2025-09-28T20:10:00Z",
         "isActive": false
+    },
+    {
+        "id": 104,
+        "name": "Rahul",
+        "email": "rahul@email.com",
+        "mobile": "9001122434",
+        "password": "$Testpass1234",
+        "gender": "Male",
+        "profilePicture": "https://cdn-icons-png.flaticon.com/512/3135/3135715.png",
+        "dob": "2002-08-25",
+        "role": "user",
+        "registeredAt": "2024-01-25T15:30:00Z",
+        "lastLogin": "2025-09-28T20:10:00Z",
+        "isActive": false
+    },
+    {
+        "id": 105,
+        "name": "Kumari",
+        "email": "kumari@email.com",
+        "mobile": "9001522334",
+        "password": "$Tass123",
+        "gender": "Female",
+        "profilePicture": "https://cdn-icons-png.flaticon.com/512/3135/3135715.png",
+        "dob": "2002-08-5",
+        "role": "user",
+        "registeredAt": "2025-09-25T15:30:00Z",
+        "lastLogin": "2025-09-28T20:10:00Z",
+        "isActive": false
+    },
+    {
+        "id": 106,
+        "name": "Hari",
+        "email": "hari@email.com",
+        "mobile": "9501122334",
+        "password": "$Testpass123",
+        "gender": "Female",
+        "profilePicture": "https://cdn-icons-png.flaticon.com/512/3135/3135715.png",
+        "dob": "2002-09-25",
+        "role": "user",
+        "registeredAt": "2024-09-25T15:30:00Z",
+        "lastLogin": "2025-09-28T20:10:00Z",
+        "isActive": false
     }
 ]

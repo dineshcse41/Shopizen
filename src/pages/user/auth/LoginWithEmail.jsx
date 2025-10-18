@@ -1,14 +1,10 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import "../auth/auth.css";
 import { useAuth } from "../../../components/context/AuthContext";
 import { CartContext } from "../../../components/context/CartContext";
 import { useToast } from "../../../components/context/ToastContext";
 import usersData from "../../../data/users/users.json"; // Dummy JSON
-
-// Uncomment these lines when API is ready
-// import axios from "axios";
-// const API_URL = "http://127.0.0.1:8000/api/users/"; // Django endpoint
 
 function Login() {
     const { login } = useAuth();
@@ -22,21 +18,8 @@ function Login() {
     const [passwordError, setPasswordError] = useState("");
     const [showPassword, setShowPassword] = useState(false);
     const [loading, setLoading] = useState(false);
-    const [allUsers, setAllUsers] = useState(usersData); // Default to dummy JSON
-
-    // Fetch users from API (commented for now)
-    // useEffect(() => {
-    //     const fetchUsers = async () => {
-    //         try {
-    //             const response = await axios.get(API_URL);
-    //             setAllUsers(response.data);
-    //         } catch (err) {
-    //             console.error("Failed to fetch users from API", err);
-    //             setAllUsers(usersData); // fallback to dummy JSON
-    //         }
-    //     };
-    //     fetchUsers();
-    // }, []);
+    const [allUsers] = useState(usersData); // Default to dummy JSON
+    const [emailVerified, setEmailVerified] = useState(false); // New state
 
     const registeredEmails = allUsers.map((u) => u.email);
 
@@ -49,42 +32,12 @@ function Login() {
 
     const handleLogin = async (e) => {
         e.preventDefault();
-        setEmailError("");
         setPasswordError("");
         setLoading(true);
 
         const { email, password } = formData;
 
-        if (!registeredEmails.includes(email)) {
-            setEmailError("This email is not registered. Please register.");
-            showToast("This email is not registered!", "error");
-            setLoading(false);
-            return;
-        }
-
-        if (!isPasswordValid(password)) {
-            setPasswordError("Password must be at least 6 characters.");
-            showToast("Invalid password format.", "error");
-            setLoading(false);
-            return;
-        }
-
-        // Dummy JSON validation
         const userFound = allUsers.find((u) => u.email === email && u.password === password);
-
-        // API validation (uncomment when API ready)
-        // let userFound = null;
-        // try {
-        //     const response = await axios.post(`${API_URL}login/`, { email, password });
-        //     if (response.data.success) {
-        //         userFound = response.data.user;
-        //     }
-        // } catch (err) {
-        //     setPasswordError("Invalid credentials.");
-        //     showToast("Invalid credentials! Try again.", "error");
-        //     setLoading(false);
-        //     return;
-        // }
 
         if (userFound) {
             login(userFound, { idleMinutes: 20, absoluteHours: 8 });
@@ -108,6 +61,28 @@ function Login() {
     };
 
     const togglePassword = () => setShowPassword(!showPassword);
+
+    const handleKeyDownEmail = (e) => {
+        if (e.key === "Enter") {
+            e.preventDefault();
+            const email = formData.email.trim();
+            if (registeredEmails.includes(email)) {
+                setEmailVerified(true);
+                setEmailError("");
+                document.getElementById("password")?.focus();
+            } else {
+                setEmailVerified(false);
+                setEmailError("This email is not registered. Please register.");
+                showToast("This email is not registered!", "error");
+            }
+        }
+    };
+
+    const handleKeyDownPassword = (e) => {
+        if (e.key === "Enter") {
+            handleLogin(e);
+        }
+    };
 
     const handleGoogleLogin = async () => {
         try {
@@ -140,32 +115,38 @@ function Login() {
                             autoComplete="username"
                             value={formData.email}
                             onChange={handleChange}
+                            onKeyDown={handleKeyDownEmail}
                             required
                         />
                         <i className="bi bi-person-fill"></i>
                     </div>
                     {emailError && <p style={{ color: "blue", fontSize: "12px" }}>{emailError}</p>}
 
-                    <label htmlFor="password">Password</label>
-                    <div className="input-box">
-                        <input
-                            type={showPassword ? "text" : "password"}
-                            id="password"
-                            name="password"
-                            placeholder="Enter your Password"
-                            maxLength="15"
-                            autoComplete="current-password"
-                            value={formData.password}
-                            onChange={handleChange}
-                            required
-                        />
-                        <i
-                            className={`bi ${showPassword ? "bi-eye-fill" : "bi-eye-slash-fill"}`}
-                            style={{ cursor: "pointer" }}
-                            onClick={togglePassword}
-                        ></i>
-                    </div>
-                    {passwordError && <p style={{ color: "blue", fontSize: "12px" }}>{passwordError}</p>}
+                    {emailVerified && (
+                        <>
+                            <label htmlFor="password">Password</label>
+                            <div className="input-box">
+                                <input
+                                    type={showPassword ? "text" : "password"}
+                                    id="password"
+                                    name="password"
+                                    placeholder="Enter your Password"
+                                    maxLength="15"
+                                    autoComplete="current-password"
+                                    value={formData.password}
+                                    onChange={handleChange}
+                                    onKeyDown={handleKeyDownPassword}
+                                    required
+                                />
+                                <i
+                                    className={`bi ${showPassword ? "bi-eye-fill" : "bi-eye-slash-fill"}`}
+                                    style={{ cursor: "pointer" }}
+                                    onClick={togglePassword}
+                                ></i>
+                            </div>
+                            {passwordError && <p style={{ color: "blue", fontSize: "12px" }}>{passwordError}</p>}
+                        </>
+                    )}
 
                     <div className="remember-forgot">
                         <label>
@@ -180,9 +161,11 @@ function Login() {
                         <Link to="/Reset" className="forgot-password mt-2">Forgot Password?</Link>
                     </div>
 
-                    <button className="btn" type="submit" disabled={loading}>
-                        {loading ? "Logging In..." : "Login"}
-                    </button>
+                    {emailVerified && (
+                        <button className="btn" type="submit" disabled={loading}>
+                            {loading ? "Logging In..." : "Login"}
+                        </button>
+                    )}
 
                     <div className="register-link">
                         <p>Don't Have An Account? <Link to="/Register">Register</Link></p>
@@ -197,9 +180,9 @@ function Login() {
                     <div className="alt-login d-flex justify-content-between gap-2">
                         <button
                             type="button"
-                            className="btn w-100 text-wrap"  // Added text-wrap
+                            className="btn w-100 text-wrap"
                             onClick={handleGoogleLogin}
-                            style={{ whiteSpace: "normal" }} // Ensures text wraps
+                            style={{ whiteSpace: "normal" }}
                         >
                             <i className="bi bi-google me-2"></i>
                             Google
@@ -208,14 +191,13 @@ function Login() {
                         <Link to="/login-mobile" className="w-100 d-block">
                             <button
                                 type="button"
-                                className="btn w-100 text-wrap"  // Added text-wrap
-                                style={{ whiteSpace: "normal" }} // Ensures text wraps
+                                className="btn w-100 text-wrap"
+                                style={{ whiteSpace: "normal" }}
                             >
-                                Login with OTP
+                                Login OTP
                             </button>
                         </Link>
                     </div>
-
                 </form>
             </div>
             <footer className="footer-bottom">

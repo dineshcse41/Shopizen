@@ -8,6 +8,27 @@
     color: #fff;
 }
 
+.brand-list {
+    max-height: 200px; /* Adjust height as needed */
+    overflow-y: auto;
+    padding-right: 5px; /* Avoid scrollbar overlap */
+}
+
+/* Optional: nice scrollbar styling */
+.brand-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.brand-list::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 3px;
+}
+
+.brand-list::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+
 @media (max-width: 768px) {
     .filter-sidebar {
         max-height: 80vh;
