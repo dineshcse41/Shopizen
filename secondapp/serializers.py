@@ -52,3 +52,19 @@ class RegisterSerializer(serializers.ModelSerializer):      # Inherits from Mode
 
 # ✅ In short:
 # This serializer makes sure new users can be registered securely by validating input and hashing the password properly before saving.
+
+# -------------------------------------------------------------Task (15)
+
+from rest_framework import serializers
+from .models import Category, Brand
+
+class CategorySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Category
+        fields = '__all__'
+
+
+class BrandSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Brand
+        fields = '__all__'

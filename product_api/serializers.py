@@ -74,7 +74,7 @@ class ProductSerializer(serializers.ModelSerializer):
 # product_api/serializers.py
 from rest_framework import serializers
 from .models import Product
-from .models import Wishlist
+from wishlist.models import Wishlist
 from .models import Review
 
 class ProductCompareSerializer(serializers.ModelSerializer):
@@ -244,3 +244,37 @@ class OfferSerializer(serializers.ModelSerializer):
 # Flexible for both product-level and category-level offers.
 
 # Works perfectly with your ActiveOffersListView (filters out expired/inactive offers).
+
+
+
+# ----------------------------------------------------------------Task(12)--------------------------------
+# from rest_framework import serializers
+# from .models import Product
+
+# class ProductSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = Product
+#         fields = ["id", "name", "price"]
+        
+# ----------------------------------------------------------------Task(14)--------------------------------
+
+# serializers.py
+from rest_framework import serializers
+from .models import Product
+
+
+class ProductSerializer(serializers.ModelSerializer):
+    category_name = serializers.CharField(source='category.name', read_only=True)
+    brand_name = serializers.CharField(source='brand.name', read_only=True)
+
+    class Meta:
+        model = Product
+        fields = '__all__'
+
+    def validate_name(self, value):
+        qs = Product.objects.filter(name__iexact=value)
+        if self.instance:
+            qs = qs.exclude(id=self.instance.id)
+        if qs.exists():
+            raise serializers.ValidationError("Product with this name already exists.")
+        return value

@@ -5,9 +5,10 @@ from . import views
 from .views import ProductListCreateView
 from django.urls import path
 from order.views import UserOrdersView, OrderDetailView, OrderStatusUpdateView
-from product_api.views import CompareProductsView, WishlistView, ReviewListCreateView
+from product_api.views import CompareProductsView, ReviewListCreateView
 from product_api.views import ActiveOffersListView, ProductCRUDView, ProductDetailView
 from product_api.views import ReviewCreateView, ProductReviewListView, ProductReviewListCreateView
+from .views import ProductListCreateView, ProductUpdateView, delete_product
 
 
 urlpatterns = [
@@ -25,8 +26,6 @@ urlpatterns = [
     # Compare
     path("api/compare/", CompareProductsView.as_view()),
 
-    # Wishlist
-    path("api/wishlist/", WishlistView.as_view()),
 
     # Reviews
     path("api/reviews/", ReviewListCreateView.as_view()),
@@ -39,7 +38,23 @@ urlpatterns = [
     path("products/", ProductCRUDView.as_view(), name="product-crud"),
     path("products/<int:pk>/", ProductDetailView.as_view(), name="product-detail"),
     path("productss/<int:product_id>/reviews/", ProductReviewListCreateView.as_view(), name="product-reviews"),
+    
+# -------------------------------------------TAsk(12) ------------------------------------- 
+     # Reports
+    path("admin/reports/sales/", views.sales_report),
+    path("admin/reports/top-products/", views.top_products),
+    # path("admin/reports/revenue/", views.revenue_report),
+    
+# urls.py
 
+# -------------------------------------------TAsk(14) ------------------------------------- 
+ 
+    path('api/admin/products/', ProductListCreateView.as_view(), name='product-list-create'),
+    path('api/admin/products/<int:pk>/', ProductUpdateView.as_view(), name='product-update'),
+    path('api/admin/products/<int:pk>/delete/', delete_product, name='product-delete'),
 ]
+
+
+
 
 

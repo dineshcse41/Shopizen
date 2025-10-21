@@ -3,7 +3,7 @@ from django.db import models
 
 class Category(models.Model):                   # models.Model → Base class for all Django models.
     name = models.CharField(max_length=100, unique=True)     # name = models.CharField(max_length=100) 
-                                                # CharField = short text field (max 100 characters).
+    description = models.TextField(blank=True, null=True)                                           # CharField = short text field (max 100 characters).
                                                 # Example: "Electronics", "Shoes".
     def __str__(self):                          # __str__ method → Controls how this object is shown (e.g., in Django Admin).
         return self.name                        # If you open Django admin, instead of seeing "Category object (1)", you’ll see "Electronics".
@@ -12,7 +12,7 @@ class Category(models.Model):                   # models.Model → Base class fo
 
 class Brand(models.Model):                      # Same as Category, but for brands.   Example: "Apple", "Nike", "Sony".
     name = models.CharField(max_length=100, unique=True)     # 📌 Database table → Brand with one column: name.
-
+    description = models.TextField(blank=True, null=True)
     def __str__(self):
         return self.name
 

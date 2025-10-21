@@ -24,3 +24,20 @@ urlpatterns = [
     path('add/', add_product, name='add_product'),
     path('success/', views.product_success, name='product_success'),
 ]
+
+# -------------------------------------------------------------------Task (15)---------------------------------------------------
+from django.urls import path
+from .views import (
+    CategoryListCreateView, CategoryUpdateDeleteView,
+    BrandListCreateView, BrandUpdateDeleteView
+)
+
+urlpatterns = [
+    # Category APIs
+    path('api/admin/categories/', CategoryListCreateView.as_view(), name='category-list-create'),
+    path('api/admin/categories/<int:id>/', CategoryUpdateDeleteView.as_view(), name='category-update-delete'),
+
+    # Brand APIs
+    path('api/admin/brands/', BrandListCreateView.as_view(), name='brand-list-create'),
+    path('api/admin/brands/<int:id>/', BrandUpdateDeleteView.as_view(), name='brand-update-delete'),
+]

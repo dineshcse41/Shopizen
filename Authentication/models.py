@@ -11,3 +11,4 @@ class User(AbstractUser):
 # If you need extra user information (phone number, address, profile picture, etc.), you extend AbstractUser.
 
 # Then in settings.py, tell Django to use your custom user model:
+

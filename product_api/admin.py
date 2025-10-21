@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Product, Wishlist, Review   # only product app models
+from .models import Product, Review   # only product app models
 
 
 @admin.register(Product)
@@ -9,11 +9,6 @@ class ProductAdmin(admin.ModelAdmin):
     list_filter = ("category", "brand", "created_at")
     list_per_page = 20
 
-
-@admin.register(Wishlist)
-class WishlistAdmin(admin.ModelAdmin):
-    list_display = ("id", "user", "product")
-    search_fields = ("user__username", "product__name")
 
 
 @admin.register(Review)

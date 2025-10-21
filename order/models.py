@@ -7,7 +7,8 @@ from product_api.models import Product
 class Order(models.Model):      # status defines the current state of the order:
     STATUS_CHOICES = (
         ("Pending", "Pending"),     # Pending → Just placed, awaiting confirmation/payment.
-        ("Confirmed", "Confirmed"), # Confirmed → Payment done, order accepted.
+        ("Confirmed", "Confirmed"),# Confirmed → Payment done, order accepted.
+        ("shipped", "Shipped"),
         ("Delivered", "Delivered"), # Delivered → Order fulfilled.
     )
 
@@ -37,6 +38,7 @@ class OrderItem(models.Model):
     order = models.ForeignKey(Order, related_name="items", on_delete=models.CASCADE)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     quantity = models.PositiveIntegerField()
+    price = models.DecimalField(max_digits=10, decimal_places=2)
 
     def __str__(self):      # Makes it easy to read in Django admin:    Example → "iPhone 14 x 2".
         return f"{self.product.name} x {self.quantity}"     

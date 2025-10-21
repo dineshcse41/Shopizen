@@ -301,3 +301,34 @@ def product_success(request):
 # add_product → Webpage (form) to add new products to DB.
 
 # product_success → Confirmation page after product is added.
+
+
+# ---------------------------------------------------------Task (15)------------------------------------------------------
+
+from rest_framework import generics
+from .models import Category, Brand
+from .serializers import CategorySerializer, BrandSerializer
+
+# --- Category APIs ---
+class CategoryListCreateView(generics.ListCreateAPIView):
+    queryset = Category.objects.all()
+    serializer_class = CategorySerializer
+
+
+class CategoryUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Category.objects.all()
+    serializer_class = CategorySerializer
+    lookup_field = 'id'
+
+
+# --- Brand APIs ---
+class BrandListCreateView(generics.ListCreateAPIView):
+    queryset = Brand.objects.all()
+    serializer_class = BrandSerializer
+
+
+class BrandUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Brand.objects.all()
+    serializer_class = BrandSerializer
+    lookup_field = 'id'
+

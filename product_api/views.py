@@ -243,19 +243,19 @@ class CompareProductsView(APIView):
 #wishlisht
 
 # product_api/views.py
-from rest_framework import generics, permissions
-from .models import Wishlist
-from .serializers import WishlistSerializer
+# from rest_framework import generics, permissions
+# from .models import Wishlist
+# from .serializers import WishlistSerializer
+# -------------------------------------------------------------------------------------Doubt----------------------------
+# class WishlistView(generics.ListCreateAPIView, generics.DestroyAPIView):
+#     serializer_class = WishlistSerializer
+#     permission_classes = [permissions.IsAuthenticated]
 
-class WishlistView(generics.ListCreateAPIView, generics.DestroyAPIView):
-    serializer_class = WishlistSerializer
-    permission_classes = [permissions.IsAuthenticated]
+#     def get_queryset(self):
+#         return Wishlist.objects.filter(user=self.request.user)
 
-    def get_queryset(self):
-        return Wishlist.objects.filter(user=self.request.user)
-
-    def perform_create(self, serializer):
-        serializer.save(user=self.request.user)
+#     def perform_create(self, serializer):
+#         serializer.save(user=self.request.user)
 
 # ✅ What it does:
 
@@ -448,3 +448,79 @@ class ProductDetailView(generics.RetrieveUpdateDestroyAPIView): # Lets admins re
 # ProductCRUDView → list + create (admin only).
 
 # ProductDetailView → retrieve + update + delete (admin only).
+
+
+# -----------------------------------------------Task(12)-------------------------
+
+
+from rest_framework import generics, status
+from rest_framework.decorators import api_view, permission_classes
+from rest_framework.permissions import IsAdminUser
+from rest_framework.response import Response
+from django.db.models import Sum
+
+from product_api.models import Product        # Refund
+from .serializers import  ProductSerializer
+
+
+# --- Reports ---
+@api_view(["GET"])
+@permission_classes([IsAdminUser])
+def sales_report(request):
+    data = Product.objects.aggregate(total_sales=Sum("price"))
+    return Response(data)
+
+
+@api_view(["GET"])
+@permission_classes([IsAdminUser])
+def top_products(request):
+    data = (
+        Review.objects.values("product__id", "product__name")
+        .annotate(total_reviews=Sum("rating"))
+        .order_by("-total_reviews")[:10]
+    )
+    return Response(data)
+
+
+# @api_view(["GET"])
+# @permission_classes([IsAdminUser])
+# def revenue_report(request):
+#     data = (
+#         Refund.objects.filter(status="approved")
+#         .values("created_at__date")
+#         .annotate(total_refunds=Sum("id"))  # Replace with actual field like "amount"
+#         .order_by("created_at__date")
+#     )
+#     return Response(data)
+
+
+# --------------------------------------------------------- Task (14)--------------------------------------------------------------------
+# views.py
+from rest_framework import generics, filters, status
+from rest_framework.response import Response
+from rest_framework.decorators import api_view
+from .models import Product
+from .serializers import ProductSerializer
+
+# ✅ List + Create
+class ProductListCreateView(generics.ListCreateAPIView):
+    queryset = Product.objects.all().order_by('-created_at')
+    serializer_class = ProductSerializer
+    filter_backends = [filters.SearchFilter, filters.OrderingFilter]
+    search_fields = ['name', 'description', 'brand__name', 'category__name']
+
+# ✅ Update
+class ProductUpdateView(generics.UpdateAPIView):
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
+    lookup_field = 'pk'
+
+# ✅ Delete
+@api_view(['DELETE'])
+def delete_product(request, pk):
+    try:
+        product = Product.objects.get(pk=pk)
+        product.delete()
+        return Response({'message': 'Product deleted successfully.'}, status=status.HTTP_204_NO_CONTENT)
+    except Product.DoesNotExist:
+        return Response({'error': 'Product not found.'}, status=status.HTTP_404_NOT_FOUND)

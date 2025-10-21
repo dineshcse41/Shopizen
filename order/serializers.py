@@ -63,3 +63,33 @@ class OrderSerializer(serializers.ModelSerializer):         # Represents the who
 # Backend enforces product existence & price logic (no trusting client-side).
 
 # Easily extendable → can add shipping_address, payment_status, etc.
+
+
+# -------------------------------------------- wishlist task 11(1)-------------------------------------------
+# order/serializers.py
+from rest_framework import serializers
+from .models import Order, OrderItem
+
+class OrderItemSerializer(serializers.ModelSerializer):
+    product_name = serializers.ReadOnlyField(source="product.name")
+    subtotal = serializers.SerializerMethodField()
+
+    class Meta:
+        model = OrderItem
+        fields = ["id", "product", "product_name", "quantity", "subtotal"]
+
+    def get_subtotal(self, obj):
+        return obj.quantity * obj.product.price
+
+
+class OrderSerializer(serializers.ModelSerializer):
+    items = OrderItemSerializer(many=True, read_only=True)
+    total_price = serializers.SerializerMethodField()
+
+    class Meta:
+        model = Order
+        fields = ["id", "user", "status", "items", "total_price", "created_at"]
+        read_only_fields = ["user", "total_price", "status", "created_at"]
+
+    def get_total_price(self, obj):
+        return sum([item.quantity * item.product.price for item in obj.items.all()])

@@ -29,3 +29,4 @@ class CustomToken_Serializer(TokenObtainPairSerializer):
 # password → ⚠️ this is dangerous because it will expose the hashed password in API response.
 
 # date → when the user registered (date_joined).
+

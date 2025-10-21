@@ -2,7 +2,7 @@ from django.db import models
 from secondapp.models import Category, Brand   # ✅ linked to secondapp
 
 class Product(models.Model):
-    name = models.CharField(max_length=255, db_index=True)
+    name = models.CharField(max_length=255, unique=True, db_index=True)
     description = models.TextField()
     category = models.ForeignKey(
         Category, on_delete=models.CASCADE,
@@ -14,11 +14,12 @@ class Product(models.Model):
     )
     price = models.DecimalField(max_digits=10, decimal_places=2, db_index=True)
     rating = models.DecimalField(max_digits=3, decimal_places=1, default=0, db_index=True)
+    image = models.CharField(max_length=255, blank=True, null=True)  # dummy path
     created_at = models.DateTimeField(auto_now_add=True)
 
-    def __str__(self):      # String representation → shows product name in Django Admin & shell.
+    def __str__(self):
         return self.name
-    
+
 # How It Connects to Other Apps
 
 # Cart → Cart.product = ForeignKey(Product)
@@ -52,15 +53,16 @@ from django.conf import settings
 from django.db import models
 from .models import Product
 
-class Wishlist(models.Model):
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+# -----------------------------------------------------------------------------------Doubt--------------------
+# class Wishlist(models.Model):
+#     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+#     product = models.ForeignKey(Product, on_delete=models.CASCADE)
 
-    class Meta:
-        unique_together = ("user", "product")
+#     class Meta:
+#         unique_together = ("user", "product")
     
-    def __str__(self):
-        return f"{self.user} - {self.product}"    
+#     def __str__(self):
+#         return f"{self.user} - {self.product}"    
 
 # What it does:
 
@@ -230,3 +232,10 @@ class Offer(models.Model):
 # Customer browses → product serializer applies get_final_price.
 
 # Checkout → discount applied automatically if offer is valid.
+
+
+
+
+#------------------------------------------------------------Task(12)----------------------------
+
+

@@ -112,9 +112,11 @@ class OrderDetailView(generics.RetrieveAPIView):
 
 # /api/orders/<id>/status → Update order status
 class OrderStatusUpdateView(APIView):
+    serializer_class = OrderSerializer
     permission_classes = [permissions.IsAuthenticated]
+    queryset = Order.objects.all()
 
-    def patch(self, request, id):
+    def patch(self, request, id, *args, **kwargs):
         order = get_object_or_404(Order, id=id, user=request.user)
         status_choice = request.data.get("status")
 
@@ -153,4 +155,72 @@ class OrderUpdateStatusView(generics.UpdateAPIView):
     queryset = Order.objects.all()
     serializer_class = OrderSerializer
     permission_classes = [IsAdminUserRole]
+
+# -------------------------------------------- wishlist task 11(1)-------------------------------------------
+# order/views.py
+from rest_framework.views import APIView
+from rest_framework import status, permissions
+from rest_framework.response import Response
+from .models import OrderItem
+from .serializers import OrderSerializer
+
+class CartUpdateView(APIView):
+    permission_classes = [permissions.IsAuthenticated]
+
+    def put(self, request, item_id):
+        quantity = request.data.get("quantity")
+        if not quantity or int(quantity) <= 0:
+            return Response({"detail": "Invalid quantity"}, status=status.HTTP_400_BAD_REQUEST)
+
+        try:
+            order_item = OrderItem.objects.get(id=item_id, order__user=request.user, order__status="cart")
+        except OrderItem.DoesNotExist:
+            return Response({"detail": "Item not found in cart"}, status=status.HTTP_404_NOT_FOUND)
+
+        order_item.quantity = int(quantity)
+        order_item.save()
+
+        return Response(OrderSerializer(order_item.order).data, status=status.HTTP_200_OK)
+
+
+# -------------------------------------------- wishlist task 11(2)-------------------------------------------
+
+from rest_framework import generics, permissions, status
+from rest_framework.response import Response
+from django.shortcuts import get_object_or_404
+from .models import Order, OrderItem
+from cart.models import CartItem  # assuming you already have a CartItem model
+from .serializers import OrderSerializer
+
+class OrderCreateView(generics.CreateAPIView):
+    serializer_class = OrderSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+    def post(self, request, *args, **kwargs):
+        cart_items = CartItem.objects.filter(user=request.user)
+        if not cart_items.exists():
+            return Response({"detail": "Cart is empty"}, status=status.HTTP_400_BAD_REQUEST)
+
+        order = Order.objects.create(user=request.user)
+        total_price = 0
+
+        for item in cart_items:
+            price = item.product.price * item.quantity
+            OrderItem.objects.create(
+                order=order,
+                product=item.product,
+                quantity=item.quantity,
+                price=item.product.price
+            )
+            total_price += price
+
+        order.total_price = total_price
+        order.save()
+
+        # clear cart after order confirmation
+        cart_items.delete()
+
+        serializer = OrderSerializer(order)
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+
 
