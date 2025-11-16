@@ -161,8 +161,8 @@ const OfferPage = () => {
                     {/* Product Section */}
                     <div className="products-container">
                         <div className="d-flex justify-content-between align-items-center mb-3 mt-2 flex-wrap">
-                            <button className="btn btn-outline-dark d-md-none" onClick={() => setShowFilter(true)}>
-                                ☰ Filters
+                            <button className="btn btn-outline-dark d-lg-none me-3" onClick={() => setShowFilter(true)}>
+                                <i className="bi bi-funnel-fill"></i>
                             </button>
 
                             <span className="h4 mt-2">{offer.title}</span>
@@ -181,7 +181,7 @@ const OfferPage = () => {
 
                         <div className="row p-2 pe-md-4">
                             {currentProducts.map((p) => (
-                                <div className="col-lg-4 col-md-6 col-6 mb-4" key={p.id}>
+                                <div className="col-lg-4 col-md-6 col-12 mb-4" key={p.id}>
                                     <ProductCard product={{
                                         ...p,
                                         price: (p.price - (p.price * offer.discount) / 100).toFixed(2),
@@ -293,39 +293,39 @@ function OfferTimer({ expiryDate }) {
     const percent = Math.max(0, (timeLeft / Math.max(totalRef.current, 1)) * 100);
 
     return (
-        <>
-            <div className="offer-timer-wrapper">
-                <div className="offer-timer-box justify-content-center">
-                    <div className="timer-unit">
-                        <div className="time-value">{h}</div>
-                        <div className="time-label">HR</div>
-                    </div>
-
-                    <div className="timer-colon">:</div>
-
-                    <div className="timer-unit">
-                        <div className="time-value">{m}</div>
-                        <div className="time-label">MIN</div>
-                    </div>
-
-                    <div className="timer-colon">:</div>
-
-                    <div className="timer-unit">
-                        <div className="time-value">{s}</div>
-                        <div className="time-label">SEC</div>
-                    </div>
-                </div>
-
-               
+      <>
+        <div className="offer-timer-wrapper">
+          <div className="offer-timer-box justify-content-center mt-2">
+            <div className="timer-unit">
+              <div className="time-value">{h}</div>
+              <div className="time-label">HR</div>
             </div>
-            <style>{`
+
+            <div className="timer-colon">:</div>
+
+            <div className="timer-unit">
+              <div className="time-value">{m}</div>
+              <div className="time-label">MIN</div>
+            </div>
+
+            <div className="timer-colon">:</div>
+
+            <div className="timer-unit">
+              <div className="time-value">{s}</div>
+              <div className="time-label">SEC</div>
+            </div>
+          </div>
+        </div>
+        <style>
+          {`
 .offer-timer-wrapper {
-  display: flex;
+  /* display: flex; */
+  display: inline-flex;
   justify-content: center;
   align-items: center;
+  background-color: #c5e3bf;
   width: 100%;
   height: 28px; /* compact height */
-  background-color: rgba(255,255,255,0.08);
   padding: 2px 6px; /* minimal padding */
   position: sticky;
   top: 0; /* stick to top */
@@ -384,10 +384,9 @@ function OfferTimer({ expiryDate }) {
   .time-value { font-size: 0.7rem; }
   .timer-colon { font-size: 0.7rem; }
 }
-`}</style>
-
-
-        </>
+`}
+        </style>
+      </>
     );
 }
 

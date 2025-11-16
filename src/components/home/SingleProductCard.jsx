@@ -1,30 +1,26 @@
 import React from "react";
-import homeData from "../../data/common/homeData.json";
+import defaultImage from "../../assets/product-default-image.png";
+
+const SingleProductCard = ({ products}) => {
 
 
-const SingleProductCard = ({ startId, endId }) => {
-    const { singleProducts } = homeData;
-
-    // ✅ filter based on range
-    const filteredProducts = singleProducts.filter(
-        (p) => p.id >= startId && p.id <= endId
-    );
-
-    return (
-        <>
-            {filteredProducts.map((product) => (
-                <div className="col-12 col-sm-6 col-md-3 " key={product.id}>
-                    <div className="box box-c">
-                        <h3>{product.title}</h3>
-                        <div>
-                            <img src={product.image} alt={product.title} />
-                        </div>
-                        <a href={product.link}>{product.linkText || "See more"}</a>
-                    </div>
-                </div>
-            ))}
-        </>
-    );
+  return (
+    <div className="single-product-grid">
+      {products.map((product) => (
+        <div className="single-product-item" key={product.id}>
+          <div className="box box-c">
+            <a href={`/product/${product.id}`}>
+              <img
+                src={product.image || product.images?.[0] || defaultImage}
+                alt={product.name || product.title}
+                onError={(e) => (e.target.src = defaultImage)}
+              />
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
 };
 
 export default SingleProductCard;

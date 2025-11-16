@@ -4,6 +4,7 @@
     top: 0;
     left: 0;
     height: 100%;
+    width: 70px;
     background: linear-gradient(180deg, #1f2937, #111827);
     color: #fff;
     transform: translateX(-100%);
@@ -11,6 +12,9 @@
     z-index: 1050;
 }
 
+.sidebar.expanded {
+  width: 240px;
+}
 .sidebar.show {
     transform: translateX(0);
 }

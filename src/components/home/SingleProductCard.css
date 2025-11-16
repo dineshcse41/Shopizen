@@ -1,0 +1,29 @@
+/* src/components/product/SingleProductCard.css */
+
+.single-product-box {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  text-align: center;
+  padding: 15px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.single-product-box:hover {
+  transform: scale(1.03);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+}
+
+.highlight-img {
+  width: 100%;
+  height: 230px;
+  object-fit: contain;
+}
+
+.highlight-price {
+  color: #b12704;
+  font-weight: 600;
+  font-size: 1.1rem;
+}

@@ -2,12 +2,17 @@
 /*        Cart Page CSS     */
 /* ======================== */
 
+h2{
+    color: blue;
+}
+
 /* Top Section */
 .top-sec {
     width: 100%;
     height: 75px;
     padding: 4px;
     margin: 10px;
+    
 }
 
 .top-sec span {
@@ -16,10 +21,10 @@
 }
 
 /* Cart Container */
-.cart-container,
+.cart-container, .checkout-page, 
 .container-fluid {
-    background-color: #d0e8f2;
-    /* Soft pastel blue */
+    background-color: #c5e3bf;
+    /* Pista green */
 }
 
 /* Total Section (Checkout) */
@@ -36,11 +41,6 @@
 .edit-btn {
     cursor: pointer;
     font-size: 0.9rem;
-}
-
-/* General container background */
-.container {
-    background-color: white;
 }
 
 /* Checkout Form & Summary Widths */
@@ -128,39 +128,41 @@
 /*     Sticky Summary CSS   */
 /* ======================== */
 
-/* Desktop: Fixed TotalSummary */
+/* Desktop: Smart Sticky + Scroll */
 @media (min-width: 768px) {
-    .sticky-summary {
-        position: fixed;
-        top: 275px;
-        /* adjust based on your header */
-        right: 20px;
-        width: 25%;
-        /* match the column width */
-        z-index: 10;
-    }
-
-    /* Avoid content overlapping the fixed summary */
-    .cart-container .col-md-9 {
-        margin-right: 28%;
-    }
-
-    /* Checkout total section sticky */
-    .total-sec {
-        position: fixed;
-        top: 275px;
-        /* adjust based on header height */
-
-    }
-
-    .checkout-form {
-        margin-right: 28%;
-        /* slightly more than total-sec width */
-    }
+   .checkout-page {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 20px;
+    min-height: 100vh;
 }
 
-/* Mobile: Normal scrolling */
+
+    .checkout-summary {
+        flex: 1;
+        height: 100%; /* allow sticky child to scroll */
+        max-width: 30%;
+    }
+
+   .total-sec {
+    position: sticky;
+    top: 100px;
+    max-height: calc(100vh - 140px);
+    overflow-y: auto;
+    min-height: 150px; /* ensure scrollbar appears */
+}
+
+
+}
+
+
+/* Mobile: Normal scroll */
 @media (max-width: 767px) {
+
+    .checkout-page {
+        flex-direction: column;
+    }
 
     .sticky-summary,
     .total-sec {
@@ -169,6 +171,7 @@
         right: auto;
         width: 100%;
         height: auto;
+        overflow: visible;
     }
 
     .cart-container .col-md-9 {
@@ -176,10 +179,23 @@
     }
 }
 
-/* Keeps equal spacing between the 2 columns */
-.product-overview {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 12px;
+/* Default: desktop view (inline) */
+.order-actions {
+  flex-wrap: wrap; /* allows wrapping if space is small */
+}
+
+/* Mobile: stack buttons */
+@media (max-width: 768px) {
+  .order-actions {
+    flex-direction: column;
+    align-items: stretch; /* full width buttons */
+  }
+
+  .order-actions .btn {
+    width: 100%;
+  }
+
+  .order-actions .share-btn {
+    margin-top: 0.5rem; /* top margin for spacing */
+  }
 }

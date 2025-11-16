@@ -1,370 +1,169 @@
-body,
-html {
-    overflow-x: hidden;
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-family: Arial, sans-serif;
+  background-color: #c5e3bf;
 }
 
-/*sec-1 Start*/
-/* .sec-1 {
-    position: relative;
-    width: 100%;
-    height: 1190px;
-    box-sizing: border-box;
-} */
-
-/*container Start*/
-.container {
-    position: relative;
-    width: 100%;
-    height: 100%;
+/* =============== PRODUCT SECTIONS =============== */
+.product-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
 }
 
-/*container-1 Start*/
-.container-1 {
-    position: absolute;
-    z-index: 1;
-    top: 230px;
-    left: 0;
-    width: 100%;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background: linear-gradient(to bottom, transparent, #eaeded 30%);
+.product-card,
+.single-card {
+  background: linear-gradient(to top, transparent, #eaeded 30%);
+  border-radius: 8px;
+  padding: 10px;
+  box-sizing: border-box;
+  margin-left: 10px;
+  margin-top: 5px;
+ 
 }
 
-.container-1 .para {
-    background-color: rgb(236, 234, 234);
-    width: 100%;
-    text-align: center;
+/* ---- Section Titles ---- */
+.product-card h3,
+.single-card h3 {
+  font-size: 22px;
+  color: #2b2a2a;
+  margin-bottom: 15px;
+  text-align: left;
 }
 
-.container-1 div:first-child p {
-    font-size: 14px;
-    padding: 12px 0;
+/* ---- Product Grid Layout ---- */
+.product-card-row {
+  height: 200px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
-/*product-comp Start*/
-
-.product-comp {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    box-sizing: border-box;
-    margin: 20px 0;
-    justify-content: space-around;
+.col-6 {
+  width: 50%;
+  padding: 5px;
 }
 
-.product-comp .box {
-    width: 315px;
-    height: 400px;
-    background-color: white;
+.col-3 {
+  width: 25%;
+  padding: 10px;
+  box-sizing: border-box;
 }
 
-.product-comp .box-a {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    /* default: 2 items per row */
-    gap: 10px;
+/* ---- Product Boxes ---- */
+.box {
+ /*  background-color: #fff; */
+  border-radius: 10px;
+  /* box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08); */
+  padding: 10px;
+  transition: transform 0.2s ease;
 }
 
-.product-comp .box-a img {
-    width: 100%;
-    height: auto;
-    max-height: 120px;
-    /* control height */
-    object-fit: contain;
-    /*  keeps full image inside */
-    display: block;
-    margin: 0 auto;
+.box:hover {
+  transform: translateY(-3px);
 }
 
-.box h3 {
-    margin-top: 20px;
-    margin-left: 20px;
-    margin-bottom: 10px;
-    font-size: 20px;
-    color: rgb(43, 42, 42);
+/* ---- Product Image ---- */
+.box img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 6px;
+   object-fit: cover;
 }
 
-.box a {
-    font-size: 13px;
-    margin-left: 20px;
-    display: block;
-    padding-top: 30px;
-    padding-bottom: 20px;
+/* ---- Product Name ---- */
+.box span {
+  display: block;
+  font-size: 14px;
+  color: #333;
+  margin-top: 8px;
 }
 
-.box-a {
-    overflow: hidden;
-    background-color: white;
-
-}
-
-.box div img {
-    width: 167px;
-    height: 120px;
-    cursor: pointer;
-    margin-left: -20px;
-    margin-right: 0;
-    object-fit: contain;
-}
-
-.box-a div {
-    display: inline-block;
-}
-
-.box-a div span {
-    display: block;
-    font-size: 13px;
-    margin-left: 20px;
-}
-
-.box-b {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.box-b .best {
-    background-color: white;
-    height: 130px;
-    width: 315px;
-}
-
-.best h3 {
-    font-size: 21px;
-    margin: 20px;
-    margin-bottom: 15px;
-}
-
-.best button {
-    border-radius: 7px;
-    box-shadow: 1px 2px 5px rgb(211, 207 207);
-    color: rgb(43, 42, 42);
-    background-color: #ffd801;
-    width: 280px;
-    margin-left: 20px;
-    height: 30px;
-    border: none;
-}
-
-.box-b div img {
-    width: 315px;
-    height: 255px;
-
-}
+/* ---- Single Product Image ---- */
 
 .box.box-c img {
-    margin: 0 20px;
-    width: 275px;
-    cursor: pointer;
-    height: 280px;
-
-}
-
-/*product-comp End*/
-/*container-1 End*/
-/*container End*/
-/*sec-1 End*/
-
-/*sec-2 Start*/
-.sec-2 {
     width: 100%;
-    height: 315px;
-    padding: 25px;
-    padding-top: 0;
-    padding-bottom: 25px;
-}
-
-.slide-sec h3 {
-    font-size: 20px;
-    padding-bottom: 5px;
-}
-
-.slide-sec {
-    width: 100%;
-    height: 100%;
-    padding: 20px 20px 10px 20px;
-    overflow-x: hidden;
-    background-color: white;
-    position: relative;
-}
-
-.product-slide {
-    display: flex;
-    margin-top: 5px;
-    overflow-x: scroll;
-    scroll-behavior: smooth;
-}
-
-.product-slide img {
-    width: 250px;
-    height: 315px;
-}
-
-.product-slide::-webkit-scrollbar {
-    background-color: transparent;
-    height: 7px;
+    height: 350px;
+    margin-right: 5px;
     cursor: pointer;
+    object-fit: cover;
+    
 }
 
-.product-slide::-webkit-scrollbar-thumb {
-    border-radius: 10px;
-    cursor: pointer;
+/* ---- See More Links ---- */
+a.text-primary {
+  display: inline-block;
+  margin-top: 5px;
+  color: #007bff !important;
+  font-size: 13px;
+  text-decoration: none;
+}
+.box-c a {
+  white-space: nowrap; /* prevents link from wrapping to next line */
 }
 
-.product-slide li {
-    list-style: none;
-    margin-right: 10px;
-    margin-bottom: 15px;
-    cursor: pointer;
+a.text-primary:hover {
+  text-decoration: underline;
 }
 
-.l-btn,
-.r-btn {
-    background-color: rgb(255 255 255 1);
-    height: 90px;
-    width: 50px;
-    text-align: center;
-    cursor: pointer;
-    top: 35%;
-    position: absolute;
-    border: 3px solid transparent;
-}
 
-.l-btn {
-    border-radius: 0 5px 5px 0;
-    left: 20px;
 
-}
+/* =============== RESPONSIVE =============== */
 
-.r-btn {
-    border-radius: 5px 0 0 5px;
-    right: 20px;
-}
 
-.l-btn:hover {
-    border: 3px solid gray;
-}
-
-.r-btn:hover {
-    border: 3px solid gray;
-}
-
-.l-btn i,
-.r-btn i {
-    color: black;
-    position: absolute;
-    font-size: 30px;
-    top: 35%;
-    left: 13%;
-    right: 13%;
-}
-
-/*sec-2 End*/
-
-/*box-d Start*/
-.box-d a {
-    padding: 10px;
-}
-
-.box-d div img {
-    width: 147px;
-    height: 110px;
-    margin-left: 5px;
-    margin-right: 0px;
-}
-
-.box-d div span {
-    margin-bottom: 22px;
-}
-
-/*box-d End*/
-
-/* Responsive tweaks for mobile */
-@media (max-width: 767px) {
-    .product-comp {
-        justify-content: center !important;
-        flex-wrap: wrap;
-        /* allow wrapping */
-    }
-
-    .product-comp .box {
-        width: 100% !important;
-        height: 350px !important;
-        /* equal height for all cards */
-        margin-left: 10px;
-        /* added left margin */
-        margin-bottom: 15px;
-        /* optional: space between rows */
+@media (min-width: 1024px){
+    .product-sec{
         display: flex;
-        flex-direction: column;
-        justify-content: space-between;
+        gap: 10px;
     }
 
-    /* Make items stack inside box instead of inline */
-    .box-a {
-        display: flex !important;
-        flex-wrap: wrap !important;
-        justify-content: center;
+    .product-card {
+ width: 30%;
+ 
     }
 
-    .box-a div {
-        display: block !important;
-        width: 45%;
-        /* two items per row inside box */
-        margin: 5px auto;
-        text-align: center;
-    }
+.single-card {
+width: 30%;
+}
 
-    .box img {
-        width: 100% !important;
-        height: auto !important;
-        object-fit: contain;
-    }
+.product-card-row{
+height: 200px;
+margin-top: 15px;
+}
 
-    .box-a div span {
-        display: block;
-        font-size: 12px;
-        margin-top: 5px;
+    .product-card .view-link{
+        margin-top: 165px;
     }
-
-    /* Images in SingleProductCard must be contained */
-    .box.box-c img {
-        width: 100% !important;
-        height: auto !important;
-        max-height: 200px;
-        object-fit: contain !important;
-        display: block;
-        margin: 0 auto;
+    .single-card .view-link{
+        margin-top: 15px;
     }
 }
 
-/* Very small screen (<480px) → only 1 card per row with margins */
-@media (max-width: 480px) {
+/* Tablet: 2 per row */
+@media (max-width: 1024px) {
+  .product-card,
+  .single-card {
+    flex: 1 1 calc(50% - 15px);
+  }
+}
 
-    .product-comp .box-a {
-        grid-template-columns: 1fr;
+/* Mobile: 1 per row */
+@media (max-width: 767px) {
+  .product-card,
+  .single-card {
+    flex: 1 1 100%;
+    width: 100%;
+    margin-left: 15px;
+  }
+
+  .product-card .view-link{
+        margin-top: 100px;
     }
-
-    .col-6 {
-        flex: 0 0 100% !important;
-        max-width: 100% !important;
-    }
-
-    .product-comp .box {
-        width: 95% !important;
-        /* leave space on sides */
-        margin-top: 10px;
-        margin-left: 15px;
-
-        /* center with gap */
-        height: auto !important;
-    }
-
-    .box-a {
-        grid-template-columns: 1fr !important;
-        /* stack inner items */
+    .single-card .view-link{
+        margin-top: 25px;
     }
 }

@@ -1,0 +1,26 @@
+[
+    {
+        "question": "What is Shopizen?",
+        "answer": "Shopizen is your one-stop online shopping destination offering fashion, electronics, home essentials, and more — all with fast delivery and secure payment options."
+    },
+    {
+        "question": "How can I track my order?",
+        "answer": "Once your order is shipped, you’ll receive a tracking ID via email or SMS. You can also check the order status directly in the 'My Orders' section of your Shopizen account."
+    },
+    {
+        "question": "What payment methods do you accept?",
+        "answer": "We accept all major debit/credit cards, UPI, net banking, and wallets like Paytm and Google Pay. Cash on Delivery is also available for select locations."
+    },
+    {
+        "question": "Can I return or exchange an item?",
+        "answer": "Yes! We offer a 7-day hassle-free return and exchange policy. Simply visit the 'My Orders' page and request a return or exchange for eligible items."
+    },
+    {
+        "question": "Do you offer international shipping?",
+        "answer": "Currently, Shopizen delivers across India. We’re working on expanding to international shipping very soon!"
+    },
+    {
+        "question": "How can I contact customer support?",
+        "answer": "You can reach us via the 'Contact Us' page, email us at support@shopizen.in, or call our 24/7 helpline at +91 98765 43210."
+    }
+]

@@ -9,22 +9,22 @@ const Footer = () => {
         <footer className="footer-wrapper">
             <div className="footer-section">
                 <div>ABOUT</div>
-                <Link to="../home page/about.html">About Us</Link>
-                <Link to="../home page/contact.html">Contact Us</Link>
+                <Link to="/about">About Us</Link>
+                <Link to="/account/contact">Contact Us</Link>
             </div>
 
             <div className="footer-section">
                 <div>HELP</div>
-                <Link to="#">Payments</Link>
-                <Link to="#">Shipping</Link>
-                <Link to="#">Returns</Link>
-                <Link to="../home page/contact.html">FAQ</Link>
+                <Link to="/payments">Payments</Link>
+                <Link to="/shipping">Shipping</Link>
+                <Link to="/returns">Returns</Link>
+                <Link to="/faq">FAQ</Link>
             </div>
 
             <div className="footer-section">
                 <div>POLICY</div>
-                <Link to="../home page/terms.html">Terms & Conditions</Link>
-                <Link to="../home page/policy.html">Privacy Policy</Link>
+                <Link to="/terms">Terms & Conditions</Link>
+                <Link to="/privacy">Privacy Policy</Link>
             </div>
 
             <p className="footer-bottom-text">

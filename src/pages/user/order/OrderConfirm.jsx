@@ -10,6 +10,13 @@ const OrderConfirmPage = () => {
     const { showToast } = useToast();
     const [orderData, setOrderData] = useState(null);
 
+    // Format price dynamically for any currency
+    const formatPrice = (amount, currency = "INR") =>
+        new Intl.NumberFormat(navigator.language, {
+            style: "currency",
+            currency,
+        }).format(amount);
+
     // Load latest order
     const loadedOrder = useMemo(() => {
         if (!user) return null;
@@ -51,78 +58,132 @@ const OrderConfirmPage = () => {
     }, [loadedOrder, user]);
 
     if (!user) return <p className="text-center mt-5">Please log in to view your order confirmation.</p>;
-    if (!orderData) return <p className="text-center mt-5">⚠️ Order data not found!</p>;
+    if (!orderData) return (
+      <div className=" m-4" style={{ height: "160px" }}>
+        <p className="text-center mt-5">⚠️ Order data not found!</p>
+      </div>
+    );
 
     // URL for tracking the whole order
     const orderTrackUrl = `${window.location.origin}/track/${orderData.id}`;
 
+    // Calculate total order price dynamically
+    const orderTotal = orderData.items.reduce((sum, item) => {
+        const price = item.priceBySize?.[item.selectedSize] ?? item.price ?? 0;
+        return sum + price * (item.quantity || 0);
+    }, 0);
+
     return (
-        <div className="order-confirm-page p-3">
-            <div className="text-center py-5">
-                <h2 className="mb-3 text-success">🎉 Order Placed Successfully!</h2>
-                <p>Thank you for shopping with us. Your order details are below.</p>
+      <div className="order-confirm-page p-3">
+        <div className="text-center py-5">
+          <h2 className="mb-3 text-success">🎉 Order Placed Successfully!</h2>
+          <p>Thank you for shopping with us. Your order details are below.</p>
 
-                <div className="order-summary card p-3 mb-4">
-                    <h5>Customer Info</h5>
-                    <p><strong>Name:</strong> {orderData.customer?.firstName} {orderData.customer?.lastName}</p>
-                    <p><strong>Email:</strong> {orderData.customer?.email}</p>
-                    <p><strong>Order ID:</strong> {orderData.id}</p>
-                    <p><strong>Expected Delivery:</strong> {orderData.items?.[0]?.expectedDelivery}</p>
+          <div className="order-summary card p-3 mb-4">
+            <h5>Customer Info</h5>
+            <p>
+              <strong>Name:</strong> {orderData.customer?.firstName}{" "}
+              {orderData.customer?.lastName}
+            </p>
+            <p>
+              <strong>Email:</strong> {orderData.customer?.email}
+            </p>
+            <p>
+              <strong>Order ID:</strong> {orderData.id}
+            </p>
+            <p>
+              <strong>Expected Delivery:</strong>{" "}
+              {orderData.items?.[0]?.expectedDelivery}
+            </p>
 
-                    <h5 className="mt-3">Shipping Address</h5>
-                    <p>{orderData.customer?.address}, {orderData.customer?.city}, {orderData.customer?.state} - {orderData.customer?.pincode}</p>
+            <h5 className="mt-3">Shipping Address</h5>
+            <p>
+              {orderData.customer?.address}, {orderData.customer?.city},{" "}
+              {orderData.customer?.state} - {orderData.customer?.pincode}
+            </p>
 
-                    <h5 className="mt-3">Payment Method</h5>
-                    <p>{orderData.paymentMethod === "cod" ? "Cash on Delivery" : "Online Payment"}</p>
+            <h5 className="mt-3">Payment Method</h5>
+            <p>
+              {orderData.paymentMethod === "cod"
+                ? "Cash on Delivery"
+                : "Online Payment"}
+            </p>
+
+            <h5 className="mt-3">Order Total</h5>
+            <p>
+              <strong>
+                {formatPrice(orderTotal, orderData.items[0]?.currency)}
+              </strong>
+            </p>
+          </div>
+
+          {/* Products */}
+          <div className="d-flex flex-wrap gap-3">
+            {(orderData.items || []).map((item) => {
+              const itemPrice =
+                item.priceBySize?.[item.selectedSize] ?? item.price ?? 0;
+              return (
+                <div
+                  key={item.orderItemId}
+                  className="border p-2 mb-2 flex-grow-1"
+                  style={{ flex: "1 1 calc(50% - 12px)", minWidth: "250px" }}
+                >
+                  <div>
+                    <strong>{item.name}</strong> <br />
+                    Qty: {item.quantity} | Size:{" "}
+                    {item.selectedSize || "Free Size"} |{" "}
+                    {formatPrice(
+                      itemPrice * (item.quantity || 0),
+                      item.currency || "INR"
+                    )}{" "}
+                    <br />
+                  </div>
                 </div>
+              );
+            })}
+          </div>
 
-                {/* Products */}
-                <div className="d-flex flex-wrap gap-3">
-                    {(orderData.items || []).map((item) => (
-                        <div
-                            key={item.orderItemId}
-                            className="border p-2 mb-2 flex-grow-1"
-                            style={{ flex: "1 1 calc(50% - 12px)", minWidth: "250px" }} // 50% width minus gap
-                        >
-                            <div>
-                                <strong>{item.name}</strong> <br />
-                                Qty: {item.quantity} | Size: {item.selectedSize || "Free Size"} | ₹{(item.price || 0) * (item.quantity || 0)} <br />
-                                Order Item ID: {item.orderItemId} <br />
-                            </div>
-                        </div>
-                    ))}
-                </div>
+          {/* Track & Share buttons for the whole order */}
+          <div className="mt-3 d-flex justify-content-center gap-2">
+            <Link
+              to={`/track/${orderData.id}`}
+              className="btn btn-outline-primary"
+            >
+              Track Order
+            </Link>
+            <button
+              className="btn btn-outline-success"
+              onClick={() => {
+                if (navigator.share) {
+                  navigator
+                    .share({
+                      title: "Track My Order",
+                      text: `Track your order #${orderData.orderId}`,
+                      url: orderTrackUrl,
+                    })
+                    .then(() => showToast("Shared successfully!", "success"))
+                    .catch(() => showToast("Sharing failed", "error"));
+                } else {
+                  navigator.clipboard
+                    .writeText(orderTrackUrl)
+                    .then(() => showToast("Link copied!", "success"));
+                }
+              }}
+            >
+              Share Tracker
+            </button>
+          </div>
 
-
-                {/* Track & Share buttons for the whole order */}
-                <div className="mt-3 d-flex justify-content-center gap-2">
-                    <Link to={`/track/${orderData.id}`} className="btn btn-outline-primary">Track Order</Link>
-                    <button
-                        className="btn btn-outline-success"
-                        onClick={() => {
-                            if (navigator.share) {
-                                navigator.share({
-                                    title: "Track My Order",
-                                    text: `Track your order #${orderData.id}`,
-                                    url: orderTrackUrl
-                                })
-                                    .then(() => showToast("Shared successfully!", "success"))
-                                    .catch(() => showToast("Sharing failed", "error"));
-                            } else {
-                                navigator.clipboard.writeText(orderTrackUrl)
-                                    .then(() => showToast("Link copied!", "success"));
-                            }
-                        }}
-                    >Share Tracker</button>
-
-                </div>
-
-                <div className="mt-3 d-flex justify-content-center gap-3">
-                    <Link to="/orders" className="btn btn-outline-primary">View My Orders</Link>
-                    <Link to="/products" className="btn btn-primary">Continue Shopping</Link>
-                </div>
-            </div>
+          <div className="mt-3 d-flex justify-content-center gap-3">
+            <Link to="/account/orders" className="btn btn-outline-primary">
+              View My Orders
+            </Link>
+            <Link to="/products" className="btn btn-primary">
+              Continue Shopping
+            </Link>
+          </div>
         </div>
+      </div>
     );
 };
 

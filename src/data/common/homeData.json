@@ -253,17 +253,17 @@
     ],
     "singleProducts": [
         {
-            "id": 3,
+            "id": 1,
             "title": "Shop",
             "image": "https://i.pinimg.com/736x/16/d9/ce/16d9ce41ff82e87946b3e8d5cac0762b.jpg",
-            "link": "#",
+            "link": "/products/category/Electronics",
             "linkText": "See more"
         },
         {
-            "id": 4,
+            "id": 2,
             "title": "Trending Deals",
             "image": "https://i.pinimg.com/736x/16/d9/ce/16d9ce41ff82e87946b3e8d5cac0762b.jpg",
-            "link": "#",
+            "link": "/products/category/Fashion",
             "linkText": "See more"
         }
     ]

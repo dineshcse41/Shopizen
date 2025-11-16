@@ -24,3 +24,16 @@
     /* Bootstrap primary color */
 }
 
+/* Ensure ProductView fits neatly inside Layout */
+.page-wrapper {
+  min-height: calc(100vh - 72px);
+  background-color: #fff;
+  margin: 0 !important;
+  padding: 1.5rem;
+}
+
+/* For dark mode */
+body.bg-dark .page-wrapper {
+  background-color: #0f172a;
+  color: #f8f9fa;
+}

@@ -6,14 +6,13 @@ import ProgressBar from "../../../components/cart/ProgressBar";
 import CartItem from "../../../components/cart/CartItem";
 import TotalSummary from "../../../components/cart/TotalSummary";
 
-import "./order.css";
+import "./orderPage.css";
 
 const CartPage = () => {
     const { cart } = useContext(CartContext);
 
     return (
         <>
-        
             <div className="bg-white m-0">
                 <div className="bg-white m-0">
                     <div className="row align-items-center justify-content-between text-center text-md-start p-2">
@@ -37,7 +36,7 @@ const CartPage = () => {
 
                 <div className="row">
                     {/* Cart Items */}
-                    <div className="col-12 col-md-9 p-2">
+                    <div className="col-12 col-md-9 gap-2">
                         {Array.isArray(cart) && cart.length > 0 ? (
                             cart.map((p) =>
                                 <CartItem key={p.id ?? p.sku ?? Math.random()} product={p} />)
@@ -54,7 +53,7 @@ const CartPage = () => {
                     </div>
 
                     {/* Total Summary */}
-                    <div className="col-12 col-md-3 p-2">
+                    <div className="col-12 col-md-3 mt-0 p-2">
                         <div className="sticky-summary">
                             <TotalSummary cart={Array.isArray(cart) ? cart : []} />
                         </div>

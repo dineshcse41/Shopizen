@@ -1,48 +1,58 @@
 [
     {
-        "id": "P1001",
-        "name": "Cotton T-Shirt",
-        "description": "Soft cotton t-shirt for men",
-        "price": 3999,
-       
-        "currency": "INR",
-        "rating": 5,
-        "stock": 25,
-        "category": "Fashion",
-        "subCategory": "Men",
-        "brand": "Zara",
-        "images": [
-            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSAutTZ4envVjdi-auSZwowBqE4RxRzeNAcQ&s",
-            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSAutTZ4envVjdi-auSZwowBqE4RxRzeNAcQ&s"
-        ],
-        "sizes": [
-            "S",
-            "M",
-            "L",
-            "XL",
-            "XXL"
-        ],
-        "createdAt": "2025-08-20T14:00:00Z",
-        "updatedAt": "2025-09-25T14:00:00Z"
+      "id": "P1001",
+      "name": "Cotton T-Shirt",
+      "description": "Soft cotton t-shirt for men",
+      "price": 3999,
+      "discount": 0,
+      "currency": "INR",
+      "rating": 5,
+      "stock": 25,
+      "category": "Fashion",
+      "subCategory": "Men",
+      "brand": "Zara",
+      "tags": ["new", "bestseller", "deal"],
+      "dealOfTheDay": false,
+      "isNewArrival": true,
+      "midSeasonSale": true,
+      "images": [
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSAutTZ4envVjdi-auSZwowBqE4RxRzeNAcQ&s",
+        "https://assetscdn1.paytm.com/images/catalog/product/E/ED/EDCWH-CH720N-LCPAYT115243541185413/0.jpg",
+        "https://m.media-amazon.com/images/I/41xW8-3t2RL._UF1000,1000_QL80_.jpg"
+      ],
+      "sizes": ["S", "M", "L", "XL", "XXL"],
+      "priceBySize": {
+            "S": 3999,
+            "M": 4199,
+            "L": 4399,
+            "XL": 4599,
+            "XXL": 4799
+        },
+      "createdAt": "2025-08-20T14:00:00Z",
+      "updatedAt": "2025-09-25T14:00:00Z"
     },
     {
-        "id": "P1002",
-        "name": "Bluetooth Headphones",
-        "description": "Wireless over-ear headphones with noise cancellation",
-        "price": 3999,
-        "discount": 50,
-        "currency": "INR",
-        "rating": 4,
-        "stock": 10,
-        "category": "Electronics",
-        "subCategory": "Audio",
-        "brand": "boAt",
-        "images": [
-            "https://assetscdn1.paytm.com/images/catalog/product/E/ED/EDCWH-CH720N-LCPAYT115243541185413/0.jpg"
-        ],
-        "sizes": [],
-        "createdAt": "2025-08-21T10:00:00Z",
-        "updatedAt": "2025-09-25T14:00:00Z"
+      "id": "P1002",
+      "name": "Bluetooth Headphones",
+      "description": "Wireless over-ear headphones with noise cancellation",
+      "price": 3999,
+      "discount": 0,
+      "currency": "INR",
+      "rating": 4,
+      "stock": 10,
+      "category": "Electronics",
+      "subCategory": "Audio",
+      "brand": "boAt",
+      "tags": ["new", "bestseller", "deal"],
+      "dealOfTheDay": false,
+      "isNewArrival": true,
+      "midSeasonSale": true,
+      "images": [
+        "https://assetscdn1.paytm.com/images/catalog/product/E/ED/EDCWH-CH720N-LCPAYT115243541185413/0.jpg"
+      ],
+      "sizes": [],
+      "createdAt": "2025-08-21T10:00:00Z",
+      "updatedAt": "2025-09-25T14:00:00Z"
     },
     {
         "id": "P1003",
@@ -56,6 +66,10 @@
         "category": "Electronics",
         "subCategory": "Wearables",
         "brand": "Noise",
+        "tags": ["new", "bestseller", "deal"],
+        "dealOfTheDay": false,
+        "isNewArrival": true,
+        "midSeasonSale": true,
         "images": [
             "https://m.media-amazon.com/images/I/41xW8-3t2RL._UF1000,1000_QL80_.jpg"
         ],
@@ -74,8 +88,16 @@
         "rating": 4,
         "stock": 15,
         "category": "Fashion",
-        "subCategory": "Footwear",
+        "subCategory": "Men’s Footwear",
         "brand": "Bata",
+        "tags": [
+            "new",
+            "bestseller",
+            "deal"
+        ],
+        "dealOfTheDay": false,
+        "isNewArrival": false,
+        "midSeasonSale": true,
         "images": [
             "https://m.media-amazon.com/images/I/61iz3JBHcTL._SX625_.jpg"
         ],
@@ -90,27 +112,27 @@
         "updatedAt": "2025-09-25T14:00:00Z"
     },
     {
-        "id": "P1005",
-        "name": "School Backpack",
-        "description": "Waterproof school bag with laptop sleeve",
-        "price": 3999,
-        "discount": 80,
-        "currency": "INR",
-        "rating": 4,
-        "stock": 20,
-        "category": "Bags",
-        "subCategory": "Backpacks",
-        "brand": "Wildcraft",
-        "images": [
-            "https://m.media-amazon.com/images/I/81rDE6gGxnL._AC_SR180,120_CB1169409_QL70_.jpg"
-        ],
-        "sizes": [
-            "Small",
-            "Medium",
-            "Large"
-        ],
-        "createdAt": "2025-08-23T11:00:00Z",
-        "updatedAt": "2025-09-25T14:00:00Z"
+      "id": "P1005",
+      "name": "School Backpack",
+      "description": "Waterproof school bag with laptop sleeve",
+      "price": 3999,
+      "discount": 80,
+      "currency": "INR",
+      "rating": 4,
+      "stock": 20,
+      "category": "Bags",
+      "subCategory": "Women’s Bags",
+      "brand": "Wildcraft",
+      "tags": ["new", "bestseller", "deal"],
+      "dealOfTheDay": false,
+      "isNewArrival": false,
+      "midSeasonSale": true,
+      "images": [
+        "https://m.media-amazon.com/images/I/81rDE6gGxnL._AC_SR180,120_CB1169409_QL70_.jpg"
+      ],
+      "sizes": ["Small", "Medium", "Large"],
+      "createdAt": "2025-08-23T11:00:00Z",
+      "updatedAt": "2025-09-25T14:00:00Z"
     },
     {
         "id": "P1006",
@@ -124,6 +146,10 @@
         "category": "Electronics",
         "subCategory": "Television",
         "brand": "Samsung",
+        "tags": ["new", "bestseller", "deal"],
+        "dealOfTheDay": true,
+        "isNewArrival": false,
+        "midSeasonSale": true,
         "images": [
             "https://m.media-amazon.com/images/I/41Tmd8b8MeL._AC_SR250,250_QL65_.jpg"
         ],
@@ -141,8 +167,11 @@
         "rating": 4,
         "stock": 12,
         "category": "Fashion",
-        "subCategory": "Women’s Clothing",
+        "subCategory": "Men’s Footwear",
         "brand": "Biba",
+        "tags": ["new", "bestseller", "deal"],
+        "dealOfTheDay": true,
+        "isNewArrival": false,
         "images": [
             "https://m.media-amazon.com/images/I/71FmKfzp0qL._AC_UL1500_.jpg"
         ],
@@ -167,6 +196,13 @@
         "category": "Electronics",
         "subCategory": "Computer Accessories",
         "brand": "Redragon",
+        "tags": [
+            "new",
+             
+            "deal"
+        ],
+        "dealOfTheDay": true,
+        "isNewArrival": false,
         "images": [
             "https://m.media-amazon.com/images/I/61Pfhg0O1XL._AC_SL1500_.jpg"
         ],
@@ -186,6 +222,13 @@
         "category": "Fashion",
         "subCategory": "Men’s Clothing",
         "brand": "Levi’s",
+        "tags": [
+            "new",
+             
+            "deal"
+        ],
+        "dealOfTheDay": true,
+        "isNewArrival": false,
         "images": [
             "https://m.media-amazon.com/images/I/81zNn1cYj5L._AC_UL1500_.jpg"
         ],
@@ -211,6 +254,13 @@
         "category": "Electronics",
         "subCategory": "Mobile Accessories",
         "brand": "Mi",
+        "tags": [
+            "new",
+             
+            "deal"
+        ],
+        "dealOfTheDay": true,
+        "isNewArrival": false,
         "images": [
             "https://m.media-amazon.com/images/I/61ptK+EZpXL._AC_SL1500_.jpg"
         ],
@@ -228,8 +278,15 @@
         "rating": 4,
         "stock": 10,
         "category": "Bags",
-        "subCategory": "Travel Bags",
+        "subCategory": "Women’s Bags",
         "brand": "Skybags",
+        "tags": [
+            "new",
+             
+            "deal"
+        ],
+        "dealOfTheDay": true,
+        "isNewArrival": false,
         "images": [
             "https://m.media-amazon.com/images/I/71m1G8lq+ML._AC_SL1500_.jpg"
         ],
@@ -253,6 +310,13 @@
         "category": "Electronics",
         "subCategory": "Audio",
         "brand": "Boat",
+        "tags": [
+            "new",
+             
+            "deal"
+        ],
+        "dealOfTheDay": true,
+        "isNewArrival": false,
         "images": [
             "https://m.media-amazon.com/images/I/71pB7gFMxPL._AC_SL1500_.jpg"
         ],
@@ -272,6 +336,13 @@
         "category": "Bags",
         "subCategory": "Women’s Bags",
         "brand": "Caprese",
+        "tags": [
+            "new",
+             
+            "deal"
+        ],
+        "dealOfTheDay": true,
+        "isNewArrival": false,
         "images": [
             "https://m.media-amazon.com/images/I/71fXxA+HWLL._AC_SL1500_.jpg"
         ],
@@ -291,8 +362,21 @@
         "category": "Fashion",
         "subCategory": "Men’s Footwear",
         "brand": "Nike",
+        "tags": [
+            "new",
+             
+            "deal"
+        ],
+        "dealOfTheDay": true,
+        "isNewArrival": false,
         "images": [
-            "https://m.media-amazon.com/images/I/81b3zH56jPL._AC_UL1500_.jpg"
+          "https://m.media-amazon.com/images/I/81b3zH56jPL._AC_UL1500_.jpg",
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSAutTZ4envVjdi-auSZwowBqE4RxRzeNAcQ&s",
+          "https://assetscdn1.paytm.com/images/catalog/product/E/ED/EDCWH-CH720N-LCPAYT115243541185413/0.jpg",
+          "https://m.media-amazon.com/images/I/41xW8-3t2RL._UF1000,1000_QL80_.jpg",
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSAutTZ4envVjdi-auSZwowBqE4RxRzeNAcQ&s",
+          "https://assetscdn1.paytm.com/images/catalog/product/E/ED/EDCWH-CH720N-LCPAYT115243541185413/0.jpg",
+          "https://m.media-amazon.com/images/I/41xW8-3t2RL._UF1000,1000_QL80_.jpg"
         ],
         "sizes": [
             "7",
@@ -316,6 +400,13 @@
         "category": "Electronics",
         "subCategory": "Wearables",
         "brand": "Noise",
+        "tags": [
+            "new",
+             
+            "deal"
+        ],
+        "dealOfTheDay": true,
+        "isNewArrival": false,
         "images": [
             "https://m.media-amazon.com/images/I/61Kk0nFxfZL._AC_SL1500_.jpg"
         ],
@@ -333,8 +424,15 @@
         "rating": 4,
         "stock": 12,
         "category": "Bags",
-        "subCategory": "Kids’ Bags",
+        "subCategory": "Women’s Bags",
         "brand": "Wildcraft",
+        "tags": [
+            "new",
+             
+            "deal"
+        ],
+        "dealOfTheDay": true,
+        "isNewArrival": false,
         "images": [
             "https://m.media-amazon.com/images/I/71Ybf6K3YhL._AC_SL1500_.jpg"
         ],
@@ -354,6 +452,13 @@
         "category": "Electronics",
         "subCategory": "Computer Accessories",
         "brand": "Logitech",
+        "tags": [
+            "new",
+             
+            "deal"
+        ],
+        "dealOfTheDay": true,
+        "isNewArrival": false,
         "images": [
             "https://m.media-amazon.com/images/I/61P6aWv8chL._AC_SL1500_.jpg"
         ],
@@ -371,8 +476,15 @@
         "rating": 3,
         "stock": 22,
         "category": "Fashion",
-        "subCategory": "Men’s Clothing",
+        "subCategory": "Men’s Footwear",
         "brand": "Peter England",
+        "tags": [
+            "new",
+             
+            "deal"
+        ],
+        "dealOfTheDay": true,
+        "isNewArrival": false,
         "images": [
             "https://m.media-amazon.com/images/I/71CkzK6b+VL._AC_UL1500_.jpg"
         ],
@@ -398,6 +510,13 @@
         "category": "Fashion",
         "subCategory": "Women’s Footwear",
         "brand": "Bata",
+        "tags": [
+            "new",
+             
+            "deal"
+        ],
+        "dealOfTheDay": true,
+        "isNewArrival": false,
         "images": [
             "https://m.media-amazon.com/images/I/71kEruF0QKL._AC_UL1500_.jpg"
         ],
@@ -423,6 +542,13 @@
         "category": "Electronics",
         "subCategory": "Mobile Accessories",
         "brand": "Mi",
+        "tags": [
+            "new",
+             
+            "deal"
+        ],
+        "dealOfTheDay": true,
+        "isNewArrival": false,
         "images": [
             "https://m.media-amazon.com/images/I/61sFcfgh1NL._AC_SL1500_.jpg"
         ],
@@ -443,6 +569,13 @@
         "category": "Fashion",
         "subCategory": "Kids’ Clothing",
         "brand": "GAP",
+        "tags": [
+            "new",
+             
+            "deal"
+        ],
+        "dealOfTheDay": true,
+        "isNewArrival": false,
         "images": [
             "https://m.media-amazon.com/images/I/71GmQGm2OtL._AC_UL1500_.jpg"
         ],
@@ -467,6 +600,13 @@
         "category": "Electronics",
         "subCategory": "Audio",
         "brand": "Sony",
+        "tags": [
+            "new",
+             
+            "deal"
+        ],
+        "dealOfTheDay": true,
+        "isNewArrival": false,
         "images": [
             "https://m.media-amazon.com/images/I/61f4x7p1+GL._AC_SL1500_.jpg"
         ],
@@ -486,7 +626,13 @@
         "stock": 18,
         "category": "Fashion",
         "subCategory": "Men’s Footwear",
-        "brand": "Nike",
+        "brand": "Nike","tags": [
+            "new",
+             
+            "deal"
+        ],
+        "dealOfTheDay": true,
+        "isNewArrival": false,
         "images": [
             "https://m.media-amazon.com/images/I/71v+fblpLXL._AC_UL1500_.jpg"
         ],
@@ -512,6 +658,13 @@
         "category": "Electronics",
         "subCategory": "Wearables",
         "brand": "Amazfit",
+        "tags": [
+            "new",
+             
+            "deal"
+        ],
+        "dealOfTheDay": true,
+        "isNewArrival": false,
         "images": [
             "https://m.media-amazon.com/images/I/61X91oG6A5L._AC_SL1500_.jpg"
         ],
@@ -531,6 +684,13 @@
         "category": "Fashion",
         "subCategory": "Women’s Accessories",
         "brand": "Caprese",
+        "tags": [
+            "new",
+             
+            "deal"
+        ],
+        "dealOfTheDay": true,
+        "isNewArrival": false,
         "images": [
             "https://m.media-amazon.com/images/I/71pJpS9rVtL._AC_UL1500_.jpg"
         ],
@@ -550,6 +710,13 @@
         "category": "Fashion",
         "subCategory": "Kids’ Footwear",
         "brand": "Adidas",
+        "tags": [
+            "new",
+             
+            "deal"
+        ],
+        "dealOfTheDay": true,
+        "isNewArrival": false,
         "images": [
             "https://m.media-amazon.com/images/I/71LkHtN7GjL._AC_UL1500_.jpg"
         ],
@@ -574,6 +741,13 @@
         "category": "Electronics",
         "subCategory": "Computer Accessories",
         "brand": "Logitech",
+        "tags": [
+            "new",
+             
+            "deal"
+        ],
+        "dealOfTheDay": true,
+        "isNewArrival": false,
         "images": [
             "https://m.media-amazon.com/images/I/61u0y9K3vPL._AC_SL1500_.jpg"
         ],
@@ -593,6 +767,13 @@
         "category": "Fashion",
         "subCategory": "Men’s Clothing",
         "brand": "Peter England",
+        "tags": [
+            "new",
+             
+            "deal"
+        ],
+        "dealOfTheDay": true,
+        "isNewArrival": false,
         "images": [
             "https://m.media-amazon.com/images/I/71kfk0Q6cWL._AC_UL1500_.jpg"
         ],
@@ -618,6 +799,13 @@
         "category": "Fashion",
         "subCategory": "Bags & Luggage",
         "brand": "Wildcraft",
+        "tags": [
+            "new",
+             
+            "deal"
+        ],
+        "dealOfTheDay": true,
+        "isNewArrival": false,
         "images": [
             "https://m.media-amazon.com/images/I/71s+yI7UACL._AC_UL1500_.jpg"
         ],
@@ -637,6 +825,13 @@
         "category": "Electronics",
         "subCategory": "Televisions",
         "brand": "Samsung",
+        "tags": [
+            "new",
+             
+            "deal"
+        ],
+        "dealOfTheDay": true,
+        "isNewArrival": false,
         "images": [
             "https://m.media-amazon.com/images/I/81kE4qVw3kL._AC_SL1500_.jpg"
         ],
@@ -656,6 +851,13 @@
         "category": "Fashion",
         "subCategory": "Women’s Footwear",
         "brand": "Puma",
+        "tags": [
+            "new",
+             
+            "deal"
+        ],
+        "dealOfTheDay": true,
+        "isNewArrival": false,
         "images": [
             "https://m.media-amazon.com/images/I/71XjGQSDt-L._AC_UL1500_.jpg"
         ],
@@ -681,6 +883,13 @@
         "category": "Electronics",
         "subCategory": "Audio",
         "brand": "Boat",
+        "tags": [
+            "new",
+             
+            "deal"
+        ],
+        "dealOfTheDay": true,
+        "isNewArrival": false,
         "images": [
             "https://m.media-amazon.com/images/I/61fGqO2nXgL._AC_SL1500_.jpg"
         ],
@@ -700,6 +909,13 @@
         "category": "Fashion",
         "subCategory": "Men’s Clothing",
         "brand": "Levi's",
+        "tags": [
+            "new",
+             
+            "deal"
+        ],
+        "dealOfTheDay": true,
+        "isNewArrival": false,
         "images": [
             "https://m.media-amazon.com/images/I/81kZyUjZ0aL._AC_UL1500_.jpg"
         ],
@@ -725,6 +941,13 @@
         "category": "Electronics",
         "subCategory": "Wearables",
         "brand": "Noise",
+        "tags": [
+            "new",
+             
+            "deal"
+        ],
+        "dealOfTheDay": true,
+        "isNewArrival": false,
         "images": [
             "https://m.media-amazon.com/images/I/61v7n8fN3VL._AC_SL1500_.jpg"
         ],
@@ -744,6 +967,13 @@
         "category": "Fashion",
         "subCategory": "Bags & Luggage",
         "brand": "Caprese",
+        "tags": [
+            "new",
+             
+            "deal"
+        ],
+        "dealOfTheDay": true,
+        "isNewArrival": false,
         "images": [
             "https://m.media-amazon.com/images/I/71pI6Hfq0mL._AC_UL1500_.jpg"
         ],
@@ -763,6 +993,13 @@
         "category": "Electronics",
         "subCategory": "Audio",
         "brand": "JBL",
+        "tags": [
+            "new",
+             
+            "deal"
+        ],
+        "dealOfTheDay": true,
+        "isNewArrival": false,
         "images": [
             "https://m.media-amazon.com/images/I/71dQeNq0wPL._AC_SL1500_.jpg"
         ],

@@ -153,8 +153,8 @@
 
 /* ---------- DARK MODE ---------- */
 .bg-dark.text-light .card {
-    background-color: #212529;
-    color: #f8f9fa;
+    background-color: #17223b;
+    color: #e2e8f0;
 }
 
 .bg-dark.text-light .nav-tabs .nav-link {
@@ -180,4 +180,25 @@
         max-width: 100px;
         height: 100px;
     }
+}
+
+.upload-area {
+    border: 2px dashed #ccc;
+    border-radius: 12px;
+    background-color: #fafafa;
+    cursor: pointer;
+    transition: border-color 0.3s, background-color 0.3s;
+}
+
+.upload-area:hover {
+    border-color: #007bff;
+    background-color: #f0f8ff;
+}
+
+.preview-grid {
+    margin-top: 10px;
+}
+
+.preview-box img {
+    object-fit: cover;
 }

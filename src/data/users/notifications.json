@@ -1,0 +1,65 @@
+[
+  {
+    "id": 1,
+    "userId": 102,
+    "type": "Order Update",
+    "title": "Your order #1234 has been shipped",
+    "description": "Expected delivery in 3 days",
+    "date": "2025-11-05T10:30:00Z",
+    "read": false
+  },
+  {
+    "id": 2,
+    "userId": 101,
+    "type": "Promotion",
+    "title": "Exclusive 20% off on your next purchase!",
+    "description": "Use code SAVE20 at checkout",
+    "date": "2025-11-04T15:00:00Z",
+    "read": true
+  },
+  {
+    "id": 3,
+    "userId": 102,
+    "type": "Account",
+    "title": "Change your password regularly",
+    "description": "Keep your account safe by updating your password every 3 months",
+    "date": "2025-11-03T12:00:00Z",
+    "read": false
+  },
+  {
+    "id": 4,
+    "userId": 102,
+    "type": "Promotion",
+    "title": "Flat 30% off on your next order!",
+    "description": "Use code WELCOME30 during checkout.",
+    "date": "2025-11-02T14:00:00Z",
+    "read": true
+  },
+  {
+    "id": 5,
+    "userId": 102,
+    "type": "Order Update",
+    "title": "Your return request #5678 is approved",
+    "description": "Your refund will be processed within 5 business days.",
+    "date": "2025-11-01T09:30:00Z",
+    "read": false
+  },
+  {
+    "id": 6,
+    "userId": 105,
+    "type": "System",
+    "title": "Account verification pending",
+    "description": "Verify your email to unlock full access to features.",
+    "date": "2025-10-31T16:45:00Z",
+    "read": false
+  },
+  {
+    "id": 7,
+    "userId": 106,
+    "type": "Order Update",
+    "title": "Your order #7890 has been delivered",
+    "description": "We hope you loved your purchase! Leave a review to earn rewards.",
+    "date": "2025-10-30T11:15:00Z",
+    "read": true
+  }
+]

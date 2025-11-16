@@ -2,7 +2,7 @@ import React from "react";
 import { useComparison } from "../../../components/context/ComparisonContext";
 import Footer from "../../../components/Footer/Footer";
 import defaultImage from "../../../../src/assets/product-default-image.png";
-
+import './ComparePage.css';
 const ComparisonPage = () => {
     const { comparisonList, toggleCompare } = useComparison();
 
@@ -21,104 +21,112 @@ const ComparisonPage = () => {
     }
 
     return (
-        <>
-            <div className=" m-4">
-                <h2 className="mb-4">Compare Products</h2>
-                <div className="table-responsive">
-                    <table className="table table-bordered align-middle text-center">
-                        <thead className="table-light">
-                            <tr>
-                                <th>Feature</th>
-                                {comparisonList.map((p) => (
-                                    <th key={p.id}>
-                                        <div className="d-flex flex-column align-items-center">
-                                            <img
-                                                src={
-                                                    p.images && p.images.length > 0
-                                                        ? p.images[0]
-                                                        : defaultImage
-                                                }
+      <>
+        <div className=" m-4">
+          <h2 className="mb-4">Compare Products</h2>
+          <div className="table-mobile-scroll">
+            <table className="table table-bordered align-middle text-center">
+              <thead className="table-light">
+                <tr>
+                  <th>Feature</th>
+                  {comparisonList.map((p) => (
+                    <th key={p.id}>
+                      <div className="d-flex flex-column align-items-center">
+                        <img
+                          src={
+                            p.images && p.images.length > 0
+                              ? p.images[0]
+                              : defaultImage
+                          }
+                          alt={p.name}
+                          style={{
+                            width: "120px",
+                            height: "120px",
+                            objectFit: "contain",
+                          }}
+                          onError={(e) => (e.target.src = defaultImage)}
+                        />
 
-                                                alt={p.name}
-                                                style={{ width: "120px", height: "120px", objectFit: "contain" }}
-                                                onError={(e) => (e.target.src = defaultImage)}
-                                            />
+                        <h6 className="mt-2">{p.name}</h6>
+                        <button
+                          className="btn btn-sm btn-outline-danger mt-1"
+                          onClick={() => toggleCompare(p)}
+                        >
+                          Remove
+                        </button>
+                      </div>
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <strong>Brand</strong>
+                  </td>
+                  {comparisonList.map((p) => (
+                    <td key={p.id}>{p.brand || "-"}</td>
+                  ))}
+                </tr>
+                <tr>
+                  <td>
+                    <strong>Description</strong>
+                  </td>
+                  {comparisonList.map((p) => (
+                    <td key={p.id}>{p.description || "No description"}</td>
+                  ))}
+                </tr>
+                <tr>
+                  <td>
+                    <strong>Price</strong>
+                  </td>
+                  {comparisonList.map((p) => (
+                    <td key={p.id}>₹{p.price}</td>
+                  ))}
+                </tr>
+                <tr>
+                  <td>
+                    <strong>Rating</strong>
+                  </td>
+                  {comparisonList.map((p) => (
+                    <td key={p.id}>{p.rating} ★</td>
+                  ))}
+                </tr>
+                <tr>
+                  <td>
+                    <strong>Category</strong>
+                  </td>
+                  {comparisonList.map((p) => (
+                    <td key={p.id}>{p.category || "-"}</td>
+                  ))}
+                </tr>
+                <tr>
+                  <td>
+                    <strong>Subcategory</strong>
+                  </td>
+                  {comparisonList.map((p) => (
+                    <td key={p.id}>{p.subCategory || "-"}</td>
+                  ))}
+                </tr>
 
-                                            <h6 className="mt-2">{p.name}</h6>
-                                            <button
-                                                className="btn btn-sm btn-outline-danger mt-1"
-                                                onClick={() => toggleCompare(p)}
-                                            >
-                                                Remove
-                                            </button>
-                                        </div>
-                                    </th>
-                                ))}
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><strong>Brand</strong></td>
-                                {comparisonList.map((p) => (
-                                    <td key={p.id}>{p.brand || "-"}</td>
-                                ))}
-                            </tr>
-                            <tr>
-                                <td><strong>Description</strong></td>
-                                {comparisonList.map((p) => (
-                                    <td key={p.id}>{p.description || "No description"}</td>
-                                ))}
-                            </tr>
-                            <tr>
-                                <td><strong>Price</strong></td>
-                                {comparisonList.map((p) => (
-                                    <td key={p.id}>₹{p.price}</td>
-                                ))}
-                            </tr>
-                            <tr>
-                                <td><strong>Old Price</strong></td>
-                                {comparisonList.map((p) => (
-                                    <td key={p.id}>
-                                        {p.oldPrice ? `₹${p.oldPrice}` : "-"}
-                                    </td>
-                                ))}
-                            </tr>
-                            <tr>
-                                <td><strong>Rating</strong></td>
-                                {comparisonList.map((p) => (
-                                    <td key={p.id}>{p.rating} ★</td>
-                                ))}
-                            </tr>
-                            <tr>
-                                <td><strong>Category</strong></td>
-                                {comparisonList.map((p) => (
-                                    <td key={p.id}>{p.category || "-"}</td>
-                                ))}
-                            </tr>
-                            <tr>
-                                <td><strong>Subcategory</strong></td>
-                                {comparisonList.map((p) => (
-                                    <td key={p.id}>{p.subCategory || "-"}</td>
-                                ))}
-                            </tr>
-
-                            <tr>
-                                <td><strong>Sizes</strong></td>
-                                {comparisonList.map((p) => (
-                                    <td key={p.id}>
-                                        {p.sizes && p.sizes.length > 0
-                                            ? p.sizes.join(", ")
-                                            : "Free Size"}
-                                    </td>
-                                ))}
-                            </tr>                           
-                           
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <Footer />
-        </>
+                <tr>
+                  <td>
+                    <strong>Sizes</strong>
+                  </td>
+                  {comparisonList.map((p) => (
+                    <td key={p.id}>
+                      {p.sizes && p.sizes.length > 0
+                        ? p.sizes.join(", ")
+                        : "Free Size"}
+                    </td>
+                  ))}
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <Footer />
+      </>
     );
 };
 

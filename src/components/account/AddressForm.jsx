@@ -1,12 +1,13 @@
-
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import { Form, Button, Container, Row, Col } from "react-bootstrap";
-
 
 function AddressForm({ initialData = {}, onSubmit, mode }) {
     const [formData, setFormData] = useState({
         name: "",
         phone: "",
+        doorNumber: "",
+        street: "",
+        landmark: "",
         address: "",
         pincode: "",
         city: "",
@@ -14,10 +15,9 @@ function AddressForm({ initialData = {}, onSubmit, mode }) {
     });
 
     useEffect(() => {
-        if (initialData) {
-            setFormData({ ...formData, ...initialData });
+        if (initialData && JSON.stringify(initialData) !== JSON.stringify(formData)) {
+            setFormData(initialData);
         }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [initialData]);
 
     const handleChange = (e) => {
@@ -27,7 +27,7 @@ function AddressForm({ initialData = {}, onSubmit, mode }) {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await onSubmit(formData); // call parent handler
+            await onSubmit(formData);
             alert(mode === "edit" ? "Address updated successfully!" : "Address added successfully!");
         } catch (error) {
             console.error("Error saving address:", error);
@@ -44,6 +44,7 @@ function AddressForm({ initialData = {}, onSubmit, mode }) {
                             {mode === "edit" ? "Edit Address" : "Add New Address"}
                         </h2>
                         <Form onSubmit={handleSubmit}>
+                            {/* Name */}
                             <Form.Group controlId="formName" className="mb-3">
                                 <Form.Label>Name</Form.Label>
                                 <Form.Control
@@ -56,6 +57,7 @@ function AddressForm({ initialData = {}, onSubmit, mode }) {
                                 />
                             </Form.Group>
 
+                            {/* Phone */}
                             <Form.Group controlId="formPhone" className="mb-3">
                                 <Form.Label>Phone</Form.Label>
                                 <Form.Control
@@ -68,16 +70,41 @@ function AddressForm({ initialData = {}, onSubmit, mode }) {
                                 />
                             </Form.Group>
 
-                            <Form.Group controlId="formAddress" className="mb-3">
-                                <Form.Label>Address</Form.Label>
+                            {/* Door Number */}
+                            <Form.Group controlId="formDoorNumber" className="mb-3">
+                                <Form.Label>Door Number</Form.Label>
                                 <Form.Control
-                                    as="textarea"
-                                    rows={3}
-                                    name="address"
-                                    value={formData.address}
+                                    type="text"
+                                    name="doorNumber"
+                                    value={formData.doorNumber}
                                     onChange={handleChange}
-                                    placeholder="Enter full address"
+                                    placeholder="Enter door/flat number"
                                     required
+                                />
+                            </Form.Group>
+
+                            {/* Street */}
+                            <Form.Group controlId="formStreet" className="mb-3">
+                                <Form.Label>Street</Form.Label>
+                                <Form.Control
+                                    type="text"
+                                    name="street"
+                                    value={formData.street}
+                                    onChange={handleChange}
+                                    placeholder="Enter street name"
+                                    required
+                                />
+                            </Form.Group>
+
+                            {/* Landmark */}
+                            <Form.Group controlId="formLandmark" className="mb-3">
+                                <Form.Label>Landmark</Form.Label>
+                                <Form.Control
+                                    type="text"
+                                    name="landmark"
+                                    value={formData.landmark}
+                                    onChange={handleChange}
+                                    placeholder="Enter nearby landmark"
                                 />
                             </Form.Group>
 

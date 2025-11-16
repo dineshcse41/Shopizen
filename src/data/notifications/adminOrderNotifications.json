@@ -1,11 +1,12 @@
 [
   {
-    "notificationId": "N1001",
+    "id": "N1001",
     "orderId": "O1001",
     "userId": 101,
     "type": "Order Delivered",
-    "status": "Seen",
-    "timestamp": "2025-09-23T16:35:00Z",
+    "status": "Delivered",
+    "isRead": true,
+    "date": "2025-09-23T16:35:00Z",
     "message": "Order O1001 has been delivered successfully.",
     "orderDetails": {
       "customer": {
@@ -33,12 +34,13 @@
     }
   },
   {
-    "notificationId": "N1002",
+    "id": "N1002",
     "orderId": "O1002",
     "userId": 102,
     "type": "Order Shipped",
-    "status": "Unseen",
-    "timestamp": "2025-09-29T11:05:00Z",
+    "status": "Shipped",
+    "isRead": false,
+    "date": "2025-09-29T11:05:00Z",
     "message": "Order O1002 has been shipped. Expected delivery on 2025-10-02.",
     "orderDetails": {
       "customer": {

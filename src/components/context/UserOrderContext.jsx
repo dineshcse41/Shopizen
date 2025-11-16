@@ -1,27 +1,40 @@
-import React, { createContext, useContext, useEffect, useState } from "react";
-import userOrdersData from "../../data/orders/order_items.json";
+// src/components/context/UserOrderContext.jsx
+import React, { createContext, useContext, useState, useEffect } from "react";
+import ordersData from "../../data/orders/orders.json";
+import { AuthContext } from "./AuthContext";
 
 const UserOrderContext = createContext();
 
 export const UserOrderProvider = ({ children }) => {
-    const [userOrders, setUserOrders] = useState([]);
+  const { user } = useContext(AuthContext);
+  const [userOrders, setUserOrders] = useState([]);
 
-    useEffect(() => {
-        const savedOrders = JSON.parse(localStorage.getItem("user_orders")) || userOrdersData;
-        setUserOrders(savedOrders);
-    }, []);
+  useEffect(() => {
+    const storedOrders =
+      JSON.parse(localStorage.getItem("user_orders")) || ordersData;
+    setUserOrders(storedOrders);
+  }, []);
 
-    useEffect(() => {
-        localStorage.setItem("user_orders", JSON.stringify(userOrders));
-    }, [userOrders]);
+  const addOrder = (order) => {
+    if (!user) return;
+    const newOrder = { ...order, userId: user.id };
+    const updatedOrders = [newOrder, ...userOrders];
+    setUserOrders(updatedOrders);
+    localStorage.setItem("user_orders", JSON.stringify(updatedOrders));
+  };
 
-    const addOrder = (order) => setUserOrders(prev => [order, ...prev]);
+  const currentUserOrders = user
+    ? userOrders.filter((order) => String(order.userId) === String(user.id))
+    : [];
 
-    return (
-        <UserOrderContext.Provider value={{ userOrders, addOrder }}>
-            {children}
-        </UserOrderContext.Provider>
-    );
+  return (
+    <UserOrderContext.Provider
+      value={{ userOrders, currentUserOrders, addOrder, setUserOrders }}
+    >
+      {children}
+    </UserOrderContext.Provider>
+  );
 };
 
+// ✅ Custom hook for easy access
 export const useUserOrders = () => useContext(UserOrderContext);

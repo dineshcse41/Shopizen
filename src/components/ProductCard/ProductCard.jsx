@@ -8,7 +8,7 @@ import { useToast } from "../../components/context/ToastContext.jsx";
 import defaultImage from "../../assets/product-default-image.png";
 import "./ProductCard.css";
 
-const ProductCard = ({ product }) => {
+const ProductCard = ({ product, selectedSize, onSizeSelect }) => {
   const { addToCart } = useContext(CartContext);
   const { wishlist, toggleWishlist } = useContext(WishlistContext);
   const { user } = useContext(AuthContext);
@@ -17,10 +17,16 @@ const ProductCard = ({ product }) => {
   const navigate = useNavigate();
 
   const discount = product.discount || 0;
-  const [selectedSize, setSelectedSize] = useState("");
 
-  const oldPrice = product.price;
-  const discountedPrice = oldPrice - (oldPrice * discount) / 100;
+  const [internalSize, setInternalSize] = useState(
+    selectedSize || product.sizes?.[0] || "Free Size"
+  );
+
+  const sizeToUse = selectedSize || internalSize;
+
+  // Calculate price dynamically based on selected size
+  const sizePrice = product.priceBySize?.[sizeToUse] || product.price;
+  const discountedPrice = sizePrice - (sizePrice * discount) / 100;
 
   const displayPrice = new Intl.NumberFormat(navigator.language, {
     style: "currency",
@@ -30,11 +36,19 @@ const ProductCard = ({ product }) => {
   const displayOldPrice = new Intl.NumberFormat(navigator.language, {
     style: "currency",
     currency: product.currency || "USD",
-  }).format(product.price);
+  }).format(sizePrice);
+
+  const handleSizeClick = (size) => {
+    if (onSizeSelect) {
+      onSizeSelect(size);
+    } else {
+      setInternalSize(size);
+    }
+  };
 
   useEffect(() => {
     if (!product.sizes || product.sizes.length === 0) {
-      setSelectedSize("Free Size");
+      setInternalSize("Free Size");
     }
   }, [product.sizes]);
 
@@ -47,12 +61,13 @@ const ProductCard = ({ product }) => {
       navigate("/login-email");
       return;
     }
-    if (!selectedSize) {
-      showToast("Please select a size before adding to cart.", "error");
-      return;
-    }
-    addToCart({ ...product, selectedSize });
-    showToast(`${product.name} (${selectedSize}) added to cart!`, "success");
+    addToCart({
+      ...product,
+      selectedSize: sizeToUse,
+      price: discountedPrice, // store price per size
+    });
+
+    showToast(`${product.name} (${sizeToUse}) added to cart!`, "success");
   };
 
   const handleBuyNow = () => {
@@ -61,12 +76,10 @@ const ProductCard = ({ product }) => {
       navigate("/login-email");
       return;
     }
-    if (!selectedSize) {
-      showToast("Please select a size before buying.", "error");
-      return;
-    }
     navigate("/checkout", {
-      state: { buyNowProduct: { ...product, quantity: 1, selectedSize } },
+      state: {
+        buyNowProduct: { ...product, quantity: 1, selectedSize: sizeToUse },
+      },
     });
   };
 
@@ -130,11 +143,15 @@ const ProductCard = ({ product }) => {
 
       {discount > 0 && (
         <div className={`discount-badge ${getDiscountClass()}`}>
-          {product.discount}% OFF
+          {discount}% OFF
         </div>
       )}
 
-      <a href={`/product/${product.id}`} target="_blank" rel="noopener noreferrer">
+      <a
+        href={`/product/${product.id}`}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         <img
           src={product.images?.[0] || defaultImage}
           className="card-img-top"
@@ -154,19 +171,23 @@ const ProductCard = ({ product }) => {
               checked={isAdded}
               onChange={handleCompare}
             />
-            <label className="form-check-label" htmlFor={`compare-${product.id}`}>
+            <label
+              className="form-check-label mt-0"
+              htmlFor={`compare-${product.id}`}
+            >
               Compare
             </label>
           </div>
           <span className="brand text-end">{product.brand}</span>
         </div>
 
-        <h5 className="card-title">{product.name}</h5>
+        <h5 className="text-start h5 mt-1 card-title">{product.name}</h5>
 
-        <div className="d-flex align-items-center mb-2 flex-wrap">
-          <span className="price fw-bold">{displayPrice}</span>
+        <div className="card-price d-flex align-items-center m-0 flex-wrap">
+          <span className="price h3 fw-bold">{displayPrice}</span>
+
           {discount > 0 && (
-            <span className="text-decoration-line-through text-muted ms-2">
+            <span className=" oldprice text-decoration-line-through text-muted mt-4 ms-2">
               {displayOldPrice}
             </span>
           )}
@@ -176,15 +197,16 @@ const ProductCard = ({ product }) => {
         </div>
 
         {product.sizes?.length > 0 ? (
-          <div className="mb-3">
-            <label className="form-label">Select Size:</label>
+          <div className="">
+            <label className="form-label ">Select Size:</label>
             <div className="d-flex flex-wrap">
               {product.sizes.map((size) => (
                 <button
                   key={size}
-                  className={`btn btn-sm me-2 mb-2 ${selectedSize === size ? "btn-primary" : "btn-outline-secondary"
-                    }`}
-                  onClick={() => setSelectedSize(size)}
+                  className={`btn btn-sm me-2 mb-2 ${
+                    sizeToUse === size ? "btn-primary" : "btn-outline-secondary"
+                  }`}
+                  onClick={() => handleSizeClick(size)}
                 >
                   {size}
                 </button>
@@ -198,7 +220,10 @@ const ProductCard = ({ product }) => {
         )}
 
         <div className="d-flex justify-content-between mt-auto">
-          <button className="btn btn-outline-primary w-50 me-2" onClick={handleAddToCart}>
+          <button
+            className="btn btn-outline-primary w-50 me-2"
+            onClick={handleAddToCart}
+          >
             Add to Cart
           </button>
           <button className="btn btn-outline-dark w-50" onClick={handleBuyNow}>

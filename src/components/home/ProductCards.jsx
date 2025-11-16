@@ -1,37 +1,34 @@
 import React from "react";
-import homeData from "../../data/common/homeData.json";
+import defaultImage from "../../assets/product-default-image.png";
 
-const ProductCards = ({ startId, endId }) => {
-    const { products } = homeData;
+const ProductCards = ({ products }) => {
+  const limitedProducts = products.slice(0, 4); // max 4 products
 
-    // ✅ filter products by given ID range
-    const filteredProducts = products.filter(
-        (product) => product.id >= startId && product.id <= endId
-    );
-
-    // ✅ only take max 4 products
-    const limitedProducts = filteredProducts.slice(0, 4);
-
-    return (
-        <>
-            {limitedProducts.map((product) => (
-                <div className="col-12 col-sm-6 col-md-3 " key={product.id}>
-                    <div className="box">
-                        <h3 className="pt-2">{product.title}</h3>
-                        <div className="box-a">
-                            {product.items.map((item, index) => (
-                                <div key={index}>
-                                    <img src={item.image} alt={item.name} />
-                                    <span>{item.name}</span>
-                                </div>
-                            ))}
-                        </div>
-                        <a href={product.link}>{product.linkText}</a>
-                    </div>
-                </div>
-            ))}
-        </>
-    );
+  return (
+    <>
+      <div className="product-card-row">
+        {limitedProducts.slice(0, 4).map((product) => (
+          <div className="col-6" key={product.id}>
+            <div className="box text-center">
+              <div className="box-a">
+                <a href={`/product/${product.id}`}>
+                  <img
+                    src={product.image || product.images?.[0] || defaultImage}
+                    alt={product.name || product.title}
+                    onError={(e) => (e.target.src = defaultImage)}
+                    className="img-fluid"
+                  />
+                </a>
+                <span className="d-block mt-2">
+                  {product.name || product.title}
+                </span>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </>
+  );
 };
 
 export default ProductCards;
