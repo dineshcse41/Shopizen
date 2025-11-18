@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'Authentication',
     'user_shopizen',
     'admin_shopizen',
+    'payment',
+
 ]
 
 MIDDLEWARE = [
@@ -133,19 +135,24 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': (
+    'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework_simplejwt.authentication.JWTAuthentication',
-    
-    ),
-    'EXCEPTION_HANDLER': 'user_shopizen.views_errors.custom_exception_handler',
+    ],
+
     'EXCEPTION_HANDLER': 'core.exceptions.custom_exception_handler',
+
     'DEFAULT_RENDERER_CLASSES': [
         'rest_framework.renderers.JSONRenderer',
+        'rest_framework.renderers.BrowsableAPIRenderer',   # 👈 enables DRF UI in browser
     ],
+
     'DEFAULT_PARSER_CLASSES': [
         'rest_framework.parsers.JSONParser',
+        'rest_framework.parsers.FormParser',
+        'rest_framework.parsers.MultiPartParser',
     ],
 }
+
 
 SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(days=1),
@@ -212,3 +219,18 @@ LOGGING = {
         },
     },
 }
+
+
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = "yourgmail@gmail.com"       # your email
+EMAIL_HOST_PASSWORD = "your-app-password"     # Gmail App Password
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
+
+# settings.py
+
+RAZORPAY_KEY_ID = "your_key_id"
+RAZORPAY_KEY_SECRET = "your_key_secret"

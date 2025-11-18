@@ -34,6 +34,8 @@ urlpatterns = [
     path('user/', include('user_shopizen.urls')),
     # admin
     path('adminside/', include('admin_shopizen.urls')),
+    # payment
+    path("api/payment/", include("payment.urls")),
 ]
 
 if settings.DEBUG:

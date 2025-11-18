@@ -327,25 +327,6 @@ class ProductCompareView(APIView):
         return Response(serializer.data)
 
 
-# --- WISHLIST ---
-class WishlistView(APIView):
-    permission_classes = [permissions.IsAuthenticated]
-
-    def get(self, request):
-        wishlist = Wishlist.objects.filter(user=request.user)
-        serializer = WishlistSerializer(wishlist, many=True)
-        return Response(serializer.data)
-
-    def post(self, request):
-        serializer = WishlistSerializer(data=request.data, context={'request': request})
-        serializer.is_valid(raise_exception=True)
-        serializer.save(user=request.user)
-        return Response(serializer.data, status=status.HTTP_201_CREATED)
-
-    def delete(self, request):
-        product_id = request.data.get('product_id')
-        Wishlist.objects.filter(user=request.user, product_id=product_id).delete()
-        return Response({"message": "Removed from wishlist"}, status=200)
 
 
 # --- REVIEWS ---
@@ -484,3 +465,4 @@ class AdminNotificationCreateView(APIView):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+

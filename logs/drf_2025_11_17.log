@@ -1,0 +1,410 @@
+[2025-11-17 18:04:28,534] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-17 18:04:30,961] WARNING django.request Not Found: /
+[2025-11-17 18:04:30,962] WARNING django.server "GET / HTTP/1.1" 404 3149
+[2025-11-17 18:04:31,001] WARNING django.request Not Found: /favicon.ico
+[2025-11-17 18:04:31,001] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3200
+[2025-11-17 18:04:58,781] INFO django.server "GET /admin/ HTTP/1.1" 200 13379
+[2025-11-17 18:04:58,908] INFO django.server "GET /static/admin/css/dark_mode.css HTTP/1.1" 200 2808
+[2025-11-17 18:04:58,908] INFO django.server "GET /static/admin/css/base.css HTTP/1.1" 200 22120
+[2025-11-17 18:04:58,919] INFO django.server "GET /static/admin/css/dashboard.css HTTP/1.1" 200 441
+[2025-11-17 18:04:58,919] INFO django.server "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 200 2810
+[2025-11-17 18:04:58,920] INFO django.server "GET /static/admin/js/theme.js HTTP/1.1" 200 1653
+[2025-11-17 18:04:58,931] INFO django.server "GET /static/admin/css/responsive.css HTTP/1.1" 200 16565
+[2025-11-17 18:04:58,941] INFO django.server "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 200 3063
+[2025-11-17 18:04:58,954] INFO django.server "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+[2025-11-17 18:04:58,954] INFO django.server "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380
+[2025-11-17 18:06:20,607] INFO django.utils.autoreload E:\Shopizen\user_shopizen\admin.py changed, reloading.
+[2025-11-17 18:06:21,162] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-17 18:06:48,501] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-17 18:07:59,249] INFO django.utils.autoreload E:\Shopizen\user_shopizen\admin.py changed, reloading.
+[2025-11-17 18:07:59,760] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-17 18:08:01,796] WARNING django.request Not Found: /
+[2025-11-17 18:08:01,797] WARNING django.server "GET / HTTP/1.1" 404 3149
+[2025-11-17 18:08:05,940] INFO django.server "GET /admin/ HTTP/1.1" 200 17375
+[2025-11-17 18:08:08,897] INFO django.server "GET /admin/user_shopizen/address/ HTTP/1.1" 200 15110
+[2025-11-17 18:08:08,952] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2025-11-17 18:08:09,064] INFO django.server "GET /static/admin/css/changelists.css HTTP/1.1" 200 6878
+[2025-11-17 18:08:09,074] INFO django.server "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 347
+[2025-11-17 18:08:09,086] INFO django.server "GET /static/admin/js/urlify.js HTTP/1.1" 200 7887
+[2025-11-17 18:08:09,091] INFO django.server "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 9777
+[2025-11-17 18:08:09,094] INFO django.server "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1531
+[2025-11-17 18:08:09,102] INFO django.server "GET /static/admin/js/core.js HTTP/1.1" 200 6208
+[2025-11-17 18:08:09,103] INFO django.server "GET /static/admin/js/actions.js HTTP/1.1" 200 8076
+[2025-11-17 18:08:09,103] INFO django.server "GET /static/admin/img/search.svg HTTP/1.1" 200 458
+[2025-11-17 18:08:09,122] INFO django.server "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 285314
+[2025-11-17 18:08:09,152] INFO django.server "GET /static/admin/js/filters.js HTTP/1.1" 200 978
+[2025-11-17 18:08:09,166] INFO django.server "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 325171
+[2025-11-17 18:08:09,192] INFO django.server "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 200 331
+[2025-11-17 18:08:10,833] INFO django.server "GET /admin/user_shopizen/address/add/ HTTP/1.1" 200 21475
+[2025-11-17 18:08:10,859] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2025-11-17 18:08:10,863] INFO django.server "GET /static/admin/css/vendor/select2/select2.css HTTP/1.1" 200 17358
+[2025-11-17 18:08:10,864] INFO django.server "GET /static/admin/css/autocomplete.css HTTP/1.1" 200 9185
+[2025-11-17 18:08:10,864] INFO django.server "GET /static/admin/css/forms.css HTTP/1.1" 200 8525
+[2025-11-17 18:08:10,871] INFO django.server "GET /static/admin/js/vendor/select2/i18n/en.js HTTP/1.1" 200 844
+[2025-11-17 18:08:10,877] INFO django.server "GET /static/admin/css/widgets.css HTTP/1.1" 200 11973
+[2025-11-17 18:08:10,880] INFO django.server "GET /static/admin/js/autocomplete.js HTTP/1.1" 200 1060
+[2025-11-17 18:08:10,882] INFO django.server "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 586
+[2025-11-17 18:08:10,893] INFO django.server "GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 200 581
+[2025-11-17 18:08:10,909] INFO django.server "GET /static/admin/js/change_form.js HTTP/1.1" 200 606
+[2025-11-17 18:08:10,920] INFO django.server "GET /static/admin/js/vendor/select2/select2.full.js HTTP/1.1" 200 173566
+[2025-11-17 18:08:11,910] INFO django.server "GET /admin/autocomplete/?app_label=user_shopizen&model_name=address&field_name=user HTTP/1.1" 200 109
+[2025-11-17 18:08:48,536] INFO django.server "POST /admin/user_shopizen/address/add/ HTTP/1.1" 302 0
+[2025-11-17 18:08:48,575] INFO django.server "GET /admin/user_shopizen/address/ HTTP/1.1" 200 17750
+[2025-11-17 18:08:48,596] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2025-11-17 18:08:48,604] INFO django.server "GET /static/admin/img/icon-no.svg HTTP/1.1" 200 560
+[2025-11-17 18:08:48,615] INFO django.server "GET /static/admin/img/icon-yes.svg HTTP/1.1" 200 436
+[2025-11-17 18:08:53,229] INFO django.server "GET /admin/user_shopizen/brand/ HTTP/1.1" 200 16527
+[2025-11-17 18:08:53,248] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2025-11-17 18:08:56,181] INFO django.server "GET /admin/user_shopizen/cart/ HTTP/1.1" 200 15932
+[2025-11-17 18:08:56,200] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2025-11-17 18:08:57,806] INFO django.server "GET /admin/user_shopizen/cart/add/ HTTP/1.1" 200 19675
+[2025-11-17 18:08:57,823] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2025-11-17 18:08:58,955] INFO django.server "GET /admin/autocomplete/?app_label=user_shopizen&model_name=cart&field_name=user HTTP/1.1" 200 109
+[2025-11-17 18:09:01,244] INFO django.server "GET /admin/autocomplete/?app_label=user_shopizen&model_name=cart&field_name=product HTTP/1.1" 200 73
+[2025-11-17 18:09:03,525] INFO django.server "POST /admin/user_shopizen/cart/add/ HTTP/1.1" 302 0
+[2025-11-17 18:09:03,549] INFO django.server "GET /admin/user_shopizen/cart/ HTTP/1.1" 200 18172
+[2025-11-17 18:09:03,570] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2025-11-17 18:09:05,271] INFO django.server "GET /admin/user_shopizen/category/ HTTP/1.1" 200 16554
+[2025-11-17 18:09:05,289] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2025-11-17 18:09:07,595] INFO django.server "GET /admin/user_shopizen/contactmessage/ HTTP/1.1" 200 15856
+[2025-11-17 18:09:07,614] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2025-11-17 18:09:09,447] INFO django.server "GET /admin/user_shopizen/contactmessage/add/ HTTP/1.1" 200 20668
+[2025-11-17 18:09:09,470] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2025-11-17 18:09:09,485] INFO django.server "GET /static/admin/js/calendar.js HTTP/1.1" 200 9141
+[2025-11-17 18:09:09,487] INFO django.server "GET /static/admin/js/admin/DateTimeShortcuts.js HTTP/1.1" 200 19319
+[2025-11-17 18:09:09,516] INFO django.server "GET /static/admin/img/icon-clock.svg HTTP/1.1" 200 677
+[2025-11-17 18:09:09,517] INFO django.server "GET /static/admin/img/icon-calendar.svg HTTP/1.1" 200 1086
+[2025-11-17 18:09:10,595] INFO django.server "GET /admin/autocomplete/?app_label=user_shopizen&model_name=contactmessage&field_name=user HTTP/1.1" 200 109
+[2025-11-17 18:09:21,587] INFO django.server "GET /static/admin/img/calendar-icons.svg HTTP/1.1" 200 2455
+[2025-11-17 18:09:37,513] INFO django.server "POST /admin/user_shopizen/contactmessage/add/ HTTP/1.1" 302 0
+[2025-11-17 18:09:37,532] INFO django.server "GET /admin/user_shopizen/contactmessage/ HTTP/1.1" 200 18340
+[2025-11-17 18:09:37,552] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2025-11-17 18:09:40,253] INFO django.server "GET /admin/user_shopizen/notification/ HTTP/1.1" 200 16056
+[2025-11-17 18:09:40,271] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2025-11-17 18:09:42,323] INFO django.server "GET /admin/user_shopizen/notification/add/ HTTP/1.1" 200 18713
+[2025-11-17 18:09:42,340] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2025-11-17 18:09:57,433] INFO django.server "POST /admin/user_shopizen/notification/add/ HTTP/1.1" 302 0
+[2025-11-17 18:09:57,447] INFO django.server "GET /admin/user_shopizen/notification/ HTTP/1.1" 200 18381
+[2025-11-17 18:09:57,467] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2025-11-17 18:10:00,062] INFO django.server "GET /admin/user_shopizen/offer/add/ HTTP/1.1" 200 21991
+[2025-11-17 18:10:00,083] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2025-11-17 18:10:02,818] INFO django.server "GET /admin/autocomplete/?app_label=user_shopizen&model_name=offer&field_name=product HTTP/1.1" 200 73
+[2025-11-17 18:10:05,095] INFO django.server "GET /admin/autocomplete/?app_label=user_shopizen&model_name=offer&field_name=category HTTP/1.1" 200 75
+[2025-11-17 18:10:17,553] INFO django.server "POST /admin/user_shopizen/offer/add/ HTTP/1.1" 302 0
+[2025-11-17 18:10:17,568] INFO django.server "GET /admin/user_shopizen/offer/ HTTP/1.1" 200 19291
+[2025-11-17 18:10:17,594] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2025-11-17 18:10:20,033] INFO django.server "GET /admin/user_shopizen/orderitem/ HTTP/1.1" 200 14804
+[2025-11-17 18:10:20,050] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2025-11-17 18:10:21,381] INFO django.server "GET /admin/user_shopizen/orderitem/add/ HTTP/1.1" 200 20384
+[2025-11-17 18:10:21,400] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2025-11-17 18:10:22,530] INFO django.server "GET /admin/autocomplete/?app_label=user_shopizen&model_name=orderitem&field_name=order HTTP/1.1" 200 46
+[2025-11-17 18:10:26,253] INFO django.server "GET /admin/autocomplete/?term=jnghnjg&app_label=user_shopizen&model_name=orderitem&field_name=order HTTP/1.1" 200 46
+[2025-11-17 18:10:28,495] INFO django.server "GET /admin/autocomplete/?app_label=user_shopizen&model_name=orderitem&field_name=order HTTP/1.1" 200 46
+[2025-11-17 18:10:32,218] INFO django.server "GET /admin/user_shopizen/order/ HTTP/1.1" 200 16777
+[2025-11-17 18:10:32,243] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2025-11-17 18:10:34,116] INFO django.server "GET /admin/user_shopizen/order/add/ HTTP/1.1" 200 24072
+[2025-11-17 18:10:34,134] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2025-11-17 18:10:34,156] INFO django.server "GET /static/admin/js/inlines.js HTTP/1.1" 200 15628
+[2025-11-17 18:10:34,184] INFO django.server "GET /static/admin/img/inline-delete.svg HTTP/1.1" 200 537
+[2025-11-17 18:10:52,834] INFO django.server "POST /admin/user_shopizen/order/add/ HTTP/1.1" 302 0
+[2025-11-17 18:10:52,848] INFO django.server "GET /admin/user_shopizen/order/ HTTP/1.1" 200 19033
+[2025-11-17 18:10:52,869] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2025-11-17 18:10:56,090] INFO django.server "GET /admin/user_shopizen/product/ HTTP/1.1" 200 17299
+[2025-11-17 18:10:56,108] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2025-11-17 18:10:58,458] INFO django.server "GET /admin/user_shopizen/refund/ HTTP/1.1" 200 15540
+[2025-11-17 18:10:58,480] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2025-11-17 18:10:59,812] INFO django.server "GET /admin/user_shopizen/refund/add/ HTTP/1.1" 200 20386
+[2025-11-17 18:10:59,830] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2025-11-17 18:11:01,870] INFO django.server "GET /admin/autocomplete/?app_label=user_shopizen&model_name=refund&field_name=order HTTP/1.1" 200 89
+[2025-11-17 18:11:03,317] INFO django.server "GET /admin/autocomplete/?app_label=user_shopizen&model_name=refund&field_name=user HTTP/1.1" 200 109
+[2025-11-17 18:11:11,351] INFO django.server "POST /admin/user_shopizen/refund/add/ HTTP/1.1" 302 0
+[2025-11-17 18:11:11,367] INFO django.server "GET /admin/user_shopizen/refund/ HTTP/1.1" 200 17821
+[2025-11-17 18:11:11,409] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2025-11-17 18:11:13,212] INFO django.server "GET /admin/user_shopizen/review/add/ HTTP/1.1" 200 19605
+[2025-11-17 18:11:13,236] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2025-11-17 18:11:28,815] INFO django.server "POST /admin/user_shopizen/review/add/ HTTP/1.1" 200 19796
+[2025-11-17 18:11:28,834] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2025-11-17 18:11:38,055] ERROR django.request Internal Server Error: /admin/user_shopizen/review/add/
+Traceback (most recent call last):
+  File "E:\Shopizen\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "E:\Shopizen\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Shopizen\.venv\Lib\site-packages\django\contrib\admin\options.py", line 719, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+  File "E:\Shopizen\.venv\Lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "E:\Shopizen\.venv\Lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "E:\Shopizen\.venv\Lib\site-packages\django\contrib\admin\sites.py", line 246, in inner
+    return view(request, *args, **kwargs)
+  File "E:\Shopizen\.venv\Lib\site-packages\django\contrib\admin\options.py", line 1984, in add_view
+    return self.changeform_view(request, None, form_url, extra_context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "E:\Shopizen\.venv\Lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+  File "E:\Shopizen\.venv\Lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "E:\Shopizen\.venv\Lib\site-packages\django\contrib\admin\options.py", line 1843, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\contrib\admin\options.py", line 1894, in _changeform_view
+    self.save_model(request, new_object, form, not add)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\contrib\admin\options.py", line 1314, in save_model
+    obj.save()
+    ~~~~~~~~^^
+  File "E:\Shopizen\user_shopizen\models.py", line 107, in save
+    self.product.save(update_fields=['rating'])
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\models\base.py", line 880, in save
+    raise ValueError(
+    ...<3 lines>...
+    )
+ValueError: The following fields do not exist in this model, are m2m fields, primary keys, or are non-concrete fields: rating
+[2025-11-17 18:11:38,058] ERROR django.server "POST /admin/user_shopizen/review/add/ HTTP/1.1" 500 139426
+[2025-11-17 18:11:40,787] INFO django.server "GET /admin/user_shopizen/review/add/ HTTP/1.1" 200 19605
+[2025-11-17 18:11:47,280] INFO django.server "GET /admin/user_shopizen/review/ HTTP/1.1" 200 17731
+[2025-11-17 18:11:47,307] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2025-11-17 18:12:01,367] INFO django.server "GET /admin/user_shopizen/review/?o=5 HTTP/1.1" 200 18088
+[2025-11-17 18:12:01,390] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2025-11-17 18:12:01,413] INFO django.server "GET /static/admin/img/sorting-icons.svg HTTP/1.1" 200 1097
+[2025-11-17 18:12:04,767] INFO django.server "GET /admin/user_shopizen/review/add/ HTTP/1.1" 200 19605
+[2025-11-17 18:12:04,786] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2025-11-17 18:12:14,678] ERROR django.request Internal Server Error: /admin/user_shopizen/review/add/
+Traceback (most recent call last):
+  File "E:\Shopizen\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "E:\Shopizen\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Shopizen\.venv\Lib\site-packages\django\contrib\admin\options.py", line 719, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+  File "E:\Shopizen\.venv\Lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "E:\Shopizen\.venv\Lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "E:\Shopizen\.venv\Lib\site-packages\django\contrib\admin\sites.py", line 246, in inner
+    return view(request, *args, **kwargs)
+  File "E:\Shopizen\.venv\Lib\site-packages\django\contrib\admin\options.py", line 1984, in add_view
+    return self.changeform_view(request, None, form_url, extra_context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "E:\Shopizen\.venv\Lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+  File "E:\Shopizen\.venv\Lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "E:\Shopizen\.venv\Lib\site-packages\django\contrib\admin\options.py", line 1843, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\contrib\admin\options.py", line 1894, in _changeform_view
+    self.save_model(request, new_object, form, not add)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\contrib\admin\options.py", line 1314, in save_model
+    obj.save()
+    ~~~~~~~~^^
+  File "E:\Shopizen\user_shopizen\models.py", line 107, in save
+    self.product.save(update_fields=['rating'])
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\models\base.py", line 880, in save
+    raise ValueError(
+    ...<3 lines>...
+    )
+ValueError: The following fields do not exist in this model, are m2m fields, primary keys, or are non-concrete fields: rating
+[2025-11-17 18:12:14,680] ERROR django.server "POST /admin/user_shopizen/review/add/ HTTP/1.1" 500 139420
+[2025-11-17 18:12:16,472] INFO django.server "GET /admin/user_shopizen/review/add/ HTTP/1.1" 200 19605
+[2025-11-17 18:12:22,191] ERROR django.request Internal Server Error: /admin/user_shopizen/review/add/
+Traceback (most recent call last):
+  File "E:\Shopizen\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "E:\Shopizen\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Shopizen\.venv\Lib\site-packages\django\contrib\admin\options.py", line 719, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+  File "E:\Shopizen\.venv\Lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "E:\Shopizen\.venv\Lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "E:\Shopizen\.venv\Lib\site-packages\django\contrib\admin\sites.py", line 246, in inner
+    return view(request, *args, **kwargs)
+  File "E:\Shopizen\.venv\Lib\site-packages\django\contrib\admin\options.py", line 1984, in add_view
+    return self.changeform_view(request, None, form_url, extra_context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "E:\Shopizen\.venv\Lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+  File "E:\Shopizen\.venv\Lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "E:\Shopizen\.venv\Lib\site-packages\django\contrib\admin\options.py", line 1843, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\contrib\admin\options.py", line 1894, in _changeform_view
+    self.save_model(request, new_object, form, not add)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\contrib\admin\options.py", line 1314, in save_model
+    obj.save()
+    ~~~~~~~~^^
+  File "E:\Shopizen\user_shopizen\models.py", line 107, in save
+    self.product.save(update_fields=['rating'])
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\models\base.py", line 880, in save
+    raise ValueError(
+    ...<3 lines>...
+    )
+ValueError: The following fields do not exist in this model, are m2m fields, primary keys, or are non-concrete fields: rating
+[2025-11-17 18:12:22,194] ERROR django.server "POST /admin/user_shopizen/review/add/ HTTP/1.1" 500 139419
+[2025-11-17 18:12:23,554] INFO django.server "GET /admin/user_shopizen/review/add/ HTTP/1.1" 200 19605
+[2025-11-17 18:12:29,214] INFO django.server "POST /admin/user_shopizen/review/add/ HTTP/1.1" 200 19789
+[2025-11-17 18:12:29,235] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2025-11-17 18:12:33,720] ERROR django.request Internal Server Error: /admin/user_shopizen/review/add/
+Traceback (most recent call last):
+  File "E:\Shopizen\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "E:\Shopizen\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Shopizen\.venv\Lib\site-packages\django\contrib\admin\options.py", line 719, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+  File "E:\Shopizen\.venv\Lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "E:\Shopizen\.venv\Lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "E:\Shopizen\.venv\Lib\site-packages\django\contrib\admin\sites.py", line 246, in inner
+    return view(request, *args, **kwargs)
+  File "E:\Shopizen\.venv\Lib\site-packages\django\contrib\admin\options.py", line 1984, in add_view
+    return self.changeform_view(request, None, form_url, extra_context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "E:\Shopizen\.venv\Lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+  File "E:\Shopizen\.venv\Lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "E:\Shopizen\.venv\Lib\site-packages\django\contrib\admin\options.py", line 1843, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\contrib\admin\options.py", line 1894, in _changeform_view
+    self.save_model(request, new_object, form, not add)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\contrib\admin\options.py", line 1314, in save_model
+    obj.save()
+    ~~~~~~~~^^
+  File "E:\Shopizen\user_shopizen\models.py", line 107, in save
+    self.product.save(update_fields=['rating'])
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\models\base.py", line 880, in save
+    raise ValueError(
+    ...<3 lines>...
+    )
+ValueError: The following fields do not exist in this model, are m2m fields, primary keys, or are non-concrete fields: rating
+[2025-11-17 18:12:33,723] ERROR django.server "POST /admin/user_shopizen/review/add/ HTTP/1.1" 500 139419
+[2025-11-17 18:12:37,866] INFO django.server "GET /admin/user_shopizen/review/add/ HTTP/1.1" 200 19605
+[2025-11-17 18:12:39,455] INFO django.server "GET /admin/user_shopizen/wallettransaction/ HTTP/1.1" 200 15586
+[2025-11-17 18:12:39,481] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2025-11-17 18:12:40,963] INFO django.server "GET /admin/user_shopizen/wallettransaction/add/ HTTP/1.1" 200 19329
+[2025-11-17 18:12:40,984] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2025-11-17 18:12:42,058] INFO django.server "GET /admin/autocomplete/?app_label=user_shopizen&model_name=wallettransaction&field_name=wallet HTTP/1.1" 200 46
+[2025-11-17 18:12:46,997] INFO django.server "GET /admin/autocomplete/?term=c&app_label=user_shopizen&model_name=wallettransaction&field_name=wallet HTTP/1.1" 200 46
+[2025-11-17 18:12:47,460] INFO django.server "GET /admin/autocomplete/?term=cc&app_label=user_shopizen&model_name=wallettransaction&field_name=wallet HTTP/1.1" 200 46
+[2025-11-17 18:12:49,645] INFO django.server "GET /admin/autocomplete/?term=csdcsdc&app_label=user_shopizen&model_name=wallettransaction&field_name=wallet HTTP/1.1" 200 46
+[2025-11-17 18:12:53,499] INFO django.server "GET /admin/user_shopizen/wallet/add/?_to_field=id&_popup=1 HTTP/1.1" 200 6598
+[2025-11-17 18:12:53,514] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2025-11-17 18:12:55,117] INFO django.server "GET /admin/autocomplete/?app_label=user_shopizen&model_name=wallet&field_name=user HTTP/1.1" 200 109
+[2025-11-17 18:13:02,439] INFO django.server "POST /admin/user_shopizen/wallet/add/?_to_field=id&_popup=1 HTTP/1.1" 200 351
+[2025-11-17 18:13:02,464] INFO django.server "GET /static/admin/js/popup_response.js HTTP/1.1" 200 532
+[2025-11-17 18:13:05,291] INFO django.server "GET /admin/autocomplete/?app_label=user_shopizen&model_name=wallettransaction&field_name=wallet HTTP/1.1" 200 103
+[2025-11-17 18:13:16,099] INFO django.server "POST /admin/user_shopizen/wallettransaction/add/ HTTP/1.1" 200 19648
+[2025-11-17 18:13:16,116] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2025-11-17 18:13:20,720] INFO django.server "POST /admin/user_shopizen/wallettransaction/add/ HTTP/1.1" 302 0
+[2025-11-17 18:13:20,736] INFO django.server "GET /admin/user_shopizen/wallettransaction/ HTTP/1.1" 200 18134
+[2025-11-17 18:13:20,758] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2025-11-17 18:13:23,925] INFO django.server "GET /admin/user_shopizen/wallet/add/ HTTP/1.1" 200 17759
+[2025-11-17 18:13:23,945] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2025-11-17 18:13:25,148] INFO django.server "GET /admin/autocomplete/?app_label=user_shopizen&model_name=wallet&field_name=user HTTP/1.1" 200 109
+[2025-11-17 18:13:28,659] INFO django.server "GET /admin/autocomplete/?app_label=user_shopizen&model_name=wallet&field_name=user HTTP/1.1" 200 109
+[2025-11-17 18:13:33,240] INFO django.server "POST /admin/user_shopizen/wallet/add/ HTTP/1.1" 302 0
+[2025-11-17 18:13:33,258] INFO django.server "GET /admin/user_shopizen/wallet/ HTTP/1.1" 200 17344
+[2025-11-17 18:13:33,277] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2025-11-17 18:13:35,857] INFO django.server "GET /admin/user_shopizen/wishlist/add/ HTTP/1.1" 200 19070
+[2025-11-17 18:13:35,876] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2025-11-17 18:13:37,372] INFO django.server "GET /admin/user_shopizen/wishlist/ HTTP/1.1" 200 16876
+[2025-11-17 18:13:37,390] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2025-11-17 18:13:44,541] INFO django.server "GET /admin/auth/group/ HTTP/1.1" 200 15088
+[2025-11-17 18:13:44,560] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2025-11-17 18:13:45,902] INFO django.server "GET /admin/auth/user/ HTTP/1.1" 200 19137
+[2025-11-17 18:13:45,919] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2025-11-17 18:32:37,474] INFO django.utils.autoreload E:\Shopizen\shopizen\settings.py changed, reloading.
+[2025-11-17 18:32:38,681] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-17 18:33:00,109] INFO django.utils.autoreload E:\Shopizen\user_shopizen\models.py changed, reloading.
+[2025-11-17 18:33:02,172] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-17 18:42:26,513] INFO django.utils.autoreload E:\Shopizen\user_shopizen\serializers.py changed, reloading.
+[2025-11-17 18:42:27,115] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-17 18:42:28,462] INFO django.utils.autoreload E:\Shopizen\user_shopizen\serializers.py changed, reloading.
+[2025-11-17 18:42:29,031] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-17 18:42:30,244] INFO django.utils.autoreload E:\Shopizen\user_shopizen\serializers.py changed, reloading.
+[2025-11-17 18:42:30,757] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-17 18:42:36,150] INFO django.utils.autoreload E:\Shopizen\user_shopizen\serializers.py changed, reloading.
+[2025-11-17 18:42:36,606] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-17 18:42:44,324] INFO django.utils.autoreload E:\Shopizen\user_shopizen\serializers.py changed, reloading.
+[2025-11-17 18:42:44,806] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-17 18:42:48,269] INFO django.utils.autoreload E:\Shopizen\user_shopizen\serializers.py changed, reloading.
+[2025-11-17 18:42:50,001] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-17 18:49:23,924] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-17 18:49:27,966] ERROR core.exceptions TokenObtainPairView: {'username': [ErrorDetail(string='This field is required.', code='required')], 'password': [ErrorDetail(string='This field is required.', code='required')]}
+[2025-11-17 18:49:27,969] WARNING django.request Bad Request: /api/token/
+[2025-11-17 18:49:27,969] WARNING django.server "POST /api/token/ HTTP/1.1" 400 123
+[2025-11-17 18:49:33,874] ERROR core.exceptions TokenObtainPairView: Method "GET" not allowed.
+[2025-11-17 18:49:33,875] WARNING django.request Method Not Allowed: /api/token/
+[2025-11-17 18:49:33,875] WARNING django.server "GET /api/token/ HTTP/1.1" 405 84
+[2025-11-17 18:49:51,683] ERROR core.exceptions TokenObtainPairView: {'username': [ErrorDetail(string='This field is required.', code='required')], 'password': [ErrorDetail(string='This field is required.', code='required')]}
+[2025-11-17 18:49:51,683] WARNING django.request Bad Request: /api/token/
+[2025-11-17 18:49:51,684] WARNING django.server "POST /api/token/ HTTP/1.1" 400 123
+[2025-11-17 18:50:58,243] ERROR core.exceptions TokenObtainPairView: JSON parse error - Expecting ',' delimiter: line 3 column 5 (char 34)
+[2025-11-17 18:50:58,243] WARNING django.request Bad Request: /api/token/
+[2025-11-17 18:50:58,244] WARNING django.server "POST /api/token/ HTTP/1.1" 400 126
+[2025-11-17 18:51:21,805] INFO django.server "POST /api/token/ HTTP/1.1" 200 489
+[2025-11-17 18:51:35,340] INFO django.server "POST /api/token/ HTTP/1.1" 200 489
+[2025-11-17 18:52:33,809] WARNING django.request Not Found: /user//api/notifications/
+[2025-11-17 18:52:33,809] WARNING django.server "GET /user//api/notifications/ HTTP/1.1" 404 13211
+[2025-11-17 18:52:40,408] INFO django.server "GET /user/api/notifications/ HTTP/1.1" 200 108
+[2025-11-17 19:06:59,876] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-17 19:08:40,374] INFO django.utils.autoreload E:\Shopizen\user_shopizen\views_payment.py changed, reloading.
+[2025-11-17 19:08:40,856] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-17 19:08:57,809] INFO django.utils.autoreload E:\Shopizen\user_shopizen\urls.py changed, reloading.
+[2025-11-17 19:08:58,294] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-17 19:09:02,853] INFO django.utils.autoreload E:\Shopizen\user_shopizen\urls.py changed, reloading.
+[2025-11-17 19:09:03,451] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-17 19:11:19,481] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-17 19:11:44,178] INFO django.utils.autoreload E:\Shopizen\shopizen\settings.py changed, reloading.
+[2025-11-17 19:11:44,746] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-17 19:11:47,170] WARNING django.request Not Found: /
+[2025-11-17 19:11:47,171] WARNING django.server "GET / HTTP/1.1" 404 3304
+[2025-11-17 19:11:56,589] INFO django.server "GET /admin/ HTTP/1.1" 200 20040
+[2025-11-17 19:12:10,457] WARNING django.request Not Found: /api/payment/
+[2025-11-17 19:12:10,457] WARNING django.server "GET /api/payment/ HTTP/1.1" 404 3956
+[2025-11-17 19:12:18,362] ERROR core.exceptions CreatePayment: Method "GET" not allowed.
+[2025-11-17 19:12:18,363] WARNING django.request Method Not Allowed: /api/payment/create/
+[2025-11-17 19:12:18,363] WARNING django.server "GET /api/payment/create/ HTTP/1.1" 405 84
+[2025-11-17 19:12:43,038] ERROR core.exceptions VerifyPayment: Method "GET" not allowed.
+[2025-11-17 19:12:43,038] WARNING django.request Method Not Allowed: /api/payment/verify/
+[2025-11-17 19:12:43,038] WARNING django.server "GET /api/payment/verify/ HTTP/1.1" 405 84
+[2025-11-17 19:12:45,543] ERROR core.exceptions VerifyPayment: Method "GET" not allowed.
+[2025-11-17 19:12:45,543] WARNING django.request Method Not Allowed: /api/payment/verify/
+[2025-11-17 19:12:45,544] WARNING django.server "GET /api/payment/verify/ HTTP/1.1" 405 84
+[2025-11-17 19:12:56,918] ERROR core.exceptions CreateCOD: Method "GET" not allowed.
+[2025-11-17 19:12:56,918] WARNING django.request Method Not Allowed: /api/payment/cod/
+[2025-11-17 19:12:56,919] WARNING django.server "GET /api/payment/cod/ HTTP/1.1" 405 84

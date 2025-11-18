@@ -1,0 +1,312 @@
+[2025-11-18 08:07:50,063] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-18 08:08:43,711] WARNING django.request Not Found: /
+[2025-11-18 08:08:43,712] WARNING django.server "GET / HTTP/1.1" 404 3304
+[2025-11-18 08:08:43,915] WARNING django.request Not Found: /favicon.ico
+[2025-11-18 08:08:43,915] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3355
+[2025-11-18 08:08:59,027] ERROR core.exceptions CreatePayment: Method "GET" not allowed.
+[2025-11-18 08:08:59,028] WARNING django.request Method Not Allowed: /api/payment/create/
+[2025-11-18 08:08:59,029] WARNING django.server "GET /api/payment/create/ HTTP/1.1" 405 84
+[2025-11-18 08:09:17,133] INFO django.server "GET /api/payment/verify HTTP/1.1" 301 0
+[2025-11-18 08:09:17,137] ERROR core.exceptions VerifyPayment: Method "GET" not allowed.
+[2025-11-18 08:09:17,137] WARNING django.request Method Not Allowed: /api/payment/verify/
+[2025-11-18 08:09:17,137] WARNING django.server "GET /api/payment/verify/ HTTP/1.1" 405 84
+[2025-11-18 08:10:05,738] WARNING django.request Not Found: /
+[2025-11-18 08:10:05,739] WARNING django.server "GET / HTTP/1.1" 404 3304
+[2025-11-18 08:10:12,880] WARNING django.request Not Found: /user/
+[2025-11-18 08:10:12,881] WARNING django.server "GET /user/ HTTP/1.1" 404 13309
+[2025-11-18 08:10:25,043] ERROR core.exceptions CreateOrderView: Authentication credentials were not provided.
+[2025-11-18 08:10:25,043] WARNING django.request Unauthorized: /user/api/orders/create/
+[2025-11-18 08:10:25,044] WARNING django.server "GET /user/api/orders/create/ HTTP/1.1" 401 102
+[2025-11-18 08:10:33,913] INFO django.server "GET /user/api/products/ HTTP/1.1" 200 159
+[2025-11-18 08:10:47,091] ERROR core.exceptions WishlistView: Authentication credentials were not provided.
+[2025-11-18 08:10:47,091] WARNING django.request Unauthorized: /user/api/wishlist/
+[2025-11-18 08:10:47,092] WARNING django.server "GET /user/api/wishlist/ HTTP/1.1" 401 102
+[2025-11-18 08:12:51,249] INFO django.server "POST /api/token/ HTTP/1.1" 200 489
+[2025-11-18 08:13:03,062] INFO django.server "POST /api/token/ HTTP/1.1" 200 489
+[2025-11-18 08:13:08,009] ERROR core.exceptions WishlistView: Authentication credentials were not provided.
+[2025-11-18 08:13:08,010] WARNING django.request Unauthorized: /user/api/wishlist/
+[2025-11-18 08:13:08,010] WARNING django.server "GET /user/api/wishlist/ HTTP/1.1" 401 102
+[2025-11-18 08:13:08,862] ERROR core.exceptions WishlistView: Authentication credentials were not provided.
+[2025-11-18 08:13:08,862] WARNING django.request Unauthorized: /user/api/wishlist/
+[2025-11-18 08:13:08,863] WARNING django.server "GET /user/api/wishlist/ HTTP/1.1" 401 102
+[2025-11-18 08:13:16,371] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-18 08:13:19,152] ERROR core.exceptions WishlistView: Authentication credentials were not provided.
+[2025-11-18 08:13:19,154] WARNING django.request Unauthorized: /user/api/wishlist/
+[2025-11-18 08:13:19,155] WARNING django.server "GET /user/api/wishlist/ HTTP/1.1" 401 102
+[2025-11-18 08:13:19,581] ERROR core.exceptions WishlistView: Authentication credentials were not provided.
+[2025-11-18 08:13:19,582] WARNING django.request Unauthorized: /user/api/wishlist/
+[2025-11-18 08:13:19,582] WARNING django.server "GET /user/api/wishlist/ HTTP/1.1" 401 102
+[2025-11-18 08:13:19,797] ERROR core.exceptions WishlistView: Authentication credentials were not provided.
+[2025-11-18 08:13:19,797] WARNING django.request Unauthorized: /user/api/wishlist/
+[2025-11-18 08:13:19,798] WARNING django.server "GET /user/api/wishlist/ HTTP/1.1" 401 102
+[2025-11-18 08:16:39,245] ERROR core.exceptions Unhandled Exception: Field name `product_image` is not valid for model `Wishlist` in `user_shopizen.serializers.WishlistSerializer`.
+Traceback (most recent call last):
+  File "E:\Shopizen\.venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "E:\Shopizen\user_shopizen\views.py", line 337, in get
+    return Response(serializer.data)
+                    ^^^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\rest_framework\serializers.py", line 797, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\rest_framework\serializers.py", line 251, in data
+    self._data = self.to_representation(self.instance)
+                 ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\rest_framework\serializers.py", line 716, in to_representation
+    self.child.to_representation(item) for item in iterable
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\rest_framework\serializers.py", line 525, in to_representation
+    for field in fields:
+                 ^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\rest_framework\serializers.py", line 386, in _readable_fields
+    for field in self.fields.values():
+                 ^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\utils\functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\rest_framework\serializers.py", line 374, in fields
+    for key, value in self.get_fields().items():
+                      ~~~~~~~~~~~~~~~^^
+  File "E:\Shopizen\.venv\Lib\site-packages\rest_framework\serializers.py", line 1105, in get_fields
+    field_class, field_kwargs = self.build_field(
+                                ~~~~~~~~~~~~~~~~^
+        source, info, model, depth
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "E:\Shopizen\.venv\Lib\site-packages\rest_framework\serializers.py", line 1251, in build_field
+    return self.build_unknown_field(field_name, model_class)
+           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\rest_framework\serializers.py", line 1369, in build_unknown_field
+    raise ImproperlyConfigured(
+    ...<2 lines>...
+    )
+django.core.exceptions.ImproperlyConfigured: Field name `product_image` is not valid for model `Wishlist` in `user_shopizen.serializers.WishlistSerializer`.
+[2025-11-18 08:16:39,250] ERROR django.request Internal Server Error: /user/api/wishlist/
+[2025-11-18 08:16:39,250] ERROR django.server "GET /user/api/wishlist/ HTTP/1.1" 500 101
+[2025-11-18 08:21:35,305] INFO django.utils.autoreload E:\Shopizen\user_shopizen\views.py changed, reloading.
+[2025-11-18 08:21:35,782] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-18 08:22:59,400] INFO django.utils.autoreload E:\Shopizen\user_shopizen\views.py changed, reloading.
+[2025-11-18 08:22:59,869] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-18 08:23:08,555] INFO django.utils.autoreload E:\Shopizen\user_shopizen\views.py changed, reloading.
+[2025-11-18 08:23:09,047] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-18 08:23:29,024] INFO django.utils.autoreload E:\Shopizen\user_shopizen\urls.py changed, reloading.
+[2025-11-18 08:23:29,496] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-18 08:23:32,897] INFO django.utils.autoreload E:\Shopizen\user_shopizen\urls.py changed, reloading.
+[2025-11-18 08:23:33,407] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-18 08:24:00,820] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-18 08:25:12,748] INFO django.utils.autoreload E:\Shopizen\user_shopizen\urls.py changed, reloading.
+[2025-11-18 08:25:14,207] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-18 08:25:17,631] INFO django.utils.autoreload E:\Shopizen\user_shopizen\urls.py changed, reloading.
+[2025-11-18 08:25:18,138] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-18 08:25:27,719] INFO django.utils.autoreload E:\Shopizen\user_shopizen\urls.py changed, reloading.
+[2025-11-18 08:25:28,209] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-18 08:25:35,780] INFO django.utils.autoreload E:\Shopizen\user_shopizen\urls.py changed, reloading.
+[2025-11-18 08:25:36,262] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-18 08:26:54,412] INFO django.utils.autoreload E:\Shopizen\user_shopizen\views.py changed, reloading.
+[2025-11-18 08:26:54,924] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-18 08:26:56,239] INFO django.utils.autoreload E:\Shopizen\user_shopizen\views.py changed, reloading.
+[2025-11-18 08:26:56,730] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-18 08:27:04,285] INFO django.utils.autoreload E:\Shopizen\user_shopizen\views.py changed, reloading.
+[2025-11-18 08:27:04,768] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-18 08:27:10,303] INFO django.utils.autoreload E:\Shopizen\user_shopizen\views.py changed, reloading.
+[2025-11-18 08:27:10,801] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-18 08:27:26,740] INFO django.utils.autoreload E:\Shopizen\user_shopizen\views.py changed, reloading.
+[2025-11-18 08:27:27,275] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-18 08:27:46,336] INFO django.utils.autoreload E:\Shopizen\user_shopizen\views_address_wishlist.py changed, reloading.
+[2025-11-18 08:27:46,874] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-18 08:28:13,923] INFO django.server "GET /user/api/products/ HTTP/1.1" 200 159
+[2025-11-18 08:30:16,338] INFO django.utils.autoreload E:\Shopizen\user_shopizen\urls.py changed, reloading.
+[2025-11-18 08:30:17,612] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-18 08:30:21,987] INFO django.utils.autoreload E:\Shopizen\user_shopizen\urls.py changed, reloading.
+[2025-11-18 08:30:22,494] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-18 08:30:25,986] INFO django.utils.autoreload E:\Shopizen\user_shopizen\urls.py changed, reloading.
+[2025-11-18 08:30:26,496] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-18 08:30:30,839] INFO django.utils.autoreload E:\Shopizen\user_shopizen\urls.py changed, reloading.
+[2025-11-18 08:30:31,400] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-18 08:30:32,645] INFO django.utils.autoreload E:\Shopizen\user_shopizen\urls.py changed, reloading.
+[2025-11-18 08:30:33,162] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-18 08:30:41,694] INFO django.utils.autoreload E:\Shopizen\user_shopizen\urls.py changed, reloading.
+[2025-11-18 08:30:42,239] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-18 08:30:48,855] INFO django.utils.autoreload E:\Shopizen\user_shopizen\urls.py changed, reloading.
+[2025-11-18 08:30:49,330] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-18 08:30:53,643] INFO django.utils.autoreload E:\Shopizen\user_shopizen\urls.py changed, reloading.
+[2025-11-18 08:30:54,138] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-18 08:31:06,807] INFO django.utils.autoreload E:\Shopizen\user_shopizen\views.py changed, reloading.
+[2025-11-18 08:31:07,344] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-18 08:31:38,765] INFO django.utils.autoreload E:\Shopizen\user_shopizen\urls.py changed, reloading.
+[2025-11-18 08:31:39,285] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-18 08:31:40,709] INFO django.utils.autoreload E:\Shopizen\user_shopizen\urls.py changed, reloading.
+[2025-11-18 08:31:41,271] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-18 08:31:55,949] INFO django.server "GET /user/api/products/ HTTP/1.1" 200 159
+[2025-11-18 08:31:56,210] INFO django.server "GET /user/api/products/ HTTP/1.1" 200 159
+[2025-11-18 08:31:56,393] INFO django.server "GET /user/api/products/ HTTP/1.1" 200 159
+[2025-11-18 08:33:02,421] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-18 08:33:03,913] WARNING django.request Not Found: /
+[2025-11-18 08:33:03,914] WARNING django.server "GET / HTTP/1.1" 404 3304
+[2025-11-18 08:33:03,957] WARNING django.request Not Found: /favicon.ico
+[2025-11-18 08:33:03,958] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3355
+[2025-11-18 08:33:11,917] INFO django.server "GET /admin/ HTTP/1.1" 200 20040
+[2025-11-18 08:33:18,635] ERROR core.exceptions WishlistView: Authentication credentials were not provided.
+[2025-11-18 08:33:18,636] WARNING django.request Unauthorized: /user/api/wishlist/
+[2025-11-18 08:33:18,637] WARNING django.server "GET /user/api/wishlist/ HTTP/1.1" 401 102
+[2025-11-18 08:33:27,956] INFO django.server "GET /admin/ HTTP/1.1" 200 20040
+[2025-11-18 08:33:37,878] WARNING django.request Not Found: /user/
+[2025-11-18 08:33:37,878] WARNING django.server "GET /user/ HTTP/1.1" 404 13036
+[2025-11-18 08:33:45,282] INFO django.server "GET /user/api/products/ HTTP/1.1" 200 159
+[2025-11-18 08:35:15,081] ERROR core.exceptions TokenObtainPairView: Method "GET" not allowed.
+[2025-11-18 08:35:15,081] WARNING django.request Method Not Allowed: /api/token/
+[2025-11-18 08:35:15,082] WARNING django.server "GET /api/token/ HTTP/1.1" 405 84
+[2025-11-18 08:35:20,217] INFO django.server "POST /api/token/ HTTP/1.1" 200 489
+[2025-11-18 08:35:43,370] WARNING django.request Not Found: /user/api/login/
+[2025-11-18 08:35:43,370] WARNING django.server "POST /user/api/login/ HTTP/1.1" 404 13067
+[2025-11-18 08:35:50,544] WARNING django.request Not Found: /user/api/login/
+[2025-11-18 08:35:50,545] WARNING django.server "POST /user/api/login/ HTTP/1.1" 404 13067
+[2025-11-18 08:36:07,966] WARNING django.request Not Found: /user/api/login/
+[2025-11-18 08:36:07,967] WARNING django.server "GET /user/api/login/ HTTP/1.1" 404 13066
+[2025-11-18 08:36:19,117] WARNING django.request Not Found: /user/api/login/
+[2025-11-18 08:36:19,118] WARNING django.server "POST /user/api/login/ HTTP/1.1" 404 13067
+[2025-11-18 08:36:23,321] WARNING django.request Not Found: /user/api/login/
+[2025-11-18 08:36:23,321] WARNING django.server "GET /user/api/login/ HTTP/1.1" 404 13066
+[2025-11-18 08:36:30,364] INFO django.server "POST /api/token/ HTTP/1.1" 200 489
+[2025-11-18 08:36:43,632] INFO django.server "POST /api/token/ HTTP/1.1" 200 489
+[2025-11-18 08:37:11,497] ERROR core.exceptions Unhandled Exception: Field name `product_image` is not valid for model `Wishlist` in `user_shopizen.serializers.WishlistSerializer`.
+Traceback (most recent call last):
+  File "E:\Shopizen\.venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "E:\Shopizen\user_shopizen\views_address_wishlist.py", line 113, in get
+    return Response(serializer.data)
+                    ^^^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\rest_framework\serializers.py", line 797, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\rest_framework\serializers.py", line 251, in data
+    self._data = self.to_representation(self.instance)
+                 ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\rest_framework\serializers.py", line 716, in to_representation
+    self.child.to_representation(item) for item in iterable
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\rest_framework\serializers.py", line 525, in to_representation
+    for field in fields:
+                 ^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\rest_framework\serializers.py", line 386, in _readable_fields
+    for field in self.fields.values():
+                 ^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\utils\functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\rest_framework\serializers.py", line 374, in fields
+    for key, value in self.get_fields().items():
+                      ~~~~~~~~~~~~~~~^^
+  File "E:\Shopizen\.venv\Lib\site-packages\rest_framework\serializers.py", line 1105, in get_fields
+    field_class, field_kwargs = self.build_field(
+                                ~~~~~~~~~~~~~~~~^
+        source, info, model, depth
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "E:\Shopizen\.venv\Lib\site-packages\rest_framework\serializers.py", line 1251, in build_field
+    return self.build_unknown_field(field_name, model_class)
+           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\rest_framework\serializers.py", line 1369, in build_unknown_field
+    raise ImproperlyConfigured(
+    ...<2 lines>...
+    )
+django.core.exceptions.ImproperlyConfigured: Field name `product_image` is not valid for model `Wishlist` in `user_shopizen.serializers.WishlistSerializer`.
+[2025-11-18 08:37:11,554] ERROR django.request Internal Server Error: /user/api/wishlist/
+[2025-11-18 08:37:11,555] ERROR django.server "GET /user/api/wishlist/ HTTP/1.1" 500 101
+[2025-11-18 08:37:24,245] INFO django.server "GET /user/api/products/ HTTP/1.1" 200 159
+[2025-11-18 08:39:06,225] INFO django.utils.autoreload E:\Shopizen\user_shopizen\serializers.py changed, reloading.
+[2025-11-18 08:39:07,624] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-18 08:39:11,565] INFO django.server "GET /user/api/products/ HTTP/1.1" 200 159
+[2025-11-18 08:39:12,252] INFO django.server "GET /user/api/products/ HTTP/1.1" 200 159
+[2025-11-18 08:39:12,455] INFO django.server "GET /user/api/products/ HTTP/1.1" 200 159
+[2025-11-18 08:39:12,674] INFO django.server "GET /user/api/products/ HTTP/1.1" 200 159
+[2025-11-18 08:39:14,277] WARNING django.request Not Found: /user/
+[2025-11-18 08:39:14,278] WARNING django.server "GET /user/ HTTP/1.1" 404 13036
+[2025-11-18 08:39:14,799] WARNING django.request Not Found: /user/
+[2025-11-18 08:39:14,799] WARNING django.server "GET /user/ HTTP/1.1" 404 13036
+[2025-11-18 08:40:07,134] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-18 08:40:50,118] INFO django.server "GET /user/api/wishlist/ HTTP/1.1" 200 289
+[2025-11-18 08:41:52,129] INFO django.server "GET /user/api/products/ HTTP/1.1" 200 159
+[2025-11-18 08:43:11,393] INFO django.utils.autoreload E:\Shopizen\shopizen\settings.py changed, reloading.
+[2025-11-18 08:43:11,910] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-18 08:44:05,902] INFO django.utils.autoreload E:\Shopizen\shopizen\settings.py changed, reloading.
+[2025-11-18 08:44:06,370] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-18 08:44:11,234] INFO django.server "GET /user/api/products/ HTTP/1.1" 200 5582
+[2025-11-18 08:44:11,251] INFO django.server "GET /static/rest_framework/css/bootstrap-tweaks.css HTTP/1.1" 304 0
+[2025-11-18 08:44:11,252] INFO django.server "GET /static/rest_framework/css/bootstrap.min.css HTTP/1.1" 304 0
+[2025-11-18 08:44:11,253] INFO django.server "GET /static/rest_framework/css/prettify.css HTTP/1.1" 304 0
+[2025-11-18 08:44:11,255] INFO django.server "GET /static/rest_framework/js/csrf.js HTTP/1.1" 304 0
+[2025-11-18 08:44:11,255] INFO django.server "GET /static/rest_framework/css/default.css HTTP/1.1" 304 0
+[2025-11-18 08:44:11,256] INFO django.server "GET /static/rest_framework/js/bootstrap.min.js HTTP/1.1" 304 0
+[2025-11-18 08:44:11,257] INFO django.server "GET /static/rest_framework/js/ajax-form.js HTTP/1.1" 304 0
+[2025-11-18 08:44:11,257] INFO django.server "GET /static/rest_framework/js/jquery-3.7.1.min.js HTTP/1.1" 304 0
+[2025-11-18 08:44:11,258] INFO django.server "GET /static/rest_framework/js/prettify-min.js HTTP/1.1" 304 0
+[2025-11-18 08:44:11,259] INFO django.server "GET /static/rest_framework/js/load-ajax-form.js HTTP/1.1" 304 0
+[2025-11-18 08:44:11,259] INFO django.server "GET /static/rest_framework/js/default.js HTTP/1.1" 304 0
+[2025-11-18 08:44:11,272] INFO django.server "GET /static/rest_framework/img/grid.png HTTP/1.1" 304 0
+[2025-11-18 08:45:29,957] INFO django.server "GET /user/api/products/1/ HTTP/1.1" 200 5679
+[2025-11-18 08:46:40,530] INFO django.server "GET /admin/ HTTP/1.1" 200 20040
+[2025-11-18 08:46:40,541] INFO django.server "GET /static/admin/css/dark_mode.css HTTP/1.1" 304 0
+[2025-11-18 08:46:40,542] INFO django.server "GET /static/admin/js/theme.js HTTP/1.1" 304 0
+[2025-11-18 08:46:40,542] INFO django.server "GET /static/admin/css/base.css HTTP/1.1" 304 0
+[2025-11-18 08:46:40,549] INFO django.server "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 304 0
+[2025-11-18 08:46:40,549] INFO django.server "GET /static/admin/css/dashboard.css HTTP/1.1" 304 0
+[2025-11-18 08:46:40,549] INFO django.server "GET /static/admin/css/responsive.css HTTP/1.1" 304 0
+[2025-11-18 08:46:40,553] INFO django.server "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 304 0
+[2025-11-18 08:46:40,557] INFO django.server "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 304 0
+[2025-11-18 08:46:40,557] INFO django.server "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 304 0
+[2025-11-18 08:46:51,397] ERROR core.exceptions SalesReportView: Authentication credentials were not provided.
+[2025-11-18 08:46:51,401] WARNING django.request Unauthorized: /adminside/api/admin/reports/sales/
+[2025-11-18 08:46:51,401] WARNING django.server "GET /adminside/api/admin/reports/sales/ HTTP/1.1" 401 5284
+[2025-11-18 08:47:06,194] ERROR core.exceptions SalesReportView: Authentication credentials were not provided.
+[2025-11-18 08:47:06,198] WARNING django.request Unauthorized: /adminside/api/admin/reports/sales/
+[2025-11-18 08:47:06,198] WARNING django.server "GET /adminside/api/admin/reports/sales/ HTTP/1.1" 401 5284
+[2025-11-18 08:47:13,346] INFO django.server "GET /admin/ HTTP/1.1" 200 20040
+[2025-11-18 08:49:55,946] ERROR core.exceptions SalesReportView: Authentication credentials were not provided.
+[2025-11-18 08:49:55,949] WARNING django.request Unauthorized: /adminside/api/admin/reports/sales/
+[2025-11-18 08:49:55,949] WARNING django.server "GET /adminside/api/admin/reports/sales/ HTTP/1.1" 401 5284
+[2025-11-18 08:50:03,940] WARNING django.request Not Found: /admin/api/reports/sales-report/
+[2025-11-18 08:50:03,941] WARNING django.server "GET /admin/api/reports/sales-report/ HTTP/1.1" 404 9415
+[2025-11-18 08:50:13,467] WARNING django.request Not Found: /adminside/api/reports/sales-report/
+[2025-11-18 08:50:13,468] WARNING django.server "GET /adminside/api/reports/sales-report/ HTTP/1.1" 404 11740
+[2025-11-18 08:50:46,336] WARNING django.request Not Found: /adminside/api/admin/reports/sales-report/
+[2025-11-18 08:50:46,336] WARNING django.server "GET /adminside/api/admin/reports/sales-report/ HTTP/1.1" 404 11758
+[2025-11-18 08:51:01,651] ERROR core.exceptions SalesReportView: Authentication credentials were not provided.
+[2025-11-18 08:51:01,654] WARNING django.request Unauthorized: /adminside/api/admin/reports/sales/
+[2025-11-18 08:51:01,655] WARNING django.server "GET /adminside/api/admin/reports/sales/ HTTP/1.1" 401 5284
+[2025-11-18 08:51:23,286] ERROR core.exceptions TopProductsReportView: Authentication credentials were not provided.
+[2025-11-18 08:51:23,288] WARNING django.request Unauthorized: /adminside/api/admin/reports/top-products/
+[2025-11-18 08:51:23,289] WARNING django.server "GET /adminside/api/admin/reports/top-products/ HTTP/1.1" 401 5361
+[2025-11-18 08:52:32,806] ERROR core.exceptions AdminUserListView: Authentication credentials were not provided.
+[2025-11-18 08:52:32,808] WARNING django.request Unauthorized: /adminside/api/admin/users/
+[2025-11-18 08:52:32,809] WARNING django.server "GET /adminside/api/admin/users/ HTTP/1.1" 401 5262
+[2025-11-18 09:00:13,796] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-18 09:00:16,966] INFO django.server "POST /api/token/ HTTP/1.1" 200 489
+[2025-11-18 09:00:30,479] INFO django.server "POST /api/token/ HTTP/1.1" 200 489
+[2025-11-18 09:00:40,349] WARNING django.request Not Found: /user/
+[2025-11-18 09:00:40,349] WARNING django.server "GET /user/ HTTP/1.1" 404 13036
+[2025-11-18 09:00:51,024] INFO django.server "GET /user/api/products/ HTTP/1.1" 200 5582
+[2025-11-18 09:00:51,266] INFO django.server "GET /static/rest_framework/css/bootstrap.min.css HTTP/1.1" 200 121457
+[2025-11-18 09:00:51,269] INFO django.server "GET /static/rest_framework/css/bootstrap-tweaks.css HTTP/1.1" 200 3426
+[2025-11-18 09:00:51,278] INFO django.server "GET /static/rest_framework/css/prettify.css HTTP/1.1" 200 817
+[2025-11-18 09:00:51,278] INFO django.server "GET /static/rest_framework/css/default.css HTTP/1.1" 200 1152
+[2025-11-18 09:00:51,291] INFO django.server "GET /static/rest_framework/js/ajax-form.js HTTP/1.1" 200 3796
+[2025-11-18 09:00:51,291] INFO django.server "GET /static/rest_framework/js/csrf.js HTTP/1.1" 200 1793
+[2025-11-18 09:00:51,300] INFO django.server "GET /static/rest_framework/js/default.js HTTP/1.1" 200 1268
+[2025-11-18 09:00:51,303] INFO django.server "GET /static/rest_framework/img/grid.png HTTP/1.1" 200 1458
+[2025-11-18 09:00:51,306] INFO django.server "GET /static/rest_framework/js/load-ajax-form.js HTTP/1.1" 200 59
+[2025-11-18 09:00:51,312] INFO django.server "GET /static/rest_framework/js/bootstrap.min.js HTTP/1.1" 200 39680
+[2025-11-18 09:00:51,315] INFO django.server "GET /static/rest_framework/js/prettify-min.js HTTP/1.1" 200 13632
+[2025-11-18 09:00:51,324] INFO django.server "GET /static/rest_framework/js/jquery-3.7.1.min.js HTTP/1.1" 200 87533
+[2025-11-18 09:01:32,156] ERROR core.exceptions AdminUserListView: Authentication credentials were not provided.
+[2025-11-18 09:01:32,158] WARNING django.request Unauthorized: /adminside/api/admin/users/
+[2025-11-18 09:01:32,159] WARNING django.server "GET /adminside/api/admin/users/ HTTP/1.1" 401 5262
+[2025-11-18 09:01:53,561] INFO django.server "GET /adminside/api/admin/users/ HTTP/1.1" 200 273
+[2025-11-18 09:02:39,957] ERROR core.exceptions AdminUserDeleteView: Method "GET" not allowed.
+[2025-11-18 09:02:39,957] WARNING django.request Method Not Allowed: /adminside/api/admin/users/1/
+[2025-11-18 09:02:39,958] WARNING django.server "GET /adminside/api/admin/users/1/ HTTP/1.1" 405 84
+[2025-11-18 09:02:47,019] ERROR core.exceptions AdminUserDeleteView: Method "GET" not allowed.
+[2025-11-18 09:02:47,019] WARNING django.request Method Not Allowed: /adminside/api/admin/users/2/
+[2025-11-18 09:02:47,020] WARNING django.server "GET /adminside/api/admin/users/2/ HTTP/1.1" 405 84

@@ -102,14 +102,34 @@ class WishlistAddView(APIView):
             return Response({'message': 'Product already in wishlist'}, status=status.HTTP_400_BAD_REQUEST)
 
         return Response({'message': 'Added to wishlist'}, status=status.HTTP_201_CREATED)
-
-class WishlistListView(APIView):
-    permission_classes = [IsAuthenticated]
+    
+# --- WISHLIST ---
+class WishlistView(APIView):
+    permission_classes = [permissions.IsAuthenticated]
 
     def get(self, request):
-        wishlist_items = Wishlist.objects.filter(user=request.user).select_related('product')
-        serializer = WishlistSerializer(wishlist_items, many=True)
+        wishlist = Wishlist.objects.filter(user=request.user)
+        serializer = WishlistSerializer(wishlist, many=True)
         return Response(serializer.data)
+
+    def post(self, request):
+        serializer = WishlistSerializer(data=request.data, context={'request': request})
+        serializer.is_valid(raise_exception=True)
+        serializer.save(user=request.user)
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+    def delete(self, request):
+        product_id = request.data.get('product_id')
+        Wishlist.objects.filter(user=request.user, product_id=product_id).delete()
+        return Response({"message": "Removed from wishlist"}, status=200)
+
+# class WishlistListView(APIView):
+#     permission_classes = [IsAuthenticated]
+
+#     def get(self, request):
+#         wishlist_items = Wishlist.objects.filter(user=request.user).select_related('product')
+#         serializer = WishlistSerializer(wishlist_items, many=True)
+#         return Response(serializer.data)
 
 
 
@@ -123,3 +143,6 @@ class WishlistRemoveView(APIView):
             return Response({'message': 'Removed from wishlist'}, status=status.HTTP_204_NO_CONTENT)
         except Wishlist.DoesNotExist:
             return Response({'error': 'Wishlist item not found'}, status=status.HTTP_404_NOT_FOUND)
+        
+
+

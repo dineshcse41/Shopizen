@@ -1,21 +1,16 @@
 from django.urls import path
 from .views import (
-    # Product
     ProductListView, ProductDetailView,
-    # Cart
     CartListCreateView, CartDeleteUpdateView,
-    # Order 
-    CreateOrderView, UserOrderListView,OrderDetailView, OrderStatusUpdateView,
-    # Search & Filter
+    CreateOrderView, UserOrderListView, OrderDetailView, OrderStatusUpdateView,
     ProductSearchView, ProductFilterView,
-    ProductCompareView, WishlistView, ReviewView,
+    ProductCompareView,
+    ReviewView,
     ReviewCreateView, ProductReviewListView,
     OfferListView,
-    OrderCreateView,UserOrderDetailView,
-    
+    OrderCreateView, UserOrderDetailView,
     WalletDetailView, WalletAddCreditView,
-    NotificationListView,
-    NotificationReadView,
+    NotificationListView, NotificationReadView,
     AdminNotificationCreateView,
 )
 from .views_contact import *
@@ -51,7 +46,6 @@ urlpatterns = [
     path('api/wishlist/<int:product_id>/', WishlistDeleteView.as_view(), name='wishlist-delete'),
     path('api/wishlist/add/', WishlistAddView.as_view(), name='wishlist-add'),
     path('api/wishlist/remove/<int:product_id>/', WishlistRemoveView.as_view(), name='wishlist-remove'),
-    path('api/wishlist/', WishlistListView.as_view(), name='wishlist-list'),
     
     # Address APIs
     path('api/address/', AddressListView.as_view(), name='address-list'),
@@ -82,4 +76,5 @@ urlpatterns = [
     path('api/wallet/', WalletBalanceView.as_view(), name='wallet-balance'),
     path('api/wallet/add/', WalletAddFundsView.as_view(), name='wallet-add'),
     path('api/wallet/transactions/', WalletTransactionListView.as_view(), name='wallet-transactions'),
+    
 ]

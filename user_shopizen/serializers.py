@@ -107,12 +107,15 @@ class ReviewSerializer(serializers.ModelSerializer):
 # --- WISHLIST SERIALIZER ---
 class WishlistSerializer(serializers.ModelSerializer):
     product_name = serializers.CharField(source='product.name', read_only=True)
-    product_price = serializers.DecimalField(source='product.price', read_only=True, max_digits=10, decimal_places=2)
+    product_price = serializers.DecimalField(source='product.price', read_only=True,
+                                             max_digits=10, decimal_places=2)
+    product_image = serializers.ImageField(source='product.image', read_only=True)
     product = ProductSerializer(read_only=True)
 
     class Meta:
         model = Wishlist
         fields = ['id', 'product', 'product_name', 'product_price', 'product_image', 'added_at']
+
 
 
 # --- OFFER SERIALIZER ---
@@ -157,8 +160,9 @@ from .models import Notification
 class NotificationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Notification
-        fields = ['id', 'user', 'message', 'type', 'status', 'created_at']
-        read_only_fields = ['id', 'created_at']
+        fields = ['id', 'message', 'type', 'status', 'created_at']
+        read_only_fields = ['id', 'created_at', 'status']
+
 
 # task 13
 from rest_framework import serializers
