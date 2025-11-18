@@ -310,3 +310,103 @@ django.core.exceptions.ImproperlyConfigured: Field name `product_image` is not v
 [2025-11-18 09:02:47,019] ERROR core.exceptions AdminUserDeleteView: Method "GET" not allowed.
 [2025-11-18 09:02:47,019] WARNING django.request Method Not Allowed: /adminside/api/admin/users/2/
 [2025-11-18 09:02:47,020] WARNING django.server "GET /adminside/api/admin/users/2/ HTTP/1.1" 405 84
+[2025-11-18 18:24:46,821] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-18 18:25:34,708] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-18 18:25:40,738] WARNING django.request Not Found: /
+[2025-11-18 18:25:40,738] WARNING django.server "GET / HTTP/1.1" 404 3304
+[2025-11-18 18:25:40,793] WARNING django.request Not Found: /favicon.ico
+[2025-11-18 18:25:40,794] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3355
+[2025-11-18 18:25:47,253] INFO django.server "GET /admin/ HTTP/1.1" 200 20040
+[2025-11-18 18:25:57,668] WARNING django.request Not Found: /auth/authentication/
+[2025-11-18 18:25:57,668] WARNING django.server "GET /auth/authentication/ HTTP/1.1" 404 3382
+[2025-11-18 18:26:05,371] WARNING django.request Not Found: /authentication/
+[2025-11-18 18:26:05,372] WARNING django.server "GET /authentication/ HTTP/1.1" 404 3759
+[2025-11-18 18:26:20,332] ERROR core.exceptions RegisterView: Method "GET" not allowed.
+[2025-11-18 18:26:20,664] WARNING django.request Method Not Allowed: /authentication/api/register/
+[2025-11-18 18:26:20,667] WARNING django.server "GET /authentication/api/register/ HTTP/1.1" 405 5728
+[2025-11-18 18:35:07,042] INFO django.utils.autoreload E:\Shopizen\Authentication\models.py changed, reloading.
+[2025-11-18 18:35:07,618] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-18 18:35:15,295] INFO django.utils.autoreload E:\Shopizen\Authentication\models.py changed, reloading.
+[2025-11-18 18:35:15,818] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-18 18:35:18,328] INFO django.utils.autoreload E:\Shopizen\Authentication\models.py changed, reloading.
+[2025-11-18 18:35:20,083] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-18 18:35:25,710] INFO django.utils.autoreload E:\Shopizen\Authentication\models.py changed, reloading.
+[2025-11-18 18:35:26,214] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-18 18:35:29,725] INFO django.utils.autoreload E:\Shopizen\Authentication\models.py changed, reloading.
+[2025-11-18 18:35:30,234] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-18 18:35:31,632] INFO django.utils.autoreload E:\Shopizen\Authentication\models.py changed, reloading.
+[2025-11-18 18:35:32,109] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-18 18:35:38,703] INFO django.utils.autoreload E:\Shopizen\Authentication\views.py changed, reloading.
+[2025-11-18 18:35:39,187] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-18 18:36:08,149] INFO django.utils.autoreload E:\Shopizen\Authentication\views.py changed, reloading.
+[2025-11-18 18:36:08,968] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-18 18:36:20,133] INFO django.utils.autoreload E:\Shopizen\Authentication\urls.py changed, reloading.
+[2025-11-18 18:36:20,661] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-18 18:36:24,180] INFO django.utils.autoreload E:\Shopizen\Authentication\urls.py changed, reloading.
+[2025-11-18 18:36:25,101] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-18 18:37:17,411] INFO django.utils.autoreload E:\Shopizen\Authentication\views.py changed, reloading.
+[2025-11-18 18:37:18,749] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-18 18:37:27,106] INFO django.utils.autoreload E:\Shopizen\Authentication\urls.py changed, reloading.
+[2025-11-18 18:37:27,597] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-18 18:37:37,464] INFO django.utils.autoreload E:\Shopizen\Authentication\urls.py changed, reloading.
+[2025-11-18 18:37:38,310] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-18 18:37:43,026] INFO django.utils.autoreload E:\Shopizen\Authentication\urls.py changed, reloading.
+[2025-11-18 18:37:43,541] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-18 18:37:54,189] INFO django.utils.autoreload E:\Shopizen\Authentication\urls.py changed, reloading.
+[2025-11-18 18:37:54,675] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-18 18:38:49,203] INFO django.utils.autoreload E:\Shopizen\Authentication\admin.py changed, reloading.
+[2025-11-18 18:38:50,006] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-18 18:54:18,687] INFO django.utils.autoreload E:\Shopizen\Authentication\views.py changed, reloading.
+[2025-11-18 18:54:20,473] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-18 18:54:40,401] INFO django.utils.autoreload E:\Shopizen\Authentication\serializers.py changed, reloading.
+[2025-11-18 18:54:40,899] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-18 18:54:42,271] INFO django.utils.autoreload E:\Shopizen\Authentication\serializers.py changed, reloading.
+[2025-11-18 18:54:42,778] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-18 18:54:46,266] INFO django.utils.autoreload E:\Shopizen\Authentication\serializers.py changed, reloading.
+[2025-11-18 18:54:47,775] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-18 18:54:57,247] INFO django.utils.autoreload E:\Shopizen\Authentication\serializers.py changed, reloading.
+[2025-11-18 18:54:57,751] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-18 18:55:18,946] INFO django.utils.autoreload E:\Shopizen\Authentication\serializers.py changed, reloading.
+[2025-11-18 18:55:19,447] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-18 18:58:15,710] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-18 18:58:26,130] INFO django.server "GET /admin/ HTTP/1.1" 200 21896
+[2025-11-18 18:58:32,202] INFO django.server "GET /admin/ HTTP/1.1" 200 21896
+[2025-11-18 18:58:33,483] INFO django.server "GET /admin/auth/user/ HTTP/1.1" 200 21051
+[2025-11-18 18:58:33,518] INFO django.server "GET /static/admin/css/changelists.css HTTP/1.1" 304 0
+[2025-11-18 18:58:33,520] INFO django.server "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 304 0
+[2025-11-18 18:58:33,525] INFO django.server "GET /static/admin/js/core.js HTTP/1.1" 304 0
+[2025-11-18 18:58:33,526] INFO django.server "GET /static/admin/js/jquery.init.js HTTP/1.1" 304 0
+[2025-11-18 18:58:33,533] INFO django.server "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 304 0
+[2025-11-18 18:58:33,536] INFO django.server "GET /static/admin/js/actions.js HTTP/1.1" 304 0
+[2025-11-18 18:58:33,537] INFO django.server "GET /static/admin/js/urlify.js HTTP/1.1" 304 0
+[2025-11-18 18:58:33,538] INFO django.server "GET /static/admin/js/prepopulate.js HTTP/1.1" 304 0
+[2025-11-18 18:58:33,539] INFO django.server "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 304 0
+[2025-11-18 18:58:33,546] INFO django.server "GET /static/admin/img/icon-yes.svg HTTP/1.1" 304 0
+[2025-11-18 18:58:33,546] INFO django.server "GET /static/admin/img/search.svg HTTP/1.1" 304 0
+[2025-11-18 18:58:33,557] INFO django.server "GET /static/admin/img/icon-no.svg HTTP/1.1" 304 0
+[2025-11-18 18:58:33,569] INFO django.server "GET /static/admin/js/filters.js HTTP/1.1" 304 0
+[2025-11-18 18:58:33,617] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2025-11-18 18:58:33,635] INFO django.server "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 304 0
+[2025-11-18 18:58:33,635] INFO django.server "GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 304 0
+[2025-11-18 18:58:33,635] INFO django.server "GET /static/admin/img/sorting-icons.svg HTTP/1.1" 304 0
+[2025-11-18 18:58:37,720] INFO django.server "GET /admin/auth/group/add/ HTTP/1.1" 200 25534
+[2025-11-18 18:58:37,735] INFO django.server "GET /static/admin/css/forms.css HTTP/1.1" 304 0
+[2025-11-18 18:58:37,741] INFO django.server "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 304 0
+[2025-11-18 18:58:37,742] INFO django.server "GET /static/admin/css/widgets.css HTTP/1.1" 304 0
+[2025-11-18 18:58:37,745] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2025-11-18 18:58:37,947] INFO django.server "GET /static/admin/js/SelectBox.js HTTP/1.1" 200 4530
+[2025-11-18 18:58:37,947] INFO django.server "GET /static/admin/js/SelectFilter2.js HTTP/1.1" 200 15845
+[2025-11-18 18:58:37,950] INFO django.server "GET /static/admin/js/change_form.js HTTP/1.1" 304 0
+[2025-11-18 18:58:37,982] INFO django.server "GET /static/admin/img/selector-icons.svg HTTP/1.1" 200 3291
+[2025-11-18 18:58:41,082] INFO django.server "GET /admin/auth/user/add/ HTTP/1.1" 200 20812
+[2025-11-18 18:58:41,102] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2025-11-18 18:58:41,108] INFO django.server "GET /static/admin/css/unusable_password_field.css HTTP/1.1" 200 663
+[2025-11-18 18:58:41,123] INFO django.server "GET /static/admin/js/unusable_password_field.js HTTP/1.1" 200 1480
+[2025-11-18 18:59:12,635] INFO django.server "GET /admin/Authentication/userprofile/add/ HTTP/1.1" 200 19468
+[2025-11-18 18:59:12,655] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2025-11-18 18:59:17,616] INFO django.server "GET /admin/Authentication/adminprofile/add/ HTTP/1.1" 200 21434
+[2025-11-18 18:59:17,638] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2025-11-18 18:59:20,107] INFO django.server "GET /admin/Authentication/userprofile/add/ HTTP/1.1" 200 19468
+[2025-11-18 18:59:20,127] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2025-11-18 18:59:24,855] INFO django.server "GET /admin/Authentication/adminprofile/add/ HTTP/1.1" 200 21434
+[2025-11-18 18:59:24,875] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342

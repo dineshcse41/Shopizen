@@ -229,7 +229,7 @@ from django.contrib.auth.models import User
 from user_shopizen.models import Product  # assuming products are stored there
 
 
-# 🏠 Address Model
+#  Address Model
 class Address(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='addresses')
     full_name = models.CharField(max_length=255)

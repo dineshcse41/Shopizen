@@ -7,4 +7,7 @@ urlpatterns = [
     # Custom Auth APIs
     path('api/register/', RegisterView.as_view(), name='register'),
     path('api/login/', LoginView.as_view(), name='login'),
+    # admin
+    path('register/', AdminRegisterView.as_view()),
+    path('login/', AdminLoginView.as_view()),
 ]
