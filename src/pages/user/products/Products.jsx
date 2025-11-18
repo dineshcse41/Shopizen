@@ -43,10 +43,10 @@ const Products = () => {
         setProducts(productsData);
 
         // 🔽 Uncomment below code to fetch from Django API later
-        /*
+      
         const fetchProducts = async () => {
             try {
-                const response = await fetch("http://localhost:8000/api/products/"); // replace with your Django endpoint
+                const response = await fetch("http://127.0.0.1:8000/user/api/products/"); // replace with your Django endpoint
                 if (!response.ok) throw new Error("Failed to fetch products");
                 const data = await response.json();
                 setProducts(data);
@@ -56,7 +56,7 @@ const Products = () => {
             }
         };
         fetchProducts();
-        */
+     
     }, []);
 
     // 🔎 Apply Filters + Sorting + Search

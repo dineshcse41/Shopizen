@@ -1,23 +1,23 @@
 import axios from "axios";
 
-const API_BASE = "http://127.0.0.1:8000/api"; // Django backend URL
+const BASE_URL = "http://127.0.0.1:8000/"; // Django backend URL
 
 export const getOrders = async () => {
-    const res = await axios.get(`${API_BASE}/orders/`);
+    const res = await axios.get(`${BASE_URL}/orders/`);
     return res.data;
 };
 
 export const getUsers = async () => {
-    const res = await axios.get(`${API_BASE}/users/`);
+    const res = await axios.get(`${BASE_URL}/users/`);
     return res.data;
 };
 
 export const getProducts = async () => {
-    const res = await axios.get(`${API_BASE}/products/`);
+    const res = await axios.get(`${BASE_URL}/products/`);
     return res.data;
 };
 
 export const getReviews = async () => {
-    const res = await axios.get(`${API_BASE}/reviews/`);
+    const res = await axios.get(`${BASE_URL}/reviews/`);
     return res.data;
 };
