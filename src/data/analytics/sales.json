@@ -1,0 +1,326 @@
+[
+  {
+    "month": "January",
+    "date": "2025-01-01",
+    "totalOrders": 350,
+    "totalRevenue": 145000,
+    "averageOrderValue": 414,
+    "returnRate": 3.5,
+    "uniqueCustomers": 280,
+    "currency": "$",
+    "salesByCategory": [
+      { "category": "Electronics", "revenue": 50000 },
+      { "category": "Fashion", "revenue": 40000 },
+      { "category": "Home Appliances", "revenue": 35000 },
+      { "category": "Beauty", "revenue": 20000 }
+    ],
+    "paymentMethods": { "Credit Card": 60, "UPI": 30, "Cash": 10 },
+    "topSellingProducts": [
+      { "name": "Smartphone", "unitsSold": 200, "revenue": 60000 },
+      { "name": "Headphones", "unitsSold": 150, "revenue": 20000 },
+      { "name": "Microwave", "unitsSold": 80, "revenue": 15000 }
+    ],
+    "shippingPerformance": {
+      "onTimeDeliveries": 95,
+      "lateDeliveries": 5,
+      "avgDeliveryTimeDays": 2.3
+    }
+  },
+  {
+    "month": "February",
+    "date": "2025-02-01",
+    "totalOrders": 420,
+    "totalRevenue": 165000,
+    "averageOrderValue": 393,
+    "returnRate": 2.8,
+    "uniqueCustomers": 310,
+    "currency": "$",
+    "salesByCategory": [
+      { "category": "Electronics", "revenue": 60000 },
+      { "category": "Fashion", "revenue": 45000 },
+      { "category": "Home Appliances", "revenue": 40000 },
+      { "category": "Beauty", "revenue": 20000 }
+    ],
+    "paymentMethods": { "Credit Card": 55, "UPI": 35, "Cash": 10 },
+    "topSellingProducts": [
+      { "name": "Laptop", "unitsSold": 120, "revenue": 55000 },
+      { "name": "Smartwatch", "unitsSold": 160, "revenue": 25000 },
+      { "name": "Shoes", "unitsSold": 200, "revenue": 20000 }
+    ],
+    "shippingPerformance": {
+      "onTimeDeliveries": 93,
+      "lateDeliveries": 7,
+      "avgDeliveryTimeDays": 2.6
+    }
+  },
+  {
+    "month": "March",
+    "date": "2025-03-01",
+    "totalOrders": 480,
+    "totalRevenue": 190000,
+    "averageOrderValue": 396,
+    "returnRate": 3.1,
+    "uniqueCustomers": 340,
+    "currency": "$",
+    "salesByCategory": [
+      { "category": "Electronics", "revenue": 70000 },
+      { "category": "Fashion", "revenue": 50000 },
+      { "category": "Home Appliances", "revenue": 45000 },
+      { "category": "Beauty", "revenue": 25000 }
+    ],
+    "paymentMethods": { "Credit Card": 50, "UPI": 40, "Cash": 10 },
+    "topSellingProducts": [
+      { "name": "Smartphone", "unitsSold": 250, "revenue": 75000 },
+      { "name": "AirPods", "unitsSold": 180, "revenue": 30000 },
+      { "name": "Refrigerator", "unitsSold": 60, "revenue": 20000 }
+    ],
+    "shippingPerformance": {
+      "onTimeDeliveries": 92,
+      "lateDeliveries": 8,
+      "avgDeliveryTimeDays": 2.7
+    }
+  },
+  {
+    "month": "April",
+    "date": "2025-04-01",
+    "totalOrders": 520,
+    "totalRevenue": 210000,
+    "averageOrderValue": 404,
+    "returnRate": 2.9,
+    "uniqueCustomers": 370,
+    "currency": "$",
+    "salesByCategory": [
+      { "category": "Electronics", "revenue": 80000 },
+      { "category": "Fashion", "revenue": 55000 },
+      { "category": "Home Appliances", "revenue": 45000 },
+      { "category": "Beauty", "revenue": 30000 }
+    ],
+    "paymentMethods": { "Credit Card": 52, "UPI": 38, "Cash": 10 },
+    "topSellingProducts": [
+      { "name": "Smart TV", "unitsSold": 90, "revenue": 40000 },
+      { "name": "Shoes", "unitsSold": 250, "revenue": 25000 },
+      { "name": "Hair Dryer", "unitsSold": 300, "revenue": 15000 }
+    ],
+    "shippingPerformance": {
+      "onTimeDeliveries": 94,
+      "lateDeliveries": 6,
+      "avgDeliveryTimeDays": 2.4
+    }
+  },
+  {
+    "month": "May",
+    "date": "2025-05-01",
+    "totalOrders": 580,
+    "totalRevenue": 235000,
+    "averageOrderValue": 405,
+    "returnRate": 2.5,
+    "uniqueCustomers": 400,
+    "currency": "$",
+    "salesByCategory": [
+      { "category": "Electronics", "revenue": 85000 },
+      { "category": "Fashion", "revenue": 60000 },
+      { "category": "Home Appliances", "revenue": 50000 },
+      { "category": "Beauty", "revenue": 40000 }
+    ],
+    "paymentMethods": { "Credit Card": 58, "UPI": 32, "Cash": 10 },
+    "topSellingProducts": [
+      { "name": "Laptop", "unitsSold": 130, "revenue": 65000 },
+      { "name": "Smartphone", "unitsSold": 220, "revenue": 70000 },
+      { "name": "Mixer Grinder", "unitsSold": 100, "revenue": 20000 }
+    ],
+    "shippingPerformance": {
+      "onTimeDeliveries": 95,
+      "lateDeliveries": 5,
+      "avgDeliveryTimeDays": 2.2
+    }
+  },
+  {
+    "month": "June",
+    "date": "2025-06-01",
+    "totalOrders": 610,
+    "totalRevenue": 250000,
+    "averageOrderValue": 410,
+    "returnRate": 2.4,
+    "uniqueCustomers": 430,
+    "currency": "$",
+    "salesByCategory": [
+      { "category": "Electronics", "revenue": 90000 },
+      { "category": "Fashion", "revenue": 62000 },
+      { "category": "Home Appliances", "revenue": 52000 },
+      { "category": "Beauty", "revenue": 46000 }
+    ],
+    "paymentMethods": { "Credit Card": 56, "UPI": 34, "Cash": 10 },
+    "topSellingProducts": [
+      { "name": "Tablet", "unitsSold": 140, "revenue": 55000 },
+      { "name": "Smartwatch", "unitsSold": 200, "revenue": 35000 },
+      { "name": "Air Conditioner", "unitsSold": 80, "revenue": 25000 }
+    ],
+    "shippingPerformance": {
+      "onTimeDeliveries": 96,
+      "lateDeliveries": 4,
+      "avgDeliveryTimeDays": 2.1
+    }
+  },
+  {
+    "month": "July",
+    "date": "2025-07-01",
+    "totalOrders": 640,
+    "totalRevenue": 260000,
+    "averageOrderValue": 406,
+    "returnRate": 2.3,
+    "uniqueCustomers": 460,
+    "currency": "$",
+    "salesByCategory": [
+      { "category": "Electronics", "revenue": 95000 },
+      { "category": "Fashion", "revenue": 65000 },
+      { "category": "Home Appliances", "revenue": 52000 },
+      { "category": "Beauty", "revenue": 48000 }
+    ],
+    "paymentMethods": { "Credit Card": 55, "UPI": 35, "Cash": 10 },
+    "topSellingProducts": [
+      { "name": "Smartphone", "unitsSold": 260, "revenue": 80000 },
+      { "name": "Washing Machine", "unitsSold": 100, "revenue": 30000 },
+      { "name": "Perfume", "unitsSold": 400, "revenue": 20000 }
+    ],
+    "shippingPerformance": {
+      "onTimeDeliveries": 97,
+      "lateDeliveries": 3,
+      "avgDeliveryTimeDays": 2.0
+    }
+  },
+  {
+    "month": "August",
+    "date": "2025-08-01",
+    "totalOrders": 670,
+    "totalRevenue": 270000,
+    "averageOrderValue": 403,
+    "returnRate": 2.2,
+    "uniqueCustomers": 490,
+    "currency": "$",
+    "salesByCategory": [
+      { "category": "Electronics", "revenue": 98000 },
+      { "category": "Fashion", "revenue": 68000 },
+      { "category": "Home Appliances", "revenue": 55000 },
+      { "category": "Beauty", "revenue": 49000 }
+    ],
+    "paymentMethods": { "Credit Card": 54, "UPI": 36, "Cash": 10 },
+    "topSellingProducts": [
+      { "name": "Laptop", "unitsSold": 150, "revenue": 70000 },
+      { "name": "Smartwatch", "unitsSold": 240, "revenue": 40000 },
+      { "name": "Air Cooler", "unitsSold": 90, "revenue": 20000 }
+    ],
+    "shippingPerformance": {
+      "onTimeDeliveries": 95,
+      "lateDeliveries": 5,
+      "avgDeliveryTimeDays": 2.3
+    }
+  },
+  {
+    "month": "September",
+    "date": "2025-09-01",
+    "totalOrders": 690,
+    "totalRevenue": 280000,
+    "averageOrderValue": 406,
+    "returnRate": 2.4,
+    "uniqueCustomers": 510,
+    "currency": "$",
+    "salesByCategory": [
+      { "category": "Electronics", "revenue": 100000 },
+      { "category": "Fashion", "revenue": 70000 },
+      { "category": "Home Appliances", "revenue": 56000 },
+      { "category": "Beauty", "revenue": 54000 }
+    ],
+    "paymentMethods": { "Credit Card": 56, "UPI": 34, "Cash": 10 },
+    "topSellingProducts": [
+      { "name": "Smartphone", "unitsSold": 270, "revenue": 85000 },
+      { "name": "Microwave", "unitsSold": 120, "revenue": 25000 },
+      { "name": "Lipstick Set", "unitsSold": 500, "revenue": 15000 }
+    ],
+    "shippingPerformance": {
+      "onTimeDeliveries": 96,
+      "lateDeliveries": 4,
+      "avgDeliveryTimeDays": 2.2
+    }
+  },
+  {
+    "month": "October",
+    "date": "2025-10-01",
+    "totalOrders": 720,
+    "totalRevenue": 295000,
+    "averageOrderValue": 409,
+    "returnRate": 2.1,
+    "uniqueCustomers": 530,
+    "currency": "$",
+    "salesByCategory": [
+      { "category": "Electronics", "revenue": 105000 },
+      { "category": "Fashion", "revenue": 75000 },
+      { "category": "Home Appliances", "revenue": 60000 },
+      { "category": "Beauty", "revenue": 55000 }
+    ],
+    "paymentMethods": { "Credit Card": 57, "UPI": 33, "Cash": 10 },
+    "topSellingProducts": [
+      { "name": "Smartphone", "unitsSold": 300, "revenue": 90000 },
+      { "name": "Refrigerator", "unitsSold": 100, "revenue": 30000 },
+      { "name": "Hair Dryer", "unitsSold": 400, "revenue": 15000 }
+    ],
+    "shippingPerformance": {
+      "onTimeDeliveries": 97,
+      "lateDeliveries": 3,
+      "avgDeliveryTimeDays": 2.0
+    }
+  },
+  {
+    "month": "November",
+    "date": "2025-11-01",
+    "totalOrders": 760,
+    "totalRevenue": 320000,
+    "averageOrderValue": 421,
+    "returnRate": 1.9,
+    "uniqueCustomers": 560,
+    "currency": "$",
+    "salesByCategory": [
+      { "category": "Electronics", "revenue": 115000 },
+      { "category": "Fashion", "revenue": 85000 },
+      { "category": "Home Appliances", "revenue": 70000 },
+      { "category": "Beauty", "revenue": 50000 }
+    ],
+    "paymentMethods": { "Credit Card": 59, "UPI": 31, "Cash": 10 },
+    "topSellingProducts": [
+      { "name": "Smartphone", "unitsSold": 320, "revenue": 100000 },
+      { "name": "Laptop", "unitsSold": 140, "revenue": 75000 },
+      { "name": "Shoes", "unitsSold": 250, "revenue": 25000 }
+    ],
+    "shippingPerformance": {
+      "onTimeDeliveries": 98,
+      "lateDeliveries": 2,
+      "avgDeliveryTimeDays": 1.9
+    }
+  },
+  {
+    "month": "December",
+    "date": "2025-12-01",
+    "totalOrders": 820,
+    "totalRevenue": 340000,
+    "averageOrderValue": 414,
+    "returnRate": 1.8,
+    "uniqueCustomers": 600,
+    "currency": "$",
+    "salesByCategory": [
+      { "category": "Electronics", "revenue": 125000 },
+      { "category": "Fashion", "revenue": 90000 },
+      { "category": "Home Appliances", "revenue": 70000 },
+      { "category": "Beauty", "revenue": 55000 }
+    ],
+    "paymentMethods": { "Credit Card": 60, "UPI": 30, "Cash": 10 },
+    "topSellingProducts": [
+      { "name": "Smartphone", "unitsSold": 350, "revenue": 110000 },
+      { "name": "Smart TV", "unitsSold": 120, "revenue": 60000 },
+      { "name": "Headphones", "unitsSold": 200, "revenue": 25000 }
+    ],
+    "shippingPerformance": {
+      "onTimeDeliveries": 99,
+      "lateDeliveries": 1,
+      "avgDeliveryTimeDays": 1.8
+    }
+  }
+]

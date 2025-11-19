@@ -1,0 +1,43 @@
+.wallet-container {
+    max-width: 900px;
+    margin: auto;
+}
+
+.wallet-balance {
+    background: #007bff;
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.table th {
+    font-weight: 600;
+}
+
+.pagination .page-item.active .page-link {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+/* Horizontal scrolling wrapper for table */
+.table-mobile-scroll table {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch; /* smooth scroll on mobile */
+    width: 100%;
+}
+
+/* Optional: table wider than container to force scroll */
+.table-mobile-scroll table {
+    min-width: 300px; /* adjust if you have more columns */
+   
+}
+
+/* Optional: subtle scrollbar styling */
+.table-mobile-scroll::-webkit-scrollbar {
+    height: 6px;
+}
+
+.table-mobile-scroll::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+}

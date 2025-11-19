@@ -1,0 +1,117 @@
+.product-slider-section {
+  /* margin: 40px 0; */
+  margin-bottom: 5px;
+  padding: 10px;
+ background: #c5e3bf;
+  border-radius: 10px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+}
+
+.slider-header h3 {
+  font-weight: 600;
+  margin-left: 15px;
+  color: #222;
+}
+
+.slider-btn {
+  background: transparent;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+  margin: 0 5px;
+  color: #444;
+  transition: color 0.2s;
+}
+
+.slider-btn:hover:not(:disabled) {
+  color: #007bff;
+}
+
+.slider-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.product-slide {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  list-style: none;
+  padding: 0 10px;
+  margin: 10px 0;
+
+}
+
+.product-item {
+  margin: 0; 
+}
+
+.product-item {
+ 
+  margin: 0 10px;
+  cursor: pointer;
+  flex: 0 0;  
+}
+
+.product-card {
+   position: relative;
+  width: 250px;       
+   min-width: 180px;
+  padding: 10px;
+  border-radius: 10px;
+  background: #f8f9fa;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.product-img-container {
+  position: relative;
+  width: 100%;
+  height: 160px;
+}
+
+.product-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 8px;
+  background-color: #fafafa;
+}
+
+.slider-discount-badge {
+  position: absolute;
+  top: 8px;      /* Adjust as needed */
+  right: 8px;    /* Place it inside the image at top-right corner */
+  font-size: 12px;
+  padding: 4px 6px;
+  width: 75px;
+  z-index: 2;
+}
+.product-info {
+  text-align: center;
+}
+
+.product-name {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.product-rating {
+  font-size: 13px;
+  color: #f39c12;
+  margin-bottom: 3px;
+}
+
+.product-price {
+  font-size: 15px;
+  font-weight: bold;
+  color: #007bff;
+}
+

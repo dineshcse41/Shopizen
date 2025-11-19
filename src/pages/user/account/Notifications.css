@@ -1,0 +1,28 @@
+.notifications-page {
+  font-family: "Inter", sans-serif;
+}
+
+.text-gradient {
+  background: linear-gradient(90deg, #007bff, #00b894);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.notification-card {
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.notification-card.unread {
+  background-color: #f0f9ff;
+}
+
+.notification-card.read {
+  background-color: #f8f9fa;
+  opacity: 0.8;
+}
+
+.notification-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}

@@ -1,0 +1,16 @@
+[
+  { "role": "superadmin", "permissions": ["all"] },
+  {
+    "role": "manager",
+    "permissions": ["all", "manageOrders", "viewReports", "viewUsers"]
+  },
+  {
+    "role": "support",
+    "permissions": ["all", "manageSupport", "manageNotifications"]
+  },
+  {
+    "role": "editor",
+    "permissions": ["all", "manageProducts", "manageReviews"]
+  },
+  { "role": "sales", "permissions": ["all", "manageOrders", "viewReports"] }
+]

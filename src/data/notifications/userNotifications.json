@@ -1,0 +1,65 @@
+[
+  {
+    "userId": 101,
+    "notifications": [
+      {
+        "id": "U1",
+        "type": "Order Update",
+        "title": "Your order #1234 has been shipped",
+        "description": "Expected delivery in 3 days",
+        "date": "2025-11-05T10:30:00Z",
+        "read": false
+      },
+      {
+        "id": "U2",
+        "type": "Order Update",
+        "title": "Your order #1233 has been delivered",
+        "description": "We hope you enjoy your product!",
+        "date": "2025-10-31T14:00:00Z",
+        "read": true
+      }
+    ]
+  },
+  {
+    "userId": 102,
+    "notifications": [
+      {
+        "id": "U3",
+        "type": "Promotion",
+        "title": "Exclusive 15% off on electronics!",
+        "description": "Use code ELEC15 at checkout",
+        "date": "2025-11-06T09:00:00Z",
+        "read": false
+      },
+      {
+        "id": "U4",
+        "type": "Account",
+        "title": "Update your profile",
+        "description": "Keep your profile information up-to-date",
+        "date": "2025-11-04T11:30:00Z",
+        "read": true
+      }
+    ]
+  },
+  {
+    "userId": 103,
+    "notifications": [
+      {
+        "id": "U5",
+        "type": "Order Update",
+        "title": "Your order #1250 is out for delivery",
+        "description": "Expected today between 3-5 PM",
+        "date": "2025-11-07T08:45:00Z",
+        "read": false
+      },
+      {
+        "id": "U6",
+        "type": "Promotion",
+        "title": "Buy 1 Get 1 Free on select items!",
+        "description": "Offer valid till 10th Nov",
+        "date": "2025-11-05T16:00:00Z",
+        "read": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,18 @@
+[
+  {
+    "id": "G1",
+    "type": "Promotion",
+    "title": "Exclusive 20% off on your next purchase!",
+    "description": "Use code SAVE20 at checkout",
+    "date": "2025-11-04T15:00:00Z",
+    "read": false
+  },
+  {
+    "id": "G2",
+    "type": "Offer",
+    "title": "Mega sale",
+    "description": "Flat 50% Offer on new deals",
+    "date": "2025-11-03T12:00:00Z",
+    "read": false
+  }
+]

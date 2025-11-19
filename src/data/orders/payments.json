@@ -1,0 +1,18 @@
+[
+    {
+        "id": "pay_1001",
+        "orderId": "O1001",
+        "method": "UPI",
+        "transactionId": "txn_98123",
+        "status": "paid",
+        "amount": 2499
+    },
+    {
+        "id": "pay_1002",
+        "orderId": "O1002",
+        "method": "Credit Card",
+        "transactionId": "txn_98124",
+        "status": "pending",
+        "amount": 7198
+    }
+]

@@ -1,0 +1,64 @@
+{
+    "offers": [
+        {
+            "id": 1,
+            "title": "Diwali Festival Sale",
+            "filterType": "category",
+            "filterValue": "electronics",
+            "discount": 10,
+            "expiryDate": "2025-11-28",
+            "bannerImage": "src/assets/Offer-1.jpg",
+            "link": "/offers/1"
+        },
+        {
+            "id": 2,
+            "title": "Fashion 10% Off",
+            "filterType": "category",
+            "filterValue": "Fashion",
+            "discount": 10,
+            "expiryDate": "2025-11-28",
+            "bannerImage": "src/assets/Offer-2.jpg",
+            "link": "/offers/2"
+        },
+        {
+            "id": 3,
+            "title": "Bags 15% Off",
+            "filterType": "category",
+            "filterValue": "Bags",
+            "discount": 15,
+            "expiryDate": "2025-11-28",
+            "bannerImage": "src/assets/Offer-3.jpg",
+            "link": "/offers/3"
+        },
+        {
+            "id": 4,
+            "title": "Fashion 10% Off",
+            "filterType": "subCategory",
+            "filterValue": "Men’s Footwear",
+            "discount": 10,
+            "expiryDate": "2025-11-28",
+            "bannerImage": "src/assets/Offer-4.jpg",
+            "link": "/offers/4"
+        },
+        {
+            "id": 5,
+            "title": "Fashion 10% Off",
+            "filterType": "category",
+            "filterValue": "Fashion",
+            "discount": 10,
+            "expiryDate": "2025-11-28",
+            "bannerImage": "src/assets/Offer-5.jpg",
+            "link": "/offers/5"
+        },
+        {
+            "id": 6,
+            "title": "Footwear 20% Off",
+            "filterType": "subCategory",
+            "filterValue": "Footwear",
+            "discount": 20,
+            "expiryDate": "2025-11-28",
+            "bannerImage": "https://t4.ftcdn.net/jpg/02/49/50/15/360_F_249501541_XmWdfAfUbWAvGxBwAM0ba2aYT36ntlpH.jpg",
+            "link": "/offers/6"
+        }
+    ]
+}

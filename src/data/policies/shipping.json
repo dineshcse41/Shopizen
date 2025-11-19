@@ -1,0 +1,33 @@
+{
+    "pageTitle": "Shipping Policy — Shopizen",
+    "lastUpdated": "October 29, 2025",
+    "sections": [
+        {
+            "title": "Shipping Coverage",
+            "content": [
+                "Shopizen currently ships across India through reliable courier partners.",
+                "We are expanding to international locations soon."
+            ]
+        },
+        {
+            "title": "Delivery Time",
+            "content": [
+                "Orders are usually dispatched within 24–48 hours and delivered within 3–7 business days depending on your location.",
+                "You will receive tracking details once your order is shipped."
+            ]
+        },
+        {
+            "title": "Shipping Charges",
+            "content": [
+                "Shipping is free for orders above ₹499.",
+                "For orders below ₹499, a nominal delivery fee will apply."
+            ]
+        },
+        {
+            "title": "Order Tracking",
+            "content": [
+                "You can track your order from the ‘My Orders’ section in your Shopizen account or via the tracking link sent by email/SMS."
+            ]
+        }
+    ]
+}
