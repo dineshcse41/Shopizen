@@ -6,3 +6,384 @@
 [2025-11-19 07:45:16,716] WARNING django.request Not Found: /
 [2025-11-19 07:45:16,717] WARNING django.server "GET / HTTP/1.1" 404 3304
 [2025-11-19 07:52:41,571] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-19 08:17:21,450] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-19 08:26:27,876] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-19 08:28:59,477] INFO django.server "OPTIONS /authentication/api/register/ HTTP/1.1" 200 0
+[2025-11-19 08:28:59,480] WARNING django.request Bad Request: /authentication/api/register/
+[2025-11-19 08:28:59,481] WARNING django.server "POST /authentication/api/register/ HTTP/1.1" 400 35
+[2025-11-19 08:32:39,062] WARNING django.request Bad Request: /authentication/api/register/
+[2025-11-19 08:32:39,062] WARNING django.server "POST /authentication/api/register/ HTTP/1.1" 400 35
+[2025-11-19 08:32:48,518] WARNING django.request Bad Request: /authentication/api/register/
+[2025-11-19 08:32:48,519] WARNING django.server "POST /authentication/api/register/ HTTP/1.1" 400 35
+[2025-11-19 08:33:03,685] WARNING django.request Bad Request: /authentication/api/register/
+[2025-11-19 08:33:03,686] WARNING django.server "POST /authentication/api/register/ HTTP/1.1" 400 35
+[2025-11-19 08:33:37,701] WARNING django.request Bad Request: /authentication/api/register/
+[2025-11-19 08:33:37,702] WARNING django.server "POST /authentication/api/register/ HTTP/1.1" 400 35
+[2025-11-19 08:53:01,064] INFO django.utils.autoreload E:\Shopizen\Authentication\serializers.py changed, reloading.
+[2025-11-19 08:53:01,591] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-19 08:53:11,346] INFO django.utils.autoreload E:\Shopizen\Authentication\serializers.py changed, reloading.
+[2025-11-19 08:53:11,870] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-19 08:53:17,418] INFO django.utils.autoreload E:\Shopizen\Authentication\serializers.py changed, reloading.
+[2025-11-19 08:53:17,899] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-19 08:53:32,223] INFO django.utils.autoreload E:\Shopizen\Authentication\views.py changed, reloading.
+[2025-11-19 08:53:32,754] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-19 08:53:41,412] INFO django.utils.autoreload E:\Shopizen\Authentication\views.py changed, reloading.
+[2025-11-19 08:53:41,901] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-19 08:53:57,253] INFO django.utils.autoreload E:\Shopizen\Authentication\views.py changed, reloading.
+[2025-11-19 08:53:57,756] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-19 08:53:59,331] INFO django.utils.autoreload E:\Shopizen\Authentication\views.py changed, reloading.
+[2025-11-19 08:54:00,513] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-19 08:54:04,911] INFO django.utils.autoreload E:\Shopizen\Authentication\views.py changed, reloading.
+[2025-11-19 08:54:06,034] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-19 08:54:12,110] INFO django.utils.autoreload E:\Shopizen\Authentication\views.py changed, reloading.
+[2025-11-19 08:54:13,608] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-19 08:54:16,033] INFO django.utils.autoreload E:\Shopizen\Authentication\views.py changed, reloading.
+[2025-11-19 08:54:17,135] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-19 08:54:20,663] INFO django.utils.autoreload E:\Shopizen\Authentication\views.py changed, reloading.
+[2025-11-19 08:54:22,306] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-19 08:54:25,960] INFO django.utils.autoreload E:\Shopizen\Authentication\views.py changed, reloading.
+[2025-11-19 08:54:26,864] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-19 08:54:31,696] INFO django.utils.autoreload E:\Shopizen\Authentication\views.py changed, reloading.
+[2025-11-19 08:54:32,592] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-19 08:54:36,352] INFO django.utils.autoreload E:\Shopizen\Authentication\views.py changed, reloading.
+[2025-11-19 08:54:37,015] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-19 08:54:42,185] INFO django.utils.autoreload E:\Shopizen\Authentication\views.py changed, reloading.
+[2025-11-19 08:54:43,691] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-19 08:55:03,813] INFO django.utils.autoreload E:\Shopizen\Authentication\views.py changed, reloading.
+[2025-11-19 08:55:04,382] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-19 08:55:19,060] INFO django.utils.autoreload E:\Shopizen\Authentication\urls.py changed, reloading.
+[2025-11-19 08:55:19,883] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-19 08:56:27,064] WARNING django.request Bad Request: /authentication/api/register/
+[2025-11-19 08:56:27,065] WARNING django.server "POST /authentication/api/register/ HTTP/1.1" 400 35
+[2025-11-19 08:57:00,616] INFO django.server "OPTIONS /authentication/api/login/ HTTP/1.1" 200 0
+[2025-11-19 08:57:01,699] WARNING django.request Unauthorized: /authentication/api/login/
+[2025-11-19 08:57:01,700] WARNING django.server "POST /authentication/api/login/ HTTP/1.1" 401 31
+[2025-11-19 08:57:11,394] WARNING django.request Unauthorized: /authentication/api/login/
+[2025-11-19 08:57:11,396] WARNING django.server "POST /authentication/api/login/ HTTP/1.1" 401 31
+[2025-11-19 09:19:41,132] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-19 09:24:16,600] INFO django.server "OPTIONS /authentication/api/register/ HTTP/1.1" 200 0
+[2025-11-19 09:24:17,907] ERROR core.exceptions Unhandled Exception: User has no userprofile.
+Traceback (most recent call last):
+  File "E:\Shopizen\.venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "E:\Shopizen\Authentication\views.py", line 41, in post
+    user.userprofile.full_name = full_name
+    ^^^^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\models\fields\related_descriptors.py", line 534, in __get__
+    raise self.RelatedObjectDoesNotExist(
+    ...<2 lines>...
+    )
+django.contrib.auth.models.User.userprofile.RelatedObjectDoesNotExist: User has no userprofile.
+[2025-11-19 09:24:17,928] ERROR django.request Internal Server Error: /authentication/api/register/
+[2025-11-19 09:24:17,928] ERROR django.server "POST /authentication/api/register/ HTTP/1.1" 500 101
+[2025-11-19 09:24:18,128] WARNING django.request Bad Request: /authentication/api/register/
+[2025-11-19 09:24:18,128] WARNING django.server "POST /authentication/api/register/ HTTP/1.1" 400 31
+[2025-11-19 09:24:19,551] WARNING django.request Bad Request: /authentication/api/register/
+[2025-11-19 09:24:19,552] WARNING django.server "POST /authentication/api/register/ HTTP/1.1" 400 31
+[2025-11-19 09:24:32,639] WARNING django.request Bad Request: /authentication/api/register/
+[2025-11-19 09:24:32,639] WARNING django.server "POST /authentication/api/register/ HTTP/1.1" 400 31
+[2025-11-19 09:32:09,585] INFO django.utils.autoreload E:\Shopizen\Authentication\views.py changed, reloading.
+[2025-11-19 09:32:10,167] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-19 09:32:25,157] INFO django.utils.autoreload E:\Shopizen\Authentication\serializers.py changed, reloading.
+[2025-11-19 09:32:25,659] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-19 09:33:48,838] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-19 09:34:43,466] ERROR core.exceptions Unhandled Exception: name 'RegisterSerializer' is not defined
+Traceback (most recent call last):
+  File "E:\Shopizen\.venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "E:\Shopizen\Authentication\views.py", line 22, in post
+    serializer = RegisterSerializer(data=request.data)
+                 ^^^^^^^^^^^^^^^^^^
+NameError: name 'RegisterSerializer' is not defined. Did you mean: 'AdminRegisterSerializer'?
+[2025-11-19 09:34:43,469] ERROR django.request Internal Server Error: /authentication/api/register/
+[2025-11-19 09:34:43,470] ERROR django.server "POST /authentication/api/register/ HTTP/1.1" 500 101
+[2025-11-19 09:34:44,755] ERROR core.exceptions Unhandled Exception: name 'RegisterSerializer' is not defined
+Traceback (most recent call last):
+  File "E:\Shopizen\.venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "E:\Shopizen\Authentication\views.py", line 22, in post
+    serializer = RegisterSerializer(data=request.data)
+                 ^^^^^^^^^^^^^^^^^^
+NameError: name 'RegisterSerializer' is not defined. Did you mean: 'AdminRegisterSerializer'?
+[2025-11-19 09:34:44,757] ERROR django.request Internal Server Error: /authentication/api/register/
+[2025-11-19 09:34:44,757] ERROR django.server "POST /authentication/api/register/ HTTP/1.1" 500 101
+[2025-11-19 09:34:44,978] ERROR core.exceptions Unhandled Exception: name 'RegisterSerializer' is not defined
+Traceback (most recent call last):
+  File "E:\Shopizen\.venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "E:\Shopizen\Authentication\views.py", line 22, in post
+    serializer = RegisterSerializer(data=request.data)
+                 ^^^^^^^^^^^^^^^^^^
+NameError: name 'RegisterSerializer' is not defined. Did you mean: 'AdminRegisterSerializer'?
+[2025-11-19 09:34:44,980] ERROR django.request Internal Server Error: /authentication/api/register/
+[2025-11-19 09:34:44,981] ERROR django.server "POST /authentication/api/register/ HTTP/1.1" 500 101
+[2025-11-19 09:34:45,194] ERROR core.exceptions Unhandled Exception: name 'RegisterSerializer' is not defined
+Traceback (most recent call last):
+  File "E:\Shopizen\.venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "E:\Shopizen\Authentication\views.py", line 22, in post
+    serializer = RegisterSerializer(data=request.data)
+                 ^^^^^^^^^^^^^^^^^^
+NameError: name 'RegisterSerializer' is not defined. Did you mean: 'AdminRegisterSerializer'?
+[2025-11-19 09:34:45,196] ERROR django.request Internal Server Error: /authentication/api/register/
+[2025-11-19 09:34:45,197] ERROR django.server "POST /authentication/api/register/ HTTP/1.1" 500 101
+[2025-11-19 09:34:45,379] ERROR core.exceptions Unhandled Exception: name 'RegisterSerializer' is not defined
+Traceback (most recent call last):
+  File "E:\Shopizen\.venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "E:\Shopizen\Authentication\views.py", line 22, in post
+    serializer = RegisterSerializer(data=request.data)
+                 ^^^^^^^^^^^^^^^^^^
+NameError: name 'RegisterSerializer' is not defined. Did you mean: 'AdminRegisterSerializer'?
+[2025-11-19 09:34:45,381] ERROR django.request Internal Server Error: /authentication/api/register/
+[2025-11-19 09:34:45,381] ERROR django.server "POST /authentication/api/register/ HTTP/1.1" 500 101
+[2025-11-19 09:34:45,569] ERROR core.exceptions Unhandled Exception: name 'RegisterSerializer' is not defined
+Traceback (most recent call last):
+  File "E:\Shopizen\.venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "E:\Shopizen\Authentication\views.py", line 22, in post
+    serializer = RegisterSerializer(data=request.data)
+                 ^^^^^^^^^^^^^^^^^^
+NameError: name 'RegisterSerializer' is not defined. Did you mean: 'AdminRegisterSerializer'?
+[2025-11-19 09:34:45,571] ERROR django.request Internal Server Error: /authentication/api/register/
+[2025-11-19 09:34:45,572] ERROR django.server "POST /authentication/api/register/ HTTP/1.1" 500 101
+[2025-11-19 09:34:45,786] ERROR core.exceptions Unhandled Exception: name 'RegisterSerializer' is not defined
+Traceback (most recent call last):
+  File "E:\Shopizen\.venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "E:\Shopizen\Authentication\views.py", line 22, in post
+    serializer = RegisterSerializer(data=request.data)
+                 ^^^^^^^^^^^^^^^^^^
+NameError: name 'RegisterSerializer' is not defined. Did you mean: 'AdminRegisterSerializer'?
+[2025-11-19 09:34:45,788] ERROR django.request Internal Server Error: /authentication/api/register/
+[2025-11-19 09:34:45,788] ERROR django.server "POST /authentication/api/register/ HTTP/1.1" 500 101
+[2025-11-19 09:34:46,922] ERROR core.exceptions Unhandled Exception: name 'RegisterSerializer' is not defined
+Traceback (most recent call last):
+  File "E:\Shopizen\.venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "E:\Shopizen\Authentication\views.py", line 22, in post
+    serializer = RegisterSerializer(data=request.data)
+                 ^^^^^^^^^^^^^^^^^^
+NameError: name 'RegisterSerializer' is not defined. Did you mean: 'AdminRegisterSerializer'?
+[2025-11-19 09:34:46,924] ERROR django.request Internal Server Error: /authentication/api/register/
+[2025-11-19 09:34:46,924] ERROR django.server "POST /authentication/api/register/ HTTP/1.1" 500 101
+[2025-11-19 09:34:47,138] ERROR core.exceptions Unhandled Exception: name 'RegisterSerializer' is not defined
+Traceback (most recent call last):
+  File "E:\Shopizen\.venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "E:\Shopizen\Authentication\views.py", line 22, in post
+    serializer = RegisterSerializer(data=request.data)
+                 ^^^^^^^^^^^^^^^^^^
+NameError: name 'RegisterSerializer' is not defined. Did you mean: 'AdminRegisterSerializer'?
+[2025-11-19 09:34:47,139] ERROR django.request Internal Server Error: /authentication/api/register/
+[2025-11-19 09:34:47,140] ERROR django.server "POST /authentication/api/register/ HTTP/1.1" 500 101
+[2025-11-19 09:34:47,338] ERROR core.exceptions Unhandled Exception: name 'RegisterSerializer' is not defined
+Traceback (most recent call last):
+  File "E:\Shopizen\.venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "E:\Shopizen\Authentication\views.py", line 22, in post
+    serializer = RegisterSerializer(data=request.data)
+                 ^^^^^^^^^^^^^^^^^^
+NameError: name 'RegisterSerializer' is not defined. Did you mean: 'AdminRegisterSerializer'?
+[2025-11-19 09:34:47,340] ERROR django.request Internal Server Error: /authentication/api/register/
+[2025-11-19 09:34:47,340] ERROR django.server "POST /authentication/api/register/ HTTP/1.1" 500 101
+[2025-11-19 09:35:56,640] INFO django.utils.autoreload E:\Shopizen\Authentication\views.py changed, reloading.
+[2025-11-19 09:35:57,132] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-19 09:36:02,692] INFO django.utils.autoreload E:\Shopizen\Authentication\views.py changed, reloading.
+[2025-11-19 09:36:03,169] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-19 09:36:06,507] INFO django.utils.autoreload E:\Shopizen\Authentication\views.py changed, reloading.
+[2025-11-19 09:36:06,980] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-19 09:36:42,047] WARNING django.request Bad Request: /authentication/api/register/
+[2025-11-19 09:36:42,050] WARNING django.server "POST /authentication/api/register/ HTTP/1.1" 400 33
+[2025-11-19 09:36:55,284] WARNING django.request Not Found: /
+[2025-11-19 09:36:55,285] WARNING django.server "GET / HTTP/1.1" 404 3304
+[2025-11-19 09:36:55,337] WARNING django.request Not Found: /favicon.ico
+[2025-11-19 09:36:55,338] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3355
+[2025-11-19 09:36:58,998] INFO django.server "GET /admin/ HTTP/1.1" 200 21896
+[2025-11-19 09:36:59,103] INFO django.server "GET /static/admin/css/base.css HTTP/1.1" 200 22120
+[2025-11-19 09:36:59,119] INFO django.server "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 200 2810
+[2025-11-19 09:36:59,119] INFO django.server "GET /static/admin/css/dark_mode.css HTTP/1.1" 200 2808
+[2025-11-19 09:36:59,128] INFO django.server "GET /static/admin/js/theme.js HTTP/1.1" 200 1653
+[2025-11-19 09:36:59,132] INFO django.server "GET /static/admin/css/dashboard.css HTTP/1.1" 200 441
+[2025-11-19 09:36:59,134] INFO django.server "GET /static/admin/css/responsive.css HTTP/1.1" 200 16565
+[2025-11-19 09:36:59,151] INFO django.server "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 200 3063
+[2025-11-19 09:36:59,165] INFO django.server "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380
+[2025-11-19 09:36:59,175] INFO django.server "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+[2025-11-19 09:37:03,014] INFO django.server "GET /admin/Authentication/userprofile/ HTTP/1.1" 200 17296
+[2025-11-19 09:37:03,044] INFO django.server "GET /static/admin/css/changelists.css HTTP/1.1" 200 6878
+[2025-11-19 09:37:03,050] INFO django.server "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 347
+[2025-11-19 09:37:03,058] INFO django.server "GET /static/admin/js/core.js HTTP/1.1" 200 6208
+[2025-11-19 09:37:03,058] INFO django.server "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 9777
+[2025-11-19 09:37:03,066] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2025-11-19 09:37:03,073] INFO django.server "GET /static/admin/js/urlify.js HTTP/1.1" 200 7887
+[2025-11-19 09:37:03,074] INFO django.server "GET /static/admin/js/actions.js HTTP/1.1" 200 8076
+[2025-11-19 09:37:03,078] INFO django.server "GET /static/admin/img/search.svg HTTP/1.1" 200 458
+[2025-11-19 09:37:03,080] INFO django.server "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1531
+[2025-11-19 09:37:03,092] INFO django.server "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 285314
+[2025-11-19 09:37:03,112] INFO django.server "GET /static/admin/js/filters.js HTTP/1.1" 200 978
+[2025-11-19 09:37:03,140] INFO django.server "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 325171
+[2025-11-19 09:37:03,172] INFO django.server "GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 200 581
+[2025-11-19 09:37:03,175] INFO django.server "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 200 331
+[2025-11-19 09:37:08,758] INFO django.server "GET /admin/Authentication/adminprofile/ HTTP/1.1" 200 17182
+[2025-11-19 09:37:08,775] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2025-11-19 09:37:09,529] INFO django.server "GET /admin/Authentication/userprofile/ HTTP/1.1" 200 17296
+[2025-11-19 09:37:09,547] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2025-11-19 09:37:10,600] INFO django.server "GET /admin/Authentication/userprofile/add/ HTTP/1.1" 200 19526
+[2025-11-19 09:37:10,627] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2025-11-19 09:37:10,635] INFO django.server "GET /static/admin/css/forms.css HTTP/1.1" 200 8525
+[2025-11-19 09:37:10,639] INFO django.server "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 586
+[2025-11-19 09:37:10,647] INFO django.server "GET /static/admin/css/widgets.css HTTP/1.1" 200 11973
+[2025-11-19 09:37:10,651] INFO django.server "GET /static/admin/js/change_form.js HTTP/1.1" 200 606
+[2025-11-19 09:37:22,311] INFO django.server "POST /admin/Authentication/userprofile/add/ HTTP/1.1" 302 0
+[2025-11-19 09:37:22,342] INFO django.server "GET /admin/Authentication/userprofile/ HTTP/1.1" 200 19358
+[2025-11-19 09:37:22,364] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2025-11-19 09:37:22,382] INFO django.server "GET /static/admin/img/icon-yes.svg HTTP/1.1" 200 436
+[2025-11-19 09:37:28,454] INFO django.server "GET /admin/Authentication/adminprofile/ HTTP/1.1" 200 17182
+[2025-11-19 09:37:28,473] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2025-11-19 09:37:30,384] INFO django.server "GET /admin/Authentication/userprofile/ HTTP/1.1" 200 19140
+[2025-11-19 09:37:30,402] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2025-11-19 09:37:44,791] INFO django.server "GET /admin/Authentication/userprofile/add/ HTTP/1.1" 200 19526
+[2025-11-19 09:37:44,810] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2025-11-19 09:37:47,151] INFO django.server "POST /admin/Authentication/userprofile/add/ HTTP/1.1" 200 20051
+[2025-11-19 09:37:47,171] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2025-11-19 09:37:50,470] INFO django.server "POST /admin/Authentication/userprofile/add/ HTTP/1.1" 200 20051
+[2025-11-19 09:37:50,489] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2025-11-19 09:37:56,921] INFO django.server "POST /admin/Authentication/userprofile/add/ HTTP/1.1" 200 19809
+[2025-11-19 09:37:56,938] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2025-11-19 09:38:01,932] INFO django.server "GET /admin/auth/user/add/?_to_field=id&_popup=1 HTTP/1.1" 200 8107
+[2025-11-19 09:38:01,955] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2025-11-19 09:38:01,962] INFO django.server "GET /static/admin/css/unusable_password_field.css HTTP/1.1" 200 663
+[2025-11-19 09:38:01,981] INFO django.server "GET /static/admin/js/unusable_password_field.js HTTP/1.1" 200 1480
+[2025-11-19 09:38:24,165] INFO django.server "POST /admin/Authentication/userprofile/add/ HTTP/1.1" 200 20051
+[2025-11-19 09:38:24,193] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2025-11-19 09:38:26,744] INFO django.server "GET /admin/Authentication/adminprofile/ HTTP/1.1" 200 17182
+[2025-11-19 09:38:26,761] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2025-11-19 09:38:27,758] INFO django.server "GET /admin/Authentication/userprofile/ HTTP/1.1" 200 19140
+[2025-11-19 09:38:27,776] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2025-11-19 09:40:38,533] INFO django.server "POST /authentication/api/register/ HTTP/1.1" 201 42
+[2025-11-19 09:41:10,538] INFO django.server "OPTIONS /authentication/api/login/ HTTP/1.1" 200 0
+[2025-11-19 09:41:11,009] WARNING django.request Unauthorized: /authentication/api/login/
+[2025-11-19 09:41:11,011] WARNING django.server "POST /authentication/api/login/ HTTP/1.1" 401 31
+[2025-11-19 09:41:26,661] WARNING django.request Unauthorized: /authentication/api/login/
+[2025-11-19 09:41:26,662] WARNING django.server "POST /authentication/api/login/ HTTP/1.1" 401 31
+[2025-11-19 09:46:00,446] INFO django.utils.autoreload E:\Shopizen\Authentication\models.py changed, reloading.
+[2025-11-19 09:46:00,990] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-19 09:46:02,259] INFO django.utils.autoreload E:\Shopizen\Authentication\models.py changed, reloading.
+[2025-11-19 09:46:03,922] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-19 09:56:12,327] WARNING django.request Unauthorized: /authentication/api/login/
+[2025-11-19 09:56:12,327] WARNING django.server "POST /authentication/api/login/ HTTP/1.1" 401 31
+[2025-11-19 09:56:33,388] WARNING django.request Unauthorized: /authentication/api/login/
+[2025-11-19 09:56:33,389] WARNING django.server "POST /authentication/api/login/ HTTP/1.1" 401 31
+[2025-11-19 10:00:26,534] INFO django.utils.autoreload E:\Shopizen\Authentication\views.py changed, reloading.
+[2025-11-19 10:00:27,052] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-19 10:00:30,372] INFO django.utils.autoreload E:\Shopizen\Authentication\views.py changed, reloading.
+[2025-11-19 10:00:30,911] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-19 10:00:32,179] INFO django.utils.autoreload E:\Shopizen\Authentication\views.py changed, reloading.
+[2025-11-19 10:00:32,676] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-19 10:00:33,922] INFO django.utils.autoreload E:\Shopizen\Authentication\views.py changed, reloading.
+[2025-11-19 10:00:34,432] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-19 10:00:35,683] INFO django.utils.autoreload E:\Shopizen\Authentication\views.py changed, reloading.
+[2025-11-19 10:00:36,190] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-19 10:00:37,465] INFO django.utils.autoreload E:\Shopizen\Authentication\views.py changed, reloading.
+[2025-11-19 10:00:37,964] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-19 10:00:40,247] INFO django.utils.autoreload E:\Shopizen\Authentication\views.py changed, reloading.
+[2025-11-19 10:00:40,734] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-19 10:00:46,073] INFO django.utils.autoreload E:\Shopizen\Authentication\views.py changed, reloading.
+[2025-11-19 10:00:46,554] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-19 10:00:48,840] INFO django.utils.autoreload E:\Shopizen\Authentication\views.py changed, reloading.
+[2025-11-19 10:00:49,299] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-19 10:00:52,588] INFO django.utils.autoreload E:\Shopizen\Authentication\views.py changed, reloading.
+[2025-11-19 10:00:53,102] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-19 10:00:55,401] INFO django.utils.autoreload E:\Shopizen\Authentication\views.py changed, reloading.
+[2025-11-19 10:00:55,893] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-19 10:00:58,161] INFO django.utils.autoreload E:\Shopizen\Authentication\views.py changed, reloading.
+[2025-11-19 10:00:58,712] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-19 10:00:59,955] INFO django.utils.autoreload E:\Shopizen\Authentication\views.py changed, reloading.
+[2025-11-19 10:01:00,446] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-19 10:01:01,695] INFO django.utils.autoreload E:\Shopizen\Authentication\views.py changed, reloading.
+[2025-11-19 10:01:02,193] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-19 10:01:03,497] INFO django.utils.autoreload E:\Shopizen\Authentication\views.py changed, reloading.
+[2025-11-19 10:01:03,966] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-19 10:01:06,248] INFO django.utils.autoreload E:\Shopizen\Authentication\views.py changed, reloading.
+[2025-11-19 10:01:06,779] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-19 10:01:08,020] INFO django.utils.autoreload E:\Shopizen\Authentication\views.py changed, reloading.
+[2025-11-19 10:01:08,501] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-19 10:01:11,816] INFO django.utils.autoreload E:\Shopizen\Authentication\views.py changed, reloading.
+[2025-11-19 10:01:12,271] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-19 10:01:15,650] INFO django.utils.autoreload E:\Shopizen\Authentication\views.py changed, reloading.
+[2025-11-19 10:01:16,120] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-19 10:01:17,351] INFO django.utils.autoreload E:\Shopizen\Authentication\views.py changed, reloading.
+[2025-11-19 10:01:17,868] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-19 10:01:22,351] INFO django.utils.autoreload E:\Shopizen\Authentication\views.py changed, reloading.
+[2025-11-19 10:01:22,810] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-19 10:01:24,276] INFO django.utils.autoreload E:\Shopizen\Authentication\views.py changed, reloading.
+[2025-11-19 10:01:24,758] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-19 10:01:27,199] INFO django.utils.autoreload E:\Shopizen\Authentication\views.py changed, reloading.
+[2025-11-19 10:01:27,699] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-19 10:01:30,093] INFO django.utils.autoreload E:\Shopizen\Authentication\views.py changed, reloading.
+[2025-11-19 10:01:30,585] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-19 10:01:32,859] INFO django.utils.autoreload E:\Shopizen\Authentication\views.py changed, reloading.
+[2025-11-19 10:01:33,311] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-19 10:01:34,680] INFO django.utils.autoreload E:\Shopizen\Authentication\views.py changed, reloading.
+[2025-11-19 10:01:35,148] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-19 10:01:36,593] INFO django.utils.autoreload E:\Shopizen\Authentication\views.py changed, reloading.
+[2025-11-19 10:01:37,063] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-19 10:01:38,438] INFO django.utils.autoreload E:\Shopizen\Authentication\views.py changed, reloading.
+[2025-11-19 10:01:38,904] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-19 10:01:40,323] INFO django.utils.autoreload E:\Shopizen\Authentication\views.py changed, reloading.
+[2025-11-19 10:01:40,819] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-19 10:01:42,212] INFO django.utils.autoreload E:\Shopizen\Authentication\views.py changed, reloading.
+[2025-11-19 10:01:42,687] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-19 10:02:21,782] WARNING django.request Unauthorized: /authentication/api/login/
+[2025-11-19 10:02:21,783] WARNING django.server "POST /authentication/api/login/ HTTP/1.1" 401 31
+[2025-11-19 10:02:35,593] WARNING django.request Unauthorized: /authentication/api/login/
+[2025-11-19 10:02:35,593] WARNING django.server "POST /authentication/api/login/ HTTP/1.1" 401 31
+[2025-11-19 10:03:06,879] WARNING django.request Unauthorized: /authentication/api/login/
+[2025-11-19 10:03:06,882] WARNING django.server "POST /authentication/api/login/ HTTP/1.1" 401 31
+[2025-11-19 10:06:33,721] INFO django.utils.autoreload E:\Shopizen\Authentication\views.py changed, reloading.
+[2025-11-19 10:06:34,215] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-19 10:06:43,990] INFO django.utils.autoreload E:\Shopizen\Authentication\views.py changed, reloading.
+[2025-11-19 10:06:44,482] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-19 10:06:45,881] INFO django.utils.autoreload E:\Shopizen\Authentication\views.py changed, reloading.
+[2025-11-19 10:06:46,372] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-19 10:07:07,567] WARNING django.request Unauthorized: /authentication/api/login/
+[2025-11-19 10:07:07,568] WARNING django.server "POST /authentication/api/login/ HTTP/1.1" 401 31
+[2025-11-19 10:07:16,805] WARNING django.request Unauthorized: /authentication/api/login/
+[2025-11-19 10:07:16,805] WARNING django.server "POST /authentication/api/login/ HTTP/1.1" 401 31
+[2025-11-19 10:07:43,420] WARNING django.request Unauthorized: /authentication/api/login/
+[2025-11-19 10:07:43,421] WARNING django.server "POST /authentication/api/login/ HTTP/1.1" 401 31
+[2025-11-19 10:09:50,934] INFO django.utils.autoreload E:\Shopizen\Authentication\views.py changed, reloading.
+[2025-11-19 10:09:51,451] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-19 10:10:00,271] WARNING django.request Unauthorized: /authentication/api/login/
+[2025-11-19 10:10:00,271] WARNING django.server "POST /authentication/api/login/ HTTP/1.1" 401 31
+[2025-11-19 10:10:11,541] WARNING django.request Unauthorized: /authentication/api/login/
+[2025-11-19 10:10:11,543] WARNING django.server "POST /authentication/api/login/ HTTP/1.1" 401 31
+[2025-11-19 10:10:42,217] INFO django.server "POST /authentication/api/login/ HTTP/1.1" 200 621
+[2025-11-19 10:13:48,630] INFO django.utils.autoreload E:\Shopizen\Authentication\views.py changed, reloading.
+[2025-11-19 10:13:49,153] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-19 11:45:43,006] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-19 11:46:27,431] INFO django.server "OPTIONS /authentication/api/login/ HTTP/1.1" 200 0
+[2025-11-19 11:46:28,961] WARNING django.request Unauthorized: /authentication/api/login/
+[2025-11-19 11:46:28,961] WARNING django.server "POST /authentication/api/login/ HTTP/1.1" 401 31
+[2025-11-19 11:47:38,193] WARNING django.request Unauthorized: /authentication/api/login/
+[2025-11-19 11:47:38,194] WARNING django.server "POST /authentication/api/login/ HTTP/1.1" 401 31
+[2025-11-19 11:49:21,549] WARNING django.request Unauthorized: /authentication/api/login/
+[2025-11-19 11:49:21,551] WARNING django.server "POST /authentication/api/login/ HTTP/1.1" 401 31
+[2025-11-19 11:49:49,551] INFO django.server "POST /authentication/api/login/ HTTP/1.1" 200 621
+[2025-11-19 11:51:56,321] INFO django.server "OPTIONS /authentication/api/register/ HTTP/1.1" 200 0
+[2025-11-19 11:51:57,184] INFO django.server "POST /authentication/api/register/ HTTP/1.1" 201 42
+[2025-11-19 11:52:28,620] INFO django.server "POST /authentication/api/login/ HTTP/1.1" 200 598
+[2025-11-19 11:53:52,323] INFO django.utils.autoreload E:\Shopizen\Authentication\serializers.py changed, reloading.
+[2025-11-19 11:53:52,830] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-19 11:53:54,250] INFO django.utils.autoreload E:\Shopizen\Authentication\serializers.py changed, reloading.
+[2025-11-19 11:53:54,726] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-19 11:55:16,689] INFO django.utils.autoreload E:\Shopizen\Authentication\serializers.py changed, reloading.
+[2025-11-19 11:55:17,168] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-19 11:55:20,653] INFO django.utils.autoreload E:\Shopizen\Authentication\serializers.py changed, reloading.
+[2025-11-19 11:55:21,146] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-19 11:55:24,440] INFO django.utils.autoreload E:\Shopizen\Authentication\serializers.py changed, reloading.
+[2025-11-19 11:55:24,909] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-19 11:55:28,346] INFO django.utils.autoreload E:\Shopizen\Authentication\serializers.py changed, reloading.
+[2025-11-19 11:55:28,867] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-19 11:56:40,665] INFO django.server "POST /authentication/api/register/ HTTP/1.1" 201 42
+[2025-11-19 11:57:03,135] INFO django.server "POST /authentication/api/login/ HTTP/1.1" 200 598
