@@ -410,3 +410,6 @@ django.core.exceptions.ImproperlyConfigured: Field name `product_image` is not v
 [2025-11-18 18:59:20,127] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
 [2025-11-18 18:59:24,855] INFO django.server "GET /admin/Authentication/adminprofile/add/ HTTP/1.1" 200 21434
 [2025-11-18 18:59:24,875] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2025-11-18 19:20:37,216] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-18 19:20:44,117] INFO django.server "GET /admin/Authentication/adminprofile/add/ HTTP/1.1" 200 21434
+[2025-11-18 19:20:44,164] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342

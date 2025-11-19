@@ -1,0 +1,8 @@
+[2025-11-19 07:44:46,153] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-19 07:44:49,314] WARNING django.request Not Found: /
+[2025-11-19 07:44:49,314] WARNING django.server "GET / HTTP/1.1" 404 3304
+[2025-11-19 07:44:49,426] WARNING django.request Not Found: /favicon.ico
+[2025-11-19 07:44:49,426] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 3355
+[2025-11-19 07:45:16,716] WARNING django.request Not Found: /
+[2025-11-19 07:45:16,717] WARNING django.server "GET / HTTP/1.1" 404 3304
+[2025-11-19 07:52:41,571] INFO django.utils.autoreload Watching for file changes with StatReloader
