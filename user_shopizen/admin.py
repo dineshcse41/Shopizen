@@ -7,6 +7,8 @@ from .models import (
     Wallet, WalletTransaction,
     ContactMessage, Address
 )
+from django.contrib.auth import get_user_model
+User = get_user_model()
 
 
 # -------------------------

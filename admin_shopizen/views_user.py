@@ -1,20 +1,37 @@
-# Task 12
-from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
 from rest_framework import generics, status
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 from .permissions import IsAdminUser
-from user_shopizen.serializers import UserSerializer  # you can create a simple one
+from rest_framework.serializers import ModelSerializer
 
+User = get_user_model()
+
+
+# -------------------------
+# SERIALIZER
+# -------------------------
+class AdminUserSerializer(ModelSerializer):
+    class Meta:
+        model = User
+        fields = ['id', 'email', 'first_name', 'last_name', 'phone_number', 'is_active', 'is_staff']
+
+
+# -------------------------
+# LIST ALL USERS
+# -------------------------
 class AdminUserListView(generics.ListAPIView):
-    queryset = User.objects.all().order_by('-date_joined')
-    serializer_class = UserSerializer
+    queryset = User.objects.all().order_by('-id')
+    serializer_class = AdminUserSerializer
     permission_classes = [IsAuthenticated, IsAdminUser]
 
 
+# -------------------------
+# BLOCK USER
+# -------------------------
 class AdminUserBlockView(generics.UpdateAPIView):
     queryset = User.objects.all()
-    serializer_class = UserSerializer
+    serializer_class = AdminUserSerializer
     permission_classes = [IsAuthenticated, IsAdminUser]
     lookup_field = 'id'
 
@@ -22,59 +39,35 @@ class AdminUserBlockView(generics.UpdateAPIView):
         user = self.get_object()
         user.is_active = False
         user.save()
-        return Response({'message': f'User {user.username} blocked'}, status=status.HTTP_200_OK)
+        return Response({'message': f'User {user.email} blocked'}, status=status.HTTP_200_OK)
 
 
-class AdminUserUnblockView(AdminUserBlockView):
-    def patch(self, request, *args, **kwargs):
-        user = self.get_object()
-        user.is_active = True
-        user.save()
-        return Response({'message': f'User {user.username} unblocked'}, status=status.HTTP_200_OK)
-
-
-# admin_shopizen/views_users.py
-from django.contrib.auth.models import User
-from rest_framework import generics, status
-from rest_framework.response import Response
-from rest_framework.permissions import IsAuthenticated
-from .permissions import IsAdminUser
-from rest_framework.serializers import ModelSerializer
-
-
-class AdminUserSerializer(ModelSerializer):
-    class Meta:
-        model = User
-        fields = ['id', 'username', 'email', 'is_active', 'is_staff']
-
-
-class AdminUserListView(generics.ListAPIView):
-    queryset = User.objects.all().order_by('id')
-    serializer_class = AdminUserSerializer
-    permission_classes = [IsAuthenticated, IsAdminUser]
-
-
-class AdminUserBlockUnblockView(generics.UpdateAPIView):
+# -------------------------
+# UNBLOCK USER
+# -------------------------
+class AdminUserUnblockView(generics.UpdateAPIView):
     queryset = User.objects.all()
     serializer_class = AdminUserSerializer
     permission_classes = [IsAuthenticated, IsAdminUser]
     lookup_field = 'id'
 
-    def update(self, request, *args, **kwargs):
+    def patch(self, request, *args, **kwargs):
         user = self.get_object()
-        user.is_active = not user.is_active
+        user.is_active = True
         user.save()
-        action = "unblocked" if user.is_active else "blocked"
-        return Response({'message': f'User {action} successfully.'})
+        return Response({'message': f'User {user.email} unblocked'}, status=status.HTTP_200_OK)
 
 
+# -------------------------
+# DELETE USER
+# -------------------------
 class AdminUserDeleteView(generics.DestroyAPIView):
     queryset = User.objects.all()
     permission_classes = [IsAuthenticated, IsAdminUser]
     lookup_field = 'id'
 
-    def destroy(self, request, *args, **kwargs):
+    def delete(self, request, *args, **kwargs):
         user = self.get_object()
-        username = user.username
+        email = user.email
         user.delete()
-        return Response({'message': f'User {username} deleted successfully.'})
+        return Response({'message': f'User {email} deleted successfully.'})

@@ -12,10 +12,10 @@ urlpatterns = [
     path('login/', AdminLoginView.as_view()),
     path("admin/reset-password/", AdminResetPasswordView.as_view()),
     # Reset
-    path('password-reset/', PasswordResetRequestView.as_view(), name='password_reset'),
-    path('password-reset/confirm/', PasswordResetConfirmView.as_view(), name='password_reset_confirm'),
+    path('reset-password/', ResetPasswordRequestView.as_view(), name='reset-password'),
+    path('reset-password-confirm/', SetNewPasswordView.as_view(), name='reset-password-confirm'),
     # mobile login OTP
-    path('send-otp/', SendMobileOTPView.as_view(), name="send_otp"),
-    path('verify-otp/', VerifyMobileOTPView.as_view(), name="verify_otp"),
+    path('sendotp/', SendOTPView.as_view(), name="send_otp"),
+    path('verifyotp/', VerifyOTPView.as_view(), name="verify_otp"),
     
 ]

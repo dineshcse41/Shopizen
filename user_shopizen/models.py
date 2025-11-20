@@ -1,6 +1,12 @@
-#task 2 
 from django.db import models
+from django.conf import settings
+from django.db.models import Avg
+from datetime import date
+from django.contrib.auth import get_user_model
+User = get_user_model()
 
+
+# CATEGORY & BRAND
 class Category(models.Model):
     name = models.CharField(max_length=100)
 
@@ -14,7 +20,8 @@ class Brand(models.Model):
     def __str__(self):
         return self.name
 
-#  task 2 updated in task 6
+
+# PRODUCT
 class Product(models.Model):
     name = models.CharField(max_length=200, db_index=True)
     price = models.DecimalField(max_digits=10, decimal_places=2)
@@ -23,31 +30,24 @@ class Product(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='products', db_index=True)
     brand = models.ForeignKey(Brand, on_delete=models.CASCADE, related_name='products', db_index=True)
     created_at = models.DateTimeField(auto_now_add=True)
+    rating = models.DecimalField(max_digits=3, decimal_places=1, default=0.0)
 
     def __str__(self):
         return self.name
 
 
-# Task 4
-from django.db import models
-from django.contrib.auth.models import User
-from .models import Product 
-
+# CART
 class Cart(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='cart_items')
-    product = models.ForeignKey('Product', on_delete=models.CASCADE)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='cart_items')
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
     quantity = models.PositiveIntegerField(default=1)
     added_date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"{self.user.username} - {self.product.name} ({self.quantity})"
-
-# task updated in 11(2)
-from django.db import models
-from django.contrib.auth.models import User
-from .models import Product, Cart  # assuming Cart already exists
+        return f"{self.user.email} - {self.product.name} ({self.quantity})"
 
 
+# ORDER
 class Order(models.Model):
     STATUS_CHOICES = [
         ('Pending', 'Pending'),
@@ -57,13 +57,13 @@ class Order(models.Model):
         ('Cancelled', 'Cancelled'),
     ]
 
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='orders')
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='orders')
     total_price = models.DecimalField(max_digits=10, decimal_places=2)
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='Pending')
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"Order #{self.id} by {self.user.username}"
+        return f"Order #{self.id} by {self.user.email}"
 
 
 class OrderItem(models.Model):
@@ -78,17 +78,11 @@ class OrderItem(models.Model):
     def __str__(self):
         return f"{self.product.name} x {self.quantity}"
 
-# task 9 updated in task 10
-# user_shopizen/models.py
-from django.db import models
-from django.contrib.auth.models import User
-from django.db.models import Avg
-from datetime import date
 
-
+# REVIEW
 class Review(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='reviews')
-    product = models.ForeignKey('Product', on_delete=models.CASCADE, related_name='reviews')
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='reviews')
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='reviews')
     rating = models.PositiveIntegerField(default=1)
     comment = models.TextField(blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -97,19 +91,19 @@ class Review(models.Model):
         unique_together = ('user', 'product')
 
     def __str__(self):
-        return f"{self.user.username} - {self.product.name} ({self.rating})"
+        return f"{self.user.email} - {self.product.name} ({self.rating})"
 
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
-        # Auto-update product average rating
         avg = Review.objects.filter(product=self.product).aggregate(avg=Avg('rating'))['avg']
         self.product.rating = round(avg or 0, 1)
         self.product.save(update_fields=['rating'])
 
 
+# WISHLIST
 class Wishlist(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='wishlist')
-    product = models.ForeignKey('Product', on_delete=models.CASCADE, related_name='wishlisted_by')
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='wishlist')
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='wishlisted_by')
     added_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
@@ -117,9 +111,10 @@ class Wishlist(models.Model):
         ordering = ['id']
 
     def __str__(self):
-        return f"{self.user.username} → {self.product.name}"
+        return f"{self.user.email} → {self.product.name}"
 
 
+# OFFER
 class Offer(models.Model):
     OFFER_TYPE = (
         ('product', 'Product'),
@@ -127,8 +122,8 @@ class Offer(models.Model):
     )
 
     offer_type = models.CharField(max_length=20, choices=OFFER_TYPE)
-    product = models.ForeignKey('Product', on_delete=models.CASCADE, null=True, blank=True)
-    category = models.ForeignKey('Category', on_delete=models.CASCADE, null=True, blank=True)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, null=True, blank=True)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True, blank=True)
     discount_percent = models.DecimalField(max_digits=5, decimal_places=2)
     start_date = models.DateField()
     end_date = models.DateField()
@@ -142,10 +137,11 @@ class Offer(models.Model):
         today = date.today()
         return self.start_date <= today <= self.end_date
 
-# task 12
+
+# REFUND
 class Refund(models.Model):
     order = models.ForeignKey(Order, on_delete=models.CASCADE, related_name='refunds')
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     reason = models.TextField()
     status = models.CharField(max_length=20, choices=[
         ('Pending', 'Pending'),
@@ -157,35 +153,32 @@ class Refund(models.Model):
     def __str__(self):
         return f"Refund for Order #{self.order.id} ({self.status})"
 
-# user_shopizen/models.py
-from django.db import models
-from django.contrib.auth.models import User
-
+# NOTIFICATION
 class Notification(models.Model):
     NOTIFICATION_TYPES = [
         ('Order', 'Order'),
         ('Refund', 'Refund'),
         ('System', 'System'),
     ]
-    
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="notifications")
+
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="notifications")
     message = models.TextField()
     type = models.CharField(max_length=20, choices=NOTIFICATION_TYPES)
-    status = models.CharField(max_length=10, default='unread')  # 'read' or 'unread'
+    status = models.CharField(max_length=10, default='unread')
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"{self.user.username} - {self.type} - {self.status}"
-    
-from django.db import models
-from django.contrib.auth.models import User
+        return f"{self.user.email} - {self.type} - {self.status}"
 
+
+# WALLET
 class Wallet(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="wallet")
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="wallet")
     balance = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
 
     def __str__(self):
-        return f"{self.user.username} - Balance: ₹{self.balance}"
+        return f"{self.user.email} - Balance: ₹{self.balance}"
+
 
 class WalletTransaction(models.Model):
     TRANSACTION_TYPES = [
@@ -200,15 +193,12 @@ class WalletTransaction(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"{self.wallet.user.username} - {self.transaction_type} ₹{self.amount}"
+        return f"{self.wallet.user.email} - {self.transaction_type} ₹{self.amount}"
 
 
-
-from django.db import models
-from django.contrib.auth.models import User
-
+# CONTACT MESSAGE
 class ContactMessage(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='contact_messages')
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='contact_messages')
     subject = models.CharField(max_length=255)
     message = models.TextField()
     admin_reply = models.TextField(blank=True, null=True)
@@ -221,17 +211,12 @@ class ContactMessage(models.Model):
     replied_at = models.DateTimeField(blank=True, null=True)
 
     def __str__(self):
-        return f"{self.user.username} - {self.subject}"
+        return f"{self.user.email} - {self.subject}"
 
 
-from django.db import models
-from django.contrib.auth.models import User
-from user_shopizen.models import Product  # assuming products are stored there
-
-
-#  Address Model
+# ADDRESS
 class Address(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='addresses')
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='addresses')
     full_name = models.CharField(max_length=255)
     phone = models.CharField(max_length=20)
     address_line = models.TextField()
@@ -243,6 +228,3 @@ class Address(models.Model):
 
     def __str__(self):
         return f"{self.full_name} - {self.city}"
-
-
-
