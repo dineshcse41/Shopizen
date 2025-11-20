@@ -1,0 +1,201 @@
+/* ======================== */
+/*        Cart Page CSS     */
+/* ======================== */
+
+h2{
+    color: blue;
+}
+
+/* Top Section */
+.top-sec {
+    width: 100%;
+    height: 75px;
+    padding: 4px;
+    margin: 10px;
+    
+}
+
+.top-sec span {
+    margin-top: 10px;
+    padding-left: 75px;
+}
+
+/* Cart Container */
+.cart-container, .checkout-page, 
+.container-fluid {
+    background-color: #c5e3bf;
+    /* Pista green */
+}
+
+/* Total Section (Checkout) */
+.total-sec {
+    justify-items: center;
+}
+
+.total-sec div button {
+    height: 35px;
+    width: 100%;
+}
+
+/* Buttons, Edit */
+.edit-btn {
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+/* Checkout Form & Summary Widths */
+.checkout-form,
+.checkout-summary {
+    max-width: 95%;
+}
+
+@media (min-width: 768px) {
+    .checkout-form {
+        max-width: 70%;
+    }
+
+    .checkout-summary {
+        max-width: 30%;
+    }
+}
+
+/* Order Page */
+.order-card {
+    border-radius: 12px;
+}
+
+.order-img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+}
+
+/* Track Order Page */
+.progress-bar {
+    font-size: 12px;
+    font-weight: 500;
+}
+
+/* ======================== */
+/*     Progress Bar CSS     */
+/* ======================== */
+.step {
+    width: 70px;
+    height: 70px;
+    line-height: 70px;
+    font-size: 24px;
+    transition: all 0.3s ease;
+}
+
+.step-circle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.step .bi {
+    vertical-align: middle;
+}
+
+.step.completed {
+    background-color: #28a745 !important;
+}
+
+.step.active {
+    background-color: #007bff !important;
+}
+
+.step.inactive {
+    background-color: #dee2e6 !important;
+    color: #6c757d;
+}
+
+.progress-line {
+    width: 100px;
+    height: 4px;
+    background-color: #dee2e6;
+    margin: 0 10px;
+    position: relative;
+    top: 33px;
+}
+
+.progress-line.filled {
+    background-color: #007bff;
+}
+
+/* ======================== */
+/*     Sticky Summary CSS   */
+/* ======================== */
+
+/* Desktop: Smart Sticky + Scroll */
+@media (min-width: 768px) {
+   .checkout-page {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 20px;
+    min-height: 100vh;
+}
+
+
+    .checkout-summary {
+        flex: 1;
+        height: 100%; /* allow sticky child to scroll */
+        max-width: 30%;
+    }
+
+   .total-sec {
+    position: sticky;
+    top: 100px;
+    max-height: calc(100vh - 140px);
+    overflow-y: auto;
+    min-height: 150px; /* ensure scrollbar appears */
+}
+
+
+}
+
+
+/* Mobile: Normal scroll */
+@media (max-width: 767px) {
+
+    .checkout-page {
+        flex-direction: column;
+    }
+
+    .sticky-summary,
+    .total-sec {
+        position: relative;
+        top: auto;
+        right: auto;
+        width: 100%;
+        height: auto;
+        overflow: visible;
+    }
+
+    .cart-container .col-md-9 {
+        margin-right: 0;
+    }
+}
+
+/* Default: desktop view (inline) */
+.order-actions {
+  flex-wrap: wrap; /* allows wrapping if space is small */
+}
+
+/* Mobile: stack buttons */
+@media (max-width: 768px) {
+  .order-actions {
+    flex-direction: column;
+    align-items: stretch; /* full width buttons */
+  }
+
+  .order-actions .btn {
+    width: 100%;
+  }
+
+  .order-actions .share-btn {
+    margin-top: 0.5rem; /* top margin for spacing */
+  }
+}

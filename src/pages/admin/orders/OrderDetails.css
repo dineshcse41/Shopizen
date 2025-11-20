@@ -1,0 +1,71 @@
+.order-details .card {
+  border-radius: 12px;
+  overflow: hidden;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Card Header */
+.order-details .card-header {
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Dark Mode */
+.order-details.dark .card-header {
+  background-color: #1f2a44; /* slightly darker than card body */
+  color: #e2e8f0;           /* light text for readability */
+}
+
+/* Light Mode */
+.order-details.light .card-header {
+  background-color: #f8f9fa; /* bootstrap light card header */
+  color: #212529;           /* dark text */
+}
+
+
+.order-details .card-body {
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.order-details table th,
+.order-details table td {
+  vertical-align: middle;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.order-details .badge {
+  font-size: 0.9rem;
+  padding: 0.4em 0.7em;
+  border-radius: 12px;
+}
+
+/* Dark mode overrides */
+.order-details.dark .card {
+  background-color: #17223b;
+  color: #e2e8f0;
+}
+
+.order-details.dark .card-body {
+  background-color: #17223b;
+  color: #e2e8f0;
+}
+
+.order-details.dark table {
+  color: #e2e8f0;
+  border-color: #1f2a44;
+}
+
+.order-details.dark table th {
+  background-color: #1f2a44;
+  color: #e2e8f0;
+}
+
+.order-details.dark table td {
+  background-color: #17223b;
+  color: #e2e8f0;
+}
+
+.order-details.dark .badge {
+  opacity: 0.9; /* better visibility on dark background */
+}

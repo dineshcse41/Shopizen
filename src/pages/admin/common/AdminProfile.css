@@ -1,0 +1,165 @@
+.admin-profile {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  background-color: var(--bg-light);
+  color: var(--text-dark);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.admin-profile.dark {
+  background-color: #1e1e2f;
+  color: #f0f0f0;
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap; /* allow wrapping on smaller screens */
+}
+
+.profile-pic {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #4f46e5;
+  flex-shrink: 0;
+}
+
+.profile-info {
+  flex: 1 1 200px; /* grow and shrink */
+}
+
+.profile-info h2 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+.profile-info p {
+  margin: 0.2rem 0;
+}
+
+.role {
+  font-weight: bold;
+  color: #4f46e5;
+}
+
+.edit-btn {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #4f46e5;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.edit-btn:hover {
+  background-color: #3730a3;
+}
+
+.input-field {
+  display: block;
+  margin-bottom: 0.5rem;
+  padding: 0.4rem 0.6rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  width: 100%;
+  max-width: 250px;
+}
+
+.stats-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin-top: 2rem;
+  gap: 1rem;
+}
+
+.card {
+  flex: 1 1 150px;
+  padding: 1rem;
+  border-radius: 10px;
+  text-align: center;
+  background-color: #f3f4f6;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.card h3 {
+  margin: 0;
+  font-size: 1.6rem;
+  color: #4f46e5;
+}
+
+.card p {
+  margin: 0.2rem 0 0;
+  font-size: 1rem;
+}
+
+.admin-profile.dark .card {
+  background-color: #2a2a3e;
+}
+
+/* ------------------ MOBILE RESPONSIVE ------------------ */
+@media screen and (max-width: 768px) {
+  .admin-profile {
+    padding: 1rem;
+  }
+
+  .profile-header {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .profile-info h2 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .profile-info p,
+  .role {
+    text-align: center;
+    font-size: 0.9rem;
+  }
+
+  .edit-btn {
+    width: 100%;
+    max-width: 200px;
+  }
+
+  .stats-cards {
+    justify-content: center;
+  }
+
+  .card {
+    flex: 1 1 120px;
+    padding: 0.8rem;
+  }
+
+  .card h3 {
+    font-size: 1.4rem;
+  }
+
+  .card p {
+    font-size: 0.85rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .profile-pic {
+    width: 100px;
+    height: 100px;
+  }
+
+  .input-field {
+    max-width: 100%;
+  }
+
+  .card {
+    flex: 1 1 100%;
+  }
+}

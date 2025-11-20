@@ -1,0 +1,191 @@
+/* ------------------------------
+   ✨ Overall Layout
+------------------------------ */
+.admin-chat-container {
+    height: 80vh;
+    border-radius: 16px;
+    overflow: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* ------------------------------
+   🧍 Sidebar
+------------------------------ */
+.chat-users {
+    width: 260px;
+    overflow-y: auto;
+    background-color: #0f172a; /* professional dark background */
+    color: #e2e8f0; /* light gray text */
+}
+
+.chat-user-item {
+    cursor: pointer;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    transition: all 0.3s ease;
+    border-radius: 8px;
+    margin: 4px 6px;
+    padding: 10px 12px;
+}
+
+.chat-user-item:hover {
+    background-color: rgba(226, 232, 240, 0.1); /* subtle hover */
+    transform: scale(1.02);
+}
+
+.chat-user-item.active {
+    background: linear-gradient(135deg, #1e293b, #3b82f6); /* navy to blue */
+    color: #fff;
+    box-shadow: 0 2px 6px rgba(59, 130, 246, 0.3);
+}
+
+/* ------------------------------
+   🟢 Online Indicator
+------------------------------ */
+.online-indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-left: 8px;
+}
+
+.online-indicator.online {
+    background-color: #22c55e; /* green */
+    box-shadow: 0 0 6px #22c55e;
+}
+
+.online-indicator.offline {
+    background-color: #9ca3af; /* gray */
+}
+
+/* ------------------------------
+   💬 Chat Body
+------------------------------ */
+.chat-body {
+    overflow-y: auto;
+    flex-grow: 1;
+    padding: 16px;
+    background-color: #0f172a; /* professional dark */
+    scroll-behavior: smooth;
+}
+
+/* ------------------------------
+   ✨ Message Bubbles
+------------------------------ */
+.message {
+    max-width: 70%;
+    padding: 12px 16px;
+    border-radius: 18px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    font-size: 0.95rem;
+}
+
+.message:hover {
+    transform: scale(1.02);
+}
+
+/* Admin bubbles */
+.admin-bubble-light,
+.admin-bubble-dark {
+    background: linear-gradient(135deg, #3b82f6, #60a5fa); /* professional blue */
+    color: #fff;
+    border-top-right-radius: 0;
+}
+
+/* User bubbles */
+.user-bubble-light,
+.user-bubble-dark {
+    background-color: #1e293b; /* dark gray navy */
+    color: #e2e8f0;
+    border-top-left-radius: 0;
+}
+
+/* ------------------------------
+   ⌨️ Typing Indicator
+------------------------------ */
+.typing-indicator {
+    font-size: 0.85rem;
+    color: #94a3b8;
+    margin: 5px 0;
+    font-style: italic;
+    animation: blink 1.5s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+}
+
+/* ------------------------------
+   🧑 Avatar
+------------------------------ */
+.profile {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid transparent;
+    transition: border 0.3s ease;
+}
+
+.chat-user-item.active .profile {
+    border-color: #3b82f6; /* blue accent */
+}
+
+/* ------------------------------
+   🧭 Chat Header
+------------------------------ */
+.chat-header {
+    font-weight: 600;
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+    text-transform: capitalize;
+    background-color: #0f172a;
+    color: #e2e8f0;
+    border-bottom: 1px solid rgba(226, 232, 240, 0.1);
+}
+
+/* ------------------------------
+   📥 Chat Footer (Input)
+------------------------------ */
+.chat-footer {
+    padding: 10px 15px;
+    border-top: 1px solid rgba(226, 232, 240, 0.1);
+    background-color: #0f172a;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.chat-footer input {
+    flex-grow: 1;
+    border-radius: 12px;
+    border: 1px solid #334155; /* dark border */
+    padding: 10px;
+    background-color: #1e293b;
+    color: #e2e8f0;
+    transition: border-color 0.3s ease;
+}
+
+.chat-footer input:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 4px rgba(59, 130, 246, 0.3);
+    outline: none;
+}
+
+.chat-footer button {
+    border-radius: 10px;
+    padding: 8px 18px;
+    font-weight: 500;
+    background: linear-gradient(135deg, #3b82f6, #60a5fa);
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+.chat-footer button:hover {
+    transform: translateY(-1px);
+    filter: brightness(1.1);
+}
+

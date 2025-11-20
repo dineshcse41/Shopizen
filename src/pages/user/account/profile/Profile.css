@@ -1,0 +1,157 @@
+/* ===== Container & Card Styles ===== */
+.profile-container {
+    max-width: 1200px;
+    margin: auto;
+    font-family: Arial, sans-serif;
+    padding: 1rem;
+}
+
+.profile-card {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.profile-card h3 {
+    color: #212121;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+/* ===== Form Elements ===== */
+.profile-card form label {
+    font-weight: 500;
+    color: #444;
+}
+
+.profile-card input,
+.profile-card select {
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+.profile-card .btn {
+    font-weight: 600;
+    border-radius: 6px;
+}
+
+/* ===== Buttons ===== */
+.profile-card .btn-warning {
+    background-color: #ff9900;
+    border-color: #ff9900;
+}
+
+.profile-card .btn-warning:hover {
+    background-color: #e68a00;
+}
+
+/* ===== Error & Strength Text ===== */
+.profile-card .text-danger {
+    font-size: 0.9rem;
+    margin-top: 0.2rem;
+}
+
+.password-strength {
+    display: block;
+    margin-top: 0.25rem;
+    font-size: 0.85rem;
+}
+
+/* ===== Address List ===== */
+.address-list .list-group-item {
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    padding: 1rem;
+    background: #fafafa;
+    flex-direction: column;
+}
+
+.address-list .list-group-item div {
+    margin-bottom: 0.5rem;
+}
+
+.address-list .btn-outline-primary {
+    height: fit-content;
+    padding: 0.3rem 0.7rem;
+}
+
+/* ===== Password Toggle ===== */
+.password-toggle {
+    position: absolute;
+    top: 50%;
+    right: 0.75rem;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #666;
+}
+
+/* ===== Responsive Grid ===== */
+@media (max-width: 1200px) {
+    .profile-container {
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .profile-container .row {
+        flex-direction: column;
+    }
+
+    .col-lg-5,
+    .col-lg-7 {
+        max-width: 100%;
+        flex: 1 0 100%;
+    }
+
+    .address-list .list-group-item {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 768px) {
+    .profile-card {
+        padding: 1rem;
+    }
+
+    .profile-card input,
+    .profile-card select {
+        font-size: 0.95rem;
+    }
+
+    .profile-card .btn {
+        font-size: 0.95rem;
+    }
+
+    .address-list .btn-outline-primary {
+        margin-top: 0.5rem;
+        width: 100%;
+    }
+
+    .text-center img {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+@media (max-width: 480px) {
+    .profile-card input,
+    .profile-card select {
+        padding: 0.4rem 0.6rem;
+        font-size: 0.9rem;
+    }
+
+    .profile-card .btn {
+        padding: 0.45rem 0.6rem;
+        font-size: 0.9rem;
+    }
+
+    .password-toggle {
+        right: 0.5rem;
+    }
+}

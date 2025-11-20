@@ -1,0 +1,96 @@
+/* src/components/product/ProductCard.css */
+
+/* Section Layout */
+.product-section-container {
+  background: #fff;
+  border-radius: 8px;
+  padding: 15px 20px;
+  margin-bottom: 25px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.section-header h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #111;
+}
+
+.see-more-btn {
+  background: none;
+  border: none;
+  color: #007185;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.see-more-btn:hover {
+  color: #c7511f;
+}
+
+/* ✅ Responsive Product Grid */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+@media (max-width: 992px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.product-col {
+  display: flex;
+  justify-content: center;
+}
+
+/* ✅ Amazon Style Product Card */
+.amazon-card {
+  width: 100%;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  text-align: center;
+  padding: 15px;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.amazon-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+}
+
+.amazon-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: contain;
+}
+
+.amazon-card h5 {
+  font-size: 1rem;
+  color: #111;
+  margin: 10px 0 5px;
+}
+
+.price {
+  font-weight: 600;
+  color: #b12704;
+  font-size: 1.1rem;
+}

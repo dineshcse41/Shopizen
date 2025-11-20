@@ -1,0 +1,14 @@
+[
+  {
+    "agentId": 1,
+    "name": "Ravi Kumar",
+    "phone": "9876543210",
+    "company": "FastPickup Services"
+  },
+  {
+    "agentId": 2,
+    "name": "Sita Sharma",
+    "phone": "9123456780",
+    "company": "QuickReturns Pvt Ltd"
+  }
+]

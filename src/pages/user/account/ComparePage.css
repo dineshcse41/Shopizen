@@ -1,0 +1,18 @@
+.table-mobile-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch; /* smooth scrolling on mobile */
+  width: 100%;
+}
+
+.table-mobile-scroll table {
+  min-width: 700px; /* ensures table is wider than screen on mobile */
+}
+
+.table-mobile-scroll::-webkit-scrollbar {
+  height: 6px;
+}
+
+.table-mobile-scroll::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+}

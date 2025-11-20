@@ -1,0 +1,96 @@
+/* ===========================================
+   NotificationManagement Dark/Light Mode CSS
+   =========================================== */
+
+/* Card for adding notifications */
+.add-notification-card {
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    padding: 1rem;
+    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Inputs inside the card */
+.add-notification-card input.form-control {
+    border-radius: 8px;
+    transition: background-color 0.3s, color 0.3s, border 0.3s;
+    background-color: var(--input-bg);
+    color: var(--input-color);
+    border: 1px solid var(--input-border);
+}
+
+/* Buttons inside the card */
+.add-notification-card button {
+    border-radius: 8px;
+    transition: background-color 0.3s, color 0.3s, border 0.3s;
+}
+
+/* Status tags */
+.status-tag {
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 6px;
+    text-align: center;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Light Mode Status Tags */
+.status-tag.unread {
+    background-color: #eaf3ff;
+    color: #0d6efd;
+}
+
+.status-tag.read {
+    background-color: #f8f9fa;
+    color: #6c757d;
+}
+
+/* Dark Mode Status Tags */
+[data-theme="dark"] .status-tag.unread {
+    background-color: #0d6efd33; /* semi-transparent blue */
+    color: #eaf3ff;
+}
+
+[data-theme="dark"] .status-tag.read {
+    background-color: #6c757d33; /* semi-transparent gray */
+    color: #f8f9fa;
+}
+
+/* ======================================
+   Dark/Light Mode CSS Variables
+   ====================================== */
+:root {
+    --text-color: #212529;
+    --card-bg: #ffffff;
+    --input-bg: #ffffff;
+    --input-color: #212529;
+    --input-border: #ced4da;
+}
+
+[data-theme="dark"] {
+    --text-color: #f8f9fa;
+    --card-bg: #17223b;
+    --input-bg: #2c3e50;
+    --input-color: #f8f9fa;
+    --input-border: #495057;
+}
+
+/* Table Styling */
+.table {
+    background-color: var(--card-bg) !important;
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Table header & cells text */
+.table th,
+.table td {
+    color: var(--text-color);
+}
+
+/* Optional: subtle shadow in dark mode */
+[data-theme="dark"] .add-notification-card {
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+}

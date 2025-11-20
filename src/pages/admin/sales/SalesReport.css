@@ -1,0 +1,47 @@
+.sales-report h2 {
+  font-weight: 700;
+}
+
+/* Base Card Style */
+.sales-report .card {
+  border-radius: 12px;
+  transition: transform 0.2s ease;
+}
+
+.sales-report .card:hover {
+  transform: translateY(-4px);
+}
+
+/* Light Theme */
+.sales-report-light {
+  background-color: #f8f9fa;
+  color: #212529;
+}
+
+/* Dark Theme */
+.sales-report-dark {
+  background-color: #0d1117;
+  color: #e2e8f0;
+}
+
+.bg-dark-card {
+  background-color: #17223b !important;
+  color: #e2e8f0 !important;
+  border: 1px solid #1e293b;
+}
+
+/* Dropdown Dark Mode Fix */
+.bg-dark.text-light select,
+.bg-dark.text-light option {
+  background-color: #1a202c !important;
+  color: #e2e8f0 !important;
+}
+
+/* Chart Tooltip and Legends */
+.recharts-default-tooltip {
+  background-color: rgba(20, 20, 20, 0.9) !important;
+  color: #fff !important;
+  border-radius: 6px;
+  border: none;
+  font-size: 0.9rem;
+}

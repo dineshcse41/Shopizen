@@ -1,0 +1,40 @@
+.notification-settings {
+  font-family: "Inter", sans-serif;
+  color: #1e293b;
+  /* max-width: 1000px; */
+   background-color: #c5e3bf;
+}
+
+.setting-card {
+  border-radius: 15px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  background: #ffffff;
+}
+
+.setting-card:hover {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transform: translateY(-3px);
+}
+
+.text-gradient {
+  background: linear-gradient(90deg, #007bff, #00b894);
+  background-clip: text;          /* Standard property */
+  -webkit-background-clip: text;  /* WebKit fallback */
+  -webkit-text-fill-color: transparent; /* Makes text show gradient */
+  color: transparent;             /* Standard fallback */
+}
+
+.form-check-input:checked {
+  background-color: #00b894;
+  border-color: #00b894;
+}
+
+@media (max-width: 768px) {
+  .notification-settings {
+    padding: 1rem;
+  }
+  .setting-card {
+    padding: 1.2rem;
+  }
+}
