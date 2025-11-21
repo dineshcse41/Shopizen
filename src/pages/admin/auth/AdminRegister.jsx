@@ -12,7 +12,7 @@ function AdminRegister() {
         togglePassword,
         toggleConfirmPassword,
         handleChange,
-    } = useFormSubmit({}, "http://localhost:5173/data/admin/admin.json"); // Dummy JSON
+    } = useFormSubmit({},) //"http://localhost:5173/data/admin/admin.json");  Dummy JSON
 
     const [errors, setErrors] = useState({});
     const { showToast } = useToast();
@@ -56,6 +56,7 @@ function AdminRegister() {
             last_name: formData.last_name,
             email: formData.email,
             password: formData.password,
+            confirmPassword: formData.confirmPassword,
             designation: formData.designation,
             department: formData.department,
             employeeId: formData.employeeId,
@@ -66,15 +67,15 @@ function AdminRegister() {
             // -------------------
             // DUMMY JSON SAVE (CURRENT)
             // -------------------
-            console.log("Registered Admin (Dummy):", newAdmin);
-            showToast("Admin registered successfully!", "success");
-            navigate("/admin/login");
+            // console.log("Registered Admin (Dummy):", newAdmin);
+            // showToast("Admin registered successfully!", "success");
+            // navigate("/admin/login");
 
             // -------------------
             // REAL API SAVE (LATER)
             // -------------------
-            /*
-            const response = await fetch("http://127.0.0.1:8000/api/admin/register/", {
+           
+            const response = await fetch("http://127.0.0.1:8000/authentication/register/", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -83,21 +84,23 @@ function AdminRegister() {
             });
 
             if (!response.ok) {
-                throw new Error("API registration failed");
+                const error = await response.json();
+                showToast(error.message || "Registration failed!", "error");
+                return;
             }
 
             const data = await response.json();
             console.log("Registered Admin (API):", data);
             showToast("Admin registered successfully via API!", "success");
             navigate("/admin/login");
-            */
+            
 
         } catch (err) {
-            console.error(err);
-            showToast("Registration failed. Try again!", "error");
+            showToast("Network error. Try again!", "error");
         }
     };
 
+    
     return (
         <div className="auth-container">
             <header className="site-header">

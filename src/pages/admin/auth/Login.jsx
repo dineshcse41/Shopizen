@@ -4,8 +4,9 @@ import { Link, useNavigate } from "react-router-dom";
 import "../../user/auth/auth.css";
 import { AuthContext } from "../../../components/context/AuthContext.jsx";
 import { useToast } from "../../../components/context/ToastContext.jsx";
-import adminData from "../../../data/admin/admin.json";
+// import adminData from "../../../data/admin/admin.json";
 import rolesPermissions from "../../../data/admin/roles.json";
+import axios from "axios";
 
 function AdminLogin() {
   const { login } = useContext(AuthContext);
@@ -65,42 +66,90 @@ function AdminLogin() {
     return "/admin/dashboard"; // fallback
   };
 
-  // 🚀 Login handler
-  const handleLogin = (e) => {
-    e.preventDefault();
-    setErrors({ email: "", password: "" });
+  // // 🚀 Login handler
+  // const handleLogin = (e) => {
+  //   e.preventDefault();
+  //   setErrors({ email: "", password: "" });
 
-    const { email, password, remember } = formData;
-    const foundUser = adminData.find((u) => u.email === email);
+  //   const { email, password, remember } = formData;
+  //   const foundUser = adminData.find((u) => u.email === email);
+    
 
-    if (!foundUser) {
-      setErrors((prev) => ({ ...prev, email: "Admin email not found." }));
-      showToast("Admin email not found!", "error");
-      return;
-    }
+  //   if (!foundUser) {
+  //     setErrors((prev) => ({ ...prev, email: "Admin email not found." }));
+  //     showToast("Admin email not found!", "error");
+  //     return;
+  //   }
 
-    if (!isPasswordValid(password)) {
-      setErrors((prev) => ({ ...prev, password: "Invalid password format." }));
-      showToast("Invalid password format.", "error");
-      return;
-    }
+  //   if (!isPasswordValid(password)) {
+  //     setErrors((prev) => ({ ...prev, password: "Invalid password format." }));
+  //     showToast("Invalid password format.", "error");
+  //     return;
+  //   }
 
-    if (foundUser.password !== password) {
-      setErrors((prev) => ({ ...prev, password: "Incorrect password." }));
-      showToast("Invalid credentials!", "error");
-      return;
-    }
+  //   if (foundUser.password !== password) {
+  //     setErrors((prev) => ({ ...prev, password: "Incorrect password." }));
+  //     showToast("Invalid credentials!", "error");
+  //     return;
+  //   }
 
-    // ✅ Successful login
-    login(foundUser);
+  //   // ✅ Successful login
+  //   login(foundUser);
+  //   showToast("Admin Login Successful 🎉", "success");
+
+  //   if (remember) localStorage.setItem("adminEmail", email);
+  //   else localStorage.removeItem("adminEmail");
+
+  //   const redirectPath = getRedirectPath(foundUser.role);
+  //   navigate(redirectPath);
+  // };
+// 🚀 Login handler (Backend API Version)
+
+
+
+/// 🚀 Login handler
+const handleLogin = async (e) => {
+  e.preventDefault();
+  setErrors({ email: "", password: "" });
+
+  const { email, password, remember } = formData;
+
+  try {
+    const API_BASE = "http://127.0.0.1:8000/authentication/login/";
+
+    const res = await axios.post(API_BASE, {
+      email: email,
+      password: password,
+    });
+
+    // If backend responds success
+    const user = res.data.user;
+
+    // ✅ FIX: Add role based on is_admin
+    user.role = user.is_admin ? "admin" : "user";
+
+    login(user); // Save in context
+
     showToast("Admin Login Successful 🎉", "success");
 
+    // Remember email
     if (remember) localStorage.setItem("adminEmail", email);
     else localStorage.removeItem("adminEmail");
 
-    const redirectPath = getRedirectPath(foundUser.role);
+    // Redirect
+    const redirectPath = getRedirectPath(user.role);
     navigate(redirectPath);
-  };
+
+  } catch (err) {
+    showToast("Login failed!", "error");
+
+    setErrors((prev) => ({
+      ...prev,
+      password: "Invalid credentials.",
+    }));
+  }
+};
+
 
   return (
     <div className="auth-container">
