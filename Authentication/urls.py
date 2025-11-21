@@ -8,11 +8,11 @@ urlpatterns = [
     path('api/register/', RegisterView.as_view(), name='register'),
     path('api/login/', LoginView.as_view(), name='login'),
     # admin
-    path('register/', AdminRegisterView.as_view()),
-    path('login/', AdminLoginView.as_view()),
-    path("admin/reset-password/", AdminResetPasswordView.as_view()),
+    path('register/', AdminRegisterAPIView.as_view()),
+    path("login/", AdminLoginAPIView.as_view(), name="admin-login"),
+    # path("admin/reset-password/", AdminResetPasswordView.as_view()),
     # Reset
-    path('reset-password/', ResetPasswordRequestView.as_view(), name='reset-password'),
+    path('resetpassword/', ResetPasswordRequestView.as_view(), name='reset-password'),
     path('reset-password-confirm/', SetNewPasswordView.as_view(), name='reset-password-confirm'),
     # mobile login OTP
     path('sendotp/', SendOTPView.as_view(), name="send_otp"),

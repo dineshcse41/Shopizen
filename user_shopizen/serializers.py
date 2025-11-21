@@ -6,11 +6,23 @@ from .models import Product, Cart, Order
 class ProductSerializer(serializers.ModelSerializer):
     category = serializers.StringRelatedField()
     brand = serializers.StringRelatedField()
+    subCategory = serializers.CharField(source='sub_category')
+    dealOfTheDay = serializers.BooleanField(source='deal_of_the_day')
+    isNewArrival = serializers.BooleanField(source='is_new_arrival')
+    midSeasonSale = serializers.BooleanField(source='mid_season_sale')
+    createdAt = serializers.DateTimeField(source='created_at')
+    updatedAt = serializers.DateTimeField(source='updated_at')
+    priceBySize = serializers.DictField(source='price_by_size')
 
     class Meta:
         model = Product
-        fields = ['id', 'name', 'price', 'description', 'image', 'category', 'brand', 'created_at']
-
+        fields = [
+            "id", "name", "description", "price", "discount", "rating", "stock",
+            "category", "subCategory", "brand", "tags", "dealOfTheDay",
+            "isNewArrival", "midSeasonSale", "images", "sizes", "priceBySize",
+            "createdAt", "updatedAt"
+        ]
+        
 # task 4 updated
 class CartSerializer(serializers.ModelSerializer):
     product = ProductSerializer(read_only=True)

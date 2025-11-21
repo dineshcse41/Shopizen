@@ -1,7 +1,6 @@
 from rest_framework import serializers
 from django.contrib.auth import get_user_model
-from .models import UserProfile, AdminProfile
-
+from .models import UserProfile
 User = get_user_model()
 
 
@@ -117,39 +116,81 @@ class MobileVerifyOTPSerializer(serializers.Serializer):
 
 
 # -------------------- Admin Register --------------------
-class AdminRegisterSerializer(serializers.Serializer):
-    full_name = serializers.CharField(max_length=150)
-    email = serializers.EmailField()
-    designation = serializers.CharField(max_length=150)
-    department = serializers.CharField(max_length=150)
-    employee_id = serializers.CharField(max_length=50)
-    security_code = serializers.CharField(max_length=50)
-    password = serializers.CharField(write_only=True)
-    confirm_password = serializers.CharField(write_only=True)
+from rest_framework import serializers
+from .models import UserProfile, AdminUser  # <- change AdminProfile to AdminUser
+
+
+from rest_framework import serializers
+from .models import AdminUser
+
+class AdminRegisterSerializer(serializers.ModelSerializer):
+    # Accept camelCase fields from frontend
+    employeeId = serializers.CharField(write_only=True)
+    securityCode = serializers.CharField(write_only=True)
+    confirmPassword = serializers.CharField(write_only=True)
+
+    class Meta:
+        model = AdminUser
+        fields = [
+            "first_name", "last_name", "email",
+            "password", "confirmPassword",
+            "designation", "department",
+            "employeeId", "securityCode"
+        ]
+        extra_kwargs = {
+            "password": {"write_only": True},
+        }
 
     def validate(self, data):
-        if data['password'] != data['confirm_password']:
-            raise serializers.ValidationError("Passwords do not match")
+        if data["password"] != data["confirmPassword"]:
+            raise serializers.ValidationError({"confirmPassword": "Passwords do not match"})
         return data
 
     def create(self, validated_data):
-        user = User.objects.create_user(
-            username=validated_data['email'],
-            email=validated_data['email'],
-            password=validated_data['password'],
-            is_staff=True
-        )
+        validated_data["employeeId"] = validated_data.pop("employeeId")
+        validated_data["securityCode"] = validated_data.pop("securityCode")
+        validated_data.pop("confirmPassword")
 
-        AdminProfile.objects.create(
-            user=user,
-            full_name=validated_data['full_name'],
-            designation=validated_data['designation'],
-            department=validated_data['department'],
-            employee_id=validated_data['employee_id'],
-            security_code=validated_data['security_code']
+        user = AdminUser.objects.create_user(
+            email=validated_data["email"],
+            first_name=validated_data["first_name"],
+            last_name=validated_data["last_name"],
+            password=validated_data["password"],
+            designation=validated_data["designation"],
+            department=validated_data["department"],
+            employeeId=validated_data["employeeId"],
+            securityCode=validated_data["securityCode"],
         )
-
         return user
+
+
+
+from rest_framework import serializers
+from django.contrib.auth import authenticate
+from rest_framework.exceptions import AuthenticationFailed
+from .models import AdminUser
+
+class AdminLoginSerializer(serializers.Serializer):
+    email = serializers.EmailField()
+    password = serializers.CharField(write_only=True)
+
+    def validate(self, data):
+        email = data.get("email")
+        password = data.get("password")
+
+        if not AdminUser.objects.filter(email=email).exists():
+            raise AuthenticationFailed("Admin email not found.")
+
+        user = authenticate(email=email, password=password)
+
+        if not user:
+            raise AuthenticationFailed("Invalid credentials.")
+
+        if not user.is_active:
+            raise AuthenticationFailed("Account is disabled.")
+
+        data["user"] = user
+        return data
 
 
 # -------------------- Password Reset --------------------

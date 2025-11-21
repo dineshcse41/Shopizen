@@ -5,14 +5,11 @@ from datetime import date
 from django.contrib.auth import get_user_model
 User = get_user_model()
 
-
-# CATEGORY & BRAND
 class Category(models.Model):
     name = models.CharField(max_length=100)
 
     def __str__(self):
         return self.name
-
 
 class Brand(models.Model):
     name = models.CharField(max_length=100)
@@ -20,17 +17,29 @@ class Brand(models.Model):
     def __str__(self):
         return self.name
 
-
-# PRODUCT
 class Product(models.Model):
-    name = models.CharField(max_length=200, db_index=True)
-    price = models.DecimalField(max_digits=10, decimal_places=2)
+    id = models.CharField(max_length=20, primary_key=True)  # For string IDs like "P1001"
+    name = models.CharField(max_length=200)
     description = models.TextField()
-    image = models.ImageField(upload_to='products/', blank=True, null=True)
-    category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='products', db_index=True)
-    brand = models.ForeignKey(Brand, on_delete=models.CASCADE, related_name='products', db_index=True)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    sub_category = models.CharField(max_length=100, blank=True, null=True)
+    brand = models.ForeignKey(Brand, on_delete=models.CASCADE)
+    price = models.FloatField()
+    discount = models.FloatField(default=0)
+    rating = models.FloatField(default=0)
+    stock = models.IntegerField(default=0)
+    
+    # Extra fields
+    tags = models.JSONField(default=list, blank=True)
+    deal_of_the_day = models.BooleanField(default=False)
+    is_new_arrival = models.BooleanField(default=False)
+    mid_season_sale = models.BooleanField(default=False)
+    images = models.JSONField(default=list, blank=True)
+    sizes = models.JSONField(default=list, blank=True)
+    price_by_size = models.JSONField(default=dict, blank=True)
+
     created_at = models.DateTimeField(auto_now_add=True)
-    rating = models.DecimalField(max_digits=3, decimal_places=1, default=0.0)
+    updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.name
@@ -82,7 +91,7 @@ class OrderItem(models.Model):
 # REVIEW
 class Review(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='reviews')
-    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='reviews')
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='review_set')
     rating = models.PositiveIntegerField(default=1)
     comment = models.TextField(blank=True)
     created_at = models.DateTimeField(auto_now_add=True)

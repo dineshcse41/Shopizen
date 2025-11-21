@@ -157,49 +157,75 @@ class SetNewPasswordView(APIView):
         serializer.save()
         return Response({'message': 'Password has been reset successfully'}, status=status.HTTP_200_OK)
 
+#--------------------------------------------------------------------------Admin----------------------------------------------------------------
+
+from rest_framework import generics, status
+from rest_framework.response import Response
+from .models import UserProfile, AdminUser  # <- same here
+from .serializers import AdminRegisterSerializer
+
+class AdminRegisterAPIView(generics.CreateAPIView):
+    queryset = AdminUser.objects.all()
+    serializer_class = AdminRegisterSerializer
+
+    def create(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+
+        # This will call AdminUserManager.create_user()
+        admin_user = serializer.save()
+
+        return Response(
+            {
+                "message": "Admin registered successfully!",
+                "admin_id": admin_user.id
+            },
+            status=status.HTTP_201_CREATED
+        )
 
 
-class AdminRegisterView(APIView):
-    permission_classes = []
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import status
+from django.contrib.auth import authenticate
+from rest_framework_simplejwt.tokens import RefreshToken
+from .models import AdminUser
 
+
+class AdminLoginAPIView(APIView):
     def post(self, request):
-        serializer = AdminRegisterSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response({"message": "Admin registered successfully"}, status=201)
-        return Response(serializer.errors, status=400)
-
-
-class AdminLoginView(APIView):
-    permission_classes = []
-
-    def post(self, request):
-        email = request.data.get('email')
-        password = request.data.get('password')
+        email = request.data.get("email")
+        password = request.data.get("password")
 
         if not email or not password:
-            return Response({"error": "Email and password are required"}, status=400)
+            return Response({"error": "Email & password required"}, status=400)
 
         try:
-            user = User.objects.get(email=email)
-        except User.DoesNotExist:
-            return Response({"error": "Invalid email or password"}, status=401)
+            user = AdminUser.objects.get(email=email)
+        except AdminUser.DoesNotExist:
+            return Response({"error": "Invalid credentials"}, status=401)
 
-        user = authenticate(username=user.username, password=password)
+        if not user.check_password(password):
+            return Response({"error": "Invalid credentials"}, status=401)
 
-        if not user:
-            return Response({"error": "Invalid email or password"}, status=401)
-
-        if not user.is_staff:
-            return Response({"error": "Access denied. Not an admin."}, status=403)
+        if not user.is_active:
+            return Response({"error": "Account disabled"}, status=403)
 
         refresh = RefreshToken.for_user(user)
 
         return Response({
-            "message": "Admin login successful",
-            "access": str(refresh.access_token),
-            "refresh": str(refresh),
-        }, status=200)
+        'user': {
+        'id': user.id,
+        'email': user.email,
+        'first_name': user.first_name,
+        'last_name': user.last_name,
+        'is_admin': True,
+    },
+    'access': str(refresh.access_token),
+    'refresh': str(refresh)
+})
+
+
 
 # class PasswordResetRequestView(APIView):
 #     permission_classes = [AllowAny]
@@ -237,48 +263,48 @@ class AdminLoginView(APIView):
 #         return Response({'message': 'Password reset successfully'}, status=200)
 
 
-from rest_framework.views import APIView
-from rest_framework.response import Response
-from rest_framework.permissions import AllowAny
-from rest_framework import status
+# from rest_framework.views import APIView
+# from rest_framework.response import Response
+# from rest_framework.permissions import AllowAny
+# from rest_framework import status
 
-from .models import AdminProfile
-from .serializers import AdminResetPasswordSerializer
+# from .models import AdminProfile
+# from .serializers import AdminResetPasswordSerializer
 
 
-class AdminResetPasswordView(APIView):
-    permission_classes = [AllowAny]
+# class AdminResetPasswordView(APIView):
+#     permission_classes = [AllowAny]
 
-    def post(self, request):
-        serializer = AdminResetPasswordSerializer(data=request.data)
-        serializer.is_valid(raise_exception=True)
+#     def post(self, request):
+#         serializer = AdminResetPasswordSerializer(data=request.data)
+#         serializer.is_valid(raise_exception=True)
 
-        email = serializer.validated_data["email"]
-        security_code = serializer.validated_data["security_code"]
-        new_password = serializer.validated_data["new_password"]
+#         email = serializer.validated_data["email"]
+#         security_code = serializer.validated_data["security_code"]
+#         new_password = serializer.validated_data["new_password"]
 
-        # 1. Find the admin by email
-        try:
-            user = User.objects.get(email=email)
-        except User.DoesNotExist:
-            return Response({"error": "Admin not found"}, status=404)
+#         # 1. Find the admin by email
+#         try:
+#             user = User.objects.get(email=email)
+#         except User.DoesNotExist:
+#             return Response({"error": "Admin not found"}, status=404)
 
-        # 2. Check if user is admin
-        if not user.is_staff:
-            return Response({"error": "Not an admin account"}, status=400)
+#         # 2. Check if user is admin
+#         if not user.is_staff:
+#             return Response({"error": "Not an admin account"}, status=400)
 
-        # 3. Get AdminProfile
-        try:
-            admin_profile = AdminProfile.objects.get(user=user)
-        except AdminProfile.DoesNotExist:
-            return Response({"error": "Admin profile missing"}, status=404)
+#         # 3. Get AdminProfile
+#         try:
+#             admin_profile = AdminProfile.objects.get(user=user)
+#         except AdminProfile.DoesNotExist:
+#             return Response({"error": "Admin profile missing"}, status=404)
 
-        # 4. Compare security code
-        if admin_profile.security_code != security_code:
-            return Response({"error": "Invalid security code"}, status=400)
+#         # 4. Compare security code
+#         if admin_profile.security_code != security_code:
+#             return Response({"error": "Invalid security code"}, status=400)
 
-        # 5. Set the new password
-        user.set_password(new_password)
-        user.save()
+#         # 5. Set the new password
+#         user.set_password(new_password)
+#         user.save()
 
-        return Response({"message": "Password reset successfully"}, status=200)
+#         return Response({"message": "Password reset successfully"}, status=200)

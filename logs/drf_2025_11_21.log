@@ -1,0 +1,915 @@
+[2025-11-21 07:14:29,207] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 07:17:08,243] INFO django.server "OPTIONS /authentication/register/ HTTP/1.1" 200 0
+[2025-11-21 07:17:08,302] ERROR core.exceptions AdminRegisterAPIView: {'confirm_password': [ErrorDetail(string='This field is required.', code='required')], 'employee_id': [ErrorDetail(string='This field is required.', code='required')], 'security_code': [ErrorDetail(string='This field is required.', code='required')]}
+[2025-11-21 07:17:08,304] WARNING django.request Bad Request: /authentication/register/
+[2025-11-21 07:17:08,305] WARNING django.server "POST /authentication/register/ HTTP/1.1" 400 178
+[2025-11-21 07:19:42,179] INFO django.server "OPTIONS /authentication// HTTP/1.1" 200 0
+[2025-11-21 07:19:42,218] WARNING django.request Not Found: /authentication//
+[2025-11-21 07:19:42,219] WARNING django.server "POST /authentication// HTTP/1.1" 404 5157
+[2025-11-21 07:35:05,825] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 07:35:40,800] ERROR core.exceptions AdminRegisterAPIView: {'confirm_password': [ErrorDetail(string='This field is required.', code='required')], 'employeeid': [ErrorDetail(string='This field is required.', code='required')], 'securitycode': [ErrorDetail(string='This field is required.', code='required')]}
+[2025-11-21 07:35:40,801] WARNING django.request Bad Request: /authentication/register/
+[2025-11-21 07:35:40,802] WARNING django.server "POST /authentication/register/ HTTP/1.1" 400 176
+[2025-11-21 07:37:38,062] INFO django.utils.autoreload E:\Shopizen\Authentication\admin.py changed, reloading.
+[2025-11-21 07:37:38,554] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 07:38:10,013] INFO django.utils.autoreload E:\Shopizen\Authentication\models.py changed, reloading.
+[2025-11-21 07:38:10,592] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 07:38:19,260] INFO django.utils.autoreload E:\Shopizen\Authentication\models.py changed, reloading.
+[2025-11-21 07:38:19,810] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 07:38:30,570] INFO django.utils.autoreload E:\Shopizen\Authentication\models.py changed, reloading.
+[2025-11-21 07:38:31,072] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 07:38:36,678] INFO django.utils.autoreload E:\Shopizen\Authentication\serializers.py changed, reloading.
+[2025-11-21 07:38:37,166] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 07:38:39,604] INFO django.utils.autoreload E:\Shopizen\Authentication\serializers.py changed, reloading.
+[2025-11-21 07:38:40,085] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 07:38:59,360] ERROR core.exceptions AdminRegisterAPIView: {'confirm_password': [ErrorDetail(string='This field is required.', code='required')]}
+[2025-11-21 07:38:59,362] WARNING django.request Bad Request: /authentication/register/
+[2025-11-21 07:38:59,363] WARNING django.server "POST /authentication/register/ HTTP/1.1" 400 92
+[2025-11-21 07:39:22,137] ERROR core.exceptions AdminRegisterAPIView: {'confirm_password': [ErrorDetail(string='This field is required.', code='required')]}
+[2025-11-21 07:39:22,138] WARNING django.request Bad Request: /authentication/register/
+[2025-11-21 07:39:22,138] WARNING django.server "POST /authentication/register/ HTTP/1.1" 400 92
+[2025-11-21 07:41:06,297] INFO django.utils.autoreload E:\Shopizen\Authentication\models.py changed, reloading.
+[2025-11-21 07:41:06,817] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 07:41:25,247] INFO django.utils.autoreload E:\Shopizen\Authentication\models.py changed, reloading.
+[2025-11-21 07:41:26,524] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 07:41:51,263] INFO django.utils.autoreload E:\Shopizen\Authentication\serializers.py changed, reloading.
+[2025-11-21 07:41:51,747] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 07:42:05,179] INFO django.utils.autoreload E:\Shopizen\Authentication\admin.py changed, reloading.
+[2025-11-21 07:42:05,658] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 07:43:01,626] INFO django.utils.autoreload E:\Shopizen\Authentication\views.py changed, reloading.
+[2025-11-21 07:43:02,800] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 07:46:13,678] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 07:48:03,565] ERROR core.exceptions AdminRegisterAPIView: {'confirmPassword': [ErrorDetail(string='This field is required.', code='required')]}
+[2025-11-21 07:48:03,567] WARNING django.request Bad Request: /authentication/register/
+[2025-11-21 07:48:03,568] WARNING django.server "POST /authentication/register/ HTTP/1.1" 400 91
+[2025-11-21 07:49:40,090] ERROR core.exceptions AdminRegisterAPIView: {'confirmPassword': [ErrorDetail(string='This field is required.', code='required')]}
+[2025-11-21 07:49:40,091] WARNING django.request Bad Request: /authentication/register/
+[2025-11-21 07:49:40,092] WARNING django.server "POST /authentication/register/ HTTP/1.1" 400 91
+[2025-11-21 07:49:48,191] ERROR core.exceptions AdminRegisterAPIView: {'confirmPassword': [ErrorDetail(string='This field is required.', code='required')]}
+[2025-11-21 07:49:48,192] WARNING django.request Bad Request: /authentication/register/
+[2025-11-21 07:49:48,193] WARNING django.server "POST /authentication/register/ HTTP/1.1" 400 91
+[2025-11-21 07:51:53,711] INFO django.utils.autoreload E:\Shopizen\Authentication\models.py changed, reloading.
+[2025-11-21 07:51:54,295] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 07:51:59,866] INFO django.utils.autoreload E:\Shopizen\Authentication\models.py changed, reloading.
+[2025-11-21 07:52:00,335] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 07:52:03,783] INFO django.utils.autoreload E:\Shopizen\Authentication\models.py changed, reloading.
+[2025-11-21 07:52:04,262] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 07:52:16,479] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 07:53:04,525] ERROR core.exceptions AdminRegisterAPIView: {'confirmPassword': [ErrorDetail(string='This field is required.', code='required')]}
+[2025-11-21 07:53:04,527] WARNING django.request Bad Request: /authentication/register/
+[2025-11-21 07:53:04,527] WARNING django.server "POST /authentication/register/ HTTP/1.1" 400 91
+[2025-11-21 07:55:01,033] INFO django.utils.autoreload E:\Shopizen\Authentication\serializers.py changed, reloading.
+[2025-11-21 07:55:01,519] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 07:55:14,931] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 07:55:19,717] ERROR core.exceptions AdminRegisterAPIView: {'confirmPassword': [ErrorDetail(string='This field is required.', code='required')]}
+[2025-11-21 07:55:19,720] WARNING django.request Bad Request: /authentication/register/
+[2025-11-21 07:55:19,721] WARNING django.server "POST /authentication/register/ HTTP/1.1" 400 91
+[2025-11-21 07:55:49,662] ERROR core.exceptions AdminRegisterAPIView: {'confirmPassword': [ErrorDetail(string='This field is required.', code='required')]}
+[2025-11-21 07:55:49,663] WARNING django.request Bad Request: /authentication/register/
+[2025-11-21 07:55:49,664] WARNING django.server "POST /authentication/register/ HTTP/1.1" 400 91
+[2025-11-21 07:56:33,714] INFO django.utils.autoreload E:\Shopizen\Authentication\serializers.py changed, reloading.
+[2025-11-21 07:56:34,231] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 07:56:37,703] INFO django.utils.autoreload E:\Shopizen\Authentication\serializers.py changed, reloading.
+[2025-11-21 07:56:38,160] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 07:56:40,584] INFO django.utils.autoreload E:\Shopizen\Authentication\serializers.py changed, reloading.
+[2025-11-21 07:56:41,131] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 07:56:42,508] INFO django.utils.autoreload E:\Shopizen\Authentication\serializers.py changed, reloading.
+[2025-11-21 07:56:42,963] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 07:56:49,535] INFO django.utils.autoreload E:\Shopizen\Authentication\serializers.py changed, reloading.
+[2025-11-21 07:56:50,043] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 07:56:51,455] INFO django.utils.autoreload E:\Shopizen\Authentication\serializers.py changed, reloading.
+[2025-11-21 07:56:51,931] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 07:56:54,445] INFO django.utils.autoreload E:\Shopizen\Authentication\serializers.py changed, reloading.
+[2025-11-21 07:56:54,907] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 07:57:13,025] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 07:57:18,594] INFO django.utils.autoreload E:\Shopizen\Authentication\serializers.py changed, reloading.
+[2025-11-21 07:57:19,068] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 07:57:24,649] INFO django.utils.autoreload E:\Shopizen\Authentication\serializers.py changed, reloading.
+[2025-11-21 07:57:25,100] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 07:57:45,350] ERROR core.exceptions AdminRegisterAPIView: {'confirmPassword': [ErrorDetail(string='This field is required.', code='required')]}
+[2025-11-21 07:57:45,352] WARNING django.request Bad Request: /authentication/register/
+[2025-11-21 07:57:45,353] WARNING django.server "POST /authentication/register/ HTTP/1.1" 400 91
+[2025-11-21 07:57:48,421] ERROR core.exceptions AdminRegisterAPIView: {'confirmPassword': [ErrorDetail(string='This field is required.', code='required')]}
+[2025-11-21 07:57:48,421] WARNING django.request Bad Request: /authentication/register/
+[2025-11-21 07:57:48,422] WARNING django.server "POST /authentication/register/ HTTP/1.1" 400 91
+[2025-11-21 07:57:48,661] ERROR core.exceptions AdminRegisterAPIView: {'confirmPassword': [ErrorDetail(string='This field is required.', code='required')]}
+[2025-11-21 07:57:48,661] WARNING django.request Bad Request: /authentication/register/
+[2025-11-21 07:57:48,662] WARNING django.server "POST /authentication/register/ HTTP/1.1" 400 91
+[2025-11-21 07:57:48,876] ERROR core.exceptions AdminRegisterAPIView: {'confirmPassword': [ErrorDetail(string='This field is required.', code='required')]}
+[2025-11-21 07:57:48,877] WARNING django.request Bad Request: /authentication/register/
+[2025-11-21 07:57:48,878] WARNING django.server "POST /authentication/register/ HTTP/1.1" 400 91
+[2025-11-21 08:01:23,736] INFO django.server "POST /authentication/register/ HTTP/1.1" 201 57
+[2025-11-21 08:03:57,542] INFO django.server "POST /authentication/register/ HTTP/1.1" 201 57
+[2025-11-21 08:08:04,437] INFO django.utils.autoreload E:\Shopizen\Authentication\serializers.py changed, reloading.
+[2025-11-21 08:08:04,956] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 08:08:06,372] INFO django.utils.autoreload E:\Shopizen\Authentication\serializers.py changed, reloading.
+[2025-11-21 08:08:06,846] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 08:08:31,181] INFO django.utils.autoreload E:\Shopizen\Authentication\views.py changed, reloading.
+[2025-11-21 08:08:31,661] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 08:08:54,517] INFO django.utils.autoreload E:\Shopizen\Authentication\urls.py changed, reloading.
+[2025-11-21 08:08:56,393] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 08:09:02,485] INFO django.utils.autoreload E:\Shopizen\Authentication\urls.py changed, reloading.
+[2025-11-21 08:09:03,319] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 08:09:10,448] INFO django.utils.autoreload E:\Shopizen\Authentication\urls.py changed, reloading.
+[2025-11-21 08:09:10,917] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 08:21:23,766] INFO django.server "POST /authentication/register/ HTTP/1.1" 201 57
+[2025-11-21 08:24:36,660] INFO django.utils.autoreload E:\Shopizen\Authentication\urls.py changed, reloading.
+[2025-11-21 08:24:37,185] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 08:25:21,782] INFO django.utils.autoreload E:\Shopizen\Authentication\views.py changed, reloading.
+[2025-11-21 08:25:22,251] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 08:37:32,622] INFO django.server "OPTIONS /authentication/login/ HTTP/1.1" 200 0
+[2025-11-21 08:37:33,333] ERROR core.exceptions Unhandled Exception: 'AdminUser' object has no attribute 'role'
+Traceback (most recent call last):
+  File "E:\Shopizen\.venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "E:\Shopizen\Authentication\views.py", line 223, in post
+    "role": user.role,
+            ^^^^^^^^^
+AttributeError: 'AdminUser' object has no attribute 'role'
+[2025-11-21 08:37:33,360] ERROR django.request Internal Server Error: /authentication/login/
+[2025-11-21 08:37:33,363] ERROR django.server "POST /authentication/login/ HTTP/1.1" 500 101
+[2025-11-21 08:37:49,366] ERROR core.exceptions Unhandled Exception: 'AdminUser' object has no attribute 'role'
+Traceback (most recent call last):
+  File "E:\Shopizen\.venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "E:\Shopizen\Authentication\views.py", line 223, in post
+    "role": user.role,
+            ^^^^^^^^^
+AttributeError: 'AdminUser' object has no attribute 'role'
+[2025-11-21 08:37:49,367] ERROR django.request Internal Server Error: /authentication/login/
+[2025-11-21 08:37:49,367] ERROR django.server "POST /authentication/login/ HTTP/1.1" 500 101
+[2025-11-21 08:37:56,902] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 08:37:59,873] ERROR core.exceptions Unhandled Exception: 'AdminUser' object has no attribute 'role'
+Traceback (most recent call last):
+  File "E:\Shopizen\.venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "E:\Shopizen\Authentication\views.py", line 223, in post
+    "role": user.role,
+            ^^^^^^^^^
+AttributeError: 'AdminUser' object has no attribute 'role'
+[2025-11-21 08:37:59,880] ERROR django.request Internal Server Error: /authentication/login/
+[2025-11-21 08:37:59,881] ERROR django.server "POST /authentication/login/ HTTP/1.1" 500 101
+[2025-11-21 08:38:19,698] ERROR core.exceptions Unhandled Exception: 'AdminUser' object has no attribute 'role'
+Traceback (most recent call last):
+  File "E:\Shopizen\.venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "E:\Shopizen\Authentication\views.py", line 223, in post
+    "role": user.role,
+            ^^^^^^^^^
+AttributeError: 'AdminUser' object has no attribute 'role'
+[2025-11-21 08:38:19,700] ERROR django.request Internal Server Error: /authentication/login/
+[2025-11-21 08:38:19,701] ERROR django.server "POST /authentication/login/ HTTP/1.1" 500 101
+[2025-11-21 08:39:19,817] INFO django.utils.autoreload E:\Shopizen\Authentication\views.py changed, reloading.
+[2025-11-21 08:39:20,293] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 08:39:24,660] INFO django.utils.autoreload E:\Shopizen\Authentication\views.py changed, reloading.
+[2025-11-21 08:39:25,154] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 08:39:27,620] INFO django.utils.autoreload E:\Shopizen\Authentication\views.py changed, reloading.
+[2025-11-21 08:39:28,109] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 08:39:29,537] INFO django.utils.autoreload E:\Shopizen\Authentication\views.py changed, reloading.
+[2025-11-21 08:39:30,021] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 08:39:32,498] INFO django.utils.autoreload E:\Shopizen\Authentication\views.py changed, reloading.
+[2025-11-21 08:39:33,050] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 08:39:34,420] INFO django.utils.autoreload E:\Shopizen\Authentication\views.py changed, reloading.
+[2025-11-21 08:39:34,900] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 08:39:37,335] INFO django.utils.autoreload E:\Shopizen\Authentication\views.py changed, reloading.
+[2025-11-21 08:39:37,889] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 08:39:39,289] INFO django.utils.autoreload E:\Shopizen\Authentication\views.py changed, reloading.
+[2025-11-21 08:39:39,753] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 08:39:42,820] INFO django.server "POST /authentication/login/ HTTP/1.1" 200 574
+[2025-11-21 08:40:22,456] INFO django.server "POST /authentication/login/ HTTP/1.1" 200 574
+[2025-11-21 08:40:52,466] INFO django.server "POST /authentication/login/ HTTP/1.1" 200 574
+[2025-11-21 08:42:19,786] INFO django.utils.autoreload E:\Shopizen\Authentication\views.py changed, reloading.
+[2025-11-21 08:42:20,314] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 08:42:22,607] INFO django.utils.autoreload E:\Shopizen\Authentication\views.py changed, reloading.
+[2025-11-21 08:42:23,096] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 08:42:24,333] INFO django.utils.autoreload E:\Shopizen\Authentication\views.py changed, reloading.
+[2025-11-21 08:42:24,806] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 08:48:59,863] ERROR core.exceptions Unhandled Exception: 'AdminUser' object has no attribute 'phone_number'
+Traceback (most recent call last):
+  File "E:\Shopizen\.venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "E:\Shopizen\Authentication\views.py", line 222, in post
+    'phone_number': user.phone_number,
+                    ^^^^^^^^^^^^^^^^^
+AttributeError: 'AdminUser' object has no attribute 'phone_number'
+[2025-11-21 08:48:59,870] ERROR django.request Internal Server Error: /authentication/login/
+[2025-11-21 08:48:59,871] ERROR django.server "POST /authentication/login/ HTTP/1.1" 500 101
+[2025-11-21 08:49:27,959] ERROR core.exceptions Unhandled Exception: 'AdminUser' object has no attribute 'phone_number'
+Traceback (most recent call last):
+  File "E:\Shopizen\.venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "E:\Shopizen\Authentication\views.py", line 222, in post
+    'phone_number': user.phone_number,
+                    ^^^^^^^^^^^^^^^^^
+AttributeError: 'AdminUser' object has no attribute 'phone_number'
+[2025-11-21 08:49:27,961] ERROR django.request Internal Server Error: /authentication/login/
+[2025-11-21 08:49:27,963] ERROR django.server "POST /authentication/login/ HTTP/1.1" 500 101
+[2025-11-21 08:49:58,529] ERROR core.exceptions Unhandled Exception: 'AdminUser' object has no attribute 'phone_number'
+Traceback (most recent call last):
+  File "E:\Shopizen\.venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "E:\Shopizen\Authentication\views.py", line 222, in post
+    'phone_number': user.phone_number,
+                    ^^^^^^^^^^^^^^^^^
+AttributeError: 'AdminUser' object has no attribute 'phone_number'
+[2025-11-21 08:49:58,531] ERROR django.request Internal Server Error: /authentication/login/
+[2025-11-21 08:49:58,532] ERROR django.server "POST /authentication/login/ HTTP/1.1" 500 101
+[2025-11-21 08:51:05,108] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 08:51:14,232] ERROR core.exceptions Unhandled Exception: 'AdminUser' object has no attribute 'phone_number'
+Traceback (most recent call last):
+  File "E:\Shopizen\.venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "E:\Shopizen\Authentication\views.py", line 222, in post
+    'phone_number': user.phone_number,
+                    ^^^^^^^^^^^^^^^^^
+AttributeError: 'AdminUser' object has no attribute 'phone_number'
+[2025-11-21 08:51:14,235] ERROR django.request Internal Server Error: /authentication/login/
+[2025-11-21 08:51:14,236] ERROR django.server "POST /authentication/login/ HTTP/1.1" 500 101
+[2025-11-21 08:51:22,742] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 08:51:25,284] ERROR core.exceptions Unhandled Exception: 'AdminUser' object has no attribute 'phone_number'
+Traceback (most recent call last):
+  File "E:\Shopizen\.venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "E:\Shopizen\Authentication\views.py", line 222, in post
+    'phone_number': user.phone_number,
+                    ^^^^^^^^^^^^^^^^^
+AttributeError: 'AdminUser' object has no attribute 'phone_number'
+[2025-11-21 08:51:25,290] ERROR django.request Internal Server Error: /authentication/login/
+[2025-11-21 08:51:25,290] ERROR django.server "POST /authentication/login/ HTTP/1.1" 500 101
+[2025-11-21 08:52:14,938] INFO django.utils.autoreload E:\Shopizen\Authentication\views.py changed, reloading.
+[2025-11-21 08:52:15,462] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 08:52:18,058] ERROR core.exceptions Unhandled Exception: 'AdminUser' object has no attribute 'is_admin'
+Traceback (most recent call last):
+  File "E:\Shopizen\.venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "E:\Shopizen\Authentication\views.py", line 223, in post
+    'is_admin': user.is_admin,
+                ^^^^^^^^^^^^^
+AttributeError: 'AdminUser' object has no attribute 'is_admin'
+[2025-11-21 08:52:18,073] ERROR django.request Internal Server Error: /authentication/login/
+[2025-11-21 08:52:18,075] ERROR django.server "POST /authentication/login/ HTTP/1.1" 500 101
+[2025-11-21 08:52:22,120] ERROR core.exceptions Unhandled Exception: 'AdminUser' object has no attribute 'is_admin'
+Traceback (most recent call last):
+  File "E:\Shopizen\.venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "E:\Shopizen\Authentication\views.py", line 223, in post
+    'is_admin': user.is_admin,
+                ^^^^^^^^^^^^^
+AttributeError: 'AdminUser' object has no attribute 'is_admin'
+[2025-11-21 08:52:22,122] ERROR django.request Internal Server Error: /authentication/login/
+[2025-11-21 08:52:22,122] ERROR django.server "POST /authentication/login/ HTTP/1.1" 500 101
+[2025-11-21 08:52:39,243] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 08:52:43,668] ERROR core.exceptions Unhandled Exception: 'AdminUser' object has no attribute 'is_admin'
+Traceback (most recent call last):
+  File "E:\Shopizen\.venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "E:\Shopizen\Authentication\views.py", line 223, in post
+    'is_admin': user.is_admin,
+                ^^^^^^^^^^^^^
+AttributeError: 'AdminUser' object has no attribute 'is_admin'
+[2025-11-21 08:52:43,671] ERROR django.request Internal Server Error: /authentication/login/
+[2025-11-21 08:52:43,672] ERROR django.server "POST /authentication/login/ HTTP/1.1" 500 101
+[2025-11-21 08:53:06,256] INFO django.utils.autoreload E:\Shopizen\Authentication\views.py changed, reloading.
+[2025-11-21 08:53:06,770] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 08:53:08,020] INFO django.utils.autoreload E:\Shopizen\Authentication\views.py changed, reloading.
+[2025-11-21 08:53:08,491] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 08:53:09,739] INFO django.utils.autoreload E:\Shopizen\Authentication\views.py changed, reloading.
+[2025-11-21 08:53:10,242] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 08:53:11,490] INFO django.utils.autoreload E:\Shopizen\Authentication\views.py changed, reloading.
+[2025-11-21 08:53:11,949] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 08:53:15,966] ERROR core.exceptions Unhandled Exception: 'AdminUser' object has no attribute 'is_admin'
+Traceback (most recent call last):
+  File "E:\Shopizen\.venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "E:\Shopizen\Authentication\views.py", line 222, in post
+    'is_admin': user.is_admin,
+                ^^^^^^^^^^^^^
+AttributeError: 'AdminUser' object has no attribute 'is_admin'
+[2025-11-21 08:53:15,970] ERROR django.request Internal Server Error: /authentication/login/
+[2025-11-21 08:53:15,971] ERROR django.server "POST /authentication/login/ HTTP/1.1" 500 101
+[2025-11-21 08:53:28,625] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 08:53:31,564] ERROR core.exceptions Unhandled Exception: 'AdminUser' object has no attribute 'is_admin'
+Traceback (most recent call last):
+  File "E:\Shopizen\.venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "E:\Shopizen\Authentication\views.py", line 222, in post
+    'is_admin': user.is_admin,
+                ^^^^^^^^^^^^^
+AttributeError: 'AdminUser' object has no attribute 'is_admin'
+[2025-11-21 08:53:31,569] ERROR django.request Internal Server Error: /authentication/login/
+[2025-11-21 08:53:31,570] ERROR django.server "POST /authentication/login/ HTTP/1.1" 500 101
+[2025-11-21 08:55:20,711] INFO django.utils.autoreload E:\Shopizen\Authentication\views.py changed, reloading.
+[2025-11-21 08:55:21,212] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 08:55:22,618] INFO django.utils.autoreload E:\Shopizen\Authentication\views.py changed, reloading.
+[2025-11-21 08:55:23,100] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 08:55:26,588] INFO django.server "POST /authentication/login/ HTTP/1.1" 200 590
+[2025-11-21 08:55:53,203] INFO django.server "POST /authentication/login/ HTTP/1.1" 200 590
+[2025-11-21 08:57:23,482] INFO django.utils.autoreload E:\Shopizen\Authentication\views.py changed, reloading.
+[2025-11-21 08:57:24,368] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 08:57:47,603] ERROR core.exceptions Unhandled Exception: 'AdminUser' object has no attribute 'is_admin'
+Traceback (most recent call last):
+  File "E:\Shopizen\.venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "E:\Shopizen\Authentication\views.py", line 223, in post
+    'role': "admin" if user.is_admin else "user",
+                       ^^^^^^^^^^^^^
+AttributeError: 'AdminUser' object has no attribute 'is_admin'
+[2025-11-21 08:57:47,607] ERROR django.request Internal Server Error: /authentication/login/
+[2025-11-21 08:57:47,609] ERROR django.server "POST /authentication/login/ HTTP/1.1" 500 101
+[2025-11-21 08:57:58,053] INFO django.utils.autoreload E:\Shopizen\Authentication\views.py changed, reloading.
+[2025-11-21 08:57:59,156] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 08:58:00,836] INFO django.server "POST /authentication/login/ HTTP/1.1" 200 590
+[2025-11-21 18:29:16,472] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 18:31:45,822] INFO django.server "OPTIONS /authentication/register/ HTTP/1.1" 200 0
+[2025-11-21 18:31:47,543] ERROR core.exceptions Unhandled Exception: (1062, "Duplicate entry '12345678' for key 'authentication_adminuser.employee_id'")
+Traceback (most recent call last):
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\backends\mysql\base.py", line 76, in execute
+    return self.cursor.execute(query, args)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\MySQLdb\cursors.py", line 179, in execute
+    res = self._query(mogrified_query)
+  File "E:\Shopizen\.venv\Lib\site-packages\MySQLdb\cursors.py", line 330, in _query
+    db.query(q)
+    ~~~~~~~~^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\MySQLdb\connections.py", line 280, in query
+    _mysql.connection.query(self, query)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+MySQLdb.IntegrityError: (1062, "Duplicate entry '12345678' for key 'authentication_adminuser.employee_id'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "E:\Shopizen\.venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "E:\Shopizen\.venv\Lib\site-packages\rest_framework\generics.py", line 194, in post
+    return self.create(request, *args, **kwargs)
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Shopizen\Authentication\views.py", line 176, in create
+    admin_user = serializer.save()
+  File "E:\Shopizen\.venv\Lib\site-packages\rest_framework\serializers.py", line 210, in save
+    self.instance = self.create(validated_data)
+                    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "E:\Shopizen\Authentication\serializers.py", line 154, in create
+    user = AdminUser.objects.create_user(
+        email=validated_data["email"],
+    ...<6 lines>...
+        securityCode=validated_data["securityCode"],
+    )
+  File "E:\Shopizen\Authentication\models.py", line 119, in create_user
+    user.save(using=self._db)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\contrib\auth\base_user.py", line 65, in save
+    super().save(*args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\models\base.py", line 902, in save
+    self.save_base(
+    ~~~~~~~~~~~~~~^
+        using=using,
+        ^^^^^^^^^^^^
+    ...<2 lines>...
+        update_fields=update_fields,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\models\base.py", line 1008, in save_base
+    updated = self._save_table(
+        raw,
+    ...<4 lines>...
+        update_fields,
+    )
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\models\base.py", line 1169, in _save_table
+    results = self._do_insert(
+        cls._base_manager, using, fields, returning_fields, raw
+    )
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\models\base.py", line 1210, in _do_insert
+    return manager._insert(
+           ~~~~~~~~~~~~~~~^
+        [self],
+        ^^^^^^^
+    ...<3 lines>...
+        raw=raw,
+        ^^^^^^^^
+    )
+    ^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\models\query.py", line 1873, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1882, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\backends\mysql\base.py", line 76, in execute
+    return self.cursor.execute(query, args)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\MySQLdb\cursors.py", line 179, in execute
+    res = self._query(mogrified_query)
+  File "E:\Shopizen\.venv\Lib\site-packages\MySQLdb\cursors.py", line 330, in _query
+    db.query(q)
+    ~~~~~~~~^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\MySQLdb\connections.py", line 280, in query
+    _mysql.connection.query(self, query)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+django.db.utils.IntegrityError: (1062, "Duplicate entry '12345678' for key 'authentication_adminuser.employee_id'")
+[2025-11-21 18:31:47,715] ERROR django.request Internal Server Error: /authentication/register/
+[2025-11-21 18:31:47,716] ERROR django.server "POST /authentication/register/ HTTP/1.1" 500 101
+[2025-11-21 18:32:03,405] ERROR core.exceptions Unhandled Exception: (1062, "Duplicate entry '12345678' for key 'authentication_adminuser.employee_id'")
+Traceback (most recent call last):
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\backends\mysql\base.py", line 76, in execute
+    return self.cursor.execute(query, args)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\MySQLdb\cursors.py", line 179, in execute
+    res = self._query(mogrified_query)
+  File "E:\Shopizen\.venv\Lib\site-packages\MySQLdb\cursors.py", line 330, in _query
+    db.query(q)
+    ~~~~~~~~^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\MySQLdb\connections.py", line 280, in query
+    _mysql.connection.query(self, query)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+MySQLdb.IntegrityError: (1062, "Duplicate entry '12345678' for key 'authentication_adminuser.employee_id'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "E:\Shopizen\.venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "E:\Shopizen\.venv\Lib\site-packages\rest_framework\generics.py", line 194, in post
+    return self.create(request, *args, **kwargs)
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Shopizen\Authentication\views.py", line 176, in create
+    admin_user = serializer.save()
+  File "E:\Shopizen\.venv\Lib\site-packages\rest_framework\serializers.py", line 210, in save
+    self.instance = self.create(validated_data)
+                    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "E:\Shopizen\Authentication\serializers.py", line 154, in create
+    user = AdminUser.objects.create_user(
+        email=validated_data["email"],
+    ...<6 lines>...
+        securityCode=validated_data["securityCode"],
+    )
+  File "E:\Shopizen\Authentication\models.py", line 119, in create_user
+    user.save(using=self._db)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\contrib\auth\base_user.py", line 65, in save
+    super().save(*args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\models\base.py", line 902, in save
+    self.save_base(
+    ~~~~~~~~~~~~~~^
+        using=using,
+        ^^^^^^^^^^^^
+    ...<2 lines>...
+        update_fields=update_fields,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\models\base.py", line 1008, in save_base
+    updated = self._save_table(
+        raw,
+    ...<4 lines>...
+        update_fields,
+    )
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\models\base.py", line 1169, in _save_table
+    results = self._do_insert(
+        cls._base_manager, using, fields, returning_fields, raw
+    )
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\models\base.py", line 1210, in _do_insert
+    return manager._insert(
+           ~~~~~~~~~~~~~~~^
+        [self],
+        ^^^^^^^
+    ...<3 lines>...
+        raw=raw,
+        ^^^^^^^^
+    )
+    ^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\models\query.py", line 1873, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1882, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\backends\mysql\base.py", line 76, in execute
+    return self.cursor.execute(query, args)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\MySQLdb\cursors.py", line 179, in execute
+    res = self._query(mogrified_query)
+  File "E:\Shopizen\.venv\Lib\site-packages\MySQLdb\cursors.py", line 330, in _query
+    db.query(q)
+    ~~~~~~~~^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\MySQLdb\connections.py", line 280, in query
+    _mysql.connection.query(self, query)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+django.db.utils.IntegrityError: (1062, "Duplicate entry '12345678' for key 'authentication_adminuser.employee_id'")
+[2025-11-21 18:32:03,415] ERROR django.request Internal Server Error: /authentication/register/
+[2025-11-21 18:32:03,416] ERROR django.server "POST /authentication/register/ HTTP/1.1" 500 101
+[2025-11-21 18:32:18,330] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 18:32:22,591] ERROR core.exceptions Unhandled Exception: (1062, "Duplicate entry '12345678' for key 'authentication_adminuser.employee_id'")
+Traceback (most recent call last):
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\backends\mysql\base.py", line 76, in execute
+    return self.cursor.execute(query, args)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\MySQLdb\cursors.py", line 179, in execute
+    res = self._query(mogrified_query)
+  File "E:\Shopizen\.venv\Lib\site-packages\MySQLdb\cursors.py", line 330, in _query
+    db.query(q)
+    ~~~~~~~~^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\MySQLdb\connections.py", line 280, in query
+    _mysql.connection.query(self, query)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+MySQLdb.IntegrityError: (1062, "Duplicate entry '12345678' for key 'authentication_adminuser.employee_id'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "E:\Shopizen\.venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "E:\Shopizen\.venv\Lib\site-packages\rest_framework\generics.py", line 194, in post
+    return self.create(request, *args, **kwargs)
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Shopizen\Authentication\views.py", line 176, in create
+    admin_user = serializer.save()
+  File "E:\Shopizen\.venv\Lib\site-packages\rest_framework\serializers.py", line 210, in save
+    self.instance = self.create(validated_data)
+                    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "E:\Shopizen\Authentication\serializers.py", line 154, in create
+    user = AdminUser.objects.create_user(
+        email=validated_data["email"],
+    ...<6 lines>...
+        securityCode=validated_data["securityCode"],
+    )
+  File "E:\Shopizen\Authentication\models.py", line 119, in create_user
+    user.save(using=self._db)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\contrib\auth\base_user.py", line 65, in save
+    super().save(*args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\models\base.py", line 902, in save
+    self.save_base(
+    ~~~~~~~~~~~~~~^
+        using=using,
+        ^^^^^^^^^^^^
+    ...<2 lines>...
+        update_fields=update_fields,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\models\base.py", line 1008, in save_base
+    updated = self._save_table(
+        raw,
+    ...<4 lines>...
+        update_fields,
+    )
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\models\base.py", line 1169, in _save_table
+    results = self._do_insert(
+        cls._base_manager, using, fields, returning_fields, raw
+    )
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\models\base.py", line 1210, in _do_insert
+    return manager._insert(
+           ~~~~~~~~~~~~~~~^
+        [self],
+        ^^^^^^^
+    ...<3 lines>...
+        raw=raw,
+        ^^^^^^^^
+    )
+    ^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\models\query.py", line 1873, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1882, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\backends\mysql\base.py", line 76, in execute
+    return self.cursor.execute(query, args)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\MySQLdb\cursors.py", line 179, in execute
+    res = self._query(mogrified_query)
+  File "E:\Shopizen\.venv\Lib\site-packages\MySQLdb\cursors.py", line 330, in _query
+    db.query(q)
+    ~~~~~~~~^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\MySQLdb\connections.py", line 280, in query
+    _mysql.connection.query(self, query)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+django.db.utils.IntegrityError: (1062, "Duplicate entry '12345678' for key 'authentication_adminuser.employee_id'")
+[2025-11-21 18:32:22,602] ERROR django.request Internal Server Error: /authentication/register/
+[2025-11-21 18:32:22,602] ERROR django.server "POST /authentication/register/ HTTP/1.1" 500 101
+[2025-11-21 18:32:58,324] ERROR core.exceptions Unhandled Exception: (1062, "Duplicate entry '12345678' for key 'authentication_adminuser.employee_id'")
+Traceback (most recent call last):
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\backends\mysql\base.py", line 76, in execute
+    return self.cursor.execute(query, args)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\MySQLdb\cursors.py", line 179, in execute
+    res = self._query(mogrified_query)
+  File "E:\Shopizen\.venv\Lib\site-packages\MySQLdb\cursors.py", line 330, in _query
+    db.query(q)
+    ~~~~~~~~^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\MySQLdb\connections.py", line 280, in query
+    _mysql.connection.query(self, query)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+MySQLdb.IntegrityError: (1062, "Duplicate entry '12345678' for key 'authentication_adminuser.employee_id'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "E:\Shopizen\.venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "E:\Shopizen\.venv\Lib\site-packages\rest_framework\generics.py", line 194, in post
+    return self.create(request, *args, **kwargs)
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Shopizen\Authentication\views.py", line 176, in create
+    admin_user = serializer.save()
+  File "E:\Shopizen\.venv\Lib\site-packages\rest_framework\serializers.py", line 210, in save
+    self.instance = self.create(validated_data)
+                    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "E:\Shopizen\Authentication\serializers.py", line 154, in create
+    user = AdminUser.objects.create_user(
+        email=validated_data["email"],
+    ...<6 lines>...
+        securityCode=validated_data["securityCode"],
+    )
+  File "E:\Shopizen\Authentication\models.py", line 119, in create_user
+    user.save(using=self._db)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\contrib\auth\base_user.py", line 65, in save
+    super().save(*args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\models\base.py", line 902, in save
+    self.save_base(
+    ~~~~~~~~~~~~~~^
+        using=using,
+        ^^^^^^^^^^^^
+    ...<2 lines>...
+        update_fields=update_fields,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\models\base.py", line 1008, in save_base
+    updated = self._save_table(
+        raw,
+    ...<4 lines>...
+        update_fields,
+    )
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\models\base.py", line 1169, in _save_table
+    results = self._do_insert(
+        cls._base_manager, using, fields, returning_fields, raw
+    )
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\models\base.py", line 1210, in _do_insert
+    return manager._insert(
+           ~~~~~~~~~~~~~~~^
+        [self],
+        ^^^^^^^
+    ...<3 lines>...
+        raw=raw,
+        ^^^^^^^^
+    )
+    ^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\models\query.py", line 1873, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1882, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\backends\mysql\base.py", line 76, in execute
+    return self.cursor.execute(query, args)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\MySQLdb\cursors.py", line 179, in execute
+    res = self._query(mogrified_query)
+  File "E:\Shopizen\.venv\Lib\site-packages\MySQLdb\cursors.py", line 330, in _query
+    db.query(q)
+    ~~~~~~~~^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\MySQLdb\connections.py", line 280, in query
+    _mysql.connection.query(self, query)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+django.db.utils.IntegrityError: (1062, "Duplicate entry '12345678' for key 'authentication_adminuser.employee_id'")
+[2025-11-21 18:32:58,330] ERROR django.request Internal Server Error: /authentication/register/
+[2025-11-21 18:32:58,331] ERROR django.server "POST /authentication/register/ HTTP/1.1" 500 101
+[2025-11-21 18:33:14,645] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 18:33:25,143] ERROR core.exceptions Unhandled Exception: (1062, "Duplicate entry '12345678' for key 'authentication_adminuser.employee_id'")
+Traceback (most recent call last):
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\backends\mysql\base.py", line 76, in execute
+    return self.cursor.execute(query, args)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\MySQLdb\cursors.py", line 179, in execute
+    res = self._query(mogrified_query)
+  File "E:\Shopizen\.venv\Lib\site-packages\MySQLdb\cursors.py", line 330, in _query
+    db.query(q)
+    ~~~~~~~~^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\MySQLdb\connections.py", line 280, in query
+    _mysql.connection.query(self, query)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+MySQLdb.IntegrityError: (1062, "Duplicate entry '12345678' for key 'authentication_adminuser.employee_id'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "E:\Shopizen\.venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "E:\Shopizen\.venv\Lib\site-packages\rest_framework\generics.py", line 194, in post
+    return self.create(request, *args, **kwargs)
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Shopizen\Authentication\views.py", line 176, in create
+    admin_user = serializer.save()
+  File "E:\Shopizen\.venv\Lib\site-packages\rest_framework\serializers.py", line 210, in save
+    self.instance = self.create(validated_data)
+                    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "E:\Shopizen\Authentication\serializers.py", line 154, in create
+    user = AdminUser.objects.create_user(
+        email=validated_data["email"],
+    ...<6 lines>...
+        securityCode=validated_data["securityCode"],
+    )
+  File "E:\Shopizen\Authentication\models.py", line 119, in create_user
+    user.save(using=self._db)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\contrib\auth\base_user.py", line 65, in save
+    super().save(*args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\models\base.py", line 902, in save
+    self.save_base(
+    ~~~~~~~~~~~~~~^
+        using=using,
+        ^^^^^^^^^^^^
+    ...<2 lines>...
+        update_fields=update_fields,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\models\base.py", line 1008, in save_base
+    updated = self._save_table(
+        raw,
+    ...<4 lines>...
+        update_fields,
+    )
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\models\base.py", line 1169, in _save_table
+    results = self._do_insert(
+        cls._base_manager, using, fields, returning_fields, raw
+    )
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\models\base.py", line 1210, in _do_insert
+    return manager._insert(
+           ~~~~~~~~~~~~~~~^
+        [self],
+        ^^^^^^^
+    ...<3 lines>...
+        raw=raw,
+        ^^^^^^^^
+    )
+    ^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\models\query.py", line 1873, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1882, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\backends\mysql\base.py", line 76, in execute
+    return self.cursor.execute(query, args)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\MySQLdb\cursors.py", line 179, in execute
+    res = self._query(mogrified_query)
+  File "E:\Shopizen\.venv\Lib\site-packages\MySQLdb\cursors.py", line 330, in _query
+    db.query(q)
+    ~~~~~~~~^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\MySQLdb\connections.py", line 280, in query
+    _mysql.connection.query(self, query)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+django.db.utils.IntegrityError: (1062, "Duplicate entry '12345678' for key 'authentication_adminuser.employee_id'")
+[2025-11-21 18:33:25,153] ERROR django.request Internal Server Error: /authentication/register/
+[2025-11-21 18:33:25,154] ERROR django.server "POST /authentication/register/ HTTP/1.1" 500 101
+[2025-11-21 18:37:05,616] INFO django.server "POST /authentication/register/ HTTP/1.1" 201 57
+[2025-11-21 18:37:45,996] INFO django.server "OPTIONS /authentication/login/ HTTP/1.1" 200 0
+[2025-11-21 18:37:47,282] WARNING django.request Unauthorized: /authentication/login/
+[2025-11-21 18:37:47,286] WARNING django.server "POST /authentication/login/ HTTP/1.1" 401 31
+[2025-11-21 18:37:53,873] WARNING django.request Unauthorized: /authentication/login/
+[2025-11-21 18:37:53,876] WARNING django.server "POST /authentication/login/ HTTP/1.1" 401 31
+[2025-11-21 18:42:41,631] INFO django.server "POST /authentication/register/ HTTP/1.1" 201 58
+[2025-11-21 18:42:58,511] WARNING django.request Unauthorized: /authentication/login/
+[2025-11-21 18:42:58,512] WARNING django.server "POST /authentication/login/ HTTP/1.1" 401 31
+[2025-11-21 18:43:16,672] INFO django.server "POST /authentication/login/ HTTP/1.1" 200 590

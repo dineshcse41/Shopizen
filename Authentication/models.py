@@ -97,15 +97,60 @@ class MobileOTP(models.Model):
         return self.otp
 
 
-
+# ----------------------------------------------------------------------------------------admin----------------------------------
 # ADMIN PROFILE (FIXED)
-class AdminProfile(models.Model):
-    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    full_name = models.CharField(max_length=150)
-    designation = models.CharField(max_length=150)
-    department = models.CharField(max_length=150)
-    employee_id = models.CharField(max_length=50, unique=True)
-    security_code = models.CharField(max_length=50)
+from django.db import models
+from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
 
-    def __str__(self):
-        return self.full_name
+class AdminUserManager(BaseUserManager):
+
+    def create_user(self, email, first_name, last_name, password=None, **extra_fields):
+        if not email:
+            raise ValueError("Email must be provided")
+        email = self.normalize_email(email)
+        
+        user = self.model(
+            email=email,
+            first_name=first_name,
+            last_name=last_name,
+            **extra_fields
+        )
+        user.set_password(password)
+        user.save(using=self._db)
+        return user
+
+    def create_superuser(self, email, first_name, last_name, password=None, **extra_fields):
+        # Enforce required flags
+        extra_fields.setdefault('is_staff', True)
+        extra_fields.setdefault('is_superuser', True)
+
+        # SAFETY VALIDATION
+        if extra_fields.get('is_staff') is not True:
+            raise ValueError("Superuser must have is_staff=True")
+        if extra_fields.get('is_superuser') is not True:
+            raise ValueError("Superuser must have is_superuser=True")
+
+        return self.create_user(email, first_name, last_name, password, **extra_fields)
+
+
+class AdminUser(AbstractBaseUser, PermissionsMixin):
+    first_name = models.CharField(max_length=50)
+    last_name = models.CharField(max_length=50)
+    email = models.EmailField(unique=True)
+
+    designation = models.CharField(max_length=100)
+    department = models.CharField(max_length=100)
+
+    employeeId = models.CharField(max_length=50, unique=True)  # ✔ MATCH FRONTEND
+    securityCode = models.CharField(max_length=50)             # ✔ MATCH FRONTEND
+
+    is_active = models.BooleanField(default=True)
+    is_staff = models.BooleanField(default=False)
+
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    objects = AdminUserManager()
+
+    USERNAME_FIELD = "email"
+    REQUIRED_FIELDS = ["first_name", "last_name"]

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import UserProfile, AdminProfile
+from .models import UserProfile, AdminUser
 from django.contrib.auth import get_user_model
 User = get_user_model()
 
@@ -13,15 +13,20 @@ class UserProfileAdmin(admin.ModelAdmin):
     search_fields = ('user__username', 'full_name', 'phone_number')
     list_filter = ('user__is_active',)
 
+ 
 
-@admin.register(AdminProfile)
-class AdminProfileAdmin(admin.ModelAdmin):
+from django.contrib import admin
+from .models import UserProfile, AdminUser  # <- same here
+
+@admin.register(AdminUser)
+class AdminUserAdmin(admin.ModelAdmin):
     list_display = (
-        'id', 'full_name', 'designation', 
-        'department', 'employee_id', 'user'
+        "id", "first_name", "last_name", "designation",
+        "department", "employeeId", "email", "is_staff"
     )
     search_fields = (
-        'full_name', 'designation', 
-        'department', 'employee_id', 'user__username'
+        "first_name", "last_name", "designation",
+        "department", "employeeId", "email"
     )
-    list_filter = ('department',)
+    list_filter = ("department", "is_staff", "is_active")
+

@@ -4,10 +4,74 @@ from .models import Product
 from .serializers import ProductSerializer
 
 # List all products
-class ProductListView(generics.ListAPIView):
-    queryset = Product.objects.all().order_by('-created_at')
+
+class ProductListAPIView(generics.ListAPIView):
     serializer_class = ProductSerializer
 
+    def get_queryset(self):
+        queryset = Product.objects.all()
+        request = self.request
+
+        # Search
+        q = request.GET.get('query', '').lower()
+        if q:
+            queryset = queryset.filter(
+                Q(name__icontains=q) |
+                Q(description__icontains=q) |
+                Q(brand__name__icontains=q) |
+                Q(sub_category__icontains=q)
+            )
+
+        # Category filter
+        category = request.GET.get('category', None)
+        if category and category.lower() != "all":
+            queryset = queryset.filter(category__name=category)
+
+        # Filters
+        filters = request.GET
+        if filters.getlist('brand'):
+            queryset = queryset.filter(brand__name__in=filters.getlist('brand'))
+        if filters.getlist('subCategory'):
+            queryset = queryset.filter(sub_category__in=filters.getlist('subCategory'))
+        if filters.getlist('price'):
+            price_ranges = [tuple(map(float, r.split('-'))) for r in filters.getlist('price')]
+            price_query = Q()
+            for min_price, max_price in price_ranges:
+                price_query |= Q(price__gte=min_price, price__lte=max_price)
+            queryset = queryset.filter(price_query)
+        if filters.getlist('rating'):
+            ratings = list(map(float, filters.getlist('rating')))
+            rating_query = Q()
+            for r in ratings:
+                rating_query |= Q(rating__gte=r)
+            queryset = queryset.filter(rating_query)
+        if filters.getlist('stock'):
+            stock_options = list(map(int, filters.getlist('stock')))
+            stock_query = Q()
+            for s in stock_options:
+                if s:
+                    stock_query |= Q(stock__gt=0)
+                else:
+                    stock_query |= Q(stock=0)
+            queryset = queryset.filter(stock_query)
+        if filters.getlist('discount'):
+            discounts = list(map(float, filters.getlist('discount')))
+            discount_query = Q()
+            for d in discounts:
+                discount_query |= Q(discount__gte=d)
+            queryset = queryset.filter(discount_query)
+
+        # Sorting
+        sort_by = request.GET.get('sort', None)
+        if sort_by == "priceLowHigh":
+            queryset = queryset.order_by("price")
+        elif sort_by == "priceHighLow":
+            queryset = queryset.order_by("-price")
+        elif sort_by == "popularity":
+            queryset = queryset.order_by("-rating")  # or annotate with review count if needed
+
+        return queryset
+    
 
 # Product details by ID
 class ProductDetailView(generics.RetrieveAPIView):
