@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useToast } from "../../../components/context/ToastContext";
-import usersData from "../../../data/users/users.json"; // Array of users
 import "../auth/auth.css";
+import axios from "axios";
+
 
 function Reset() {
     const { showToast } = useToast();
@@ -47,52 +48,63 @@ function Reset() {
         return true;
     };
 
-    const handleReset = (e) => {
-        e.preventDefault();
-        if (!validateForm()) return;
+const handleReset = async (e) => {
+    e.preventDefault();
+    if (!validateForm()) return;
 
-        setLoading(true);
+    setLoading(true);
+
+    try {
+        const response = await axios.post("http://127.0.0.1:8000/authentication/resetpassword/", {
+            email: formData.email,
+            password: formData.password,
+            confirm_password: formData.confirmPassword,
+        });
+
+        // Success from backend
+        showToast(response.data.message, "success");
+        setLoading(false);
+        navigate("/login-email");
+    } catch (error) {
+        console.error("Error:", error);
+
+        if (error.response && error.response.data) {
+            setErrors(error.response.data); // backend returns validation errors
+            showToast(
+                Object.values(error.response.data).flat().join(" "),
+                "error"
+            );
+        } else {
+            showToast("Something went wrong. Try again!", "error");
+        }
+
+        setLoading(false);
+    }
+};
+
+
+const handleKeyDownEmail = async (e) => {
+    if (e.key === "Enter") {
+        e.preventDefault();
 
         try {
-            // ✅ Correct: usersData is an array
-            const user = usersData.find((u) => u.email === formData.email);
+            const res = await axios.post(
+                "http://127.0.0.1:8000/authentication/check-email/",
+                { email: formData.email }
+            );
 
-            if (!user) {
-                setErrors({ email: "Email not found." });
-                showToast("Email not registered!", "error");
-                setLoading(false);
-                return;
-            }
+            setEmailVerified(true);
+            setErrors({});
+            document.getElementById("password")?.focus();
 
-            // simulate password update
-            user.password = formData.password;
-            showToast("Password reset successfully!", "success");
-            setLoading(false);
-            navigate("/login-email");
-        } catch (error) {
-            console.error("Error:", error);
-            showToast("Something went wrong. Try again!", "error");
-            setLoading(false);
+        } catch (err) {
+            setEmailVerified(false);
+            setErrors({ email: "Email not registered." });
+            showToast("This email is not registered!", "error");
         }
-    };
+    }
+};
 
-    const handleKeyDownEmail = (e) => {
-        if (e.key === "Enter") {
-            e.preventDefault();
-            const email = formData.email.trim();
-            const userExists = usersData.find((u) => u.email === email);
-
-            if (userExists) {
-                setEmailVerified(true);
-                setErrors({ email: "" });
-                document.getElementById("password")?.focus();
-            } else {
-                setEmailVerified(false);
-                setErrors({ email: "Email not registered." });
-                showToast("This email is not registered!", "error");
-            }
-        }
-    };
 
     const handleKeyDownPassword = (e) => {
         if (e.key === "Enter") handleReset(e);

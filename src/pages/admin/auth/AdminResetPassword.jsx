@@ -16,60 +16,92 @@ const AdminResetPassword = () => {
         setShowPassword((prev) => !prev);
     };
 
-    // 🔐 Handle password reset
-    const handleReset = async (e) => {
-        e.preventDefault();
+    // // 🔐 Handle password reset
+    // const handleReset = async (e) => {
+    //     e.preventDefault();
 
-        try {
-            // -------------------
-            // DUMMY JSON (CURRENT)
-            // -------------------
-            const admin = adminsData.find(
-                (user) => user.email === email && user.securityCode === securityCode
-            );
+    //     try {
+    //         // -------------------
+    //         // DUMMY JSON (CURRENT)
+    //         // -------------------
+    //         const admin = adminsData.find(
+    //             (user) => user.email === email && user.securityCode === securityCode
+    //         );
 
-            if (!admin) {
-                setMessage("❌ Invalid email or security code");
-                return;
-            }
+    //         if (!admin) {
+    //             setMessage("❌ Invalid email or security code");
+    //             return;
+    //         }
 
-            // Update password (localStorage for demo)
-            const updatedAdmins = adminsData.map((user) =>
-                user.email === email ? { ...user, password: newPassword } : user
-            );
-            localStorage.setItem("adminData", JSON.stringify(updatedAdmins));
+    //         // Update password (localStorage for demo)
+    //         const updatedAdmins = adminsData.map((user) =>
+    //             user.email === email ? { ...user, password: newPassword } : user
+    //         );
+    //         localStorage.setItem("adminData", JSON.stringify(updatedAdmins));
 
-            setMessage("✅ Password reset successful! Redirecting to login...");
-            setTimeout(() => navigate("/admin/login"), 2000);
+    //         setMessage("✅ Password reset successful! Redirecting to login...");
+    //         setTimeout(() => navigate("/admin/login"), 2000);
 
-            // -------------------
-            // REAL API (LATER) - Django + PostgreSQL
-            // -------------------
-            /*
-            const response = await fetch("http://127.0.0.1:8000/api/admin/reset-password/", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({ email, securityCode, newPassword }),
-            });
+    //         // -------------------
+    //         // REAL API (LATER) - Django + PostgreSQL
+    //         // -------------------
+    //         /*
+    //         const response = await fetch("http://127.0.0.1:8000/api/admin/reset-password/", {
+    //             method: "POST",
+    //             headers: {
+    //                 "Content-Type": "application/json",
+    //             },
+    //             body: JSON.stringify({ email, securityCode, newPassword }),
+    //         });
 
-            if (!response.ok) {
-                throw new Error("Password reset failed");
-            }
+    //         if (!response.ok) {
+    //             throw new Error("Password reset failed");
+    //         }
 
-            const data = await response.json();
-            console.log("Password reset via API:", data);
+    //         const data = await response.json();
+    //         console.log("Password reset via API:", data);
 
-            setMessage("✅ Password reset successful via API! Redirecting to login...");
-            setTimeout(() => navigate("/admin/login"), 2000);
-            */
+    //         setMessage("✅ Password reset successful via API! Redirecting to login...");
+    //         setTimeout(() => navigate("/admin/login"), 2000);
+    //         */
 
-        } catch (err) {
-            console.error(err);
-            setMessage("❌ Password reset failed. Try again!");
+    //     } catch (err) {
+    //         console.error(err);
+    //         setMessage("❌ Password reset failed. Try again!");
+    //     }
+    // };
+
+const handleReset = async (e) => {
+    e.preventDefault();
+
+    try {
+        const res = await fetch("http://127.0.0.1:8000/authentication/admin/reset-password/", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                email,
+                securityCode,
+                newPassword,
+            }),
+        });
+
+        const data = await res.json();
+
+        if (!res.ok) {
+            setMessage("❌ " + data?.detail || data?.message || "Invalid data");
+            return;
         }
-    };
+
+        setMessage("✅ Password reset successful! Redirecting...");
+        setTimeout(() => navigate("/admin/login"), 2000);
+    } catch (error) {
+        console.error(error);
+        setMessage("❌ Something went wrong");
+    }
+};
+
+
+
 
     return (
         <div className="auth-container">

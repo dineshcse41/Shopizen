@@ -139,21 +139,7 @@ const handleLogin = async (e) => {
 
   const togglePassword = () => setShowPassword(!showPassword);
 
-  /*  const handleKeyDownEmail = (e) => {
-        if (e.key === "Enter") {
-            e.preventDefault();
-            const email = formData.email.trim();
-            if (registeredEmails.includes(email)) {
-                setEmailVerified(true);
-                setEmailError("");
-                document.getElementById("password")?.focus();
-            } else {
-                setEmailVerified(false);
-                setEmailError("This email is not registered. Please register.");
-                showToast("This email is not registered!", "error");
-            }
-        }
-    }; */
+
 
   const handleKeyDownPassword = (e) => {
     if (e.key === "Enter") {
