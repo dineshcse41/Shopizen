@@ -20,11 +20,13 @@ class Brand(models.Model):
 class Product(models.Model):
     id = models.CharField(max_length=20, primary_key=True)  # For string IDs like "P1001"
     name = models.CharField(max_length=200)
+    slug = models.SlugField(blank=True, null=True)
     description = models.TextField()
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     sub_category = models.CharField(max_length=100, blank=True, null=True)
     brand = models.ForeignKey(Brand, on_delete=models.CASCADE)
     price = models.FloatField()
+    currency = models.CharField(max_length=8, default="INR")
     discount = models.FloatField(default=0)
     rating = models.FloatField(default=0)
     stock = models.IntegerField(default=0)
@@ -44,35 +46,51 @@ class Product(models.Model):
     def __str__(self):
         return self.name
 
+class ProductImage(models.Model):
+    product = models.ForeignKey(Product, related_name="gallery", on_delete=models.CASCADE)
+    images = models.ImageField(upload_to="products/")
+    order = models.PositiveIntegerField(default=0)
 
-# CART
-class Cart(models.Model):
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='cart_items')
-    product = models.ForeignKey(Product, on_delete=models.CASCADE)
-    quantity = models.PositiveIntegerField(default=1)
-    added_date = models.DateTimeField(auto_now_add=True)
+    class Meta:
+        ordering = ("order",)
 
     def __str__(self):
-        return f"{self.user.email} - {self.product.name} ({self.quantity})"
+        return f"{self.product.name} image"
+
+
+
+# CART
+class CartItem(models.Model):
+    user = models.ForeignKey(User, related_name="cart_items", on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    selected_size = models.CharField(max_length=64, blank=True)
+    price = models.DecimalField(max_digits=12, decimal_places=2)
+    quantity = models.PositiveIntegerField(default=1)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        unique_together = ("user", "product", "selected_size")
 
 
 # ORDER
 class Order(models.Model):
     STATUS_CHOICES = [
-        ('Pending', 'Pending'),
-        ('Confirmed', 'Confirmed'),
-        ('Shipped', 'Shipped'),
-        ('Delivered', 'Delivered'),
-        ('Cancelled', 'Cancelled'),
+        ("Pending", "Pending"),
+        ("Processing", "Processing"),
+        ("Shipped", "Shipped"),
+        ("Delivered", "Delivered"),
+        ("Cancelled", "Cancelled"),
     ]
 
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='orders')
-    total_price = models.DecimalField(max_digits=10, decimal_places=2)
-    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='Pending')
+    user = models.ForeignKey(User, related_name="orders", on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
+    total = models.DecimalField(max_digits=12, decimal_places=2, default=0)
+    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default="Pending")
 
     def __str__(self):
-        return f"Order #{self.id} by {self.user.email}"
+        return f"Order #{self.id}"
+
+
 
 
 class OrderItem(models.Model):
@@ -90,37 +108,45 @@ class OrderItem(models.Model):
 
 # REVIEW
 class Review(models.Model):
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='reviews')
-    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='review_set')
-    rating = models.PositiveIntegerField(default=1)
-    comment = models.TextField(blank=True)
+    product = models.ForeignKey(Product, related_name="product_images", on_delete=models.CASCADE)
+    user = models.ForeignKey(User, related_name="reviews", on_delete=models.SET_NULL, null=True, blank=True)
+    name = models.CharField(max_length=255, blank=True)  # display name
+    stars = models.PositiveSmallIntegerField(default=0)  # 0-5
+    text = models.TextField(blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
-
-    class Meta:
-        unique_together = ('user', 'product')
+    updated_at = models.DateTimeField(auto_now=True)
+    helpful_up = models.PositiveIntegerField(default=0)
+    helpful_down = models.PositiveIntegerField(default=0)
 
     def __str__(self):
-        return f"{self.user.email} - {self.product.name} ({self.rating})"
+        return f"Review {self.id} for {self.product.name}"
+    
+class ReviewMedia(models.Model):
+    review = models.ForeignKey(Review, related_name="media", on_delete=models.CASCADE)
+    image = models.ImageField(upload_to="reviews/")
 
-    def save(self, *args, **kwargs):
-        super().save(*args, **kwargs)
-        avg = Review.objects.filter(product=self.product).aggregate(avg=Avg('rating'))['avg']
-        self.product.rating = round(avg or 0, 1)
-        self.product.save(update_fields=['rating'])
+
+class Cart(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    quantity = models.PositiveIntegerField(default=1)
+    added_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.user} - {self.product}"
 
 
 # WISHLIST
 class Wishlist(models.Model):
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='wishlist')
-    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='wishlisted_by')
-    added_at = models.DateTimeField(auto_now_add=True)
+    user = models.ForeignKey(User, related_name="wishlist", on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
-        unique_together = ('user', 'product')
-        ordering = ['id']
+        db_table = "user_shopizen_wishlistitem"   # keep old table → prevents data loss
+        unique_together = ("user", "product")
 
-    def __str__(self):
-        return f"{self.user.email} → {self.product.name}"
+
 
 
 # OFFER

@@ -1,7 +1,16 @@
 #Products task 3
-from rest_framework import generics
+from rest_framework import generics, permissions
+from rest_framework.response import Response
+from rest_framework.views import APIView
 from .models import Product
-from .serializers import ProductSerializer
+from .serializers import *
+from django.shortcuts import get_object_or_404
+from rest_framework.parsers import MultiPartParser, FormParser
+from django.db import IntegrityError, transaction
+from .models import Product, Review, ReviewMedia, CartItem, Wishlist
+from .serializers import ProductSerializer, ReviewSerializer, CartItemSerializer, WishlistSerializer
+from django.db import IntegrityError
+
 
 # List all products
 
@@ -77,15 +86,158 @@ class ProductListAPIView(generics.ListAPIView):
 class ProductDetailView(generics.RetrieveAPIView):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
-    lookup_field = 'id'
+    lookup_field = "id"
+    permission_classes = [permissions.AllowAny]
 
+# Reviews: list and create, plus update/delete per-review
+class ProductReviewListCreateView(generics.ListCreateAPIView):
+    serializer_class = ReviewSerializer
+    parser_classes = (MultiPartParser, FormParser)
+    permission_classes = [permissions.AllowAny]
+
+    def get_queryset(self):
+        product_id = self.kwargs.get("product_id")
+        return Review.objects.filter(product_id=product_id).order_by("-created_at")
+
+    def perform_create(self, serializer):
+        product_id = self.kwargs.get("product_id")
+        product = get_object_or_404(Product, id=product_id)
+        user = self.request.user if self.request.user.is_authenticated else None
+        review = serializer.save(product=product, user=user)
+        # save uploaded media (field name: media)
+        files = self.request.FILES.getlist("media")
+        for f in files:
+            ReviewMedia.objects.create(review=review, image=f)
+
+# Cart endpoints
+class AddToCartView(APIView):
+    permission_classes = [permissions.IsAuthenticated]
+
+    def post(self, request):
+        """
+        body: { product_id, selected_size, price, quantity }
+        """
+        user = request.user
+        product_id = request.data.get("product_id")
+        selected_size = request.data.get("selected_size", "")
+        quantity = int(request.data.get("quantity", 1))
+        price = request.data.get("price")
+
+        product = get_object_or_404(Product, id=product_id)
+        try:
+            item, created = CartItem.objects.get_or_create(
+                user=user, product=product, selected_size=selected_size,
+                defaults={"price": price, "quantity": quantity}
+            )
+            if not created:
+                item.quantity += quantity
+                item.price = price
+                item.save()
+        except IntegrityError:
+            return Response({"detail": "Could not add to cart"}, status=status.HTTP_400_BAD_REQUEST)
+
+        return Response({"detail": "Added to cart"}, status=status.HTTP_201_CREATED)
+
+
+class ReviewRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Review.objects.all()
+    serializer_class = ReviewSerializer
+    parser_classes = (MultiPartParser, FormParser)
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+
+    def perform_update(self, serializer):
+        # Only allow the review owner or staff to update
+        review = self.get_object()
+        user = self.request.user
+        if review.user and user != review.user and not user.is_staff:
+            raise PermissionError("Not allowed")
+        updated = serializer.save()
+        files = self.request.FILES.getlist("media")
+        for f in files:
+            ReviewMedia.objects.create(review=updated, image=f)
+
+
+class AddToCartView(APIView):
+    permission_classes = [permissions.IsAuthenticated]
+
+    def post(self, request):
+        serializer = AddToCartSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        data = serializer.validated_data
+        product_id = data["product_id"]
+        selected_size = data.get("selected_size", "")
+        quantity = data.get("quantity", 1)
+        price = data["price"]
+
+        product = get_object_or_404(Product, id=product_id)
+
+        try:
+            with transaction.atomic():
+                item, created = CartItem.objects.get_or_create(
+                    user=request.user,
+                    product=product,
+                    selected_size=selected_size,
+                    defaults={"price": price, "quantity": quantity}
+                )
+                if not created:
+                    item.quantity = item.quantity + quantity
+                    item.price = price
+                    item.save()
+        except IntegrityError:
+            return Response({"detail": "Could not add to cart"}, status=status.HTTP_400_BAD_REQUEST)
+
+        return Response({"detail": "Added to cart"}, status=status.HTTP_201_CREATED)
+
+
+class CartListView(generics.ListAPIView):
+    serializer_class = CartItemSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get_queryset(self):
+        return CartItem.objects.filter(user=self.request.user).order_by("-created_at")
+
+
+
+
+class CartListView(generics.ListAPIView):
+    serializer_class = CartItemSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get_queryset(self):
+        return CartItem.objects.filter(user=self.request.user)
+    
+# Wishlist toggle
+class WishlistToggleView(APIView):
+    permission_classes = [permissions.IsAuthenticated]
+
+    def post(self, request):
+        product_id = request.data.get("product_id")
+        if not product_id:
+            return Response({"detail": "product_id required"}, status=status.HTTP_400_BAD_REQUEST)
+        product = get_object_or_404(Product, id=product_id)
+        existing = Wishlist.objects.filter(user=request.user, product=product).first()
+        if existing:
+            existing.delete()
+            return Response({"detail": "removed"}, status=status.HTTP_200_OK)
+        else:
+            Wishlist.objects.create(user=request.user, product=product)
+            return Response({"detail": "added"}, status=status.HTTP_201_CREATED)
+
+
+class WishlistListView(generics.ListAPIView):
+    serializer_class = WishlistSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get_queryset(self):
+        return Wishlist.objects.filter(user=self.request.user).order_by("-created_at")
+    
 
 # Task 4 updated
 from rest_framework import generics, status
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 from .models import Product, Cart, Order
-from .serializers import ProductSerializer, CartSerializer, OrderSerializer
+from .serializers import *
 
 
 # --- CART APIs ---
@@ -337,7 +489,7 @@ from .serializers import (
     ProductCompareSerializer, WishlistSerializer, ReviewSerializer,
     OrderSerializer
 )
-
+ 
 # --- ORDERS ---
 class OrderListView(generics.ListAPIView):
     serializer_class = OrderSerializer

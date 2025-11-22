@@ -143,6 +143,7 @@ class AdminUser(AbstractBaseUser, PermissionsMixin):
 
     employeeId = models.CharField(max_length=50, unique=True)  # ✔ MATCH FRONTEND
     securityCode = models.CharField(max_length=50)             # ✔ MATCH FRONTEND
+    password = models.CharField(max_length=255)
 
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)

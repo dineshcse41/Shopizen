@@ -58,18 +58,42 @@ class LoginSerializer(serializers.Serializer):
         data['user'] = user
         return data
 # user reset password
+# authentication/serializers.py
 from rest_framework import serializers
 from django.contrib.auth import get_user_model
 
 User = get_user_model()
 
-class ResetPasswordRequestSerializer(serializers.Serializer):
+class ResetPasswordSerializer(serializers.Serializer):
     email = serializers.EmailField()
+    password = serializers.CharField(write_only=True)
+    confirm_password = serializers.CharField(write_only=True)
 
-    def validate_email(self, value):
-        if not User.objects.filter(email=value).exists():
-            raise serializers.ValidationError("User with this email does not exist.")
-        return value
+    def validate(self, data):
+        email = data.get("email")
+        password = data.get("password")
+        confirm_password = data.get("confirm_password")
+
+        # Check if user exists
+        if not User.objects.filter(email=email).exists():
+            raise serializers.ValidationError({
+                "email": ["This email is not registered."]
+            })
+
+        # Password match
+        if password != confirm_password:
+            raise serializers.ValidationError({
+                "confirm_password": ["Passwords do not match."]
+            })
+
+        # strength check
+        if len(password) < 8:
+            raise serializers.ValidationError({
+                "password": ["Password must be at least 8 characters long."]
+            })
+
+        return data
+
 
 from rest_framework import serializers
 from django.contrib.auth.tokens import default_token_generator
@@ -193,24 +217,33 @@ class AdminLoginSerializer(serializers.Serializer):
         return data
 
 
-# -------------------- Password Reset --------------------
-class PasswordResetRequestSerializer(serializers.Serializer):
-    email = serializers.EmailField()
+# -------------------- Password Reset  Admin--------------------
+# Authentication/serializers.py
+from rest_framework import serializers
+from .models import AdminUser
+from django.contrib.auth.hashers import make_password
 
-
-class PasswordResetConfirmSerializer(serializers.Serializer):
-    email = serializers.EmailField()
-    new_password = serializers.CharField(max_length=128)
-    confirm_password = serializers.CharField(max_length=128)
-
-    def validate(self, data):
-        if data['new_password'] != data['confirm_password']:
-            raise serializers.ValidationError("Passwords do not match")
-        return data
-
-
-# -------------------- Admin Password Reset --------------------
 class AdminResetPasswordSerializer(serializers.Serializer):
     email = serializers.EmailField()
-    security_code = serializers.CharField()
-    new_password = serializers.CharField(min_length=6)
+    securityCode = serializers.CharField()
+    newPassword = serializers.CharField()
+
+    def validate(self, data):
+        email = data.get("email")
+        code = data.get("securityCode")
+
+        try:
+            user = AdminUser.objects.get(email=email, securityCode=code)
+        except AdminUser.DoesNotExist:
+            raise serializers.ValidationError("Invalid email or security code")
+
+        data["user"] = user
+        return data
+
+    def save(self):
+        user = self.validated_data["user"]
+        user.password = make_password(self.validated_data["newPassword"])
+        user.save()
+        return user
+
+

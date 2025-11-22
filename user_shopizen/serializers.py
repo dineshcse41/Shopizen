@@ -1,9 +1,44 @@
 # Task 2 updated
 from rest_framework import serializers
-from .models import Product, Cart, Order
+from .models import *
 
+
+class ProductImageSerializer(serializers.ModelSerializer):
+    image = serializers.SerializerMethodField()
+
+    class Meta:
+        model = ProductImage
+        fields = ("id", "image", "order")
+
+    def get_image(self, obj):
+        request = self.context.get("request")
+        if obj.image and hasattr(obj.image, "url"):
+            url = obj.image.url
+            if request:
+                return request.build_absolute_uri(url)
+            return url
+        return None
+
+
+class ReviewMediaSerializer(serializers.ModelSerializer):
+    image = serializers.SerializerMethodField()
+
+    class Meta:
+        model = ReviewMedia
+        fields = ("id", "image")
+
+    def get_image(self, obj):
+        request = self.context.get("request")
+        if obj.image and hasattr(obj.image, "url"):
+            url = obj.image.url
+            if request:
+                return request.build_absolute_uri(url)
+            return url
+        return None
+ 
 
 class ProductSerializer(serializers.ModelSerializer):
+    images = ProductImageSerializer(many=True, read_only=True)
     category = serializers.StringRelatedField()
     brand = serializers.StringRelatedField()
     subCategory = serializers.CharField(source='sub_category')
@@ -13,24 +48,99 @@ class ProductSerializer(serializers.ModelSerializer):
     createdAt = serializers.DateTimeField(source='created_at')
     updatedAt = serializers.DateTimeField(source='updated_at')
     priceBySize = serializers.DictField(source='price_by_size')
+    reviews = serializers.SerializerMethodField()
+    price_by_size = serializers.JSONField(source="price_by_size", read_only=True)
 
     class Meta:
         model = Product
-        fields = [
-            "id", "name", "description", "price", "discount", "rating", "stock",
-            "category", "subCategory", "brand", "tags", "dealOfTheDay",
+        fields = (
+            "id", "name", "slug", "description", "price", "currency", "discount", "rating", "sizes", "stock","priceBySize", "price_by_size",
+            "images", "reviews", "category", "subCategory", "brand", "tags", "dealOfTheDay",
             "isNewArrival", "midSeasonSale", "images", "sizes", "priceBySize",
             "createdAt", "updatedAt"
-        ]
+        )
         
+    def get_images(self, obj):
+        """
+        Prefer the JSONField 'images' if populated (frontend expects that),
+        otherwise return ProductImage set.
+        JSONField may contain list of URLs or dicts; we'll normalize to list of strings (URLs).
+        """
+        request = self.context.get("request")
+
+        # 1) If Product.images JSONField is non-empty (list), use that
+        try:
+            images_json = obj.__dict__.get("images", None)
+        except Exception:
+            images_json = None
+
+        if images_json:
+            # If items look like {"url": "..."} or strings, normalize to absolute URLs when possible
+            normalized = []
+            for item in images_json:
+                if isinstance(item, dict) and ("url" in item or "image" in item):
+                    url = item.get("url") or item.get("image")
+                elif isinstance(item, str):
+                    url = item
+                else:
+                    url = None
+                if url and request and url.startswith("/"):
+                    normalized.append(request.build_absolute_uri(url))
+                else:
+                    normalized.append(url)
+            return normalized
+
+        # 2) fallback: use ProductImage related objects
+        imgs = ProductImage.objects.filter(product=obj).order_by("order")
+        serializer = ProductImageSerializer(imgs, many=True, context={"request": request})
+        # return just list of image URLs (to match your frontend which expects product.images to be array)
+        urls = [it["image"] for it in serializer.data if it.get("image")]
+        return urls
+
+    def get_priceBySize(self, obj):
+        # return price_by_size mapping, ensure keys/values simple primitives
+        pb = obj.price_by_size or {}
+        # convert values to float for JSON serialization
+        return {k: float(v) for k, v in pb.items()}
+
+    def get_reviews(self, obj):
+        qs = obj.reviews.order_by("-created_at")
+        return ReviewSerializer(qs, many=True, context=self.context).data
+
+
+class AddToCartSerializer(serializers.Serializer):
+    product_id = serializers.CharField()
+    selected_size = serializers.CharField(allow_blank=True, required=False)
+    price = serializers.DecimalField(max_digits=12, decimal_places=2)
+    quantity = serializers.IntegerField(min_value=1, default=1)
 # task 4 updated
-class CartSerializer(serializers.ModelSerializer):
+class CartItemSerializer(serializers.ModelSerializer):
     product = ProductSerializer(read_only=True)
-    product_id = serializers.IntegerField(write_only=True)
+
+    class Meta:
+        model = CartItem
+        fields = ("id", "product", "selected_size", "price", "quantity", "created_at")
+
+from rest_framework import serializers
+from .models import Cart, Product
+
+class CartSerializer(serializers.ModelSerializer):
+    product_details = serializers.SerializerMethodField()
 
     class Meta:
         model = Cart
-        fields = ['id', 'product', 'product_id', 'quantity', 'added_date']
+        fields = ['id', 'user', 'product', 'quantity', 'added_at', 'product_details']
+        read_only_fields = ['added_at', 'user']   # user will be set automatically
+
+    def get_product_details(self, obj):
+        """Return selected product info inside the cart response"""
+        return {
+            "id": obj.product.id,
+            "name": obj.product.name,
+            "price": obj.product.price,
+            "image": obj.product.image.url if obj.product.image else None
+        }
+
 
 # Task 7 # task updated in 11(2)
 from .models import Order, OrderItem
@@ -104,30 +214,28 @@ from .models import Review, Wishlist, Offer, Product
 # task updated in 10
 # --- REVIEW SERIALIZER ---
 class ReviewSerializer(serializers.ModelSerializer):
-    user = serializers.StringRelatedField(read_only=True)
+    media = ReviewMediaSerializer(many=True, read_only=True)
+    user = serializers.SerializerMethodField()
+    product = serializers.PrimaryKeyRelatedField(read_only=True)
 
     class Meta:
         model = Review
-        fields = ['id', 'user', 'product', 'rating', 'comment', 'created_at']
-        read_only_fields = ['user', 'created_at']
+        fields = ("id", "product", "user", "name", "stars", "text", "created_at", "updated_at", "media", "helpful_up", "helpful_down")
 
-    def create(self, validated_data):
-        validated_data['user'] = self.context['request'].user
-        return super().create(validated_data)
+    def get_user(self, obj):
+        if obj.user:
+            return {"id": obj.user.id, "email": getattr(obj.user, "email", ""), "username": getattr(obj.user, "username", "")}
+        return None
 
+    
 
 # --- WISHLIST SERIALIZER ---
 class WishlistSerializer(serializers.ModelSerializer):
-    product_name = serializers.CharField(source='product.name', read_only=True)
-    product_price = serializers.DecimalField(source='product.price', read_only=True,
-                                             max_digits=10, decimal_places=2)
-    product_image = serializers.ImageField(source='product.image', read_only=True)
     product = ProductSerializer(read_only=True)
 
     class Meta:
         model = Wishlist
-        fields = ['id', 'product', 'product_name', 'product_price', 'product_image', 'added_at']
-
+        fields = ("id", "product", "created_at")
 
 
 # --- OFFER SERIALIZER ---

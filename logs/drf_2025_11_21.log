@@ -913,3 +913,272 @@ django.db.utils.IntegrityError: (1062, "Duplicate entry '12345678' for key 'auth
 [2025-11-21 18:42:58,511] WARNING django.request Unauthorized: /authentication/login/
 [2025-11-21 18:42:58,512] WARNING django.server "POST /authentication/login/ HTTP/1.1" 401 31
 [2025-11-21 18:43:16,672] INFO django.server "POST /authentication/login/ HTTP/1.1" 200 590
+[2025-11-21 18:51:44,458] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 18:59:14,303] INFO django.utils.autoreload E:\Shopizen\Authentication\models.py changed, reloading.
+[2025-11-21 18:59:14,925] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 19:00:20,822] INFO django.utils.autoreload E:\Shopizen\Authentication\serializers.py changed, reloading.
+[2025-11-21 19:00:21,345] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 19:00:25,788] INFO django.utils.autoreload E:\Shopizen\Authentication\serializers.py changed, reloading.
+[2025-11-21 19:00:26,335] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 19:00:28,695] INFO django.utils.autoreload E:\Shopizen\Authentication\serializers.py changed, reloading.
+[2025-11-21 19:00:29,227] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 19:00:43,943] INFO django.utils.autoreload E:\Shopizen\Authentication\views.py changed, reloading.
+[2025-11-21 19:00:44,509] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 19:01:14,862] INFO django.utils.autoreload E:\Shopizen\Authentication\views.py changed, reloading.
+[2025-11-21 19:01:15,637] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 19:02:32,795] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 19:03:08,264] INFO django.utils.autoreload E:\Shopizen\Authentication\views.py changed, reloading.
+[2025-11-21 19:03:08,812] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 19:03:10,075] INFO django.utils.autoreload E:\Shopizen\Authentication\views.py changed, reloading.
+[2025-11-21 19:03:10,573] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 19:06:36,931] INFO django.utils.autoreload E:\Shopizen\Authentication\urls.py changed, reloading.
+[2025-11-21 19:06:37,438] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 19:14:30,087] INFO django.server "OPTIONS /authentication/admin/reset-password/ HTTP/1.1" 200 0
+[2025-11-21 19:14:30,149] ERROR core.exceptions Unhandled Exception: Cannot resolve keyword 'security_code' into field. Choices are: created_at, department, designation, email, employeeId, first_name, groups, id, is_active, is_staff, is_superuser, last_login, last_name, password, securityCode, updated_at, user_permissions
+Traceback (most recent call last):
+  File "E:\Shopizen\.venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "E:\Shopizen\Authentication\views.py", line 236, in post
+    if serializer.is_valid():
+       ~~~~~~~~~~~~~~~~~~~^^
+  File "E:\Shopizen\.venv\Lib\site-packages\rest_framework\serializers.py", line 225, in is_valid
+    self._validated_data = self.run_validation(self.initial_data)
+                           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\rest_framework\serializers.py", line 447, in run_validation
+    value = self.validate(value)
+  File "E:\Shopizen\Authentication\serializers.py", line 212, in validate
+    user = AdminUser.objects.get(email=email, security_code=code)
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\models\query.py", line 621, in get
+    clone = self._chain() if self.query.combinator else self.filter(*args, **kwargs)
+                                                        ~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\models\query.py", line 1495, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\models\query.py", line 1513, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\models\query.py", line 1523, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\models\sql\query.py", line 1646, in add_q
+    clause, _ = self._add_q(q_object, can_reuse)
+                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\models\sql\query.py", line 1678, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ~~~~~~~~~~~~~~~~~^
+        child,
+        ^^^^^^
+    ...<7 lines>...
+        update_join_types=update_join_types,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\models\sql\query.py", line 1526, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg, summarize)
+                                        ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\models\sql\query.py", line 1333, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+                                ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\models\sql\query.py", line 1806, in names_to_path
+    raise FieldError(
+    ...<2 lines>...
+    )
+django.core.exceptions.FieldError: Cannot resolve keyword 'security_code' into field. Choices are: created_at, department, designation, email, employeeId, first_name, groups, id, is_active, is_staff, is_superuser, last_login, last_name, password, securityCode, updated_at, user_permissions
+[2025-11-21 19:14:30,255] ERROR django.request Internal Server Error: /authentication/admin/reset-password/
+[2025-11-21 19:14:30,256] ERROR django.server "POST /authentication/admin/reset-password/ HTTP/1.1" 500 101
+[2025-11-21 19:14:55,094] ERROR core.exceptions Unhandled Exception: Cannot resolve keyword 'security_code' into field. Choices are: created_at, department, designation, email, employeeId, first_name, groups, id, is_active, is_staff, is_superuser, last_login, last_name, password, securityCode, updated_at, user_permissions
+Traceback (most recent call last):
+  File "E:\Shopizen\.venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "E:\Shopizen\Authentication\views.py", line 236, in post
+    if serializer.is_valid():
+       ~~~~~~~~~~~~~~~~~~~^^
+  File "E:\Shopizen\.venv\Lib\site-packages\rest_framework\serializers.py", line 225, in is_valid
+    self._validated_data = self.run_validation(self.initial_data)
+                           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\rest_framework\serializers.py", line 447, in run_validation
+    value = self.validate(value)
+  File "E:\Shopizen\Authentication\serializers.py", line 212, in validate
+    user = AdminUser.objects.get(email=email, security_code=code)
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\models\query.py", line 621, in get
+    clone = self._chain() if self.query.combinator else self.filter(*args, **kwargs)
+                                                        ~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\models\query.py", line 1495, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\models\query.py", line 1513, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\models\query.py", line 1523, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\models\sql\query.py", line 1646, in add_q
+    clause, _ = self._add_q(q_object, can_reuse)
+                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\models\sql\query.py", line 1678, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ~~~~~~~~~~~~~~~~~^
+        child,
+        ^^^^^^
+    ...<7 lines>...
+        update_join_types=update_join_types,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\models\sql\query.py", line 1526, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg, summarize)
+                                        ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\models\sql\query.py", line 1333, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+                                ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\models\sql\query.py", line 1806, in names_to_path
+    raise FieldError(
+    ...<2 lines>...
+    )
+django.core.exceptions.FieldError: Cannot resolve keyword 'security_code' into field. Choices are: created_at, department, designation, email, employeeId, first_name, groups, id, is_active, is_staff, is_superuser, last_login, last_name, password, securityCode, updated_at, user_permissions
+[2025-11-21 19:14:55,099] ERROR django.request Internal Server Error: /authentication/admin/reset-password/
+[2025-11-21 19:14:55,100] ERROR django.server "POST /authentication/admin/reset-password/ HTTP/1.1" 500 101
+[2025-11-21 19:15:01,932] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 19:15:03,944] ERROR core.exceptions Unhandled Exception: Cannot resolve keyword 'security_code' into field. Choices are: created_at, department, designation, email, employeeId, first_name, groups, id, is_active, is_staff, is_superuser, last_login, last_name, password, securityCode, updated_at, user_permissions
+Traceback (most recent call last):
+  File "E:\Shopizen\.venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "E:\Shopizen\Authentication\views.py", line 236, in post
+    if serializer.is_valid():
+       ~~~~~~~~~~~~~~~~~~~^^
+  File "E:\Shopizen\.venv\Lib\site-packages\rest_framework\serializers.py", line 225, in is_valid
+    self._validated_data = self.run_validation(self.initial_data)
+                           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\rest_framework\serializers.py", line 447, in run_validation
+    value = self.validate(value)
+  File "E:\Shopizen\Authentication\serializers.py", line 212, in validate
+    user = AdminUser.objects.get(email=email, security_code=code)
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\models\query.py", line 621, in get
+    clone = self._chain() if self.query.combinator else self.filter(*args, **kwargs)
+                                                        ~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\models\query.py", line 1495, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\models\query.py", line 1513, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\models\query.py", line 1523, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\models\sql\query.py", line 1646, in add_q
+    clause, _ = self._add_q(q_object, can_reuse)
+                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\models\sql\query.py", line 1678, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ~~~~~~~~~~~~~~~~~^
+        child,
+        ^^^^^^
+    ...<7 lines>...
+        update_join_types=update_join_types,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\models\sql\query.py", line 1526, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg, summarize)
+                                        ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\models\sql\query.py", line 1333, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+                                ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Shopizen\.venv\Lib\site-packages\django\db\models\sql\query.py", line 1806, in names_to_path
+    raise FieldError(
+    ...<2 lines>...
+    )
+django.core.exceptions.FieldError: Cannot resolve keyword 'security_code' into field. Choices are: created_at, department, designation, email, employeeId, first_name, groups, id, is_active, is_staff, is_superuser, last_login, last_name, password, securityCode, updated_at, user_permissions
+[2025-11-21 19:15:03,958] ERROR django.request Internal Server Error: /authentication/admin/reset-password/
+[2025-11-21 19:15:03,960] ERROR django.server "POST /authentication/admin/reset-password/ HTTP/1.1" 500 101
+[2025-11-21 19:15:58,771] INFO django.utils.autoreload E:\Shopizen\Authentication\serializers.py changed, reloading.
+[2025-11-21 19:15:59,251] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 19:16:04,159] INFO django.utils.autoreload E:\Shopizen\Authentication\serializers.py changed, reloading.
+[2025-11-21 19:16:04,714] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 19:16:08,183] INFO django.utils.autoreload E:\Shopizen\Authentication\serializers.py changed, reloading.
+[2025-11-21 19:16:09,170] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 19:16:11,425] INFO django.server "POST /authentication/admin/reset-password/ HTTP/1.1" 200 39
+[2025-11-21 19:16:31,262] INFO django.server "POST /authentication/login/ HTTP/1.1" 200 587
+[2025-11-21 19:18:20,551] INFO django.server "POST /authentication/admin/reset-password/ HTTP/1.1" 200 39
+[2025-11-21 19:26:33,268] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 19:38:08,957] INFO django.utils.autoreload E:\Shopizen\Authentication\views.py changed, reloading.
+[2025-11-21 19:38:09,465] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 19:44:39,289] INFO django.utils.autoreload E:\Shopizen\Authentication\views.py changed, reloading.
+[2025-11-21 19:44:39,789] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 19:44:50,465] INFO django.utils.autoreload E:\Shopizen\Authentication\views.py changed, reloading.
+[2025-11-21 19:44:50,941] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 19:44:58,461] INFO django.utils.autoreload E:\Shopizen\Authentication\views.py changed, reloading.
+[2025-11-21 19:44:58,915] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 19:45:04,418] INFO django.utils.autoreload E:\Shopizen\Authentication\views.py changed, reloading.
+[2025-11-21 19:45:04,892] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 19:45:15,556] INFO django.utils.autoreload E:\Shopizen\Authentication\views.py changed, reloading.
+[2025-11-21 19:45:16,048] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 19:45:18,360] INFO django.utils.autoreload E:\Shopizen\Authentication\views.py changed, reloading.
+[2025-11-21 19:45:18,888] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 19:45:22,241] INFO django.utils.autoreload E:\Shopizen\Authentication\views.py changed, reloading.
+[2025-11-21 19:45:22,711] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 19:46:17,071] INFO django.utils.autoreload E:\Shopizen\Authentication\serializers.py changed, reloading.
+[2025-11-21 19:46:17,561] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 19:46:44,824] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 19:47:13,151] INFO django.utils.autoreload E:\Shopizen\Authentication\views.py changed, reloading.
+[2025-11-21 19:47:13,595] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 19:48:56,314] INFO django.server "OPTIONS /authentication/api/login/ HTTP/1.1" 200 0
+[2025-11-21 19:48:56,879] INFO django.server "POST /authentication/api/login/ HTTP/1.1" 200 581
+[2025-11-21 19:51:26,510] INFO django.utils.autoreload E:\Shopizen\Authentication\urls.py changed, reloading.
+[2025-11-21 19:51:27,020] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 19:51:30,513] INFO django.utils.autoreload E:\Shopizen\Authentication\urls.py changed, reloading.
+[2025-11-21 19:51:30,989] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 19:51:33,386] INFO django.utils.autoreload E:\Shopizen\Authentication\urls.py changed, reloading.
+[2025-11-21 19:51:33,908] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 20:20:56,137] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 20:23:33,923] INFO django.utils.autoreload E:\Shopizen\Authentication\serializers.py changed, reloading.
+[2025-11-21 20:23:34,443] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 20:23:49,014] INFO django.utils.autoreload E:\Shopizen\Authentication\views.py changed, reloading.
+[2025-11-21 20:23:49,478] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 20:24:35,626] INFO django.utils.autoreload E:\Shopizen\Authentication\views.py changed, reloading.
+[2025-11-21 20:24:36,097] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 20:30:22,578] INFO django.utils.autoreload E:\Shopizen\Authentication\views.py changed, reloading.
+[2025-11-21 20:30:23,071] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 20:30:26,570] INFO django.utils.autoreload E:\Shopizen\Authentication\views.py changed, reloading.
+[2025-11-21 20:30:27,076] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 20:30:34,785] INFO django.utils.autoreload E:\Shopizen\Authentication\views.py changed, reloading.
+[2025-11-21 20:30:35,895] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 20:30:46,360] INFO django.utils.autoreload E:\Shopizen\Authentication\urls.py changed, reloading.
+[2025-11-21 20:30:46,838] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 20:30:48,365] INFO django.utils.autoreload E:\Shopizen\Authentication\urls.py changed, reloading.
+[2025-11-21 20:30:50,807] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 20:33:12,129] INFO django.utils.autoreload E:\Shopizen\Authentication\views.py changed, reloading.
+[2025-11-21 20:33:12,621] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 20:36:14,799] INFO django.utils.autoreload E:\Shopizen\shopizen\settings.py changed, reloading.
+[2025-11-21 20:36:15,316] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 20:40:25,334] INFO django.utils.autoreload E:\Shopizen\Authentication\views.py changed, reloading.
+[2025-11-21 20:40:25,849] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 20:40:36,663] INFO django.utils.autoreload E:\Shopizen\Authentication\views.py changed, reloading.
+[2025-11-21 20:40:37,134] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 20:40:43,667] INFO django.utils.autoreload E:\Shopizen\Authentication\urls.py changed, reloading.
+[2025-11-21 20:40:44,150] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 20:43:00,492] INFO django.utils.autoreload E:\Shopizen\shopizen\settings.py changed, reloading.
+[2025-11-21 20:43:01,068] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 20:43:03,497] INFO django.utils.autoreload E:\Shopizen\shopizen\settings.py changed, reloading.
+[2025-11-21 20:43:03,987] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 20:47:22,556] INFO django.server "OPTIONS /authentication/check-email/ HTTP/1.1" 200 0
+[2025-11-21 20:47:22,572] INFO django.server "POST /authentication/check-email/ HTTP/1.1" 200 14
+[2025-11-21 20:48:10,488] WARNING django.request Not Found: /authentication/check-email/
+[2025-11-21 20:48:10,489] WARNING django.server "POST /authentication/check-email/ HTTP/1.1" 404 34
+[2025-11-21 20:48:18,375] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-11-21 20:48:20,156] WARNING django.request Not Found: /authentication/check-email/
+[2025-11-21 20:48:20,157] WARNING django.server "POST /authentication/check-email/ HTTP/1.1" 404 34
+[2025-11-21 20:49:03,509] INFO django.server "POST /authentication/check-email/ HTTP/1.1" 200 14
+[2025-11-21 20:49:19,929] INFO django.server "OPTIONS /authentication/resetpassword/ HTTP/1.1" 200 0
+[2025-11-21 20:49:20,674] INFO django.server "POST /authentication/resetpassword/ HTTP/1.1" 200 42
+[2025-11-21 20:56:16,952] INFO django.server "OPTIONS /authentication/admin/reset-password/ HTTP/1.1" 200 0
+[2025-11-21 20:56:17,748] INFO django.server "POST /authentication/admin/reset-password/ HTTP/1.1" 200 39

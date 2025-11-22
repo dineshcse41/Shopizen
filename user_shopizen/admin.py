@@ -1,7 +1,7 @@
 from django.contrib import admin
 from .models import (
     Category, Brand, Product,
-    Cart, Order, OrderItem,
+    CartItem, Order, OrderItem,
     Review, Wishlist, Offer,
     Refund, Notification,
     Wallet, WalletTransaction,
@@ -40,14 +40,25 @@ class ProductAdmin(admin.ModelAdmin):
     autocomplete_fields = ("category", "brand")
 
 
-# -------------------------
-# CART
-# -------------------------
-@admin.register(Cart)
-class CartAdmin(admin.ModelAdmin):
-    list_display = ("id", "user", "product", "quantity", "added_date")
+@admin.register(CartItem)
+class CartItemAdmin(admin.ModelAdmin):
+    list_display = ("id", "user", "product", "selected_size", "price", "quantity", "created_at")
     autocomplete_fields = ("user", "product")
-    list_filter = ("added_date",)
+    list_filter = ("created_at",)
+
+
+
+# -------------------------
+# WISHLIST
+# -------------------------
+
+
+@admin.register(Wishlist)
+class WishlistAdmin(admin.ModelAdmin):
+    list_display = ("id", "user", "product", "created_at")
+    autocomplete_fields = ("user", "product")
+
+
 
 
 # -------------------------
@@ -60,10 +71,9 @@ class OrderItemInline(admin.TabularInline):
 
 @admin.register(Order)
 class OrderAdmin(admin.ModelAdmin):
-    list_display = ("id", "user", "total_price", "status", "created_at")
-    list_filter = ("status", "created_at")
-    search_fields = ("user__username",)
-    inlines = [OrderItemInline]
+    list_display = ['id', 'user', 'total', 'status', 'created_at']
+    list_filter = ['status']
+    search_fields = ['id', 'user__email', 'user__first_name', 'user__last_name']
 
 
 @admin.register(OrderItem)
@@ -77,18 +87,10 @@ class OrderItemAdmin(admin.ModelAdmin):
 # -------------------------
 @admin.register(Review)
 class ReviewAdmin(admin.ModelAdmin):
-    list_display = ("id", "user", "product", "rating", "created_at")
-    search_fields = ("user__username", "product__name")
-    list_filter = ("rating",)
+    list_display = ("id", "product", "user", "stars", "created_at")
+    list_filter = ("stars", "created_at")
+    search_fields = ("product__name", "user__email", "name", "text")
 
-
-# -------------------------
-# WISHLIST
-# -------------------------
-@admin.register(Wishlist)
-class WishlistAdmin(admin.ModelAdmin):
-    list_display = ("id", "user", "product", "added_at")
-    autocomplete_fields = ("user", "product")
 
 
 # -------------------------
@@ -102,14 +104,14 @@ class OfferAdmin(admin.ModelAdmin):
     autocomplete_fields = ("product", "category")
 
 
-# -------------------------
-# REFUND
-# -------------------------
-@admin.register(Refund)
-class RefundAdmin(admin.ModelAdmin):
-    list_display = ("id", "order", "user", "status", "created_at")
-    list_filter = ("status",)
-    autocomplete_fields = ("order", "user")
+# # -------------------------
+# # REFUND
+# # -------------------------
+# @admin.register(Refund)
+# class RefundAdmin(admin.ModelAdmin):
+#     list_display = ("id", "order", "user", "status", "created_at")
+#     list_filter = ("status",)
+#     autocomplete_fields = ("order", "user")
 
 
 # -------------------------
@@ -130,6 +132,7 @@ class WalletAdmin(admin.ModelAdmin):
     list_display = ("id", "user", "balance")
     autocomplete_fields = ("user",)
     search_fields = ("user__username",)
+
 
 @admin.register(WalletTransaction)
 class WalletTransactionAdmin(admin.ModelAdmin):
