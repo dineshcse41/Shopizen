@@ -7,8 +7,9 @@ from .views_address_wishlist import *
 urlpatterns = [
     # Product APIs
     path('api/products/', ProductListView.as_view(), name='product-list'),
-    path('api/products/<int:id>/', ProductDetailView.as_view(), name='product-detail'),
+    path('api/products/<int:id>/', ProductDetailView.as_view(), name='product-detail'),##
     # Cart APIs
+    path("cart/add/", AddToCartView.as_view(), name="add-to-cart"),##
     path('api/cart/', CartListCreateView.as_view(), name='cart'),
     path('api/cart/<int:pk>/', CartDeleteUpdateView.as_view(), name='cart-update-delete'),
     # Order APIs
@@ -24,6 +25,7 @@ urlpatterns = [
     # Compare
     path('api/compare/', ProductCompareView.as_view(), name='product-compare'),
     # Wishlist
+    path("wishlist/toggle/", WishlistToggleView.as_view(), name="toggle-wishlist"),  ##
     path('api/wishlist/', WishlistView.as_view(), name='wishlist'),
     path('api/wishlist/create/', WishlistListCreateView.as_view(), name='wishlist-list-create'),
     path('api/wishlist/<int:product_id>/', WishlistDeleteView.as_view(), name='wishlist-delete'),
