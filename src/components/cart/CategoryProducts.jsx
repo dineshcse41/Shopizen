@@ -4,6 +4,9 @@ import { useParams, useSearchParams } from "react-router-dom";
 import productsData from "../../data/products/products.json";
 import ProductCard from "../ProductCard/ProductCard";
 
+
+
+
 const CategoryProducts = () => {
   const { category, subcategory } = useParams();
   const [searchParams] = useSearchParams();

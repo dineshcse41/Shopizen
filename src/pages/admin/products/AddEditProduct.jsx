@@ -137,7 +137,7 @@ export default function AddEditProduct() {
       const response = await fetch(
         id
           ? `http://127.0.0.1:8000/api/products/${id}/`
-          : "http://127.0.0.1:8000/api/products/",
+          : "http://127.0.0.1:8000/adminside/api/products/",
         { method: id ? "PUT" : "POST", body: formData }
       );
 

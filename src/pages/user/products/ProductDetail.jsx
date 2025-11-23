@@ -9,6 +9,15 @@ import defaultImage from "../../../assets/product-default-image.png";
 import "./ProductDetail.css";
 import ProductCard from "../../../components/ProductCard/ProductCard.jsx";
 import reviewsData from "../../../data/products/reviews.json";
+// chandru set  ------------
+import {                        
+  getProductDetail,
+  getReviews,
+  addToCartAPI,
+  toggleWishlistAPI,
+  addReview,
+} from "../../../services/api";
+// -------------------
 
 const ProductDetail = ({ products = [], setProducts }) => {
   const { id } = useParams();
@@ -25,10 +34,11 @@ const ProductDetail = ({ products = [], setProducts }) => {
   const [helpfulVotes, setHelpfulVotes] = useState({});
   const [newReview, setNewReview] = useState({ stars: 0, text: "", media: [] });
   const [reviews, setReviews] = useState([]);
-const [editIndex, setEditIndex] = useState(null);
+  const [editIndex, setEditIndex] = useState(null);
   const toggleReviewSection = () => setShowReviews((prev) => !prev);
   const handleShowMore = () => setVisibleReviews((prev) => prev + 3);
-  const product = products.find((p) => p.id.toString() === id);
+  // const product = products.find((p) => p.id.toString() === id);// chandru set  ------------
+  const [product, setProduct] = useState(null);
   const isInWishlist = wishlist.some((item) => item.id === product?.id);
   const [mainImage, setMainImage] = useState(
     product?.images ? product.images[0] : product?.image || defaultImage
@@ -38,23 +48,62 @@ const [editIndex, setEditIndex] = useState(null);
   const [selectedSize, setSelectedSize] = useState(
     product?.sizes?.[0] || "Free Size"
   );
-
+// --------------------------------------------------------------------Chandru
+  // useEffect(() => {
+  //   if (!product?.sizes || product.sizes.length === 0) {
+  //     setSelectedSize("Free Size");
+  //   }
+  // }, [product?.sizes]);
+  // chandru set
   useEffect(() => {
-    if (!product?.sizes || product.sizes.length === 0) {
-      setSelectedSize("Free Size");
-    }
-  }, [product?.sizes]);
+  getProductDetail(id)
+    .then((res) => {
+      setProduct(res.data);
+    })
+    .catch(() => {
+      showToast("Failed to load product", "error");
+    });
+}, [id]);
 
-  useEffect(() => {
-    if (product)
-      setMainImage(product.images?.[0] || product.image || defaultImage);
 
-    // Load reviews from JSON
-    const filteredReviews = reviewsData.filter(
-      (r) => r.productId === product?.id
-    );
-    setReviews(filteredReviews);
-  }, [product]);
+  // useEffect(() => {
+  //   if (product)
+  //     setMainImage(product.images?.[0] || product.image || defaultImage);
+
+  //   // Load reviews from JSON
+  //   const filteredReviews = reviewsData.filter(
+  //     (r) => r.productId === product?.id
+  //   );
+  //   setReviews(filteredReviews);
+  // }, [product]);
+// chandru set
+useEffect(() => {
+  if (!product) return;
+
+  // main image
+  setMainImage(
+    product.images?.[0] || product.image || defaultImage
+  );
+
+  // size
+  if (!product.sizes || product.sizes.length === 0) {
+    setSelectedSize("Free Size");
+  } else {
+    setSelectedSize(product.sizes[0]);
+  }
+
+  // reviews
+  // const filteredReviews = reviewsData.filter(
+  //   (r) => r.productId === product.id
+  // );
+  // setReviews(filteredReviews);
+  if (product) {
+  getReviews(product.id)
+    .then((res) => setReviews(res.data))
+    .catch(() => setReviews([]));
+}
+}, [product]);
+// ------------------------------------ till
 
   if (!product) {
     return <h2 className="text-center mt-5">Product not found</h2>;
@@ -98,13 +147,38 @@ const [editIndex, setEditIndex] = useState(null);
 
 
   // ------------------ CART & BUY NOW ------------------
-  const handleAddToCart = () => {
-    if (!requireLogin("addToCart")) return;
+  // const handleAddToCart = () => {
+  //   if (!requireLogin("addToCart")) return;
 
-    if (!selectedSize) {
-      showToast("Please select a size before adding to cart.", "error");
-      return;
-    }
+  //   if (!selectedSize) {
+  //     showToast("Please select a size before adding to cart.", "error");
+  //     return;
+  //   }
+
+  //   addToCart({
+  //     ...product,
+  //     selectedSize,
+  //     price: displayPrice,
+  //     quantity,
+  //   });
+
+  //   showToast(`${product.name} (${selectedSize}) added to cart!`, "success");
+  // }; Replace by chandru
+
+  const handleAddToCart = async () => {
+  if (!requireLogin("addToCart")) return;
+
+  if (!selectedSize) {
+    showToast("Please select a size before adding to cart.", "error");
+    return;
+  }
+
+  try {
+    await addToCartAPI({
+      product: product.id,
+      quantity,
+      size: selectedSize,
+    });
 
     addToCart({
       ...product,
@@ -114,7 +188,11 @@ const [editIndex, setEditIndex] = useState(null);
     });
 
     showToast(`${product.name} (${selectedSize}) added to cart!`, "success");
-  };
+  } catch (err) {
+    showToast("Failed to add to cart", "error");
+  }
+};
+
 
   const handleBuyNow = () => {
     if (!requireLogin("buyNow")) return;
@@ -137,20 +215,38 @@ const [editIndex, setEditIndex] = useState(null);
   };
 
   // ------------------ WISHLIST ------------------
-  const handleWishlist = () => {
-    if (!user) {
-      showToast("Please log in to manage wishlist.", "error");
-      navigate("/login-email");
-      return;
-    }
+  // const handleWishlist = () => {
+  //   if (!user) {
+  //     showToast("Please log in to manage wishlist.", "error");
+  //     navigate("/login-email");
+  //     return;
+  //   }
+  //   toggleWishlist(product);
+  //   showToast(
+  //     isInWishlist
+  //       ? `${product.name} removed from wishlist.`
+  //       : `${product.name} added to wishlist!`,
+  //     "success"
+  //   );
+  // };Replace by chandru
+  const handleWishlist = async () => {
+  if (!user) {
+    showToast("Please log in to manage wishlist.", "error");
+    navigate("/login-email");
+    return;
+  }
+
+  try {
+    const res = await toggleWishlistAPI(product.id);
+
     toggleWishlist(product);
-    showToast(
-      isInWishlist
-        ? `${product.name} removed from wishlist.`
-        : `${product.name} added to wishlist!`,
-      "success"
-    );
-  };
+
+    showToast(res.data.message, "success");
+  } catch (err) {
+    showToast("Failed to update wishlist", "error");
+  }
+};
+
 
   // ------------------ REVIEWS ------------------
   const handleVote = (reviewId, type) => {
@@ -198,26 +294,50 @@ const [editIndex, setEditIndex] = useState(null);
     }
   };
 
-  const handleReviewSubmit = (e) => {
-    e.preventDefault();
+  // const handleReviewSubmit = (e) => {
+  //   e.preventDefault();
+  //   if (editIndex !== null) {
+  //     // Update existing
+  //     const updated = [...reviews];
+  //     updated[editIndex] = {
+  //       ...newReview,
+  //       date: new Date().toLocaleDateString(),
+  //     };
+  //     setReviews(updated);
+  //     setEditIndex(null);
+  //   } else {
+  //     // Add new
+  //     setReviews((prev) => [
+  //       ...prev,
+  //       { ...newReview, date: new Date().toLocaleDateString() },
+  //     ]);
+  //   }
+  //   setNewReview({ name: "", stars: 0, text: "", media: [] });
+  // };Replace by chandru
+
+const handleReviewSubmit = async (e) => {
+  e.preventDefault();
+  if (!requireLogin("addReview")) return;
+
+  try {
+    const res = await addReview(product.id, newReview);
+
     if (editIndex !== null) {
-      // Update existing
-      const updated = [...reviews];
-      updated[editIndex] = {
-        ...newReview,
-        date: new Date().toLocaleDateString(),
-      };
-      setReviews(updated);
+      const updatedList = [...reviews];
+      updatedList[editIndex] = res.data;
+      setReviews(updatedList);
       setEditIndex(null);
     } else {
-      // Add new
-      setReviews((prev) => [
-        ...prev,
-        { ...newReview, date: new Date().toLocaleDateString() },
-      ]);
+      setReviews((prev) => [...prev, res.data]);
     }
+
     setNewReview({ name: "", stars: 0, text: "", media: [] });
-  };
+    showToast("Review submitted!", "success");
+  } catch (err) {
+    showToast("Failed to submit review", "error");
+  }
+};
+
 
   const handleMediaUpload = (e) => {
     const files = Array.from(e.target.files);
