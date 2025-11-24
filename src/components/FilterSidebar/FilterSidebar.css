@@ -1,0 +1,38 @@
+/* Mobile offcanvas filter (scrollable) */
+.filter-sidebar {
+    height: 100%;
+    overflow-y: auto;
+    /* ✅ scrolling enabled */
+    padding: 1rem;
+    background: #232f3e;
+    color: #fff;
+}
+
+.brand-list {
+    max-height: 200px; /* Adjust height as needed */
+    overflow-y: auto;
+    padding-right: 5px; /* Avoid scrollbar overlap */
+}
+
+/* Optional: nice scrollbar styling */
+.brand-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.brand-list::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 3px;
+}
+
+.brand-list::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+
+@media (max-width: 768px) {
+    .filter-sidebar {
+        max-height: 80vh;
+        /* Prevents sidebar from overflowing */
+        overflow-y: auto;
+    }
+}

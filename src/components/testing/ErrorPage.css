@@ -1,0 +1,30 @@
+.error-container {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f9f9f9, #ffffff);
+    padding: 20px;
+}
+
+.error-content {
+    max-width: 600px;
+}
+
+.error-img {
+    width: 280px;
+    height: auto;
+    margin-bottom: 20px;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}

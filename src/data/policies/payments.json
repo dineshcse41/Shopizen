@@ -1,0 +1,34 @@
+{
+    "pageTitle": "Payment Policy — Shopizen",
+    "lastUpdated": "October 29, 2025",
+    "sections": [
+        {
+            "title": "Accepted Payment Methods",
+            "content": [
+                "Shopizen accepts all major Credit Cards, Debit Cards, UPI, Net Banking, and leading digital wallets.",
+                "Cash on Delivery (COD) is available for select pin codes."
+            ]
+        },
+        {
+            "title": "Payment Security",
+            "content": [
+                "All payments are processed through secure, PCI-DSS compliant gateways.",
+                "Shopizen does not store your card or banking credentials on its servers."
+            ]
+        },
+        {
+            "title": "Order Confirmation",
+            "content": [
+                "Once payment is successful, you will receive an order confirmation email and SMS.",
+                "In case of payment failure, please retry using a different method or contact your bank."
+            ]
+        },
+        {
+            "title": "Refunds & Cancellations",
+            "content": [
+                "Refunds for canceled or returned orders will be credited to your original payment method within 5–7 business days.",
+                "For COD orders, refunds will be initiated through bank transfer or UPI."
+            ]
+        }
+    ]
+}

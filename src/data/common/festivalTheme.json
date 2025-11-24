@@ -1,0 +1,10 @@
+{
+    "currentFestival": "Diwali",
+    "banners": [
+        {
+            "image": "https://example.com/diwali-banner.jpg",
+            "link": "/products/offer/diwali-sale"
+        }
+    ],
+    "themeColor": "#ff9800"
+}

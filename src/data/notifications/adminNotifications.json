@@ -1,0 +1,18 @@
+[
+    {
+        "notificationId": 1,
+        "title": "System Maintenance",
+        "message": "Scheduled downtime on 5th Oct, 2AM–4AM.",
+        "type": "info",
+        "isRead": false,
+        "timestamp": "2025-09-29T10:00:00Z"
+    },
+    {
+        "notificationId": 2,
+        "title": "New Policy",
+        "message": "Refund policy updated for premium users.",
+        "type": "warning",
+        "isRead": false,
+        "timestamp": "2025-09-30T15:30:00Z"
+    }
+]

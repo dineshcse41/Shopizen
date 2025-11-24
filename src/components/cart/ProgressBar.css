@@ -1,0 +1,86 @@
+/* Base step style */
+.step {
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    font-size: 20px;
+    background: #ccc;
+    transition: all 0.3s ease-in-out;
+    border-radius: 50%;
+    text-align: center;
+}
+
+.step.active {
+    background: #0d6efd;
+    /* Bootstrap primary */
+}
+
+.step.inactive {
+    background: #adb5bd;
+}
+
+.step-circle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 8px;
+}
+
+.progress-line {
+    width: 60px;
+    height: 4px;
+    background: #ccc;
+    transition: all 0.3s;
+}
+
+.progress-line.filled {
+    background: #0d6efd;
+}
+
+/* ✅ Tablet & Mobile Shrink */
+@media (max-width: 768px) {
+    .step {
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        font-size: 14px;
+    }
+
+    .progress-line {
+        width: 25px;
+        /* shorter connector on small screens */
+    }
+
+    .step-circle small {
+        font-size: 12px;
+    }
+}
+
+/* ✅ Extra Small Screens (<400px) → Stay horizontal */
+@media (max-width: 400px) {
+    .progressbar-container {
+        flex-direction: row;
+        /* force horizontal */
+        flex-wrap: nowrap;
+        /* prevent wrapping */
+        justify-content: center;
+    }
+
+    .step {
+        width: 25px;
+        height: 25px;
+        line-height: 25px;
+        font-size: 12px;
+    }
+
+    .progress-line {
+        width: 20px;
+        /* shrink connector more */
+        height: 3px;
+        /* keep horizontal */
+    }
+
+    .step-circle small {
+        font-size: 10px;
+    }
+}

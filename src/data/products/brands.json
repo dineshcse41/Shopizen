@@ -1,0 +1,17 @@
+[
+  {
+    "id": "brand_1",
+    "name": "Sony",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/2/20/Sony_Logo.svg"
+  },
+  {
+    "id": "brand_2",
+    "name": "Samsung",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/2/24/Samsung_Logo.svg"
+  },
+  {
+    "id": "brand_3",
+    "name": "Apple",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg"
+  }
+]
